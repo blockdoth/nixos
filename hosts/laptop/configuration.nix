@@ -2,9 +2,10 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ lib, pkgs, inputs,... }:
-
-{
+{ lib, pkgs, inputs, ... }:
+let 
+  theme = "oxocarbon-dark";
+in {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -79,11 +80,14 @@
   services.xserver.desktopManager.gnome.enable = true;
 
 
-	programs.hyprland = {
-		enable = true;
-		xwayland.enable = true;
-		#package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-	};
+	programs = {
+    fish.enable = true;
+    hyprland = {
+		  enable = true;
+		  #package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+      portalPackage = with pkgs; xdg-desktop-portal-hyprland;
+    };
+  };
 
   xdg.portal = {
     enable = true;
@@ -141,7 +145,7 @@
   	pulseaudio = true;
   };
 
-	programs.fish.enable = true;
+
   users.users.pepijn = {
 		shell = pkgs.fish;
     isNormalUser = true;
