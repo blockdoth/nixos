@@ -13,9 +13,19 @@
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations = {
     	default = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
       	specialArgs = {inherit inputs;};
       	modules = [
-        	./hosts/default/configuration.nix
+        	./users/default/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              extraSpecialArgs = {inherit inputs;};
+              users = {
+			          "pepijn" = import /users/default/home.nix;
+		          };
+            };            
+          }
       	];
     	};
     };
