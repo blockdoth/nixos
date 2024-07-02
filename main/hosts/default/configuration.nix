@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.laptop
+      inputs.home-manager.nixosModules.default
     ];
 
   boot = {
@@ -18,7 +18,7 @@
         enable = false;
         editor = false;
       };
-      
+
       timeout = 10;
       efi = {
         canTouchEfiVariables = true;

@@ -1,5 +1,5 @@
 {
-  description = "Nixos config flake";
+  description = "Pepijn's nix config";
   
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -12,10 +12,10 @@
 
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations = {
-    	laptop = nixpkgs.lib.nixosSystem {
+    	default = nixpkgs.lib.nixosSystem {
       	specialArgs = {inherit inputs;};
       	modules = [
-        	./hosts/laptop/configuration.nix
+        	./hosts/default/configuration.nix
       	];
     	};
     };

@@ -36,10 +36,10 @@
   	fish = {
   		enable = true;
   		shellAliases = {
-  			nswitch = "sudo nixos-rebuild switch --flake /home/pepijn/Documents/nix#laptop"; 
+  			nswitch = "sudo nixos-rebuild switch --flake /home/pepijn/nixconfig/main#default"; 
   			hswitch = "home-manager switch"; 
   			cls = "clear"; 
-  			nh = "cd /home/pepijn/Documents/nix";
+  			nh = "cd /home/pepijn/nixconfig/main";
   		};
   	};
 	};
