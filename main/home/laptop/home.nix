@@ -4,15 +4,10 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home = {
-    username = "redpepijnyf";
+    username = "pepijn";
     homeDirectory = "/home/pepijn";
     stateVersion = "24.05";
   };
-  home-manager = {
-		backupFileExtension = "backup";
-		useUserPackages = true;
-		useGlobalPkgs = true;
-	};
 	
   programs.home-manager.enable = true;
 
@@ -26,26 +21,14 @@
   # Imports
   imports = [
     ./apps
+		./desktop
+		./rice
+		./tools
+		./fonts
+		./shell
   ];
 
 	programs = {
-    vscode = {
-      enable = true;
-      package = pkgs.vscodium;
-      extensions = with pkgs.vscode-extensions; [
-        jnoortheen.nix-ide
-      ];  
-    };
-		git = {
-    	enable = true;
-    	userName = "PepijnVanEgmond";
-    	userEmail = "pepijn.pve@gmail.com";
-    	extraConfig = {
-    		init.defaultBranch = "main";
-    		push.autoSetupRemote = "true";
-    		credential.helper = "oauth";
-    	};
-  	};
   	fish = {
   		enable = true;
   		shellAliases = {

@@ -42,7 +42,6 @@
     };
   };
 
-
   networking.hostName = "pepijn"; # Define your hostname.
 
   # Configure network proxy if necessary
@@ -135,15 +134,6 @@
     extraGroups = [ "wheel" ];
   };
 
-	home-manager = {
-		backupFileExtension = "backup";
-		useUserPackages = true;
-		useGlobalPkgs = true;
-		extraSpecialArgs = {inherit inputs;};
-		users = {
-			"pepijn" = import ./home.nix;
-		};
-	};
 	
 	xdg.portal = {
 		enable = true;
@@ -155,18 +145,17 @@
 		NIXOS_OZONE_WL = "1";
 	};
   
+  home-manager = {
+		backupFileExtension = "backup";
+		useUserPackages = true;
+		useGlobalPkgs = true;
+		extraSpecialArgs = {inherit inputs;};
+		users.pepijn = ../../home/laptop/home.nix;
+	};
+
   environment.systemPackages = with pkgs; [
-    vim 
-    wget
     git
-    htop
-    neofetch
-    firefox
     home-manager
-    waybar
-    dunst
-    swww
-    rofi
   ];
 
   nix = {
@@ -184,14 +173,6 @@
       options = "--delete-older-than 7d";
     };
   };
-
-
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   system.stateVersion = "24.05";
 }

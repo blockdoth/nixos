@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    vesktop
-    discord
+    cmatrix
+    cowsay
+    neofetch
+    btop
   ];
 }
