@@ -1,6 +1,10 @@
-_: let
-  catppuccin = import ./catppuccin.nix;
-in {
+{pkgs, ...}:let
+    catppuccin = import ./catppuccin.nix;
+  in {  
+  home.packages = with pkgs; [
+    alacritty
+  ];   
+
   programs.alacritty = {
     enable = true;
     settings = {
@@ -10,36 +14,9 @@ in {
           blinking = "Never";
         };
       };
-      font = {
-        size = 16;
-        normal = {
-          family = "Fira Mono Nerd Font";
-          style = "Medium Italic";
-        };
-        bold = {
-          family = "Fira Mono Nerd Font";
-          style = "Bold";
-        };
-        italic = {
-          family = "Fira Mono Nerd Font";
-          style = "Italic";
-        };
-        bold_italic = {
-          family = "Fira Mono Nerd Font";
-          style = "Bold Italic";
-        };
-        offset = {
-          x = 0;
-          y = 0;
-        };
-        glyph_offset = {
-          x = 0;
-          y = 0;
-        };
-      };
       window = {
-        opacity = 0.95;
-        decorations = "none";
+        #opacity = 0.95;
+        #decorations = "none";
         padding = {
           x = 10;
           y = 10;

@@ -42,7 +42,14 @@
     };
   };
 
-  networking.hostName = "pepijn"; # Define your hostname.
+  networking = {
+    hostName = "pepijn";
+    networkmanager.enable = true;
+    dhcpcd.wait = "background";
+    dhcpcd.extraConfig = "noarp";
+    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  };
+
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -77,6 +84,13 @@
 		xwayland.enable = true;
 		#package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 	};
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
+    ];
+  };
 
 	security.rtkit.enable = true;
 	
@@ -131,15 +145,16 @@
   users.users.pepijn = {
 		shell = pkgs.fish;
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel"  "docker" "networkmanager"];
   };
 
-	
-	xdg.portal = {
-		enable = true;
-		#extraPortals = [pkgs.xdg-desktop-portal-gtk];
-	};
-	
+  virtualisation = {
+    docker.rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
 	environment.sessionVariables = {
 		WLR_NO_HARDWARE_CURSORS= "1";
 		NIXOS_OZONE_WL = "1";

@@ -11,41 +11,12 @@
 	
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [
-		cowsay
-		alacritty
-		discord
-		vscodium		
-	];
-
   # Imports
   imports = [
     ./apps
-		./desktop
+		./system
 		./rice
 		./tools
-		./fonts
-		./shell
   ];
-
-	programs = {
-  	fish = {
-  		enable = true;
-  		shellAliases = {
-  			nswitch = "sudo nixos-rebuild switch --flake /home/pepijn/nixconfig/main#default"; 
-  			hswitch = "home-manager switch"; 
-  			cls = "clear"; 
-  			nh = "cd /home/pepijn/nixconfig/main";
-  		};
-  	};
-	};
 	
-	wayland.windowManager.hyprland = {
-		enable = false;
-		settings = {
-			
-		};
-	};
-
-
 }
