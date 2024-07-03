@@ -44,7 +44,7 @@ in {
   };
 
   networking = {
-    hostName = "pepijn";
+    hostName = "laptop";
     networkmanager.enable = true;
     dhcpcd.wait = "background";
     dhcpcd.extraConfig = "noarp";
@@ -87,7 +87,12 @@ in {
 		  #package = inputs.hyprland.packages."${pkgs.system}".hyprland;
       portalPackage = with pkgs; xdg-desktop-portal-hyprland;
     };
+    nh = {
+      enable = true;
+      flake = "/home/pepijn/nixconfig/main";
+    };
   };
+
 
   xdg.portal = {
     enable = true;
@@ -113,7 +118,7 @@ in {
   # Enable sound.
   sound = {
   	enable = true;
-  	mediaKeys.enable = true;
+  	#mediaKeys.enable = true;
 	};
   
   services = {

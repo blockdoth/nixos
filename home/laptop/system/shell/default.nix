@@ -8,7 +8,7 @@
   		nswitch = "sudo nixos-rebuild switch --flake /home/pepijn/nixconfig/main#default"; 
   		hswitch = "home-manager switch"; 
   		cls = "clear"; 
-  		nh = "cd /home/pepijn/nixconfig/main";
+  		nixhome = "cd /home/pepijn/nixconfig/main";
   	};
   };
 }

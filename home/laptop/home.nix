@@ -17,6 +17,7 @@
 		./system
 		./rice
 		./tools
+    ./desktop
   ];
 	
 }
