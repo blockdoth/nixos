@@ -12,11 +12,28 @@
 
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations = {
-    	default = nixpkgs.lib.nixosSystem {
+
+    	laptop-pepijn = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
       	specialArgs = {inherit inputs;};
       	modules = [
-        	./hosts/laptop/configuration.nix
+        	./hosts/laptop-pepijn/configuration.nix
+      	];
+    	};
+      
+      laptop-server = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+      	specialArgs = {inherit inputs;};
+      	modules = [
+        	./hosts/laptop-server/configuration.nix
+      	];
+    	};
+
+      desktop-pepijn = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+      	specialArgs = {inherit inputs;};
+      	modules = [
+        	./hosts/desktop-pepijn/configuration.nix
       	];
     	};
     };
