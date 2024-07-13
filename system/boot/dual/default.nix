@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+
+  systemd.enableEmergencyMode = false;
   boot = {
     supportedFilesystems = ["ntfs"];
     loader = {
@@ -17,7 +19,7 @@
         device = "nodev";
         efiSupport = true;
         useOSProber = true;
-        configurationLimit = 8;
+        configurationLimit = 5;
         theme =
           pkgs.fetchFromGitHub
           {

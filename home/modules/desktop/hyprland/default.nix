@@ -147,17 +147,8 @@ in {
         "SUPER $mainMod SHIFT, 7, movetoworkspacesilent, 7"
         "SUPER $mainMod SHIFT, 8, movetoworkspacesilent, 8"
 
-        "SUPER,RETURN,exec,kitty"
-        "SUPER,n,exec,neovide"
-        "SUPER,e,exec,emacsclient -c -a 'emacs'"
-        ",Print,exec,screenshot"
-        "SUPER,Print,exec,screenshot-edit"
-        "SUPER,o,exec,obsidian"
-        "SUPER SHIFT,C,exec,wallpaper"
-        "SUPER,z,exec,waybar"
-        "SUPER,space,exec,bemenu-run"
-        # "SUPER,space,exec, tofi-drun --drun-launch=true"
-        # "SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3"
+        "SUPER,t,exec,alacritty"
+
       ];
 
       bindm = [
@@ -173,10 +164,6 @@ in {
            # Volume Keys
            ",XF86AudioRaiseVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ +5%  "
            ",XF86AudioLowerVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ -5%  "
-      ];
-      bindl = [
-          ",switch:on:Lid Switch, exec, swaylock -f -i ~/photos/wallpapers/wallpaper.png"
-          ",switch:off:Lid Switch, exec, swaylock -f -i ~/photos/wallpapers/wallpaper.png"
       ];
     };
   };

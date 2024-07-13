@@ -19,24 +19,15 @@ in {
 
   security.sudo.wheelNeedsPassword = false;
   users.users.desktop-pepijn = {
-		shell = pkgs.fish;
     isNormalUser = true;
-    extraGroups = [ "wheel"  "docker" "networkmanager"];
+    shell = pkgs.fish;
+    extraGroups = [ "wheel" "networkmanager"];
   };
 
+  users.defaultUserShell = pkgs.fish;
   programs = {
-    home-manager.enable = true;
-    fish.enable = true;
+    fish.enable = true; 
   };
-
-
-  home-manager = {
-		backupFileExtension = "backup";
-		useUserPackages = true;
-		useGlobalPkgs = true;
-		extraSpecialArgs = {inherit inputs;};
-		users.desktop-pepijn = ../../home/users/desktop-pepijn;
-	};
 
   networking = {
     hostName = "desktop-pepijn";

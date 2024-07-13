@@ -4,5 +4,7 @@
     cowsay
     neofetch
     btop
+    pipes
+    cava
   ];
 }
