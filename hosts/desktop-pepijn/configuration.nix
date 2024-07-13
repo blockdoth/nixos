@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 let 
   theme = "oxocarbon-dark";
 in {
@@ -15,22 +15,27 @@ in {
       ../../system/ssh  
       ../../system/boot/dual
       ../../system/display/x11
-      inputs.home-manager.nixosModules.desktop-pepijn
     ];
 
   security.sudo.wheelNeedsPassword = false;
-  users.users.pepijn = {
+  users.users.desktop-pepijn = {
 		shell = pkgs.fish;
     isNormalUser = true;
     extraGroups = [ "wheel"  "docker" "networkmanager"];
   };
+
+  programs = {
+    home-manager.enable = true;
+    fish.enable = true;
+  };
+
 
   home-manager = {
 		backupFileExtension = "backup";
 		useUserPackages = true;
 		useGlobalPkgs = true;
 		extraSpecialArgs = {inherit inputs;};
-		users.pepijn = ../../home/laptop/home.nix;
+		users.desktop-pepijn = ../../home/users/desktop-pepijn;
 	};
 
   networking = {
@@ -38,9 +43,6 @@ in {
     networkmanager.enable = true;
   };
 
-	programs = {
-    fish.enable = true;
-  };
 
   environment.systemPackages = with pkgs; [
     git

@@ -10,30 +10,40 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, ... }: 
+	let
+		system = "x86_64-linux";
+		pkgs = import nixpkgs { inherit system; };
+	in {
     nixosConfigurations = {
-
-    	laptop-pepijn = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-      	specialArgs = {inherit inputs;};
-      	modules = [
-        	./hosts/laptop-pepijn/configuration.nix
-      	];
-    	};
-      
-      laptop-server = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-      	specialArgs = {inherit inputs;};
-      	modules = [
-        	./hosts/laptop-server/configuration.nix
-      	];
-    	};
-
+      laptop-pepijn = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit pkgs; };
+        modules = [
+          ./hosts/laptop-pepijn/configuration.nix
+          home-manager.nixosModules.home-manager         
+				];
+      };
       desktop-pepijn = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-      	specialArgs = {inherit inputs;};
+        specialArgs = { inherit pkgs; };
+        modules = [
+          ./hosts/desktop-pepijn/configuration.nix
+          home-manager.nixosModules.home-manager         
+				];
+    	};
+    };
+
+
+    homeConfigurations = {
+    	laptop-pepijn = home-manager.lib.homeManagerConfiguration {
+				inherit pkgs;
       	modules = [
-        	./hosts/desktop-pepijn/configuration.nix
+        	../../home/users/laptop-pepijn
+      	];
+    	};
+      desktop-pepijn = home-manager.lib.homeManagerConfiguration {
+				inherit pkgs;
+      	modules = [
+        	../../home/users/desktop-pepijn
       	];
     	};
     };

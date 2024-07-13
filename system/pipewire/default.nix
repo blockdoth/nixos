@@ -12,8 +12,10 @@
 		# jack.enable = true;
   };
   
+  hardware.pulseaudio.enable = false;
+
   nixpkgs.config = {
-  	pulseaudio = true;
+  	pulseaudio = false;
   };
 
   sound.enable = true;

@@ -16,23 +16,27 @@ in {
       ../../system/ssh  
       ../../system/boot/dual
       ../../system/display/x11
-      inputs.home-manager.nixosModules.laptop-pepijn
+      #inputs.home-manager.nixosModules.laptop-pepijn
     ];
 
   security.sudo.wheelNeedsPassword = false;
-  users.users.pepijn = {
+  users.users.laptop-pepijn = {
 		shell = pkgs.fish;
     isNormalUser = true;
     extraGroups = [ "wheel"  "docker" "networkmanager"];
   };
 
-  home-manager = {
-		backupFileExtension = "backup";
-		useUserPackages = true;
-		useGlobalPkgs = true;
-		extraSpecialArgs = {inherit inputs;};
-		users.pepijn = ../../home/laptop/home.nix;
-	};
+  # home-manager = {
+	# 	#backupFileExtension = "backup";
+	# 	#useUserPackages = true;
+	# 	#useGlobalPkgs = true;
+	# 	#extraSpecialArgs = {
+  #   #  inherit inputs;
+  #   # };
+	# 	users.laptop-pepijn =  { pkgs, ... }: {
+  #     imports = [ ../../home/home.nix ];
+  #   };
+	# };
 
   networking = {
     hostName = "laptop-pepijn";
