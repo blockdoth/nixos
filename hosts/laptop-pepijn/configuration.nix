@@ -7,56 +7,38 @@ let
   theme = "oxocarbon-dark";
 in {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware/laptop-pepijn
+    [
+      ./hardware.nix 
+      ../../system/localisation
+      ../../system/nix-config
+      ../../system/pipewire
+      ../../system/bluetooth
+      ../../system/ssh  
+      ../../system/boot/dual
+      ../../system/display/x11
       inputs.home-manager.nixosModules.laptop-pepijn
     ];
+
+  security.sudo.wheelNeedsPassword = false;
+  users.users.pepijn = {
+		shell = pkgs.fish;
+    isNormalUser = true;
+    extraGroups = [ "wheel"  "docker" "networkmanager"];
+  };
+
+  home-manager = {
+		backupFileExtension = "backup";
+		useUserPackages = true;
+		useGlobalPkgs = true;
+		extraSpecialArgs = {inherit inputs;};
+		users.pepijn = ../../home/laptop/home.nix;
+	};
 
   networking = {
     hostName = "laptop-pepijn";
     networkmanager.enable = true;
-    dhcpcd.wait = "background";
-    dhcpcd.extraConfig = "noarp";
-    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   };
 
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-
-	programs = {
-    fish.enable = true;
-    hyprland = {
-		  enable = true;
-		  #package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-      portalPackage = with pkgs; xdg-desktop-portal-hyprland;
-    };
-    nh = {
-      enable = true;
-      flake = "/home/pepijn/nixconfig/main";
-    };
-  };
-
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-wlr
-    ];
-  };
-
-	security.rtkit.enable = true;
-	
-  # Bluetooth support
-  hardware = {
-  	graphics.enable = true;
-  };
-  
-  
   services = {
   	libinput = {
     	enable = true;
@@ -68,30 +50,9 @@ in {
   	};
   };
 
-  security.sudo.wheelNeedsPassword = false;
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
-  
-  users.users.pepijn = {
-		shell = pkgs.fish;
-    isNormalUser = true;
-    extraGroups = [ "wheel"  "docker" "networkmanager"];
+	programs = {
+    fish.enable = true;
   };
-
-  virtualisation = {
-    docker.rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
-
-  home-manager = {
-		backupFileExtension = "backup";
-		useUserPackages = true;
-		useGlobalPkgs = true;
-		extraSpecialArgs = {inherit inputs;};
-		users.pepijn = ../../home/laptop/home.nix;
-	};
 
   environment.systemPackages = with pkgs; [
     git
