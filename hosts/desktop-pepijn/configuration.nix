@@ -15,6 +15,7 @@ in {
       ../../system/ssh  
       ../../system/boot/dual
       ../../system/display/x11
+      ../../system/gaming
     ];
 
   security.sudo.wheelNeedsPassword = false;
