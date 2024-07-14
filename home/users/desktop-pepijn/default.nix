@@ -6,18 +6,17 @@
     homeDirectory = "/home/desktop-pepijn";
     stateVersion = "24.05";
   };
-    nixpkgs.config = {
-      allowUnfree = true;
-    };
-
 
   imports = [
-    ../../modules/tools
-    ../../modules/rice
-    ../../modules/apps    
-    ../../modules/system    
+    ../../modules/terminal
+    ../../modules/vscode
+    ../../modules/firefox    
+    ../../modules/fonts    
     ../../modules/desktop      
-    ../../modules/editors 
+    ../../modules/git 
+    ../../modules/jetbrains 
+    ../../modules/shell 
+    ../../modules/rice 
   ];
 
   home.packages = [

@@ -8,19 +8,35 @@ in {
   home.packages = with pkgs; [
     grim # Screenshot tool for hyprland
     waybar
+    dunst
+    swww
+    rofi-wayland
+    pyprland
+    hyprpicker
+
   ];
+
+  imports = [
+    ./hypridle
+    ./hyprlock
+    ./waybar
+  ];
+
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland; # hyprlandFlake or pkgs.hyprland
-    xwayland = {
-      enable = true;
-    };
+    xwayland.enable = true;
     settings = {
       "$mainMod" = "SUPER";
       monitor = [
-
-        # ",highrr,auto,auto"
+          "eDP-1,2560x1440@144,auto,auto"
       ];
+
+      exec-once = [
+        
+      ];
+
 
       xwayland = {
         force_zero_scaling = true;
@@ -75,12 +91,6 @@ in {
       debug = {
         damage_tracking = 2; # leave it on 2 (full) unless you hate your GPU and want to make it suffer!
       };
-
-      exec-once = [
-        "autostart"
-        "easyeffects --gapplication-service" # Starts easyeffects in the background
-        "importGsettings"
-      ];
 
       bind = [
         "SUPER,Q,killactive,"
@@ -147,7 +157,8 @@ in {
         "SUPER $mainMod SHIFT, 7, movetoworkspacesilent, 7"
         "SUPER $mainMod SHIFT, 8, movetoworkspacesilent, 8"
 
-        "SUPER,t,exec,alacritty"
+        "SUPER,T,exec,alacritty"
+        "SUPER,S,exec,rofi -show drun -show-icons"
 
       ];
 

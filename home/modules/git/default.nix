@@ -1,8 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    # git already defined in system
     lazygit
-    curl
   ];
 
   programs = {

@@ -1,11 +1,6 @@
 {pkgs, lib, ...}: {
 
   home.packages = with pkgs; [
-    helix
-    jetbrains.clion
-    jetbrains.webstorm
-    jetbrains.pycharm-community
-    jetbrains.idea-ultimate
     vscodium
    ];
 

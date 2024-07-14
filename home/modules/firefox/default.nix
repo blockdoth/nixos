@@ -1,9 +1,5 @@
 {pkgs, ...}: {
 
-  home.packages = with pkgs; [
-    vesktop
-    steam
-   ];
 
   programs.firefox = {
     enable = true;      
