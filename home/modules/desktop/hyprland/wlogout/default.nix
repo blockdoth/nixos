@@ -1,8 +1,5 @@
 { pkgs, lib, config, ... }: 
-let
-  inherit (config) colorscheme;
-  inherit (colorscheme) palette;
-in {
+{
   programs.wlogout = {
     enable = true;
     style =
@@ -14,19 +11,14 @@ in {
           background-image: none;
         }
 
-        window {
-          background-color: alpha(#${palette.base00}, 0.8);
-        }
 
         button {
-          background-color: #${palette.base00};
           background-repeat: no-repeat;
           background-position: center;
           background-size: 25%;
         }
 
         button:focus, button:active, button:hover {
-          background-color: #${palette.base01};
         }
 
         #lock {

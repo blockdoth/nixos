@@ -19,7 +19,7 @@ in {
     ];
 
   stylix.enable = true;
-  stylix.base16Scheme = lib.mkDefault "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+  stylix.base16Scheme = lib.mkDefault "${pkgs.base16-schemes}/share/themes/everforest.yaml";
 
   security.sudo.wheelNeedsPassword = false;
   users.users.desktop-pepijn = {
