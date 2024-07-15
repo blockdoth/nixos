@@ -1,53 +1,36 @@
-_: {
-
+{ pkgs, lib, config, ... }: 
+let
+  hyprlock = lib.getExe pkgs.hyprlock;
+  loginctl = lib.getExe' pkgs.systemd "loginctl";
+  systemctl = lib.getExe' pkgs.systemd "systemctl";
+  hyprctl = lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl";
+in {
   services.hypridle = {
     enable = true;
     settings = {
-      general = { 
-        ignore_dbus_inhibit = false; 
+      general = {
+        after_sleep_cmd = "${hyprctl} dispatch dpms on"; # turn on display after resume.
+        before_sleep_cmd = "${loginctl} lock-session"; # lock before suspend.
+        lock_cmd = "pidof hyprlock || ${hyprlock}"; # lock screen.
       };
+
       listener = [
         {
-          timeout = 10;
-          on-timeout = "cmatrix";
+          timeout = 300;
+          on-timeout = "${loginctl} lock-session"; # lock screen.
+        }
+
+        {
+          timeout = 330;
+          on-timeout = "${hyprctl} dispatch dpms off"; # turn off display.
+          on-resume = "${hyprctl} dispatch dpms on"; # turn on display.
+        }
+
+        {
+          timeout = 600;
+          on-timeout = "${systemctl} suspend"; # suspend.
         }
       ];
     };
   };
-
 }
-
-# general {
-#     lock_cmd = pidof hyprlock || hyprlock       # avoid starting multiple hyprlock instances.
-#     before_sleep_cmd = loginctl lock-session    # lock before suspend.
-#     after_sleep_cmd = hyprctl dispatch dpms on  # to avoid having to press a key twice to turn on the display.
-# }
-
-# listener {
-#     timeout = 180                                # 3min.
-#     on-timeout = brightnessctl -s set 15%        # set monitor backlight to minimum, avoid 0 on OLED monitor.
-#     on-resume = brightnessctl -r                 # monitor backlight restore.
-# }
-
-# # turn off keyboard backlight, comment out this section if you dont have a keyboard backlight.
-# listener {
-#     timeout = 180                                                # 3min.
-#     on-timeout = brightnessctl -sd platform::kbd_backlight set 0 # turn off keyboard backlight.
-#     on-resume = brightnessctl -rd platform::kbd_backlight        # turn on keyboard backlight.
-# }
-
-# listener {
-#     timeout = 300                                 # 5min
-#     on-timeout = loginctl lock-session            # lock screen when timeout has passed
-# }
-
-# listener {
-#     timeout = 350                                 # 5.83min
-#     on-timeout = hyprctl dispatch dpms off        # screen off when timeout has passed
-#     on-resume = hyprctl dispatch dpms on          # screen on when activity is detected after timeout has fired.
-# }
-
-# listener {
-#     timeout = 420                                 # 7min
-#     on-timeout = systemctl suspend                # suspend pc
-# }

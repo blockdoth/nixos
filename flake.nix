@@ -8,9 +8,12 @@
       url = "github:nix-community/home-manager";
     	inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix.url = "github:danth/stylix";
+
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: 
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
 	let
 		system = "x86_64-linux";
 		pkgs = import nixpkgs { inherit system; config.allowUnfree = true;};
@@ -22,6 +25,7 @@
         modules = [
           ./hosts/laptop-pepijn/configuration.nix
           home-manager.nixosModules.home-manager         
+          inputs.stylix.nixosModules.stylix
 				];
       };
       desktop-pepijn = nixpkgs.lib.nixosSystem {
@@ -29,7 +33,8 @@
         modules = [
           ./hosts/desktop-pepijn/configuration.nix
           home-manager.nixosModules.home-manager         
-				];
+				  inputs.stylix.nixosModules.stylix
+        ];
     	};
     };
 

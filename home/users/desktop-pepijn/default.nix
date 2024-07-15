@@ -17,6 +17,7 @@
     ../../modules/jetbrains 
     ../../modules/shell 
     ../../modules/rice 
+    ../../modules/discord 
   ];
 
   home.packages = [

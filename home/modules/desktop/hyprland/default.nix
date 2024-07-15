@@ -20,6 +20,9 @@ in {
     ./hypridle
     ./hyprlock
     ./waybar
+    ./rofi
+    ./hyprpaper
+    ./wlogout
   ];
 
 
@@ -27,6 +30,9 @@ in {
     enable = true;
     package = pkgs.hyprland; # hyprlandFlake or pkgs.hyprland
     xwayland.enable = true;
+
+
+
     settings = {
       "$mainMod" = "SUPER";
       monitor = [
@@ -43,24 +49,37 @@ in {
       };
 
 
+      input = {
+        kb_layout = "us";
+        touchpad = {
+          natural_scroll = true;
+        };
+        # sensitivity = 0;
+      };
+
+
+      cursor = {
+        # no_hardware_cursor = true;
+      };
+
       general = {
         gaps_in = 2;
-        gaps_out = 0;
-        border_size = 0;
+        gaps_out = 2;
+        border_size = 2;
         layout = "dwindle";
         apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
       };
 
       decoration = {
-        rounding = 0;
+        rounding = 2;
         shadow_ignore_window = true;
-        drop_shadow = false;
-        shadow_range = 20;
+        drop_shadow = true;
+        shadow_range = 10;
         shadow_render_power = 3;
         blur = {
           enabled = true;
           size = 4;
-          passes = 2;
+          passes = 1;
           new_optimizations = true;
           ignore_opacity = true;
           noise = 0.0117;
@@ -70,29 +89,32 @@ in {
         };
       };
 
-      animations = {
-        enabled = true;
-        bezier = [
-          "pace,0.46, 1, 0.29, 0.99"
-          "overshot,0.13,0.99,0.29,1.1"
-          "md3_decel, 0.05, 0.7, 0.1, 1"
-        ];
-        animation = [
-          "windowsIn,1,6,md3_decel,slide"
-          "windowsOut,1,6,md3_decel,slide"
-          "windowsMove,1,6,md3_decel,slide"
-          "fade,1,10,md3_decel"
-          "workspaces,1,9,md3_decel,slide"
-          "workspaces, 1, 6, default"
-          "specialWorkspace,1,8,md3_decel,slide"
-          "border,1,10,md3_decel"
-        ];
-      };
-      debug = {
-        damage_tracking = 2; # leave it on 2 (full) unless you hate your GPU and want to make it suffer!
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_fingers = 3;
       };
 
+
+      animations = {
+        enabled = true;
+        bezier = "myBezier,   0.05,   0.9,  0.1,  1.05";
+        animation = [
+          "windows,       1,  7,   myBezier"
+          "windowsOut,    1,  7,   default,   popin 80%"
+          "windowsMove,   1,  7,   myBezier"
+          "border,        1,  10,  default"
+          "borderangle,   1,  8,   default"
+          "fade,          1,  7,   default"
+          "workspaces,    1,  6,   default"
+        ];
+      };
+
+
       bind = [
+        "SUPER,T,exec,alacritty"
+        "SUPER,F,exec,firefox"
+        "SUPER,S,exec,rofi -show drun -show-icons"
+
         "SUPER,Q,killactive,"
         "SUPER,M,exit,"
         "SUPER,S,togglefloating,"
@@ -157,8 +179,7 @@ in {
         "SUPER $mainMod SHIFT, 7, movetoworkspacesilent, 7"
         "SUPER $mainMod SHIFT, 8, movetoworkspacesilent, 8"
 
-        "SUPER,T,exec,alacritty"
-        "SUPER,S,exec,rofi -show drun -show-icons"
+
 
       ];
 

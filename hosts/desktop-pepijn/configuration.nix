@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, lib, ... }:
 let 
   theme = "oxocarbon-dark";
 in {
@@ -17,6 +17,9 @@ in {
       ../../system/display/x11
       ../../system/gaming
     ];
+
+  stylix.enable = true;
+  stylix.base16Scheme = lib.mkDefault "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
 
   security.sudo.wheelNeedsPassword = false;
   users.users.desktop-pepijn = {
