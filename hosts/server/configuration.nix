@@ -14,6 +14,7 @@
     sound.enable = true;
     bluetooth.enable = true;
     battery.enable = true;
+    users.headless.enable = true;
   };
 
   networking = {

@@ -14,6 +14,7 @@
     sound.enable = true;
     bluetooth.enable = true;
     battery.enable = true;
+    users.pepijn.enable = true;
   };
 
   services = {

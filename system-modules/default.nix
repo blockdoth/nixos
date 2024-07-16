@@ -31,12 +31,13 @@
         type = lib.types.bool; 
         default = false;
       };
+
       bluetooth.enable = lib.mkOption { 
         type = lib.types.bool; 
         default = false;
       };
 
-      battery.enable = lib.mkOption { 
+      laptop.enable = lib.mkOption { 
         type = lib.types.bool; 
         default = false;
       };
@@ -78,5 +79,6 @@
     bluetooth.enable = config.system-modules.bluetooth.enable;
     headless.enable = config.system-modules.users.headless.enable;
     pepijn.enable = config.system-modules.users.pepijn.enable;
+    assertMsg (false || false) "Must have at least one user defined" 
   };
 }
