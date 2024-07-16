@@ -21,7 +21,7 @@
       fish.enable = true; 
     };
 
-    pepijn.enable = config.users.pepijn.enable;
+    pepijn.enable = true;
     headless.enable = config.users.headless.enable;
   };
 }

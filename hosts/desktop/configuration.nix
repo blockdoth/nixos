@@ -13,6 +13,7 @@
     gui.enable = true;
     gaming.enable = true;
     audio.enable = true;
+    users.pepijn.enable = true;
   };
   
   system.stateVersion = "24.05"; # Did you read the comment?
