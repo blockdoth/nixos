@@ -14,7 +14,7 @@ in {
       ../../system/pipewire
       ../../system/ssh  
       ../../system/boot/dual
-      ../../system/display/x11
+      ../../system/display
       ../../system/gaming
     ];
 

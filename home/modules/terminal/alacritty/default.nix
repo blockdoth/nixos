@@ -20,7 +20,7 @@
       };
 
       font = {
-        size = 12.0;
+        size = 10.0;
         # normal.family = "FuraCode Nerd Font";
         # bold.family = "FuraCode Nerd Font";
         # italic.family = "FuraCode Nerd Font";

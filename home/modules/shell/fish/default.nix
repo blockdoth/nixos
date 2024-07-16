@@ -2,11 +2,11 @@
 
   programs.fish = {
   	enable = true;
+		interactiveShellInit = ''
+    	set fish_greeting # Disable greeting
+  	'';
   	shellAliases = {
-  		nswitch = "sudo nixos-rebuild switch --flake /home/pepijn/nixconfig/main#default"; 
-  		hswitch = "home-manager switch "; 
   		cls = "clear"; 
-  		nixhome = "cd /home/pepijn/nixconfig/main";
   	};
   };
 }

@@ -1,19 +1,11 @@
+{ pkgs, inputs, ... }:
 {
-  pkgs,
-  inputs,
-  ...
-}: let
-  gnomeSchema = "org.gnome.desktop.interface";
-in {
   home.packages = with pkgs; [
     grim # Screenshot tool for hyprland
-    waybar
     dunst
-    swww
     rofi-wayland
     pyprland
     hyprpicker
-
   ];
 
   imports = [
@@ -40,7 +32,7 @@ in {
       ];
 
       exec-once = [
-        
+        "pkill waybar & sleep 0.5 && waybar"
       ];
 
 
@@ -63,15 +55,15 @@ in {
       };
 
       general = {
-        gaps_in = 2;
-        gaps_out = 2;
-        border_size = 2;
+        gaps_in = 3;
+        gaps_out = 6;
+        border_size = 4;
         layout = "dwindle";
         apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
       };
 
       decoration = {
-        rounding = 2;
+        rounding = 5;
         shadow_ignore_window = true;
         drop_shadow = true;
         shadow_range = 10;
@@ -109,18 +101,21 @@ in {
         ];
       };
 
-
       bind = [
         "SUPER,T,exec,alacritty"
         "SUPER,F,exec,firefox"
-        "SUPER,S,exec,rofi -show drun -show-icons"
+        "SUPER,D,exec,vesktop"
 
-        "SUPER,Q,killactive,"
+        "SUPER,R,exec,rofi -show drun -show-icons"
+        "SUPER,W,exec,wlogout"
+        
+        "SUPER,Q,killactive"
         "SUPER,M,exit,"
         "SUPER,S,togglefloating,"
-        "SUPER,g,togglegroup"
+        "SUPER,G,togglegroup"
         # "SUPER,tab,changegroupactive"
-        # "SUPER,P,pseudo,"
+        "SUPER,P,pseudo,"
+
 
         # Vim binds
         "SUPER,h,movefocus,l"
@@ -187,6 +182,8 @@ in {
         # Mouse binds
         "SUPER,mouse:272,movewindow"
         "SUPER,mouse:273,resizewindow"
+        #"SUPER,mouse_down, workspace, e+1"
+        #"SUPER,mouse_up, workspace, e-1"
       ];
 
       bindle = [
