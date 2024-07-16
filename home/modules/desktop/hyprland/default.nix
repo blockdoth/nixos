@@ -6,6 +6,7 @@
     rofi-wayland
     pyprland
     hyprpicker
+    hyprshot
   ];
 
   imports = [
@@ -116,6 +117,7 @@
         # "SUPER,tab,changegroupactive"
         "SUPER,P,pseudo,"
 
+        "SUPER SHIFT, S, exec, hypershot -m region"
 
         # Vim binds
         "SUPER,h,movefocus,l"

@@ -2,8 +2,8 @@
 {
   programs.home-manager.enable = true;
   home = {
-    username = "desktop-pepijn";
-    homeDirectory = "/home/desktop-pepijn";
+    username = "pepijn";
+    homeDirectory = "/home/pepijn";
     stateVersion = "24.05";
   };
 

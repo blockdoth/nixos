@@ -20,44 +20,43 @@
 	in {
 
     nixosConfigurations = {
-      laptop-pepijn = nixpkgs.lib.nixosSystem {
+      # laptop = nixpkgs.lib.nixosSystem {
+      #   specialArgs = { inherit pkgs; };
+      #   modules = [
+      #     ./hosts/laptop/configuration.nix
+      #     home-manager.nixosModules.home-manager         
+      #     inputs.stylix.nixosModules.stylix
+			# 	];
+      # };
+      desktop = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit pkgs; };
         modules = [
-          ./hosts/laptop-pepijn/configuration.nix
-          home-manager.nixosModules.home-manager         
-          inputs.stylix.nixosModules.stylix
-				];
-      };
-      desktop-pepijn = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit pkgs; };
-        modules = [
-          ./hosts/desktop-pepijn/configuration.nix
+          ./hosts/desktop/configuration.nix
           home-manager.nixosModules.home-manager         
 				  inputs.stylix.nixosModules.stylix
         ];
     	};
+      # server = nixpkgs.lib.nixosSystem {
+      #   specialArgs = { inherit pkgs; };
+      #   modules = [
+      #     ./hosts/server/configuration.nix
+      #     home-manager.nixosModules.home-manager         
+			# 	  inputs.stylix.nixosModules.stylix
+      #   ];
+    	# };  
     };
 
-  # home-manager = {
-	# 	backupFileExtension = "backup";
-	# 	useUserPackages = true;
-	# 	useGlobalPkgs = true;
-	# 	extraSpecialArgs = {inherit inputs;};
-	# 	users.desktop-pepijn = ../../home/users/desktop-pepijn;
-	# };
-
-
     homeConfigurations = {
-    	laptop-pepijn = home-manager.lib.homeManagerConfiguration {
+    	pepijn = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
       	modules = [
-        	home/users/laptop-pepijn
+        	home/users/pepijn
       	];
     	};
-      desktop-pepijn = home-manager.lib.homeManagerConfiguration {
+      headless = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
       	modules = [
-        	home/users/desktop-pepijn
+        	home/users/headless
       	];
     	};
     };
