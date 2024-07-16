@@ -1,8 +1,8 @@
 {  config, lib, ...}:
 {
   imports = [
-    ./wayland
-    ./x11
+    ./wayland.nix
+    ./x11.nix
   ];
 
   options = {

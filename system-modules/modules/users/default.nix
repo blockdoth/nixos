@@ -1,8 +1,8 @@
 { config, lib, ...}:
 {
   imports = [
-    ./pepijn
-    ./headless
+    ./pepijn.nix
+    ./headless.nix
   ];
 
   options = {
