@@ -8,18 +8,12 @@
   };
 
   imports = [
-    ../../modules/terminal
-    ../../modules/vscode
-    ../../modules/firefox    
-    ../../modules/fonts    
-    ../../modules/desktop      
-    ../../modules/git 
-    ../../modules/jetbrains 
-    ../../modules/shell 
-    ../../modules/rice 
-    ../../modules/discord 
+    ../modules/bundle.nix
   ];
 
+  desktop.gui.enable = false;
+
+  
   home.packages = [
 
   ];

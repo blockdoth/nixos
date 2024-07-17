@@ -17,39 +17,14 @@
 
   options = {
     system-modules = {
-      common.enable = lib.mkEnableOption "Enables the core services";
-      gui.enable = lib.mkOption { 
-        type = lib.types.bool;
-        default = false;
-      }; 
-      gaming.enable = lib.mkOption { 
-        type = lib.types.bool; 
-        default = false;
-      };
-      audio.enable = lib.mkOption { 
-        type = lib.types.bool; 
-        default = false;
-      };
-
-      bluetooth.enable = lib.mkOption { 
-        type = lib.types.bool; 
-        default = false;
-      };
-
-      laptop.enable = lib.mkOption { 
-        type = lib.types.bool; 
-        default = false;
-      };
-
-      users.pepijn.enable = lib.mkOption { 
-        type = lib.types.bool; 
-        default = false;
-      };
-
-      users.headless.enable = lib.mkOption { 
-        type = lib.types.bool; 
-        default = false;
-      };
+      common.enable         = lib.mkEnableOption "Enables the core services";
+      gui.enable            = lib.mkOption { type = lib.types.bool; default = false; }; 
+      gaming.enable         = lib.mkOption { type = lib.types.bool; default = false; };
+      audio.enable          = lib.mkOption { type = lib.types.bool; default = false; };
+      bluetooth.enable      = lib.mkOption { type = lib.types.bool; default = false; };
+      laptop.enable         = lib.mkOption { type = lib.types.bool; default = false; };
+      users.pepijn.enable   = lib.mkOption { type = lib.types.bool; default = false; };
+      users.headless.enable = lib.mkOption { type = lib.types.bool; default = false; };
     };
   };
 
@@ -69,15 +44,7 @@
     nix-config.enable = true;
 
     # Enables the optional modules
-    gaming.enable = 
-    if config.system-modules.gaming.enable then 
-      if config.system-modules.gui.enable then 
-        true 
-      else 
-        throw "GUI must be enabled to enable the gaming module"
-    else 
-      false;    
-    
+    gaming.enable = config.system-modules.gaming.enable;
     display.enable = config.system-modules.gui.enable;
     audio.enable = config.system-modules.audio.enable;
     bluetooth.enable = config.system-modules.bluetooth.enable;
@@ -92,6 +59,10 @@
       { 
         assertion = config.system-modules.users.headless.enable || config.system-modules.users.pepijn.enable;
         message = "At least one user must be enabled";
+      }
+      { 
+        assertion = config.system-modules.gaming.enable || !config.system-modules.gui.enable;
+        message = "To use the gaming module, the gui module must be enabled";
       }
     ];
   };

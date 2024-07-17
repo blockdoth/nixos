@@ -50,13 +50,13 @@
     	pepijn = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
       	modules = [
-        	home/users/pepijn
+        	home/users/pepijn.nix
       	];
     	};
       headless = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
       	modules = [
-        	home/users/headless
+        	home/users/headless.nix
       	];
     	};
     };

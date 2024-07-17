@@ -19,17 +19,6 @@ in {
           timeout = 300;
           on-timeout = "${loginctl} lock-session"; # lock screen.
         }
-
-        {
-          timeout = 330;
-          on-timeout = "${hyprctl} dispatch dpms off"; # turn off display.
-          on-resume = "${hyprctl} dispatch dpms on"; # turn on display.
-        }
-
-        {
-          timeout = 600;
-          on-timeout = "${systemctl} suspend"; # suspend.
-        }
       ];
     };
   };

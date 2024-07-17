@@ -2,7 +2,7 @@
 {
   imports =[
     ./hardware.nix 
-    ../../system-modules
+    ../../system-modules/bundle.nix
   ];
 
   stylix.enable = true;
