@@ -2,7 +2,7 @@
 {
   imports =[
     ./hardware.nix 
-    ../../system-modules/bundle.nix
+    ../../system-modules
   ];
 
   stylix.enable = true;
@@ -16,5 +16,8 @@
     users.pepijn.enable = true;
   };
   
+  networking.hostName = "desktop";
+
+
   system.stateVersion = "24.05"; # Did you read the comment?
 }

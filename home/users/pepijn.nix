@@ -8,12 +8,12 @@
   };
 
   imports = [
-    ../modules/bundle.nix
+    ../modules
   ];
 
-  desktop.gui.enable = false;
+  modules.gui.enable = true;
+  modules.cli-rice.enable = true;
 
-  
   home.packages = [
 
   ];

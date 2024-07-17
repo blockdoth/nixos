@@ -6,7 +6,6 @@
 
   config = lib.mkIf config.bluetooth.enable {
     networking = {
-      hostName = "desktop-pepijn";
       networkmanager.enable = true;
     };
   };

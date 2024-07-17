@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware.nix 
-    ../../system-modules/bundle.nix
+    ../../system-modules
   ];
 
   stylix.enable = true;
@@ -16,6 +16,8 @@
     battery.enable = true;
     users.headless.enable = true;
   };
+
+  networking.hostName = "server";
 
   networking = {
     firewall = {

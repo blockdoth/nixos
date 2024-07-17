@@ -1,6 +1,7 @@
-_: {
+{ ...}: 
+{
 	imports = [
-		./alacritty
+		./alacritty.nix
 	];
 }
 
