@@ -125,9 +125,9 @@
           "SUPER,up,movefocus,u"
           "SUPER,right,movefocus,d"
 
-          "SUPER,1,workspace,1"
-          "SUPER,2,workspace,2"
-          "SUPER,3,workspace,3"
+          "SUPER,1,workspace,1, on-created-empty: firefox"
+          "SUPER,2,workspace,2, on-created-empty: codium alacritty"
+          "SUPER,3,workspace,3, on-created-empty: vesktop"
           "SUPER,4,workspace,4"
           "SUPER,5,workspace,5"
           "SUPER,6,workspace,6"
