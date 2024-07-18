@@ -5,5 +5,7 @@
     ./terminal
     ./filebrowser
     ./compositor
+    ./notifications
+    ./fonts
   ]; 
 }

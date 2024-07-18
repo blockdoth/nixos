@@ -31,6 +31,11 @@ in
       wallpaper.hyprpaper.enable = guiEnabled;
       taskbar.waybar.enable  = guiEnabled;
     };  
+
+    notifications.dunst.enable = guiEnabled;
+    custom-fonts.enable = true;
+    custom-fonts.nerd.enable = true;
+
       
     # rice
     rice.enable = cliRiceEnabled;
