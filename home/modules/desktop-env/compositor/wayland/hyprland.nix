@@ -9,9 +9,13 @@
     # todo seperate files maybe
     home.packages = with pkgs; [
       grim 
+      slurp
+      swappy
+      hyprshot
+      wl-clipboard
       dunst
       hyprpicker
-      hyprshot
+      wf-recorder
     ];
 
     wayland.windowManager.hyprland = {
@@ -112,7 +116,10 @@
           # "SUPER,tab,changegroupactive"
           "SUPER,P,pseudo,"
 
-          "SUPER SHIFT, S, exec, hypershot -m region"
+          # "SUPER SHIFT, S, exec, slurp | grim -g - - | swappy -f -"
+          # ", PRINT, exec, grim -g - - | swappy -f -"
+          # hyprshot -m window -s -r -| swappy -f -
+          "SUPER,B,fullscreen" 
 
           # Vim binds
           "SUPER,h,movefocus,l"

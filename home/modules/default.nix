@@ -33,8 +33,8 @@ in
     };  
 
     notifications.dunst.enable = guiEnabled;
-    custom-fonts.enable = true;
-    custom-fonts.nerd.enable = true;
+    custom-fonts.enable = false;
+    custom-fonts.nerd.enable = false;
 
       
     # rice

@@ -28,19 +28,21 @@
 
         input-field = [
           {
-            size = "250, 60";
-            outline_thickness = 2;
-            dots_size = 0.1;
-            dots_spacing = 0.2; 
+            size = "2000, 200";
+            outline_thickness = 0;
+            dots_size = 0.4;
+            dots_spacing = 0.5; 
             dots_center = true;
             outer_color = "rgba(0, 0, 0, 0)";
-            inner_color = "rgba(0, 0, 0, 0.5)";
+            inner_color = "rgba(0, 0, 0, 0)";
+            check_color = "rgba(0, 0, 0, 0)";
+            fail_color = "rgba(0, 0, 0, 0)";
             font_color = "rgb(200, 200, 200)";
-            fade_on_empty = false;
+            fade_on_empty = true;
             # font_family = "JetBrains Mono Nerd Font Mono";
-            placeholder_text = "<i><span foreground=\"##cdd6f4\">...</span></i>";
+            placeholder_text = "";
             hide_input = false;
-            position = "0, -120";
+            position = "0, -200";
             halign = "center";
             valign = "center";
           }
@@ -52,24 +54,24 @@
             text = "cmd[update:1000] echo \"$(date +\"%-I:%M%p\")\"";
             # color = "#cdd6f4";
             color = "rgba(255, 255, 255, 0.6)";
-            font_size = 120;
+            font_size = 600;
             font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
-            position = "0, -300";
+            position = "0, 0";
             halign = "center";
             valign = "top";
           }
 
-          # USER
-          {
-            text = "cmd[update:1000] echo \"Hi there, $USER\"";
-            # color = "#cdd6f4";
-            color = "rgba(255, 255, 255, 0.6)";
-            font_size = 18;
-            font_family = "JetBrains Mono Nerd Font Mono";
-            position = "0, -40";
-            halign = "center";
-            valign = "center";
-          }
+          # # USER
+          # {
+          #   text = "cmd[update:1000] echo \"$USER\"";
+          #   # color = "#cdd6f4";
+          #   color = "rgba(255, 255, 255, 0.6)";
+          #   font_size = 18;
+          #   font_family = "JetBrains Mono Nerd Font Mono";
+          #   position = "0, -120";
+          #   halign = "center";
+          #   valign = "center";
+          # }
         ];
       };
     };

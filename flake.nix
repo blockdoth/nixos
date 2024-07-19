@@ -20,14 +20,14 @@
 	in {
 
     nixosConfigurations = {
-      # laptop = nixpkgs.lib.nixosSystem {
-      #   specialArgs = { inherit pkgs; };
-      #   modules = [
-      #     ./hosts/laptop/configuration.nix
-      #     home-manager.nixosModules.home-manager         
-      #     inputs.stylix.nixosModules.stylix
-			# 	];
-      # };
+      laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit pkgs; };
+        modules = [
+          ./hosts/laptop/configuration.nix
+          home-manager.nixosModules.home-manager         
+          inputs.stylix.nixosModules.stylix
+				];
+      };
       desktop = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit pkgs; };
         modules = [
