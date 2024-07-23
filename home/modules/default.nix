@@ -7,6 +7,7 @@ in
     ./desktop
     ./programs
     ./system
+    ./dev
   ];
 
   options = {
@@ -36,12 +37,15 @@ in
 
     # cli programs
     git.enable = lib.mkDefault true;
+    neovim.enable = lib.mkDefault true;
 
     # gui programs
     firefox.enable = lib.mkDefault guiEnabled;
     jetbrains.enable = lib.mkDefault guiEnabled;
     vscode.enable = lib.mkDefault guiEnabled;
-
+    
+    #dev
+    #direnv.enable = true;
   };
 }
 

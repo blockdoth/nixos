@@ -13,7 +13,6 @@
       };
       settings = {
         global = {
-          rounded = "yes";
           origin = "top-center";
           monitor = "0";
           alignment = "center";
@@ -52,14 +51,15 @@
           mouse_middle_click = "close_current";
           mouse_right_click = "close_all";
           padding = 10;
-          plain_text = "no";
           separator_height = 2;
           show_indicators = "yes";
           shrink = "no";
           word_wrap = "yes";
         };
 
-        fullscreen_delay_everything = { fullscreen = "delay"; };
+        fullscreen_delay_everything = { 
+          fullscreen = "delay";
+        };
 
         urgency_critical = {
           # background = "#" + config.var.theme.colors.c1;

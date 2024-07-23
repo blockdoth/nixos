@@ -12,9 +12,8 @@
       slurp
       swappy
       hyprshot
-      wl-clipboard
-      dunst
       hyprpicker
+      wl-clipboard
       wf-recorder
     ];
 
@@ -28,11 +27,16 @@
       settings = {
         "$mainMod" = "SUPER";
         monitor = [
-            "eDP-1,2560x1440@144,auto,auto"
+            "eDP-3,2560x1440@144,0x0,1"
         ];
 
         exec-once = [
           "pkill waybar & sleep 0.5 && waybar"
+          "dunst"
+          "steam -silent"
+          "hypridle"
+          "hyprpaper"
+
         ];
 
 

@@ -1,7 +1,7 @@
 { ...}:
 {
   imports = [
-    ./compositor/hyprland
+    ./compositor/hyprland.nix
     ./filebrowser/dolphin.nix
     ./idle/hypridle.nix
     ./launcher/rofi.nix

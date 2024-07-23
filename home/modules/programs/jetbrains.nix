@@ -10,6 +10,7 @@
       jetbrains.webstorm
       jetbrains.pycharm-community
       jetbrains.idea-ultimate
+      jetbrains.rust-rover
     ];
   };
 

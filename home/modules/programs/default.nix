@@ -5,5 +5,6 @@
     ./git.nix
     ./jetbrains.nix
     ./vscode.nix
+    ./neovim.nix
   ];
 }

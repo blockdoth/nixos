@@ -7,8 +7,8 @@
   config = lib.mkIf config.compositor.wayland.applauncher.rofi.enable {
 
     programs.rofi = {
-      package = pkgs.rofi-wayland;
       enable = true;
+      package = pkgs.rofi-wayland;
       theme = "Arc";
     };
   };

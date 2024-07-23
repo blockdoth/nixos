@@ -20,10 +20,10 @@
                 spacing= 5;
                 height= 20;
                 modules-left= [
-                    "hyprland/workspaces"
+                    ""
                 ];
                 modules-center= [
-                    "clock"
+                    "hyprland/workspaces"
                 ];
                 modules-right= [
                     "tray" 
@@ -32,6 +32,7 @@
                     "memory"
                     "disk"
                     "network"
+                    "custom/powermenu"
                 ];
 
                 clock= {
@@ -105,7 +106,7 @@
                 font-family: "JetBrainsMono Nerd Font";
                 font-size: 10pt;
                 font-weight: bold;
-                border-radius: 8px;
+                border-radius: 5px;
                 transition-property: background-color;
                 transition-duration: 0.5s;
             }
@@ -126,13 +127,7 @@
                 background-color: transparent;
             }
             window > box {
-                margin-left: 5px;
-                margin-right: 5px;
-                margin-top: 5px;
-                background-color: #1e1e2a;
-                padding: 3px;
-                padding-left:8px;
-                border: 2px none #33ccff;
+                background-color: rgba(30,30,42,0.5);
             }
             #workspaces {
                 padding-left: 0px;

@@ -5,15 +5,19 @@
   };
 
   config = lib.mkIf config.compositor.wayland.wallpaper.hyprpaper.enable {
+    home.packages = with pkgs; [
+      hyprpaper
+    ];
+
     services.hyprpaper = {
       # package = inputs.hyprpaper.packages.${pkgs.system}.default;
       enable = true;
       settings = {
         preload = [
-          "../../../../assets/wallpapers/rain.png"
+          "wallpapers/pinkpanther.jpg"
         ];
         wallpaper = [
-          "../../../../assets/wallpapers/rain.png"
+          "DP-3,wallpapers/pinkpanther.jpg"
         ];
       };
     };
