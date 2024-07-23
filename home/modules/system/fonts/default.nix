@@ -1,10 +1,10 @@
 { pkgs, config, lib, ... }:
 {
-
   options = {
     custom-fonts.enable = lib.mkEnableOption "Enables custom fonts";
-    custom-fonts.nerd.enable = lib.mkOption { type = lib.types.bool; default = false; }; 
+    custom-fonts.nerd.enable = lib.mkOption { type = lib.types.bool; default = true; }; 
   }; 
+  
   config = lib.mkIf config.custom-fonts.enable {
     fonts.fontconfig.enable = true; 
     home.packages = with pkgs; [

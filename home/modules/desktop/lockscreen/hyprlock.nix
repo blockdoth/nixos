@@ -11,13 +11,15 @@
       settings = {
         general = {
           no_fade_in = false;
+          hide_cursor = true;
+          ignore_empty_input = true;
           grace = 0;
           disable_loading_bar = true;
         };
 
         background = [
           {
-            path = "${../../../../../assets/wallpapers/basicblue.png}";
+            path = "screenshot"; # ${../../../../../assets/wallpapers/basicblue.png}"
             blur_passes = 3;
             contrast = 0.8916;
             brightness = 0.8172;
@@ -54,9 +56,9 @@
             text = "cmd[update:1000] echo \"$(date +\"%-I:%M%p\")\"";
             # color = "#cdd6f4";
             color = "rgba(255, 255, 255, 0.6)";
-            font_size = 600;
+            font_size = 300;
             font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
-            position = "0, 0";
+            position = "0, -200";
             halign = "center";
             valign = "top";
           }
@@ -76,7 +78,4 @@
       };
     };
   };
-
-  
-  
 }

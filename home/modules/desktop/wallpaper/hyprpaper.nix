@@ -10,10 +10,10 @@
       enable = true;
       settings = {
         preload = [
-          "../../../../../assets/wallpapers/basicblue.png"
+          "../../../../assets/wallpapers/rain.png"
         ];
         wallpaper = [
-          "../../../../../assets/wallpapers/basicblue.png"
+          "../../../../assets/wallpapers/rain.png"
         ];
       };
     };

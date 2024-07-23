@@ -1,4 +1,12 @@
-{config, lib, pkgs, ...}:
+{config, lib, pkgs, inputs, ...}:
+let 
+  enableGui           = config.system-modules.gui.enable;
+  enableGaming        = config.system-modules.gaming.enable;
+  enableAudio         = config.system-modules.audio.enable; 
+  enableBluetooth     = config.system-modules.bluetooth.enable;
+  enableUserHeadless  = config.system-modules.users.headless.enable;
+  enableUserPepijn    = config.system-modules.users.pepijn.enable;
+in
 {
   imports = [
     ./modules/display
@@ -7,6 +15,7 @@
     ./modules/bluetooth.nix
     ./modules/booting.nix
     ./modules/gaming.nix
+    ./modules/greeter.nix
     ./modules/networking.nix
     ./modules/nix-config.nix
     ./modules/localisation.nix
@@ -42,12 +51,14 @@
     networking.enable = true;
     localisation.enable = true;
     nix-config.enable = true;
+    greeter.enable = true;
 
     # Enables the optional modules
-    gaming.enable = config.system-modules.gaming.enable;
-    display.enable = config.system-modules.gui.enable;
-    audio.enable = config.system-modules.audio.enable;
-    bluetooth.enable = config.system-modules.bluetooth.enable;
+    gaming.enable = enableGaming;
+    hyprland.enable = enableGui;
+    x11.enable = enableGui;
+    audio.enable = enableAudio;
+    bluetooth.enable = enableBluetooth;
 
     # Enables the users, at least one must be defined
     headless.enable = config.system-modules.users.headless.enable;
@@ -57,11 +68,11 @@
     assertions =
     [ 
       { 
-        assertion = config.system-modules.users.headless.enable || config.system-modules.users.pepijn.enable;
+        assertion = enableUserHeadless || enableUserPepijn;
         message = "At least one user must be enabled";
       }
       { 
-        assertion = config.system-modules.gaming.enable || !config.system-modules.gui.enable;
+        assertion = enableGui || enableGui && enableGaming;
         message = "To use the gaming module, the gui module must be enabled";
       }
     ];

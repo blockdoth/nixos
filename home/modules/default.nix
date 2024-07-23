@@ -1,18 +1,16 @@
 { config, lib, pkgs, ... }:
 let 
   guiEnabled = config.modules.gui.enable;
-  cliRiceEnabled = config.modules.cli-rice.enable;
 in
 {
   imports = [
-    ./cli-programs
-    ./gui-programs
-    ./desktop-env
+    ./desktop
+    ./programs
+    ./system
   ];
 
   options = {
     modules.gui.enable = lib.mkOption { type = lib.types.bool; default = false; };
-    modules.cli-rice.enable = lib.mkOption { type = lib.types.bool; default = false; }; 
   };
 
 
@@ -20,35 +18,29 @@ in
     # common
     shell.fish.enable = true;
     terminal.alacritty.enable = true;
+    prompt.starship.enable = true;
   
     # desktop env
     compositor.wayland = {
-      hyprland.enable = guiEnabled;
-      logoutmenu.wlogout.enable = guiEnabled;
-      lockscreen.hyprlock.enable = guiEnabled;
-      idle.hypridle.enable = guiEnabled;
-      applauncher.rofi.enable = guiEnabled;
-      wallpaper.hyprpaper.enable = guiEnabled;
-      taskbar.waybar.enable  = guiEnabled;
+      hyprland.enable = lib.mkDefault guiEnabled;
+      logoutmenu.wlogout.enable = lib.mkDefault guiEnabled;
+      lockscreen.hyprlock.enable = lib.mkDefault guiEnabled;
+      idle.hypridle.enable = lib.mkDefault guiEnabled;
+      applauncher.rofi.enable = lib.mkDefault guiEnabled;
+      wallpaper.hyprpaper.enable = lib.mkDefault guiEnabled;
+      taskbar.waybar.enable  = lib.mkDefault guiEnabled;
     };  
 
-    notifications.dunst.enable = guiEnabled;
-    custom-fonts.enable = false;
-    custom-fonts.nerd.enable = false;
-
-      
-    # rice
-    rice.enable = cliRiceEnabled;
+    notifications.dunst.enable = lib.mkDefault guiEnabled;
+    custom-fonts.enable = lib.mkDefault false;
 
     # cli programs
-    git.enable = true;
-    btop.enable = true;
+    git.enable = lib.mkDefault true;
 
     # gui programs
-    firefox.enable = guiEnabled;
-    discord.enable = guiEnabled;
-    jetbrains.enable = guiEnabled;
-    vscode.enable = guiEnabled;
+    firefox.enable = lib.mkDefault guiEnabled;
+    jetbrains.enable = lib.mkDefault guiEnabled;
+    vscode.enable = lib.mkDefault guiEnabled;
 
   };
 }

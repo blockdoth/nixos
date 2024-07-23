@@ -1,4 +1,4 @@
-{  config, lib, ... }:
+{ config, lib, ... }:
 {
   options = {
     booting.enable = lib.mkEnableOption "Enables booting";

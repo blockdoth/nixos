@@ -22,6 +22,7 @@
       pulseaudio = false;
     };
 
-    sound.enable = true;
+    # https://github.com/NixOS/nixpkgs/issues/319809
+    # sound.enable = true; conflicts with pipewire
   };
 }

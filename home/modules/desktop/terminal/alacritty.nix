@@ -17,6 +17,7 @@
         };
 
         window = {
+          opacity = 0.7;
           padding.x = 10;
           padding.y = 10;
           decorations = "buttonless";

@@ -11,11 +11,25 @@
     ../modules
   ];
 
-  modules.gui.enable = true;
-  modules.cli-rice.enable = true;
+  modules = {
+    gui.enable = true;
+  };
+  
+  home.packages = with pkgs; [
+    #rice
+    cmatrix
+    fortune
+    cowsay
+    neofetch
+    pipes
+    cava
+    cbonsai
+    tty-clock
+    btop
 
-  home.packages = [
-
+    #misc
+    spotify
+    vesktop
   ];
 
   home.sessionVariables = {

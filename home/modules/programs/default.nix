@@ -1,8 +1,8 @@
 { ... }:
 {
   imports = [
-    ./discord.nix
     ./firefox.nix
+    ./git.nix
     ./jetbrains.nix
     ./vscode.nix
   ];

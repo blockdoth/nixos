@@ -14,7 +14,7 @@
   modules.gui.enable = false;
   modules.cli-rice.enable = false;
 
-  home.packages = [
+  home.packages = with pkgs; [
 
   ];
 
