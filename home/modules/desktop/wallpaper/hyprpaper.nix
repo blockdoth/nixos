@@ -4,7 +4,11 @@
     compositor.wayland.wallpaper.hyprpaper.enable = lib.mkEnableOption "Enables hyprpaper";
   };
 
-  config = lib.mkIf config.compositor.wayland.wallpaper.hyprpaper.enable {
+  config = 
+  let 
+    wallpaper_path = "${./wallpapers/pinkpanther.jpg}";
+  in
+  lib.mkIf config.compositor.wayland.wallpaper.hyprpaper.enable {
     home.packages = with pkgs; [
       hyprpaper
     ];
@@ -14,12 +18,14 @@
       enable = true;
       settings = {
         preload = [
-          "wallpapers/pinkpanther.jpg"
+          wallpaper_path
         ];
         wallpaper = [
-          "DP-3,wallpapers/pinkpanther.jpg"
+          ",${wallpaper_path}"
         ];
       };
     };
   };
+
+
 }

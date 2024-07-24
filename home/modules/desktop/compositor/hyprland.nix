@@ -22,8 +22,6 @@
       package = pkgs.hyprland; # hyprlandFlake or pkgs.hyprland
       xwayland.enable = true;
 
-
-
       settings = {
         "$mainMod" = "SUPER";
         monitor = [
@@ -104,6 +102,11 @@
             "workspaces,    1,  6,   default"
           ];
         };
+        # doesnt display the other layers, only
+        layerrule = [
+          "blur, logout_dialog"
+        ];
+
 
         bind = [
           "SUPER,T,exec,alacritty"
@@ -111,7 +114,7 @@
           "SUPER,D,exec,vesktop"
 
           "SUPER,R,exec,rofi -show drun -show-icons"
-          "SUPER,W,exec,wlogout"
+          "SUPER,W,exec,wlogout -b 5"
           
           "SUPER,Q,killactive"
           "SUPER,M,exit,"
