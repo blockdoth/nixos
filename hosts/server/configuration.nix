@@ -11,7 +11,6 @@
     gui.enable = false;
     sound.enable = false;
     bluetooth.enable = false;
-    battery.enable = false;
   };
 
   networking.hostName = "server";
