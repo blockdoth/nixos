@@ -4,6 +4,7 @@ let
   enableGaming        = config.system-modules.gaming.enable;
   enableAudio         = config.system-modules.audio.enable; 
   enableBluetooth     = config.system-modules.bluetooth.enable;
+  enableSsh           = config.system-modules.ssh.enable;
   enableUserHeadless  = config.system-modules.users.headless.enable;
   enableUserPepijn    = config.system-modules.users.pepijn.enable;
 in
@@ -28,6 +29,7 @@ in
     system-modules = {
       common.enable         = lib.mkEnableOption "Enables the core services";
       gui.enable            = lib.mkOption { type = lib.types.bool; default = false; }; 
+      ssh.enable            = lib.mkOption { type = lib.types.bool; default = false; };
       gaming.enable         = lib.mkOption { type = lib.types.bool; default = false; };
       audio.enable          = lib.mkOption { type = lib.types.bool; default = false; };
       bluetooth.enable      = lib.mkOption { type = lib.types.bool; default = false; };
@@ -59,6 +61,7 @@ in
     x11.enable = enableGui;
     audio.enable = enableAudio;
     bluetooth.enable = enableBluetooth;
+    ssh.enable = enableSsh;
 
     # Enables the users, at least one must be defined
     headless.enable = config.system-modules.users.headless.enable;
