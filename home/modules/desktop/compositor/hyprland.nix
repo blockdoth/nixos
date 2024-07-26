@@ -8,9 +8,7 @@
     
     # todo seperate files maybe
     home.packages = with pkgs; [
-      grim 
-      slurp
-      swappy
+      grimblast 
       hyprshot
       hyprpicker
       wl-clipboard
@@ -34,9 +32,12 @@
           "steam -silent"
           "hypridle"
           "hyprpaper"
+          "[workspace 1 silent] firefox"
+          "[workspace 2 silent] codium"
+          "[workspace 2 silent] alacritty"
+          "[workspace 3 silent] vesktop"
 
         ];
-
 
         xwayland = {
           force_zero_scaling = true;
@@ -104,9 +105,11 @@
         };
         # doesnt display the other layers, only
         layerrule = [
-          "blur, logout_dialog"
+          # "blur, logout_dialog"
         ];
-
+        windowrule = [
+          "opacity .9 0.8,^(Codium)$"
+        ];
 
         bind = [
           "SUPER,T,exec,alacritty"
@@ -123,9 +126,9 @@
           # "SUPER,tab,changegroupactive"
           "SUPER,P,pseudo,"
 
-          # "SUPER SHIFT, S, exec, slurp | grim -g - - | swappy -f -"
-          # ", PRINT, exec, grim -g - - | swappy -f -"
-          # hyprshot -m window -s -r -| swappy -f -
+          "SUPER SHIFT, S, exec, grimblast --notify copysave area"
+          ", PRINT, exec, grimblast --notify copysave screen"
+
           "SUPER,B,fullscreen" 
 
           # Vim binds

@@ -5,16 +5,13 @@
     ../../system-modules
   ];
 
-  stylix.enable = true;
-  stylix.base16Scheme = lib.mkDefault "${pkgs.base16-schemes}/share/themes/everforest.yaml";
-
   system-modules = {
     common.enable = true;
-    gui.enable = true;
-    sound.enable = true;
-    bluetooth.enable = true;
-    battery.enable = true;
     users.headless.enable = true;
+    gui.enable = false;
+    sound.enable = false;
+    bluetooth.enable = false;
+    battery.enable = false;
   };
 
   networking.hostName = "server";

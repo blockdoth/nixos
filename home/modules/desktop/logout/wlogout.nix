@@ -6,8 +6,8 @@
 
   config = 
     let 
-      hover = "3";
-      margin = "20";
+      hover = "0";
+      margin = "30";
       border-radius = "10";
       border-radius-active = "10";
     in  
@@ -23,7 +23,7 @@
         }
         {
           label = "lock";
-          action = "swaylock";
+          action = "hyprlock";
           text = "Lock";
           keybind = "l";
         }

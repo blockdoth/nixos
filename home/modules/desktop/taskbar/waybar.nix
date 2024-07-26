@@ -20,17 +20,19 @@
                 spacing= 5;
                 height= 20;
                 modules-left= [
-                    ""
+                    "hyprland/workspaces"
+                    "tray" 
                 ];
                 modules-center= [
-                    "hyprland/workspaces"
+                    "clock"
                 ];
                 modules-right= [
-                    "tray" 
                     "temperature"
                     "cpu"
                     "memory"
+                    "bluetooth"
                     "disk"
+                    "pulseaudio"
                     "network"
                     "custom/powermenu"
                 ];
@@ -39,7 +41,7 @@
                     calendar = {
                         format = { today = "<span color='#b4befe'><b><u>{}</u></b></span>"; };
                     };
-                    format = " {:%d/%m/%y %H:%M }";
+                    format = " {:%H:%M %d/%m/%y }";
                 };
 
                 "hyprland/workspaces"= {
@@ -99,6 +101,21 @@
                     icon-size= 20;
                     spacing= 8;
                 };
+
+                bluetooth = {
+                    format = "B";
+                    format-no-controller = ""; # Hide when no bluetooth module detected
+                    tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
+                    tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
+                    tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
+                    tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
+                };
+
+                pulseaudio = {
+                    format = "{icon} {volume}%"; 
+                    format-bluetooth = "B {icon} {volume}%"; 
+                    format-muted = "M {icon} {volume}%"; 
+                };
             };
         };
         style = ''
@@ -147,7 +164,20 @@
                 background-color: rgb(75, 75, 150);
             }
 
-            #mode, #clock, #memory, #temperature,#cpu,#disk, #temperature, #backlight, #pulseaudio, #network, #battery, #tray {
+            #mode, 
+            #clock, 
+            #memory, 
+            #temperature,
+            #cpu,
+            #disk, 
+            #temperature, 
+            #backlight, 
+            #pulseaudio, 
+            #network, 
+            #battery, 
+            #tray,
+            #bluetooth
+            {
                 padding-left: 10px;
                 padding-right: 10px;
                 color: rgb(217, 224, 238);

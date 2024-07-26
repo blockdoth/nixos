@@ -23,6 +23,6 @@
     };
 
     # https://github.com/NixOS/nixpkgs/issues/319809
-    # sound.enable = true; conflicts with pipewire
+    sound.enable = true; # conflicts with pipewire
   };
 }

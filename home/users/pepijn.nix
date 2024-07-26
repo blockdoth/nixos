@@ -35,6 +35,7 @@
   home.sessionVariables = {
     BROWSER = "firefox";
     TERMINAL = "alacritty";
+    XDG_SCREENSHOTS_DIR = "/home/pepijn/Pictures/Screenshots";
   };
   
 }

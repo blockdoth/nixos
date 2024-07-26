@@ -2,17 +2,22 @@
 {
   options = {
     custom-fonts.enable = lib.mkEnableOption "Enables custom fonts";
-    custom-fonts.nerd.enable = lib.mkOption { type = lib.types.bool; default = true; }; 
   }; 
   
   config = lib.mkIf config.custom-fonts.enable {
     fonts.fontconfig.enable = true; 
     home.packages = with pkgs; [
+      font-manager
       jetbrains-mono
       font-awesome
+      powerline-fonts
+      powerline-symbols
       # nerd fonts
-    ] ++ lib.optionals config.custom-fonts.nerd.enable [
-      (nerdfonts.override { fonts = [ "FiraCode" ]; })
+      # (nerdfonts.override { fonts = [ 
+      #   # "NerdFontsSymbolsOnly"
+
+      #   ]; 
+      # })
     ];
   };
 }
