@@ -4,7 +4,7 @@
     networking.enable = lib.mkEnableOption "Enables networking";
   };
 
-  config = lib.mkIf config.bluetooth.enable {
+  config = lib.mkIf config.networking.enable {
     networking = {
       networkmanager.enable = true;
     };

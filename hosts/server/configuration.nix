@@ -8,9 +8,7 @@
   system-modules = {
     common.enable = true;
     users.headless.enable = true;
-    gui.enable = false;
-    audio.enable = false;
-    bluetooth.enable = false;
+    ssh.enable = true;
   };
 
   networking.hostName = "server";
