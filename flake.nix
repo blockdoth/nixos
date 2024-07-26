@@ -36,14 +36,14 @@
 				  inputs.stylix.nixosModules.stylix
         ];
     	};
-      # server = nixpkgs.lib.nixosSystem {
-      #   specialArgs = { inherit pkgs; };
-      #   modules = [
-      #     ./hosts/server/configuration.nix
-      #     home-manager.nixosModules.home-manager         
-			# 	  inputs.stylix.nixosModules.stylix
-      #   ];
-    	# };  
+      server = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit pkgs; };
+        modules = [
+          ./hosts/server/configuration.nix
+          home-manager.nixosModules.home-manager         
+				  inputs.stylix.nixosModules.stylix
+        ];
+    	};  
     };
 
     homeConfigurations = {
