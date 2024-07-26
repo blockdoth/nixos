@@ -11,9 +11,8 @@
   system-modules = {
     common.enable = true;
     gui.enable = true;
-    sound.enable = true;
+    audio.enable = true;
     bluetooth.enable = true;
-    battery.enable = true;
     users.pepijn.enable = true;
   };
 

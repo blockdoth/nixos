@@ -9,7 +9,7 @@
     common.enable = true;
     users.headless.enable = true;
     gui.enable = false;
-    sound.enable = false;
+    audio.enable = false;
     bluetooth.enable = false;
   };
 
