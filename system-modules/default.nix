@@ -72,7 +72,7 @@ in
         message = "At least one user must be enabled";
       }
       { 
-        assertion = enableGui || enableGui && enableGaming;
+        assertion = enableGui || !(enableGui && enableGaming);
         message = "To use the gaming module, the gui module must be enabled";
       }
     ];
