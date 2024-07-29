@@ -11,5 +11,6 @@
     ./taskbar/waybar.nix
     ./terminal/alacritty.nix
     ./wallpaper/hyprpaper.nix
+    ./widgets/pyprland.nix
   ]; 
 }

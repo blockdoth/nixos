@@ -30,6 +30,7 @@ in
       applauncher.rofi.enable = lib.mkDefault guiEnabled;
       wallpaper.hyprpaper.enable = lib.mkDefault guiEnabled;
       taskbar.waybar.enable  = lib.mkDefault guiEnabled;
+      widgets.pyprland.enable  = lib.mkDefault guiEnabled;
     };  
 
     notifications.dunst.enable = lib.mkDefault guiEnabled;

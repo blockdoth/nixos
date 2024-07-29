@@ -32,7 +32,7 @@
                     "memory"
                     "bluetooth"
                     "disk"
-                    "pulseaudio"
+                    # "pulseaudio"
                     "network"
                     "custom/powermenu"
                 ];
@@ -41,7 +41,7 @@
                     calendar = {
                         format = { today = "<span color='#b4befe'><b><u>{}</u></b></span>"; };
                     };
-                    format = " {:%H:%M %d/%m/%y }";
+                    format = " {:%H:%M %d / %m / %y }";
                 };
 
                 "hyprland/workspaces"= {
@@ -111,11 +111,11 @@
                     tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
                 };
 
-                pulseaudio = {
-                    format = "{icon} {volume}%"; 
-                    format-bluetooth = "B {icon} {volume}%"; 
-                    format-muted = "M {icon} {volume}%"; 
-                };
+                # pulseaudio = {
+                #     format = "{icon} {volume}%"; 
+                #     format-bluetooth = "B {icon} {volume}%"; 
+                #     format-muted = "M {icon} {volume}%"; 
+                # };
             };
         };
         style = ''
