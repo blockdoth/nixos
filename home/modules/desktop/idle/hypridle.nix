@@ -22,7 +22,7 @@ in {
 
         listener = [
           {
-            timeout = 300;
+            timeout = 900;
             on-timeout = "${loginctl} lock-session"; # lock screen.
           }
         ];

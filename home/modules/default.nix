@@ -8,6 +8,7 @@ in
     ./programs
     ./system
     ./dev
+    ./rice
   ];
 
   options = {

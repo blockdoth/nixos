@@ -16,18 +16,6 @@
   };
   
   home.packages = with pkgs; [
-    #rice
-    cmatrix
-    fortune
-    cowsay
-    neofetch
-    pipes
-    cava
-    cbonsai
-    tty-clock
-    btop
-
-    #misc
     spotify
     vesktop
   ];

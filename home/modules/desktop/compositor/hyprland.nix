@@ -60,8 +60,10 @@
           gaps_in = 3;
           gaps_out = 3;
           border_size = 4;
-          layout = "dwindle";
+          # "col.active_border" = "rgba(82B8C8ee)";
+          # "col.inactive_border" = "rgba(6A9FB5aa)";
           apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
+          layout = "dwindle";
         };
 
         decoration = {

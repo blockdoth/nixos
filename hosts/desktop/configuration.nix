@@ -8,8 +8,8 @@
   system-modules = {
     common.enable = true;
     gui.enable = true;
-    gaming.enable = true;
     audio.enable = true;
+    gaming.enable = true;
     users.pepijn.enable = true;
   };
   

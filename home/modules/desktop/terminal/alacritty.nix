@@ -36,7 +36,7 @@
           program = "fish";
           args = [
             "-C"
-            "neofetch"
+            "fastfetch"
           ];
         };
       };
