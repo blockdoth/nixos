@@ -12,12 +12,13 @@
       font-awesome
       powerline-fonts
       powerline-symbols
-      # nerd fonts
-      # (nerdfonts.override { fonts = [ 
-      #   # "NerdFontsSymbolsOnly"
-
-      #   ]; 
-      # })
+      dejavu_fonts
+      (nerdfonts.override { 
+        fonts = [ 
+          "FiraCode" 
+          "DroidSansMono" 
+        ]; 
+      })
     ];
   };
 }

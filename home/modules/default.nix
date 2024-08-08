@@ -35,7 +35,7 @@ in
     };  
 
     notifications.dunst.enable = lib.mkDefault guiEnabled;
-    custom-fonts.enable = lib.mkDefault false;
+    custom-fonts.enable = lib.mkDefault true;
 
     # cli programs
     git.enable = lib.mkDefault true;

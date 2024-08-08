@@ -20,6 +20,7 @@
                 spacing= 5;
                 height= 20;
                 modules-left= [
+                    "custom/logo"
                     "hyprland/workspaces"
                     "tray" 
                 ];
@@ -34,14 +35,20 @@
                     "disk"
                     # "pulseaudio"
                     "network"
-                    "custom/powermenu"
+                    "battery"
                 ];
 
                 clock= {
                     calendar = {
                         format = { today = "<span color='#b4befe'><b><u>{}</u></b></span>"; };
                     };
-                    format = " {:%H:%M %d / %m / %y }";
+                    format = " {:%H:%M %d/%m/%y }";
+                };
+
+                "custom/logo" = {
+                    format= " ";
+                    on-click= "rofi -show drun";
+                    tooltip= false;
                 };
 
                 "hyprland/workspaces"= {
@@ -71,39 +78,89 @@
 
                 temperature = {
                     critical-threshold = 80;
-                    format = "{temperatureC}°C";
+                    format = " {temperatureC}°C";
                 };
 
                 memory= {
-                    format= "{used} / {total} GiB";
+                    format= "  {used} / {total} GiB";
                     interval= 2;
                 };
 
                 cpu= {
-                    format= "{usage}%";
+                    format= "  {usage}%";
                     interval= 2;
                 };
                 disk = {
                     # path = "/";
-                    format = "{used} / {total} GiB";
+                    format = "  {used} / {total}";
                     interval= 60;
+                    unit = "GB";
                 };
 
                 network = {
-                    tooltip-format = "Connected to {essid} {ifname} via {gwaddr}";
-                    format-linked = "{ifname} (No IP)";
-                    format-disconnected = "Disconnected";
-                    format-ethernet = "Connected";
-                    format-wifi = "{essid}";
+                    format-wifi = "{icon}";
+                    format-ethernet = " ";
+                    format-disconnected = "󰌙 ";
+                    format-icons = [
+                        "󰤯 "
+                        "󰤟 "
+                        "󰤢 "
+                        "󰤢 "
+                        "󰤨 "
+                    ];
+                };
+                
+                battery = {
+                    states = {
+                        good = 95;
+                        warning = 30;
+                        critical = 20;
+                    };
+                    format = "{icon} {capacity}%";
+                    format-charging = " {capacity}%";
+                    format-plugged = " {capacity}%";
+                    format-alt = "{time} {icon}";
+                    format-icons = [
+                        "󰂎"
+                        "󰁺"
+                        "󰁻"
+                        "󰁼"
+                        "󰁽"
+                        "󰁾"
+                        "󰁿"
+                        "󰂀"
+                        "󰂁"
+                        "󰂂"
+                        "󰁹"
+                    ];
                 };
 
-                tray= {
+                # pulseaudio = {
+                #         format = "{volume}% {icon}";
+                #         format-bluetooth = "{volume}% {icon}";
+                #         format-bluetooth-muted = "{icon} {format_source}";
+                #         format-muted = "{format_source}";
+                #         format-source = "";
+                #         format-source-muted = "";
+                #         format-icons = {
+                #             headphone = "";
+                #             hands-free = "";
+                #             headset = "";
+                #             phone = "";
+                #             portable = "";
+                #             car = "";
+                #             default = ["" "" ""];
+                #     };
+                #     on-click = "pavucontrol";
+                # };
+
+                tray = {
                     icon-size= 20;
                     spacing= 8;
                 };
 
                 bluetooth = {
-                    format = "B";
+                    format = "󰂯";
                     format-no-controller = ""; # Hide when no bluetooth module detected
                     tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
                     tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
@@ -120,7 +177,7 @@
         };
         style = ''
             * {
-                font-family: "JetBrainsMono Nerd Font";
+                font-family: "JetBrains Mono";
                 font-size: 10pt;
                 font-weight: bold;
                 border-radius: 5px;
@@ -157,7 +214,7 @@
                 padding-right: 6px;
             }
             #workspaces button.active {
-                background-color: rgb(100, 100, 200);
+                background-color: rgb(65, 93, 197);
                 color: rgb(26, 24, 38);
             }
             #workspaces button:hover {
@@ -176,12 +233,13 @@
             #network, 
             #battery, 
             #tray,
-            #bluetooth
+            #bluetooth,
+            #custom-logo
             {
                 padding-left: 10px;
                 padding-right: 10px;
                 color: rgb(217, 224, 238);
-                background-color: rgb(100, 100, 200);
+                background-color: rgba(41, 61, 133, 0.9);
             }
         '';
         };

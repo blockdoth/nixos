@@ -13,6 +13,7 @@
 
   modules = {
     gui.enable = true;
+    # custom-fonts.enable = true;
   };
   
   home.packages = with pkgs; [

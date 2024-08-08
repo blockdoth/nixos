@@ -21,7 +21,7 @@
 
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit pkgs; };
+        specialArgs = { inherit pkgs; inherit inputs; };
         modules = [
           ./hosts/laptop/configuration.nix
           home-manager.nixosModules.home-manager         
@@ -29,7 +29,7 @@
 				];
       };
       desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit pkgs; };
+        specialArgs = { inherit pkgs; inherit inputs; };
         modules = [
           ./hosts/desktop/configuration.nix
           home-manager.nixosModules.home-manager         
@@ -37,7 +37,7 @@
         ];
     	};
       server = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit pkgs; };
+        specialArgs = { inherit pkgs; inherit inputs; };
         modules = [
           ./hosts/server/configuration.nix
           home-manager.nixosModules.home-manager         

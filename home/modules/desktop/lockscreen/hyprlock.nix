@@ -57,7 +57,7 @@
             # color = "#cdd6f4";
             color = "rgba(255, 255, 255, 0.6)";
             font_size = 300;
-            font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
+            font_family = "JetBrains Mono Ultra-Bold";
             position = "0, -200";
             halign = "center";
             valign = "top";
