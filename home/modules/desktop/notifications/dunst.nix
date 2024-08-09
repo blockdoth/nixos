@@ -5,6 +5,10 @@
   };
 
   config = lib.mkIf config.notifications.dunst.enable {
+    home.packages = with pkgs; [
+      libnotify
+    ];
+
     services.dunst = {
       enable = true;
       iconTheme = {
@@ -37,6 +41,7 @@
           history_length = 20;
           always_run_script = true;
           follow = "mouse";
+          corner_radius = 5;
           # font = config.var.theme.font;
           format = "<b>%s</b>\\n%b";
           progress_bar_corner_radius = 10;
@@ -61,17 +66,20 @@
           fullscreen = "delay";
         };
 
-        urgency_critical = {
-          # background = "#" + config.var.theme.colors.c1;
-          # foreground = "#" + config.var.theme.colors.c0;
-        };
         urgency_low = {
-          # background = "#" + config.var.theme.colors.bgalt;
-          # foreground = "#" + config.var.theme.colors.fgalt;
+          background = "#141c21";
+          foreground = "#93a1a1";
+          frame_color = "#036b32";
         };
         urgency_normal = {
-          # background = "#" + config.var.theme.colors.bgalt;
-          # foreground = "#" + config.var.theme.colors.fgalt;
+          background = "#141c21";
+          foreground = "#93a1a1";
+          frame_color = "#26397D";
+        };
+        urgency_critical = {
+          background = "#141c21";
+          foreground = "#93a1a1";
+          frame_color = "#bf021e";
         };
       };
     };
