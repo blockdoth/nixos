@@ -12,7 +12,7 @@
         enable = false;
         support32Bit = true;
       };
-      pulse.enable = false;
+      pulse.enable = true;
       jack.enable = false;
     };
     

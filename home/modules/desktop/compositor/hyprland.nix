@@ -12,6 +12,7 @@
       hyprpicker
       wl-clipboard
       wf-recorder
+      wlr-randr
     ];
 
     wayland.windowManager.hyprland = {
@@ -21,7 +22,7 @@
 
       settings = {
         monitor = [
-            "eDP-3,2560x1440@144,0x0,1"
+            "DP-1,2560x1440@60,0x0,1"
         ];
 
         exec-once = [
@@ -109,12 +110,14 @@
           # "blur, logout_dialog"
         ];
         "$scratchpad" = "class:^(scratchpad)$";
+        # "$pip" = "title:^(Picture-in-Picture)$";
         windowrulev2 = [
           # Scratchpads
           "float,                     $scratchpad"
           "size 90% 90%,              $scratchpad"
           "workspace special silent,  $scratchpad"
           "center,                    $scratchpad"
+          # Picuture in picture mode
         ];
 
         bind = [
@@ -126,7 +129,6 @@
           "SUPER,W,exec,wlogout -b 5"
           
           "SUPER,Q,killactive"
-          "SUPER,M,exit,"
           "SUPER,S,togglefloating,"
           "SUPER,P,pseudo,"
           # "SUPER,G,togglegroup"
@@ -138,10 +140,14 @@
           "SUPER,B,fullscreen" 
           "SUPER,C,exec,hyprpicker -a" 
           # "SUPER,E,exec, pypr expose" # broken
-          "SUPER,Z,exec, pypr zoom "
+          "SUPER,Z, exec, pypr zoom "
+          "SUPER SHIFT,Z, exec, pypr zoom ++0.6"
+
 
           # Scratch pads
           "SUPER,A,exec, pypr toggle term"
+          "SUPER,V,exec, pypr toggle pip"
+          "SUPER,M,exec, pypr toggle spotify"
 
           # Vim binds
           "SUPER,h,movefocus,l"
@@ -174,14 +180,14 @@
           "SUPER SHIFT, down, movewindow, d"
 
           # Move active window to a workspace with mainMod + ctrl + [0-9] #
-          "SUPER SHIFT, 1, movetoworkspace, 1"
-          "SUPER SHIFT, 2, movetoworkspace, 2"
-          "SUPER SHIFT, 3, movetoworkspace, 3"
-          "SUPER SHIFT, 4, movetoworkspace, 4"
-          "SUPER SHIFT, 5, movetoworkspace, 5"
-          "SUPER SHIFT, 6, movetoworkspace, 6"
-          "SUPER SHIFT, 7, movetoworkspace, 7"
-          "SUPER SHIFT, 8, movetoworkspace, 8"
+          "SUPER SHIFT, 1, movetoworkspacesilent, 1"
+          "SUPER SHIFT, 2, movetoworkspacesilent, 2"
+          "SUPER SHIFT, 3, movetoworkspacesilent, 3"
+          "SUPER SHIFT, 4, movetoworkspacesilent, 4"
+          "SUPER SHIFT, 5, movetoworkspacesilent, 5"
+          "SUPER SHIFT, 6, movetoworkspacesilent, 6"
+          "SUPER SHIFT, 7, movetoworkspacesilent, 7"
+          "SUPER SHIFT, 8, movetoworkspacesilent, 8"
 
         ];
 

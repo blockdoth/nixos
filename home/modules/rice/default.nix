@@ -14,6 +14,7 @@
     cbonsai
     tty-clock
     btop
+    glxinfo
   ];
 }
   

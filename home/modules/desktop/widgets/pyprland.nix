@@ -26,7 +26,7 @@
 
       # [scratchpads.spotify]
       # animation = "fromBottom"
-      # command = "spotify"
+      # command = "spotify --class scratchpad.spotify"
       # class = "spotify"
       # size = "75% 60%"
     '';

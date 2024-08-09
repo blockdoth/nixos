@@ -15,10 +15,10 @@
 
         settings = {
             mainBar = {
-                position= "top";
-                layer= "top";
-                spacing= 5;
-                height= 20;
+                position = "top";
+                layer = "top";
+                spacing = 5;
+                height = 20;
                 modules-left= [
                     "custom/logo"
                     "hyprland/workspaces"
@@ -99,7 +99,7 @@
 
                 network = {
                     format-wifi = "{icon}";
-                    format-ethernet = " ";
+                    format-ethernet = "";
                     format-disconnected = "󰌙 ";
                     format-icons = [
                         "󰤯 "
@@ -155,7 +155,7 @@
                 # };
 
                 tray = {
-                    icon-size= 20;
+                    icon-size= 15;
                     spacing= 8;
                 };
 
@@ -180,10 +180,12 @@
                 font-family: "JetBrains Mono";
                 font-size: 10pt;
                 font-weight: bold;
+                min-height: 0;
                 border-radius: 5px;
                 transition-property: background-color;
                 transition-duration: 0.5s;
             }
+
             @keyframes blink_red {
                 to {
                     background-color: rgb(242, 143, 173);
@@ -208,8 +210,8 @@
                 padding-right: 4px;
             }
             #workspaces button {
-                padding-top: 5px;
-                padding-bottom: 5px;
+                padding-top: 3px;
+                padding-bottom: 3px;
                 padding-left: 6px;
                 padding-right: 6px;
             }
@@ -236,8 +238,8 @@
             #bluetooth,
             #custom-logo
             {
-                padding-left: 10px;
-                padding-right: 10px;
+                padding-left: 8px;
+                padding-right: 8px;
                 color: rgb(217, 224, 238);
                 background-color: rgba(41, 61, 133, 0.9);
             }
