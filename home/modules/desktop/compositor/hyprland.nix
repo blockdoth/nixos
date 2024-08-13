@@ -34,7 +34,6 @@
           "pypr"
           "[workspace 1 silent] firefox"
           "[workspace 2 silent] codium"
-          "[workspace 2 silent] alacritty"
           "[workspace 3 silent] vesktop"
 
         ];
@@ -117,7 +116,15 @@
           "size 90% 90%,              $scratchpad"
           "workspace special silent,  $scratchpad"
           "center,                    $scratchpad"
+<<<<<<< HEAD
           # Picuture in picture mode
+=======
+          
+          # auto starts workspaces
+          "workspace 1,   class:(firefox)"
+          "workspace 2,   class:(VSCodium)"
+          "workspace 3,   class:(vesktop)"
+>>>>>>> a6648a0 (removed MAC randomization)
         ];
 
         bind = [

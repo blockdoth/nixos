@@ -15,10 +15,17 @@
 
         settings = {
             mainBar = {
+<<<<<<< HEAD
                 position = "top";
                 layer = "top";
                 spacing = 5;
                 height = 20;
+=======
+                position= "top";
+                layer= "top";
+                spacing= 3;
+                height= 10;
+>>>>>>> a6648a0 (removed MAC randomization)
                 modules-left= [
                     "custom/logo"
                     "hyprland/workspaces"
@@ -35,7 +42,11 @@
                     "disk"
                     # "pulseaudio"
                     "network"
+<<<<<<< HEAD
                     "battery"
+=======
+                    # "custom/powermenu"
+>>>>>>> a6648a0 (removed MAC randomization)
                 ];
 
                 clock= {
@@ -98,6 +109,7 @@
                 };
 
                 network = {
+<<<<<<< HEAD
                     format-wifi = "{icon}";
                     format-ethernet = "";
                     format-disconnected = "󰌙 ";
@@ -155,6 +167,16 @@
                 # };
 
                 tray = {
+=======
+                    tooltip-format = "Connected to {essid} via {gwaddr}";
+                    format-linked = "{ifname} (No IP)";
+                    format-disconnected = "Disconnected";
+                    format-ethernet = "Connected";
+                    format-wifi = "{essid}";
+                };
+
+                tray= {
+>>>>>>> a6648a0 (removed MAC randomization)
                     icon-size= 15;
                     spacing= 8;
                 };
@@ -177,8 +199,14 @@
         };
         style = ''
             * {
+<<<<<<< HEAD
                 font-family: "JetBrains Mono";
                 font-size: 10pt;
+=======
+                font-family: "JetBrainsMono Nerd Font";
+                font-size: 7pt;
+                min-height: 0;
+>>>>>>> a6648a0 (removed MAC randomization)
                 font-weight: bold;
                 min-height: 0;
                 border-radius: 5px;
@@ -210,8 +238,13 @@
                 padding-right: 4px;
             }
             #workspaces button {
+<<<<<<< HEAD
                 padding-top: 3px;
                 padding-bottom: 3px;
+=======
+                padding-top: 0px;
+                padding-bottom: 0px;
+>>>>>>> a6648a0 (removed MAC randomization)
                 padding-left: 6px;
                 padding-right: 6px;
             }
@@ -238,8 +271,13 @@
             #bluetooth,
             #custom-logo
             {
+<<<<<<< HEAD
                 padding-left: 8px;
                 padding-right: 8px;
+=======
+                padding-left: 5px;
+                padding-right: 5px;
+>>>>>>> a6648a0 (removed MAC randomization)
                 color: rgb(217, 224, 238);
                 background-color: rgba(41, 61, 133, 0.9);
             }

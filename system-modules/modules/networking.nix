@@ -6,7 +6,10 @@
 
   config = lib.mkIf config.networking.enable {
     networking = {
-      networkmanager.enable = true;
+      networkmanager = {
+          enable = true;
+          wifi.scanRandMacAddress = false;
+      };
     };
   };
 }
