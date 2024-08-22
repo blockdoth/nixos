@@ -16,7 +16,21 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs: 
 	let
 		system = "x86_64-linux";
-		pkgs = import nixpkgs { inherit system; config.allowUnfree = true;};
+		pkgs = import nixpkgs { 
+      inherit system; 
+      config.allowUnfree = true;
+    # TODO figure out how to set up the NUR
+    #   config.packageOverrides = pkgs: {
+    #     nur = import (
+    #       builtins.fetchTarball {
+    #         url = "http://github.com/nix-community/NUR/archive/e78affd5313eef31717a16f81bc658f5e5be2154.tar.gz";
+    #         sha256 = "17dkg56chx64a08f7z5wgikac3105n7p7y8wwdcxms36cqg7iz63";
+    #       }
+    #     ) {
+    #     inherit pkgs;
+    #   };
+    # };
+    };
 	in {
 
     nixosConfigurations = {

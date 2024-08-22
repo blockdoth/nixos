@@ -18,7 +18,7 @@
   			nr-desktop = "nh && sudo nixos-rebuild switch --flake .#desktop"; 
   			nr-server = "nh && sudo nixos-rebuild switch --flake .#server"; 
   			nr-laptop = "nh && sudo nixos-rebuild switch --flake .#laptop"; 
-  			bd = "nautilus --select . &"; 
+  			bdir = "nautilus --select . &"; 
   		};
  		};
   };
