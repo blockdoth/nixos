@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 {
   options = {
     booting.enable = lib.mkEnableOption "Enables booting";
@@ -25,6 +25,30 @@
           useOSProber = true;
           configurationLimit = 5;
         };
+      };
+      # https://wiki.archlinux.org/title/Silent_boot
+      kernelParams = [
+        "quiet"
+        "splash"
+        "vga=current"
+        "rd.systemd.show_status=false"
+        "rd.udev.log_level=3"
+        "udev.log_priority=3"
+      ];
+      consoleLogLevel = 0;
+      # https://github.com/NixOS/nixpkgs/pull/108294
+      initrd.verbose = false;
+
+
+      plymouth = {
+        enable = true;
+        theme = lib.mkForce "rings"; # Prevent conflict with stylix
+        themePackages = with pkgs; [
+          # By default we would install all themes
+          (adi1090x-plymouth-themes.override {
+            selected_themes = [ "rings" ];
+          })
+        ];
       };
     };
   };

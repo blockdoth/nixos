@@ -6,13 +6,21 @@
 
   config = lib.mkIf config.compositor.wayland.hyprland.enable {
     
+    home.sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = 1;
+      NIXOS_OZONE_WL = 1;
+    };
+
     # todo seperate files maybe
     home.packages = with pkgs; [
       grimblast 
       hyprpicker
       wl-clipboard
       wf-recorder
-      wlr-randr
+      wlr-randr # screen stuff
+
+      brightnessctl # Control background
+      playerctl # Control audio
     ];
 
     wayland.windowManager.hyprland = {
@@ -26,9 +34,9 @@
         ];
 
         exec-once = [
-          "pkill waybar & sleep 0.5 && waybar"
+          "hyprlock"
+          "waybar"
           "dunst"
-          "steam -silent"
           "hypridle"
           "hyprpaper"
           "pypr"
@@ -124,39 +132,38 @@
         ];
 
         bind = [
-          "SUPER,T,exec,alacritty"
-          "SUPER,F,exec,firefox"
-          "SUPER,D,exec,vesktop"
-
-          "SUPER,R,exec,rofi -show drun -show-icons"
-          "SUPER,W,exec,wlogout -b 5"
-          
-          "SUPER,Q,killactive"
-          "SUPER,S,togglefloating,"
-          "SUPER,P,pseudo,"
-          # "SUPER,G,togglegroup"
-          # "SUPER,tab,changegroupactive"
-
-          "SUPER SHIFT, S, exec, grimblast --notify copysave area"
-          ", PRINT, exec, grimblast --notify copysave screen"
-
-          "SUPER,B,fullscreen" 
+          "SUPER,A,exec, pypr toggle term"
+          "SUPER,B,exec,firefox"
           "SUPER,C,exec,hyprpicker -a" 
-          # "SUPER,E,exec, pypr expose" # broken
+          "SUPER,D,exec,vesktop"
+          # "SUPER,E,"
+          "SUPER,F,exec,nautilus"
+          # "SUPER,G,"
+          "SUPER,H,movefocus,l"
+          # "SUPER,I,"
+          "SUPER,K,movefocus,u"
+          "SUPER,J,movefocus,d"
+          "SUPER,L,movefocus,r"
+          # "SUPER,M,"
+          "SUPER,N,fullscreen" 
+          "SUPER,O,pseudo,"
+          "SUPER,P,pin,"
+          "SUPER,Q,killactive"
+          "SUPER,R,exec,rofi -show drun -show-icons"
+          # "SUPER,S,"
+          "SUPER,T,exec,alacritty"
+          # "SUPER,U,"
+          "SUPER,V,togglefloating"
+          "SUPER,W,exec,wlogout -b 5"
+          # "SUPER,X,"
+          # "SUPER,Y,"
           "SUPER,Z, exec, pypr zoom "
           "SUPER SHIFT,Z, exec, pypr zoom ++0.6"
 
 
-          # Scratch pads
-          "SUPER,A,exec, pypr toggle term"
-          "SUPER,V,exec, pypr toggle pip"
-          "SUPER,M,exec, pypr toggle spotify"
+          "SUPER SHIFT, S, exec, grimblast --notify copysave area"
+          ", PRINT, exec, grimblast --notify copysave screen"
 
-          # Vim binds
-          "SUPER,h,movefocus,l"
-          "SUPER,l,movefocus,r"
-          "SUPER,k,movefocus,u"
-          "SUPER,j,movefocus,d"
 
           "SUPER,left,movefocus,l"
           "SUPER,down,movefocus,r"

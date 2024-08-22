@@ -41,7 +41,6 @@
             fail_color = "rgba(0, 0, 0, 0)";
             font_color = "rgb(200, 200, 200)";
             fade_on_empty = true;
-            # font_family = "JetBrains Mono Nerd Font Mono";
             placeholder_text = "";
             hide_input = false;
             position = "0, -200";

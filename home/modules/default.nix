@@ -6,9 +6,7 @@ in
   imports = [
     ./desktop
     ./programs
-    ./system
     ./dev
-    ./rice
   ];
 
   options = {

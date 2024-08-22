@@ -188,7 +188,6 @@
         };
         style = ''
             * {
-                font-family: "JetBrainsMono Nerd Font";
                 font-size: 7pt;
                 min-height: 0;
                 font-weight: bold;
