@@ -1,10 +1,10 @@
 { pkgs, config, lib, ... }:
 {
   options = {
-    compositor.wayland.taskbar.waybar.enable = lib.mkEnableOption "Enables waybar";
+    windowmanager.wayland.taskbar.waybar.enable = lib.mkEnableOption "Enables waybar";
   };
 
-  config = lib.mkIf config.compositor.wayland.taskbar.waybar.enable {
+  config = lib.mkIf config.windowmanager.wayland.taskbar.waybar.enable {
     programs.waybar = {
         enable = true;
       

@@ -1,10 +1,10 @@
 { pkgs, config, lib, ... }:
 {
   options = {
-    compositor.wayland.nightmode.gammastep.enable = lib.mkEnableOption "Enables hyprpaper";
+    windowmanager.wayland.nightmode.gammastep.enable = lib.mkEnableOption "Enables hyprpaper";
   };
 
-  config = lib.mkIf config.compositor.wayland.nightmode.gammastep.enable {
+  config = lib.mkIf config.windowmanager.wayland.nightmode.gammastep.enable {
     services.gammastep = {
       enable = true;
       provider = "manual";

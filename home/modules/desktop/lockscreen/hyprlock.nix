@@ -1,10 +1,10 @@
 { pkgs, config, lib, ... }:
 {
   options = {
-    compositor.wayland.lockscreen.hyprlock.enable = lib.mkEnableOption "Enables hyprlock";
+    windowmanager.wayland.lockscreen.hyprlock.enable = lib.mkEnableOption "Enables hyprlock";
   };
 
-  config = lib.mkIf config.compositor.wayland.lockscreen.hyprlock.enable {
+  config = lib.mkIf config.windowmanager.wayland.lockscreen.hyprlock.enable {
     programs.hyprlock = {
       enable = true;
 

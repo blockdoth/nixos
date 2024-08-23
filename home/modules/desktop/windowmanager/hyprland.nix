@@ -1,10 +1,10 @@
 { pkgs, config, lib, ... }:
 {
   options = {
-    compositor.wayland.hyprland.enable = lib.mkEnableOption "Enables hyprland";
+    windowmanager.wayland.hyprland.enable = lib.mkEnableOption "Enables hyprland";
   };
 
-  config = lib.mkIf config.compositor.wayland.hyprland.enable {
+  config = lib.mkIf config.windowmanager.wayland.hyprland.enable {
     
     home.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = 1;
@@ -97,18 +97,21 @@
           workspace_swipe_fingers = 3;
         };
 
+        dwindle = {
+          preserve_split = true;
+        };
 
         animations = {
           enabled = true;
           bezier = "myBezier,   0.05,   0.9,  0.1,  1.05";
           animation = [
-            "windows,       1,  7,   myBezier"
+            "windows,       1,  5,   myBezier"
             "windowsOut,    1,  7,   default,   popin 80%"
-            "windowsMove,   1,  7,   myBezier"
+            "windowsMove,   1,  6,   myBezier"
             "border,        1,  10,  default"
             "borderangle,   1,  8,   default"
-            "fade,          1,  7,   default"
-            "workspaces,    1,  6,   default"
+            "fade,          1,  6,   default"
+            "workspaces,    1,  5,   default"
           ];
         };
         # doesnt display the other layers, only

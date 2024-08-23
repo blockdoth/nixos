@@ -3,17 +3,17 @@
   
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     home-manager = {
       url = "github:nix-community/home-manager";
     	inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix.url = "github:danth/stylix";
-
+    
+    nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, nixneovimplugins, ... }@inputs: 
 	let
 		system = "x86_64-linux";
 		pkgs = import nixpkgs { 
@@ -55,15 +55,19 @@
         modules = [
           ./hosts/server/configuration.nix
           home-manager.nixosModules.home-manager         
-				  inputs.stylix.nixosModules.stylix
         ];
     	};  
     };
 
     homeConfigurations = {
     	pepijn = home-manager.lib.homeManagerConfiguration {
-				inherit pkgs;
-      	modules = [
+      	inherit pkgs;
+        modules = [
+          {
+            nixpkgs.overlays = [
+              nixneovimplugins.overlays.default
+            ];
+          }
         	home/users/pepijn.nix
       	];
     	};

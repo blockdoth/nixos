@@ -7,10 +7,10 @@ let
 in {
 
   options = {
-    compositor.wayland.idle.hypridle.enable = lib.mkEnableOption "Enables hypridle";
+    windowmanager.wayland.idle.hypridle.enable = lib.mkEnableOption "Enables hypridle";
   };
 
-  config = lib.mkIf config.compositor.wayland.idle.hypridle.enable {
+  config = lib.mkIf config.windowmanager.wayland.idle.hypridle.enable {
     services.hypridle = {
       enable = true;
       settings = {

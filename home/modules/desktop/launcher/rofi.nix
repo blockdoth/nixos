@@ -1,10 +1,10 @@
 { pkgs, config, lib, ... }:
 {
   options = {
-    compositor.wayland.applauncher.rofi.enable = lib.mkEnableOption "Enables rofi";
+    windowmanager.wayland.applauncher.rofi.enable = lib.mkEnableOption "Enables rofi";
   };
 
-  config = lib.mkIf config.compositor.wayland.applauncher.rofi.enable {
+  config = lib.mkIf config.windowmanager.wayland.applauncher.rofi.enable {
 
     programs.rofi = {
       enable = true;

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 let 
   guiEnabled = config.modules.gui.enable;
 in
@@ -20,7 +20,7 @@ in
     prompt.starship.enable = true;
 
     # desktop env
-    compositor.wayland = {
+    windowmanager.wayland = {
       hyprland.enable = mkDefault guiEnabled;
       logoutmenu.wlogout.enable = mkDefault guiEnabled;
       lockscreen.hyprlock.enable = mkDefault guiEnabled;
@@ -32,14 +32,17 @@ in
       nightmode.gammastep.enable = mkDefault guiEnabled;
     };  
 
+    # filebrowser = {
+    #   dolphin.enable = mkDefault guiEnabled;
+    #   yazi.enable = mkDefault true;
+    # };
+
     notifications.dunst.enable = mkDefault guiEnabled;
     custom-fonts.enable = mkDefault true;
 
-    # cli programs
     git.enable = mkDefault true;
     neovim.enable = mkDefault true;
 
-    # gui programs
     terminal.alacritty.enable = mkDefault guiEnabled;
     firefox.enable = mkDefault guiEnabled;
     jetbrains.enable = mkDefault guiEnabled;

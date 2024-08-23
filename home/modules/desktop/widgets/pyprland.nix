@@ -1,10 +1,10 @@
 { pkgs, config, lib, ... }:
 {
   options = {
-    compositor.wayland.widgets.pyprland.enable = lib.mkEnableOption "Enables hyprpaper";
+    windowmanager.wayland.widgets.pyprland.enable = lib.mkEnableOption "Enables hyprpaper";
   };
 
-  config = lib.mkIf config.compositor.wayland.widgets.pyprland.enable {
+  config = lib.mkIf config.windowmanager.wayland.widgets.pyprland.enable {
     home.packages = with pkgs; [
       pyprland
     ];

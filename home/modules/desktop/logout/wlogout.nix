@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 {
   options = {
-    compositor.wayland.logoutmenu.wlogout.enable = lib.mkEnableOption "Enables wlogout";
+    windowmanager.wayland.logoutmenu.wlogout.enable = lib.mkEnableOption "Enables wlogout";
   };
 
   config = 
@@ -11,7 +11,7 @@
       border-radius = "10";
       border-radius-active = "10";
     in  
-    lib.mkIf config.compositor.wayland.logoutmenu.wlogout.enable {
+    lib.mkIf config.windowmanager.wayland.logoutmenu.wlogout.enable {
     programs.wlogout = {
       enable = true;
       layout = [

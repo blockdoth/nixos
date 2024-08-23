@@ -1,8 +1,9 @@
 { ...}:
 {
   imports = [
-    ./compositor/hyprland.nix
+    ./windowmanager/hyprland.nix
     ./filebrowser/dolphin.nix
+    ./filebrowser/yazi.nix
     ./fonts
     ./idle/hypridle.nix
     ./launcher/rofi.nix
