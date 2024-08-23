@@ -33,6 +33,9 @@ in
       TTYVTDisallocate = true;
     };
   };
+  config = lib.mkIf !config.greeter.enable {
+    #TODO auto login and skipp greeter
+  };
 }  
   
   

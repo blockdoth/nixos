@@ -12,7 +12,7 @@
     programs = {
       git = {
         enable = true;    	
-        userName = "PepijnVanEgmond";
+        userName = "blockdoth";
         userEmail = "pepijn.pve@gmail.com";
         extraConfig = {    		
           init.defaultBranch = "main";

@@ -14,35 +14,36 @@ in
   };
 
 
-  config = {
+  config = with lib; {
     # common
     shell.fish.enable = true;
-    terminal.alacritty.enable = true;
     prompt.starship.enable = true;
-  
+
     # desktop env
     compositor.wayland = {
-      hyprland.enable = lib.mkDefault guiEnabled;
-      logoutmenu.wlogout.enable = lib.mkDefault guiEnabled;
-      lockscreen.hyprlock.enable = lib.mkDefault guiEnabled;
-      idle.hypridle.enable = lib.mkDefault guiEnabled;
-      applauncher.rofi.enable = lib.mkDefault guiEnabled;
-      wallpaper.hyprpaper.enable = lib.mkDefault guiEnabled;
-      taskbar.waybar.enable  = lib.mkDefault guiEnabled;
-      widgets.pyprland.enable  = lib.mkDefault guiEnabled;
+      hyprland.enable = mkDefault guiEnabled;
+      logoutmenu.wlogout.enable = mkDefault guiEnabled;
+      lockscreen.hyprlock.enable = mkDefault guiEnabled;
+      idle.hypridle.enable = mkDefault guiEnabled;
+      applauncher.rofi.enable = mkDefault guiEnabled;
+      wallpaper.hyprpaper.enable = mkDefault guiEnabled;
+      taskbar.waybar.enable  = mkDefault guiEnabled;
+      widgets.pyprland.enable  = mkDefault guiEnabled;
+      nightmode.gammastep.enable = mkDefault guiEnabled;
     };  
 
-    notifications.dunst.enable = lib.mkDefault guiEnabled;
-    custom-fonts.enable = lib.mkDefault true;
+    notifications.dunst.enable = mkDefault guiEnabled;
+    custom-fonts.enable = mkDefault true;
 
     # cli programs
-    git.enable = lib.mkDefault true;
-    neovim.enable = lib.mkDefault true;
+    git.enable = mkDefault true;
+    neovim.enable = mkDefault true;
 
     # gui programs
-    firefox.enable = lib.mkDefault guiEnabled;
-    jetbrains.enable = lib.mkDefault guiEnabled;
-    vscode.enable = lib.mkDefault guiEnabled;
+    terminal.alacritty.enable = mkDefault guiEnabled;
+    firefox.enable = mkDefault guiEnabled;
+    jetbrains.enable = mkDefault guiEnabled;
+    vscode.enable = mkDefault guiEnabled;
     
     #dev
     #direnv.enable = true;

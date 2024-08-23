@@ -34,16 +34,15 @@
         ];
 
         exec-once = [
-          "hyprlock"
           "waybar"
           "dunst"
           "hypridle"
           "hyprpaper"
           "pypr"
+          "gammastep"
           "[workspace 1 silent] firefox"
           "[workspace 2 silent] codium"
           "[workspace 3 silent] vesktop"
-
         ];
 
         xwayland = {

@@ -8,6 +8,7 @@
     ./launcher/rofi.nix
     ./lockscreen/hyprlock.nix
     ./logout/wlogout.nix
+    ./nightmode/gammastep.nix
     ./notifications/dunst.nix
     ./prompt/starship.nix
     ./shell/fish.nix
