@@ -10,7 +10,7 @@
     gui.enable = true;
     audio.enable = true;
     bluetooth.enable = true;
-    users.pepijn.enable = true;
+    users.blockdoth.enable = true;
   };
 
   services = {

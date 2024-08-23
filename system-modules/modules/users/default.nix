@@ -1,7 +1,7 @@
 { config, lib, ...}:
 {
   imports = [
-    ./pepijn.nix
+    ./blockdoth.nix
     ./headless.nix
   ];
 

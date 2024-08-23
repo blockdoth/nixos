@@ -1,5 +1,5 @@
 {
-  description = "Pepijn's nix config";
+  description = "Blockdoth's nix config";
   
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -60,7 +60,7 @@
     };
 
     homeConfigurations = {
-    	pepijn = home-manager.lib.homeManagerConfiguration {
+    	blockdoth = home-manager.lib.homeManagerConfiguration {
       	inherit pkgs;
         modules = [
           {
@@ -68,7 +68,7 @@
               nixneovimplugins.overlays.default
             ];
           }
-        	home/users/pepijn.nix
+        	home/users/blockdoth.nix
       	];
     	};
       headless = home-manager.lib.homeManagerConfiguration {

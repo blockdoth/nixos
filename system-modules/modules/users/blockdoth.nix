@@ -1,12 +1,12 @@
 { pkgs, lib, config, ... }:
 {
   options = {
-    pepijn.enable = lib.mkEnableOption "enables user pepijn";
+    blockdoth.enable = lib.mkEnableOption "enables user blockdoth";
   };
 
-  config = lib.mkIf config.pepijn.enable{
+  config = lib.mkIf config.blockdoth.enable{
     security.sudo.wheelNeedsPassword = false;
-    users.users.pepijn = {
+    users.users.blockdoth = {
       isNormalUser = true;
       shell = pkgs.fish;
       extraGroups = [ "wheel" "networkmanager"];

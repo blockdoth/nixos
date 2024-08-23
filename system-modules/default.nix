@@ -6,7 +6,7 @@ let
   enableBluetooth     = config.system-modules.bluetooth.enable;
   enableSsh           = config.system-modules.ssh.enable;
   enableUserHeadless  = config.system-modules.users.headless.enable;
-  enableUserPepijn    = config.system-modules.users.pepijn.enable;
+  enableUserBlockdoth   = config.system-modules.users.blockdoth.enable;
 in
 {
   imports = [
@@ -34,7 +34,7 @@ in
       audio.enable          = lib.mkOption { type = lib.types.bool; default = false; };
       bluetooth.enable      = lib.mkOption { type = lib.types.bool; default = false; };
       laptop.enable         = lib.mkOption { type = lib.types.bool; default = false; };
-      users.pepijn.enable   = lib.mkOption { type = lib.types.bool; default = false; };
+      users.blockdoth.enable   = lib.mkOption { type = lib.types.bool; default = false; };
       users.headless.enable = lib.mkOption { type = lib.types.bool; default = false; };
     };
   };
@@ -65,13 +65,13 @@ in
 
     # Enables the users, at least one must be defined
     headless.enable = config.system-modules.users.headless.enable;
-    pepijn.enable = config.system-modules.users.pepijn.enable;
+    blockdoth.enable = config.system-modules.users.blockdoth.enable;
 
     # Prevent me from fucking myself over again
     assertions =
     [ 
       { 
-        assertion = enableUserHeadless || enableUserPepijn;
+        assertion = enableUserHeadless || enableUserBlockdoth;
         message = "At least one user must be enabled";
       }
       { 

@@ -12,8 +12,8 @@
   		'';
   		shellAliases = {
   			cls = "clear"; 
-  			nh = "cd /home/pepijn/nixos"; 
-  			hr-pepijn = "nh && home-manager switch --flake .#pepijn"; 
+  			nh = "cd /home/blockdoth/nixos"; 
+  			hr-blockdoth = "nh && home-manager switch --flake .#blockdoth"; 
   			hr-headless = "nh && home-manager switch --flake .#headless"; 
   			nr-desktop = "nh && sudo nixos-rebuild switch --flake .#desktop"; 
   			nr-server = "nh && sudo nixos-rebuild switch --flake .#server"; 

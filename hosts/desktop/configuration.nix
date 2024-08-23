@@ -10,7 +10,7 @@
     gui.enable = true;
     audio.enable = true;
     gaming.enable = true;
-    users.pepijn.enable = true;
+    users.blockdoth.enable = true;
   };
   
 

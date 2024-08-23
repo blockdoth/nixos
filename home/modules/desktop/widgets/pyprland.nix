@@ -10,7 +10,7 @@
     ];
 
 
-    home.file."/home/pepijn/.config/hypr/pyprland.toml".text = ''
+    home.file."/home/blockdoth/.config/hypr/pyprland.toml".text = ''
       [pyprland]
       plugins = [
       #  "expose", # broken

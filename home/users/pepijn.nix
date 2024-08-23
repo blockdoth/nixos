@@ -2,8 +2,8 @@
 {
   programs.home-manager.enable = true;
   home = {
-    username = "pepijn";
-    homeDirectory = "/home/pepijn";
+    username = "blockdoth";
+    homeDirectory = "/home/blockdoth";
     stateVersion = "24.05";
   };
 
@@ -24,7 +24,7 @@
   home.sessionVariables = {
     BROWSER = "firefox";
     TERMINAL = "alacritty";
-    XDG_SCREENSHOTS_DIR = "/home/pepijn/Pictures/Screenshots";
+    XDG_SCREENSHOTS_DIR = "/home/blockdoth/Pictures/Screenshots";
   };
   
 }
