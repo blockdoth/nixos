@@ -1,10 +1,10 @@
 { pkgs, config, lib, ... }:
 {
   options = {
-    jetbrains.enable = lib.mkEnableOption "Enables jetbrains idea's";
+    modules.dev.editors.jetbrains.enable = lib.mkEnableOption "Enables jetbrains idea's";
   };
 
-  config = lib.mkIf config.jetbrains.enable {
+  config = lib.mkIf config.modules.dev.editors.jetbrains.enable {
     home.packages = with pkgs; [
       jetbrains.clion
       jetbrains.webstorm

@@ -1,4 +1,4 @@
-{  config, lib, ...}:
+{  config, lib, pkgs, ...}:
 {
   imports = [
     ./wayland.nix
@@ -7,6 +7,8 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    # extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    # extraPortals = with pkgs; [
+    #   xdg-desktop-portal-gtk
+    # ];
   };
 }

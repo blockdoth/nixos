@@ -1,55 +1,90 @@
 { config, lib, pkgs, inputs, ... }:
 let 
-  guiEnabled = config.modules.gui.enable;
+  enableGui      = config.modules.gui.enable;
+  enableDev      = config.modules.dev.enable;
+  enablePrograms = config.modules.programs.enable;
+  enableTheming  = config.modules.theming.enable;
 in
 {
   imports = [
-    ./desktop
-    ./programs
+    ./core
     ./dev
+    ./programs
   ];
 
-  options = {
-    modules.gui.enable = lib.mkOption { type = lib.types.bool; default = false; };
+  options =  with lib; {
+    modules.gui.enable          = mkOption { type = types.bool; default = false; };
+    modules.dev.enable          = mkOption { type = types.bool; default = false; };
+    modules.programs.enable     = mkOption { type = types.bool; default = false; };
+    modules.theming.enable      = mkOption { type = types.bool; default = false; };
   };
 
 
   config = with lib; {
-    # common
-    shell.fish.enable = true;
-    prompt.starship.enable = true;
+    modules = {
+      core = {
+        desktop = {
+          launcher.rofi.enable          = mkDefault enableGui;
+          lockscreen.hyprlock.enable    = mkDefault enableGui;
+          logout.wlogout.enable         = mkDefault enableGui;
+          taskbar.waybar.enable         = mkDefault enableGui;
+          wallpaper.hyprpaper.enable    = mkDefault enableGui;
+          widgets.pyprland.enable       = mkDefault enableGui;
+          windowmanager.hyprland.enable = mkDefault enableGui;
+        };
+        services = {
+          idle.hypridle.enable        = mkDefault enableGui;
+          nightmode.gammastep.enable  = mkDefault enableGui;
+          notifications.dunst.enable  = mkDefault enableGui;
+        };
 
-    # desktop env
-    windowmanager.wayland = {
-      hyprland.enable = mkDefault guiEnabled;
-      logoutmenu.wlogout.enable = mkDefault guiEnabled;
-      lockscreen.hyprlock.enable = mkDefault guiEnabled;
-      idle.hypridle.enable = mkDefault guiEnabled;
-      applauncher.rofi.enable = mkDefault guiEnabled;
-      wallpaper.hyprpaper.enable = mkDefault guiEnabled;
-      taskbar.waybar.enable  = mkDefault guiEnabled;
-      widgets.pyprland.enable  = mkDefault guiEnabled;
-      nightmode.gammastep.enable = mkDefault guiEnabled;
-    };  
+        style = {
+          fonts.enable          = mkDefault true;
+          theme.stylix.enable   = mkDefault enableTheming;
+        };
 
-    # filebrowser = {
-    #   dolphin.enable = mkDefault guiEnabled;
-    #   yazi.enable = mkDefault true;
-    # };
+        terminal = {
+          alacritty.enable        = mkDefault enableGui;
+          prompt.starship.enable  = mkDefault true;
+          shell.fish.enable       = mkDefault true;
+        };
 
-    notifications.dunst.enable = mkDefault guiEnabled;
-    custom-fonts.enable = mkDefault true;
+        utils = {
+          base.enable   = mkDefault true;
+          git.enable    = mkDefault true;
+        };
 
-    git.enable = mkDefault true;
-    neovim.enable = mkDefault true;
+      };
 
-    terminal.alacritty.enable = mkDefault guiEnabled;
-    firefox.enable = mkDefault guiEnabled;
-    jetbrains.enable = mkDefault guiEnabled;
-    vscode.enable = mkDefault guiEnabled;
-    
-    #dev
-    #direnv.enable = true;
+      dev = {
+        editors = {
+          neovim.enable     = mkDefault enableDev;
+          jetbrains.enable  = mkDefault enableDev;
+          vscode.enable     = mkDefault enableDev;
+        };
+        env = {
+          direnv.enable     = mkDefault enableDev;
+        };
+      };
+
+      programs = {
+        filebrowser = {
+          dolphin.enable  = mkDefault enablePrograms;
+          yazi.enable     = mkDefault enablePrograms;
+        };
+        firefox.enable = mkDefault enablePrograms;
+        discord.enable = mkDefault enablePrograms;
+        spotify.enable = mkDefault enablePrograms;
+      };
+    };
+
+    assertions =
+      [ 
+        { 
+          assertion = enableGui || !(enableGui && enablePrograms);
+          message = "In order to enable programs, the GUI must be enabled";
+        } 
+      ];
   };
 }
 

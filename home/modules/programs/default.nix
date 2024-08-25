@@ -2,9 +2,9 @@
 {
   imports = [
     ./firefox/firefox.nix
-    ./git.nix
-    ./fastfetch.nix
-    ./utils.nix
-    ./rice.nix
+    ./filebrowser/dolphin.nix
+    ./filebrowser/yazi.nix
+    ./discord.nix
+    ./spotify.nix
   ];
 }

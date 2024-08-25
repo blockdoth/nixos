@@ -2,10 +2,10 @@
 {
 
   options = {
-    neovim.enable = lib.mkEnableOption "Enables neovim";
+    modules.dev.editors.neovim.enable = lib.mkEnableOption "Enables neovim";
   };
 
-  config = lib.mkIf config.neovim.enable {
+  config = lib.mkIf config.modules.dev.editors.neovim.enable{
  
 
     programs.neovim = {

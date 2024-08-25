@@ -12,14 +12,12 @@
   ];
 
   modules = {
-    gui.enable = true;
-    # custom-fonts.enable = true;
+    gui.enable      = true;
+    dev.enable      = true;
+    theming.enable  = true;
+    programs.enable = true;
   };
-  
-  home.packages = with pkgs; [
-    spotify
-    vesktop
-  ];
+
 
   home.sessionVariables = {
     BROWSER = "firefox";
