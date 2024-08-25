@@ -18,7 +18,7 @@
                 position= "top";
                 layer= "top";
                 spacing= 3;
-                height= 10;
+                height= 13;
                 modules-left= [
                     "custom/logo"
                     "hyprland/workspaces"
@@ -215,6 +215,8 @@
             }
             window > box {
                 background-color: rgba(30,30,42,0.5);
+                border-color: #84A396;
+                border-width: 2px;
             }
             #workspaces {
                 padding-left: 0px;
@@ -248,7 +250,8 @@
             #tray,
             #bluetooth,
             #custom-logo
-            {
+            {   
+                min-width: 20px;
                 padding-left: 5px;
                 padding-right: 5px;
                 color: rgb(217, 224, 238);

@@ -88,7 +88,7 @@
             noise = 0.0117;
             contrast = 1.3;
             brightness = 1;
-            xray = true;
+            # xray = true;
           };
         };
 
@@ -116,11 +116,18 @@
         };
         # doesnt display the other layers, only
         layerrule = [
-          # "blur, logout_dialog"
+          "blur, logout_dialog"
         ];
         "$scratchpad" = "class:^(scratchpad)$";
         # "$pip" = "title:^(Picture-in-Picture)$";
         windowrulev2 = [
+          #transpancy
+          "opacity 0.95, class:^(firefox)"
+          "opacity 0.95, class:^(Spotify)"
+          "opacity 0.95, class:^(VSCodium)"
+          "opacity 0.95, class:^(vesktop)"
+
+
           # Scratchpads
           "float,                     $scratchpad"
           "size 90% 90%,              $scratchpad"

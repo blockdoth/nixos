@@ -28,7 +28,7 @@
           progress_bar = true;
           transparency = 0;
           text_icon_padding = 0;
-          separator_color = "frame";
+          # separator_color = "frame";
           sort = "yes";
           idle_threshold = 120;
           line_height = 0;
@@ -66,21 +66,21 @@
           fullscreen = "delay";
         };
 
-        urgency_low = {
-          background = "#141c21";
-          foreground = "#93a1a1";
-          frame_color = "#036b32";
-        };
-        urgency_normal = {
-          background = "#141c21";
-          foreground = "#93a1a1";
-          frame_color = "#26397D";
-        };
-        urgency_critical = {
-          background = "#141c21";
-          foreground = "#93a1a1";
-          frame_color = "#bf021e";
-        };
+        # urgency_low = {
+        #   background = "#141c21";
+        #   foreground = "#93a1a1";
+        #   frame_color = "#036b32";
+        # };
+        # urgency_normal = {
+        #   background = "#141c21";
+        #   foreground = "#93a1a1";
+        #   frame_color = "#26397D";
+        # };
+        # urgency_critical = {
+        #   background = "#141c21";
+        #   foreground = "#93a1a1";
+        #   frame_color = "#bf021e";
+        # };
       };
     };
   };

@@ -13,6 +13,9 @@
       fd
       ripgrep
       fzf
+      imagemagick
+      htop
+      btop
     ];
   };
 

@@ -1,13 +1,24 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, inputs, ... }:
+let
+  spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
+in
 {  
   options = {
     modules.programs.spotify.enable = lib.mkEnableOption "Enables spotify";
   };
 
+
   config = lib.mkIf config.modules.programs.spotify.enable {
-    home.packages = with pkgs; [
-      spotify
-    ];
+
+    programs.spicetify = {
+      enable = true;
+      enabledExtensions = with spicePkgs.extensions; [
+        adblock
+        # shuffle # shuffle+ (special characters are sanitized out of extension names)
+      ];
+      theme = spicePkgs.themes.text;
+      colorScheme = "gruvbox";
+    };
   };
 }
     

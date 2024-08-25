@@ -9,11 +9,11 @@
     };
 
     stylix.url = "github:danth/stylix";
-    
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixneovimplugins, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, nixneovimplugins,spicetify-nix, ... }@inputs: 
 	let
 		system = "x86_64-linux";
 		pkgs = import nixpkgs { 
@@ -35,7 +35,7 @@
 
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit pkgs; inherit inputs; };
+        specialArgs = { inherit inputs; };
         modules = [
           ./hosts/laptop/configuration.nix
           home-manager.nixosModules.home-manager         
@@ -43,7 +43,7 @@
 				];
       };
       desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit pkgs; inherit inputs; };
+        specialArgs = { inherit inputs; };
         modules = [
           ./hosts/desktop/configuration.nix
           home-manager.nixosModules.home-manager         
@@ -51,7 +51,7 @@
         ];
     	};
       server = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit pkgs; inherit inputs; };
+        specialArgs = { inherit inputs; };
         modules = [
           ./hosts/server/configuration.nix
           home-manager.nixosModules.home-manager         
@@ -62,12 +62,15 @@
     homeConfigurations = {
     	blockdoth = home-manager.lib.homeManagerConfiguration {
       	inherit pkgs;
+        extraSpecialArgs = { inherit inputs; };
         modules = [
           {
             nixpkgs.overlays = [
               nixneovimplugins.overlays.default
             ];
           }
+          inputs.spicetify-nix.homeManagerModules.default
+          inputs.stylix.homeManagerModules.stylix
         	home/users/blockdoth.nix
       	];
     	};

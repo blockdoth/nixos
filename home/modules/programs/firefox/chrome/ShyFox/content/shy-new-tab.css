@@ -10,7 +10,6 @@ Styles for new tab
   :root{
     --newtab-primary-action-background: var(--shy-color) !important;
     --newtab-primary-action-background-pocket: var(--shy-color) !important;
-    
     --tr-col: color-mix(in srgb, var(--newtab-background-color) 40%, transparent);
     --tr-hov-col: color-mix(in srgb, var(--tr-col) 80%, var(--newtab-text-primary-color));
     --newtab-background-color-secondary: color-mix(in srgb, var(--newtab-background-color) 90%, var(--newtab-text-primary-color)) !important;
@@ -116,7 +115,9 @@ Styles for new tab
   }
   
   /* dark wallpaper */
-  :root[lwt-newtab-brighttext] body {background-image: url("../../wallpaper.png") !important;}
+  :root[lwt-newtab-brighttext] body {
+    background-image: url("../../wallpaper.png") !important;
+  }
   
   /* light wallpaper */                                      /* `wallpaper.png` will be used when `-light` one does not exist */
   :root:not([lwt-newtab-brighttext]) body {background-image: url("../../wallpaper-light.png"), url("../../wallpaper.png") !important;}

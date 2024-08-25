@@ -17,14 +17,14 @@
         };
 
         window = {
-          opacity = 0.7;
+          # opacity = 0.7;
           padding.x = 10;
           padding.y = 10;
           decorations = "buttonless";
         };
 
         font = {
-          size = 10.0;
+          # size = 10.0;
           # normal.family = "FuraCode Nerd Font";
           # bold.family = "FuraCode Nerd Font";
           # italic.family = "FuraCode Nerd Font";

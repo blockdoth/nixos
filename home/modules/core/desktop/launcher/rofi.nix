@@ -9,8 +9,17 @@
     programs.rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
-      theme = "~/.config/rofi/theme.rasi";
+      theme = lib.mkDefault "~/.config/rofi/theme.rasi";
+    
+        
+
+
+
+
     };
+
+
+
 
     home.file.".config/rofi/theme.rasi".text = ''
 /*Dracula theme based on the Purple official rofi theme*/

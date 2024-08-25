@@ -16,6 +16,17 @@
         jnoortheen.nix-ide
         kamadorueda.alejandra 
       ];  
+      userSettings = {
+        files.autoSave = "afterDelay";
+        editor.tabSize = 2;
+        workbench.tree.indent = 12;
+      };
     };  
+
+    #  home.file.".config/VSCodium/User/settings.json".text = ''
+    #   {
+    #     "files.autoSave": "afterDelay"
+    #   }
+    #  '';
   };
 }

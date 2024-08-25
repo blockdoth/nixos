@@ -13,7 +13,6 @@
     cava
     cbonsai
     tty-clock
-    btop
   ];
 }
   

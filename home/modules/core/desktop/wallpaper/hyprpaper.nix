@@ -6,13 +6,9 @@
 
   config = 
   let 
-    wallpaper_path = "${./wallpapers/pinkpanther.jpg}";
+    wallpaper_path = "${./wallpapers/castle.png}";
   in
   lib.mkIf config.modules.core.desktop.wallpaper.hyprpaper.enable {
-    home.packages = with pkgs; [
-      hyprpaper
-    ];
-
     services.hyprpaper = {
       # package = inputs.hyprpaper.packages.${pkgs.system}.default;
       enable = true;
