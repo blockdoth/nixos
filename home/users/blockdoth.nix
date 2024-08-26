@@ -16,6 +16,7 @@
     dev.enable      = true;
     theming.enable  = true;
     programs.enable = true;
+    
   };
 
 

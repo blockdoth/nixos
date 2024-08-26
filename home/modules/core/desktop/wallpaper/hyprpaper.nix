@@ -6,7 +6,7 @@
 
   config = 
   let 
-    wallpaper_path = "${./wallpapers/castle.png}";
+    wallpaperBasePath = "../../../../../assets/wallpapers";
   in
   lib.mkIf config.modules.core.desktop.wallpaper.hyprpaper.enable {
     services.hyprpaper = {
@@ -14,10 +14,10 @@
       enable = true;
       settings = {
         preload = [
-          wallpaper_path
+          "${wallpaperBasePath}/castle.png"
         ];
         wallpaper = [
-          ",${wallpaper_path}"
+          ",${wallpaperBasePath}/castle.png"
         ];
       };
     };

@@ -8,8 +8,8 @@
     	inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix";
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    stylix.url = "github:danth/stylix/8c507cb2256a7246817aef5cd9e7752099184d15";
+    spicetify-nix.url = "github:the-argus/spicetify-nix/";
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
   };
 
@@ -20,7 +20,7 @@
       inherit system; 
       config.allowUnfree = true;
     # TODO figure out how to set up the NUR
-    #   config.packageOverrides = pkgs: {
+    #   config.packageOverrides = pkgs: {1
     #     nur = import (
     #       builtins.fetchTarball {
     #         url = "http://github.com/nix-community/NUR/archive/e78affd5313eef31717a16f81bc658f5e5be2154.tar.gz";

@@ -5,7 +5,11 @@
   };
 
   config = lib.mkIf config.modules.core.desktop.taskbar.waybar.enable {
-    programs.waybar = {
+    programs.waybar = 
+    let
+        colors = config.lib.stylix.colors;
+    in
+    {
         enable = true;
       
         systemd = {
@@ -46,7 +50,7 @@
                 };
 
                 "custom/logo" = {
-                    format = "  ";
+                    format = " ";
                     on-click = "rofi -show drun";
                     tooltip = false;
                 };
@@ -102,14 +106,14 @@
 
                 network = {
                     format-wifi = "{icon}";
-                    format-ethernet = "";
-                    format-disconnected = "󰌙 ";
+                    format-ethernet = "󱘖  Ethernet";
+                    format-disconnected = "  Disconnected";
                     format-icons = [
-                        "󰤯 "
-                        "󰤟 "
-                        "󰤢 "
-                        "󰤢 "
-                        "󰤨 "
+                        "󰤯  Wifi"
+                        "󰤟  Wifi"
+                        "󰤢  Wifi"
+                        "󰤢  Wifi"
+                        "󰤨  Wifi"
                     ];
                 };
                 
@@ -199,8 +203,8 @@
 
             @keyframes blink_red {
                 to {
-                    background-color: rgb(242, 143, 173);
-                    color: rgb(26, 24, 38);
+                    background-color: #${config.lib.stylix.colors.base08};
+                    color: #${config.lib.stylix.colors.base07};
                 }
             }
             .warning, .critical, .urgent {
@@ -214,9 +218,9 @@
                 background-color: transparent;
             }
             window > box {
-                background-color: rgba(30,30,42,0.5);
-                border-color: #84A396;
-                border-width: 2px;
+                /*background-color: #${colors.base07}; */
+                border-color: #${colors.base0F};
+                border-width: 10px;
             }
             #workspaces {
                 padding-left: 0px;
@@ -229,11 +233,11 @@
                 padding-right: 6px;
             }
             #workspaces button.active {
-                background-color: rgb(65, 93, 197);
-                color: rgb(26, 24, 38);
+                background-color: #${colors.base0D};
+                color: #${colors.base00};
             }
             #workspaces button:hover {
-                background-color: rgb(75, 75, 150);
+                background-color:  #${colors.base02};
             }
 
             #mode, 
@@ -252,10 +256,9 @@
             #custom-logo
             {   
                 min-width: 20px;
-                padding-left: 5px;
-                padding-right: 5px;
-                color: rgb(217, 224, 238);
-                background-color: rgba(41, 61, 133, 0.9);
+                padding: 5px;
+                color: #${colors.base07};
+                background-color: #${colors.base03};
             }
         '';
         };

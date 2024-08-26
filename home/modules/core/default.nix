@@ -7,6 +7,7 @@
     ./desktop/logout/wlogout.nix
     ./desktop/taskbar/waybar.nix
     ./desktop/wallpaper/hyprpaper.nix
+    ./desktop/wallpaper/swww.nix
     ./desktop/widgets/pyprland.nix
     ./desktop/windowmanager/hyprland.nix
 

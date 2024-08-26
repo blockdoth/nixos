@@ -37,7 +37,8 @@
           "waybar"
           "dunst"
           "hypridle"
-          "hyprpaper"
+          "pkill hyprpaper"
+          "swww-daemon && swww img ../../../../../assets/wallpapers/rusty.jpg"
           "pypr"
           "gammastep"
           "[workspace 1 silent] firefox"
@@ -103,15 +104,15 @@
 
         animations = {
           enabled = true;
-          bezier = "myBezier,   0.05,   0.9,  0.1,  1.05";
+          bezier = "overshot,   0.05,   0.9,  0.1,  1.05";
           animation = [
-            "windows,       1,  5,   myBezier"
-            "windowsOut,    1,  7,   default,   popin 80%"
-            "windowsMove,   1,  6,   myBezier"
+            "windows,       1,  5,   overshot"
+            "windowsOut,    1,  7,   overshot"
+            "windowsMove,   1,  6,   overshot"
+            "workspaces,    1,  5,   default"
+            "fade,          1,  6,   default"
             "border,        1,  10,  default"
             "borderangle,   1,  8,   default"
-            "fade,          1,  6,   default"
-            "workspaces,    1,  5,   default"
           ];
         };
         # doesnt display the other layers, only
@@ -126,6 +127,7 @@
           "opacity 0.95, class:^(Spotify)"
           "opacity 0.95, class:^(VSCodium)"
           "opacity 0.95, class:^(vesktop)"
+          "opacity 0.95, class:^(jetbrains)"
 
 
           # Scratchpads
@@ -145,7 +147,7 @@
           "SUPER,B,exec,firefox"
           "SUPER,C,exec,hyprpicker -a" 
           "SUPER,D,exec,vesktop"
-          # "SUPER,E,"
+          "SUPER,E,exec,wallpaperchanger"
           "SUPER,F,exec,nautilus"
           # "SUPER,G,"
           "SUPER,H,movefocus,l"

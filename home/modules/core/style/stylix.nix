@@ -7,7 +7,7 @@
   config = lib.mkIf config.modules.core.style.theme.stylix.enable {
     stylix = {
       enable = true;
-      image = ../desktop/wallpaper/wallpapers/castle.png;
+      image = ../../../../assets/wallpapers/castle.png;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
       
       polarity = "dark";
@@ -34,7 +34,7 @@
         sizes = {
           applications = 10;
           terminal = 10;
-          desktop = 10;
+          desktop = 12;
           popups = 10;
         };
 
@@ -46,7 +46,11 @@
         popups = 0.8;
       };
       autoEnable = true;
-      targets.firefox.enable = false;
+      targets = {
+        firefox.enable = false;
+        rofi.enable = false;
+        hyprpaper.enable = lib.mkForce false;
+      };
     };
   };
 }

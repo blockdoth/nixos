@@ -28,7 +28,10 @@ in
           lockscreen.hyprlock.enable    = mkDefault enableGui;
           logout.wlogout.enable         = mkDefault enableGui;
           taskbar.waybar.enable         = mkDefault enableGui;
-          wallpaper.hyprpaper.enable    = mkDefault enableGui;
+          wallpaper = {
+            hyprpaper.enable  = mkDefault enableGui;
+            swww.enable       = mkDefault enableGui;
+          };
           widgets.pyprland.enable       = mkDefault enableGui;
           windowmanager.hyprland.enable = mkDefault enableGui;
         };

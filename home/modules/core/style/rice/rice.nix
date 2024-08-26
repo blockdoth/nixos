@@ -13,6 +13,7 @@
     cava
     cbonsai
     tty-clock
+    lolcat
   ];
 }
   
