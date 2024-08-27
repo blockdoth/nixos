@@ -23,18 +23,18 @@
         };
         sansSerif = {
           package = pkgs.raleway;
-          name = "Raleway";
+          name = "JetBrainsMono Nerd Font Mono";
         };
         serif = {
           package = pkgs.merriweather;
-          name = "Merriweather";
+          name = "JetBrainsMono Nerd Font Mono";
         };
 
         
         sizes = {
           applications = 10;
           terminal = 10;
-          desktop = 12;
+          desktop = 10;
           popups = 10;
         };
 
@@ -49,6 +49,7 @@
       targets = {
         firefox.enable = false;
         rofi.enable = false;
+        waybar.enable = false;
         hyprpaper.enable = lib.mkForce false;
       };
     };

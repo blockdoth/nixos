@@ -1,4 +1,7 @@
 { pkgs, config, lib, ... }:
+  let
+    colors = config.lib.stylix.colors;
+  in
 {
   options = {
     modules.core.desktop.launcher.rofi.enable = lib.mkEnableOption "Enables rofi";
@@ -13,7 +16,7 @@
       yoffset = -20;
       extraConfig = {
         show-icons = true;
-        kb-cancel = "Escape,Super+space";
+        kb-cancel = "Escape,Super+space,MouseSecondary";
         display-drun = "";
         modi = "window,run,ssh";
         sort = true;
@@ -30,9 +33,9 @@
     ''
        * {
             font: "${config.stylix.fonts.monospace.name} ${builtins.toString config.stylix.fonts.sizes.desktop}";
-            foreground: #${config.lib.stylix.colors.base07};
-            background-color: #${config.lib.stylix.colors.base01};
-            active-background: #${config.lib.stylix.colors.base03};
+            foreground: #${colors.base07};
+            background-color: #${colors.base01};
+            active-background: #${colors.base03};
             urgent-background: #ff5555;
             urgent-foreground: #282a36;
             selected-background: @active-background;

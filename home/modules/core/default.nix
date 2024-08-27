@@ -12,6 +12,7 @@
     ./desktop/windowmanager/hyprland.nix
 
     ./services/idle/hypridle.nix
+    ./services/mediadeamon/mpd.nix
     ./services/nightmode/gammastep.nix
     ./services/notifications/dunst.nix
 

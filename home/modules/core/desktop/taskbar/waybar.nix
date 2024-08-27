@@ -5,263 +5,342 @@
   };
 
   config = lib.mkIf config.modules.core.desktop.taskbar.waybar.enable {
+
     programs.waybar = 
     let
-        colors = config.lib.stylix.colors;
+      colors = config.lib.stylix.colors;
+      icon-size = "20";
+      v-offset = "-4pt";
     in
     {
-        enable = true;
-      
-        systemd = {
-            enable = false;
-            target = "graphical-session.target";
-        };
+      enable = true;
+    
+      systemd = {
+        enable = false;
+        target = "graphical-session.target";
+      };
+      settings = {
+        mainBar = {
+          position= "top";
+          layer= "top";
+          spacing= 3;
+          height= 13;
+          modules-left= [
+            "custom/logo"
+            "hyprland/workspaces"
+            "hyprland/window"
+          ];
+          modules-center= [
+            "clock"
+          ];
+          modules-right= [
+            "tray" 
+            "mpd"
+            "pulseaudio"
+            "temperature"
+            "cpu"
+            "memory"
+            "disk"
+            # "pulseaudio"
+            "bluetooth"
+            "network"
+            "battery"
+          ];
 
-        settings = {
-            mainBar = {
-                position= "top";
-                layer= "top";
-                spacing= 3;
-                height= 13;
-                modules-left= [
-                    "custom/logo"
-                    "hyprland/workspaces"
-                    "tray" 
-                ];
-                modules-center= [
-                    "clock"
-                ];
-                modules-right= [
-                    "temperature"
-                    "cpu"
-                    "memory"
-                    "disk"
-                    # "pulseaudio"
-                    "bluetooth"
-                    "network"
-                    "battery"
-                ];
-
-                clock= {
-                    calendar = {
-                        format = { today = "<span color='#b4befe'><b><u>{}</u></b></span>"; };
-                    };
-                    format = " {:%H:%M %d/%m/%y }";
-                };
-
-                "custom/logo" = {
-                    format = " ";
-                    on-click = "rofi -show drun";
-                    tooltip = false;
-                };
-
-                "hyprland/workspaces"= {
-                    active-only= false;
-                    disable-scroll= false;
-                    format = "{icon}";
-                    on-click= "activate";
-                    format-icons= {
-                        "1"= "1";
-                        "2"= "2";
-                        "3"= "3";
-                        "4"= "4";
-                        "5"= "5";
-                        urgent= "!";
-                        default = "*";
-                        sort-by-number= true;
-                    };
-
-                    persistent-workspaces = {
-                        "1"= [];
-                        "2"= [];
-                        "3"= [];
-                        "4"= [];
-                        "5"= [];
-                    };
-                };
-
-                temperature = {
-                    critical-threshold = 80;
-                    format = " {temperatureC}°C";
-                };
-
-                memory= {
-                    format = "   {percentage}%";
-                    format-alt = "  {used} GB / {total} GB";
-                    interval= 2;
-                };
-
-                cpu= {
-                    format= "  {usage}%";
-                    interval= 2;
-                };
-
-                disk = {
-                    # path = "/";
-                    format= "  {percentage_used}%";
-                    format-alt = "  {used} / {total}";
-                    interval= 60;
-                    unit = "GB";
-                };
-
-                network = {
-                    format-wifi = "{icon}";
-                    format-ethernet = "󱘖  Ethernet";
-                    format-disconnected = "  Disconnected";
-                    format-icons = [
-                        "󰤯  Wifi"
-                        "󰤟  Wifi"
-                        "󰤢  Wifi"
-                        "󰤢  Wifi"
-                        "󰤨  Wifi"
-                    ];
-                };
-                
-                battery = {
-                    states = {
-                        good = 95;
-                        warning = 30;
-                        critical = 20;
-                    };
-                    format = "{icon} {capacity}%";
-                    format-charging = " {capacity}%";
-                    format-plugged = " {capacity}%";
-                    format-alt = "{time} {icon}";
-                    format-icons = [
-                        "󰂎"
-                        "󰁺"
-                        "󰁻"
-                        "󰁼"
-                        "󰁽"
-                        "󰁾"
-                        "󰁿"
-                        "󰂀"
-                        "󰂁"
-                        "󰂂"
-                        "󰁹"
-                    ];
-                };
-
-                # pulseaudio = {
-                #         format = "{volume}% {icon}";
-                #         format-bluetooth = "{volume}% {icon}";
-                #         format-bluetooth-muted = "{icon} {format_source}";
-                #         format-muted = "{format_source}";
-                #         format-source = "";
-                #         format-source-muted = "";
-                #         format-icons = {
-                #             headphone = "";
-                #             hands-free = "";
-                #             headset = "";
-                #             phone = "";
-                #             portable = "";
-                #             car = "";
-                #             default = ["" "" ""];
-                #     };
-                #     on-click = "pavucontrol";
-                # };
-
-                tray = {
-                    tooltip-format = "Connected to {essid} via {gwaddr}";
-                    format-linked = "{ifname} (No IP)";
-                    format-disconnected = "Disconnected";
-                    format-ethernet = "Connected";
-                    format-wifi = "{essid}";
-                };
-
-                tray= {
-                    icon-size= 15;
-                    spacing= 8;
-                };
-
-                bluetooth = {
-                    format = "󰂯";
-                    format-no-controller = ""; # Hide when no bluetooth module detected
-                    tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
-                    tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
-                    tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
-                    tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
-                };
-
-                # pulseaudio = {
-                #     format = "{icon} {volume}%"; 
-                #     format-bluetooth = "B {icon} {volume}%"; 
-                #     format-muted = "M {icon} {volume}%"; 
-                # };
+          clock= {
+            calendar = {
+              format = { today = "<span color='#b4befe'><b><u>{}</u></b></span>"; };
             };
-        };
-        style = ''
-            * {
-                font-size: 7pt;
-                min-height: 0;
-                font-weight: bold;
-                min-height: 0;
-                border-radius: 5px;
-                transition-property: background-color;
-                transition-duration: 0.5s;
-            }
+            format = " {:%H:%M %d/%m/%y }";
+          };
+          
+          "custom/logo" = {
+            format = "<span font='${icon-size}'></span>";
+            on-click = "rofi -show drun";
+            tooltip = false;
+          };
+          
+          "hyprland/workspaces"= {
+            active-only= false;
+            disable-scroll= false;
+            format = "{icon}";
+            on-click= "activate";
+            format-icons= {
+              "1"= "1";
+              "2"= "2";
+              "3"= "3";
+              "4"= "4";
+              "5"= "5";
+              urgent= "!";
+              default = "*";
+              sort-by-number= true;
+            };
 
-            @keyframes blink_red {
-                to {
-                    background-color: #${config.lib.stylix.colors.base08};
-                    color: #${config.lib.stylix.colors.base07};
-                }
-            }
-            .warning, .critical, .urgent {
-                animation-name: blink_red;
-                animation-duration: 1s;
-                animation-timing-function: linear;
-                animation-iteration-count: infinite;
-                animation-direction: alternate;
-            }
-            window#waybar {
-                background-color: transparent;
-            }
-            window > box {
-                /*background-color: #${colors.base07}; */
-                border-color: #${colors.base0F};
-                border-width: 10px;
-            }
-            #workspaces {
-                padding-left: 0px;
-                padding-right: 4px;
-            }
-            #workspaces button {
-                padding-top: 0px;
-                padding-bottom: 0px;
-                padding-left: 6px;
-                padding-right: 6px;
-            }
-            #workspaces button.active {
-                background-color: #${colors.base0D};
-                color: #${colors.base00};
-            }
-            #workspaces button:hover {
-                background-color:  #${colors.base02};
-            }
+            persistent-workspaces = {
+              "1"= [];
+              "2"= [];
+              "3"= [];
+              "4"= [];
+              "5"= [];
+            };
+          };
+          "hyprland/window" = {
+            "format" = "{}";
+            "rewrite" = {
+                "(.*) — Mozilla Firefox"  = "<span font='${icon-size}' rise='${v-offset}'>󰈹</span> $1";
+                ".*Discord.*"             = "<span font='${icon-size}' rise='${v-offset}'></span> Discord";
+                ".*VSCodium.*"            = "<span font='${icon-size}' rise='${v-offset}'></span> VSCodium";
+                ".*Steam.*"               = "<span font='${icon-size}' rise='${v-offset}'></span> Steam";
+                ".*~.*"                   = "<span font='${icon-size}' rise='${v-offset}'></span> Alacritty";
+            };
+            "separate-outputs" = true;
+          };
 
-            #mode, 
-            #clock, 
-            #memory, 
-            #temperature,
-            #cpu,
-            #disk, 
-            #temperature, 
-            #backlight, 
-            #pulseaudio, 
-            #network, 
-            #battery, 
-            #tray,
-            #bluetooth,
-            #custom-logo
-            {   
-                min-width: 20px;
-                padding: 5px;
-                color: #${colors.base07};
-                background-color: #${colors.base03};
-            }
-        '';
+          temperature = {
+            critical-threshold = 80;
+            format     = "<span font='11' rise='0.8pt'></span> {temperatureC}°C |";
+          };
+          memory= {
+            format     = "<span font='${icon-size}' rise='${v-offset}'></span> {percentage}% |";
+            format-alt = "<span font='${icon-size}' rise='${v-offset}'></span> {used} GB / {total} GB |";
+            interval= 5;
+          };
+          cpu= {
+            format = "<span font='${icon-size}' rise='${v-offset}'></span> {usage}% |";
+            interval = 2;
+          };
+          disk = {
+            # path = "/";
+            format      = "<span font='${icon-size}' rise='${v-offset}'></span> {percentage_used}% |";
+            format-alt  = "<span font='${icon-size}' rise='${v-offset}'></span> {used} / {total} |";
+            interval= 60;
+            unit = "GB";
+          };
+          network = {
+            tooltip-format      = "Connected to {essid} via {gwaddr}";
+            format-wifi         = "{icon}";
+            format-ethernet     = "<span font='15' rise='-2pt'>󱘖</span> Ethernet";
+            format-disconnected = "<span font='15' rise='-2pt'></span> Disconnected";
+            format-icons = [
+              "<span font='${icon-size}' rise='${v-offset}'>󰤯</span> Wifi"
+              "<span font='${icon-size}' rise='${v-offset}'>󰤟</span> Wifi"
+              "<span font='${icon-size}' rise='${v-offset}'>󰤢</span> Wifi"
+              "<span font='${icon-size}' rise='${v-offset}'>󰤢</span> Wifi"
+              "<span font='${icon-size}' rise='${v-offset}'>󰤨</span> Wifi"
+            ];
+          };
+          
+          battery = {
+            states = {
+              good = 95;
+              warning = 30;
+              critical = 20;
+            };
+            format = "{icon} {capacity}%";
+            format-charging = " {capacity}%";
+            format-plugged = " {capacity}%";
+            format-alt = "{time} {icon}";
+            format-icons = [
+              "󰂎"
+              "󰁺"
+              "󰁻"
+              "󰁼"
+              "󰁽"
+              "󰁾"
+              "󰁿"
+              "󰂀"
+              "󰂁"
+              "󰂂"
+              "󰁹"
+            ];
+          };
+
+          pulseaudio = {
+            format                 = "<span font='${icon-size}' rise='-4.5pt'>{icon}</span> {volume}% |";
+            format-bluetooth       = "<span font='${icon-size}' rise='-4.5pt'>{icon}</span> {volume}%  |";
+            format-bluetooth-muted = "<span font='${icon-size}' rise='-4.5pt'>{icon}</span> {icon} {format_source} |";
+            format-muted = "{format_source}";
+            format-source = "";
+            format-source-muted = "";
+            format-icons = {
+              headphone = "";
+              car = "";
+              default = ["" "" ""];
+            };
+            on-click = "pavucontrol";
+            on-click-right = "";
+          };
+
+          mpd = {
+            format= " {stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) |";
+            format-disconnected= " Disconnected |";
+            format-stopped= " {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped |";
+            interval= 10;
+            # consume-icons = {
+            #   on = " "; 
+            # };
+            # random-icons = {
+            #   off = "<span color=\"#f53c3c\"></span> "; 
+            #   on = " ";
+            # };
+            # repeat-icons = {
+            #   on = " ";
+            # };
+            # single-icons = {
+            #   on = "1 ";
+            # };
+            # state-icons = {
+            #   paused = "";
+            #   playing = "";
+            # };
+            tooltip-format = "MPD (connected)";
+            tooltip-format-disconnected = "MPD (disconnected)";
+          };
+
+          tray= {
+            icon-size= 15;
+            spacing= 8;
+          };
+
+          bluetooth = {
+            format = "󰂯";
+            format-no-controller = ""; # Hide when no bluetooth module detected
+            tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
+            tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
+            tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
+            tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
+          };
+            # pulseaudio = {
+            #     format = "{icon} {volume}%"; 
+            #     format-bluetooth = "B {icon} {volume}%"; 
+            #     format-muted = "M {icon} {volume}%"; 
+            # };
+
+          # cava produces a segfault sadly
+          # cava = {
+          #   # cava_config = "$XDG_CONFIG_HOME/cava/cava.conf";
+          #   framerate = 30;
+          #   autosens = 1;
+          #   sensitivity = 100;
+          #   bars = 14;
+          #   lower_cutoff_freq = 50;
+          #   higher_cutoff_freq = 10000;
+          #   method = "pulse";
+          #   source = "auto";
+          #   stereo = true;
+          #   reverse = false;
+          #   bar_delimiter = 0;
+          #   monstercat = false;
+          #   waves = false;
+          #   noise_reduction = 0.77;
+          #   input_delay = 2;
+          #   format-icons = [
+          #     "▁"
+          #     "▂"
+          #     "▃"
+          #     "▄"
+          #     "▅"
+          #     "▆"
+          #     "▇"
+          #     "█" 
+          #   ];
+          #   actions = {
+          #     on-click-right = "mode";
+          #   };
+          # };
         };
+      };
+      style = ''
+        * {
+          min-height: 0;
+          font-weight: bold;
+          border-radius: 11px;
+          transition-property: background-color;
+          transition-duration: 0.2s;
+          color: #${colors.base07};
+        }
+        
+        @keyframes blink_red {
+          to {
+            background-color: #${colors.base08};
+            color: #${colors.base07};
+          }
+        }          
+
+
+        window#waybar {
+          background-color: rgba(60, 56, 54, 0.7); /* TODO fix this with stylix #${colors.base01} */
+          border-width: 3px;
+          border-color: rgba(80, 73, 69, 0.7); /* TODO fix this with stylix #${colors.base02} */
+          border-style: solid;
+          
+        }
+        
+
+        .modules-left,
+        .modules-center, 
+        .modules-right 
+        {
+          margin: 0px 5px 0px 5px;
+        }
+
+
+        #window {
+          padding-left: 5px;
+          padding-right: 8px;
+        }
+
+        #workspaces {
+          margin: 4px 7px 4px 7px;
+          border-radius: 8px;
+          border-width: 2px;
+          border-color: rgba(80, 73, 69, 0.5); /* TODO fix this with stylix #${colors.base02} */
+          border-style: solid;
+          background-color:  rgba(102, 92, 84, 0.5); /* TODO fix this with stylix #${colors.base03} */
+        }
+
+        #workspaces button {
+          border: none;
+          padding: 1px 2px 1px 2px;
+          border-radius: 5px;
+        }
+
+        #workspaces button.active { 	
+          background-color: rgba(131, 165, 152, 0.5); /* TODO fix this with stylix #${colors.base0D} */
+          box-shadow: none;
+          border: none;
+        }
+        
+        #workspaces button:hover {
+          background-color: rgba(189, 174, 147, 0.5); /* TODO fix this with stylix #${colors.base04} */
+        }
+      
+        
+        #mode, 
+        #clock, 
+        #memory, 
+        #temperature,
+        #cpu,
+        #disk, 
+        #temperature, 
+        #backlight, 
+        #pulseaudio, 
+        #network, 
+        #battery, 
+        #tray,
+        #bluetooth,
+        #custom-logo
+        {   
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+
+
+        #custom-logo {
+          margin-left: 10px;   
+          padding: 0px;
+        }
+      '';
     };
+  };
 }
-

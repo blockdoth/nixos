@@ -16,6 +16,8 @@
       imagemagick
       htop
       btop
+      bottom
+      qimgv
     ];
   };
 

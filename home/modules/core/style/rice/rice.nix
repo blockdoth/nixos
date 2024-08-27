@@ -2,6 +2,7 @@
 {
   imports = [
     ./fastfetch.nix
+    ./cava.nix
   ];
 
   home.packages = with pkgs; [
@@ -10,7 +11,6 @@
     cowsay
     fastfetch
     pipes
-    cava
     cbonsai
     tty-clock
     lolcat

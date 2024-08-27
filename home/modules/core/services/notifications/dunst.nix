@@ -9,7 +9,11 @@
       libnotify
     ];
 
-    services.dunst = {
+    services.dunst = 
+    let
+      colors = config.lib.stylix.colors;
+    in
+    {
       enable = true;
       iconTheme = {
         name = "Moka";
@@ -17,7 +21,7 @@
       };
       settings = {
         global = {
-          origin = "top-center";
+          origin = "top-right";
           monitor = "0";
           alignment = "center";
           vertical_alignment = "center";
@@ -42,11 +46,10 @@
           always_run_script = true;
           follow = "mouse";
           corner_radius = 5;
-          # font = config.var.theme.font;
           format = "<b>%s</b>\\n%b";
           progress_bar_corner_radius = 10;
-          frame_width = 1;
-          offset = "0x10";
+          frame_width = 3;
+          offset = "3x3";
           horizontal_padding = 10;
           icon_position = "left";
           indicate_hidden = "yes";
@@ -66,21 +69,17 @@
           fullscreen = "delay";
         };
 
-        # urgency_low = {
-        #   background = "#141c21";
-        #   foreground = "#93a1a1";
-        #   frame_color = "#036b32";
-        # };
-        # urgency_normal = {
-        #   background = "#141c21";
+        # urgency_low
+        # urgency_critical {
+          # background = "#141c21";
         #   foreground = "#93a1a1";
         #   frame_color = "#26397D";
-        # };
-        # urgency_critical = {
-        #   background = "#141c21";
-        #   foreground = "#93a1a1";
-        #   frame_color = "#bf021e";
-        # };
+        # }
+
+        urgency_normal = {
+          frame_color = lib.mkForce "#${colors.base0D}";
+        };
+
       };
     };
   };

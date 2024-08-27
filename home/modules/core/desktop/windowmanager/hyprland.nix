@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, inputs,... }:
 {
   options = {
     modules.core.desktop.windowmanager.hyprland.enable = lib.mkEnableOption "Enables hyprland";
@@ -9,6 +9,9 @@
     home.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = 1;
       NIXOS_OZONE_WL = 1;
+      # TODO fix this with stylix
+      # XCURSOR_SIZE = 24;
+      # HYPRCURSOR_SIZE = 24;
     };
 
     # todo seperate files maybe
@@ -21,13 +24,16 @@
 
       brightnessctl # Control background
       playerctl # Control audio
+      pavucontrol
     ];
 
     wayland.windowManager.hyprland = {
       enable = true;
       package = pkgs.hyprland; # hyprlandFlake or pkgs.hyprland
       xwayland.enable = true;
-
+      plugins = [
+        "${pkgs.hyprlandPlugins.hyprwinwrap}/lib/libhyprwinwrap.so"
+      ];      
       settings = {
         monitor = [
             "DP-1,2560x1440@144,0x0,1"
@@ -41,6 +47,7 @@
           "swww-daemon && swww img ../../../../../assets/wallpapers/rusty.jpg"
           "pypr"
           "gammastep"
+          "mpd"
           "[workspace 1 silent] firefox"
           "[workspace 2 silent] codium"
           "[workspace 3 silent] vesktop"
@@ -64,10 +71,23 @@
           # no_hardware_cursor = true;
         };
 
+        plugins = {
+          hyprexpo = {
+            columns = 3;
+            gap_size = 5;
+            bg_col = "rgb(111111)";
+            workspace_method = "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
+          };
+
+          hyprwinwrap = {
+            class = "alacritty-bg";
+          };
+        };
+
         general = {
           gaps_in = 3;
           gaps_out = 3;
-          border_size = 4;
+          border_size = 3;
           # "col.active_border" = "rgba(82B8C8ee)";
           # "col.inactive_border" = "rgba(6A9FB5aa)";
           apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
@@ -120,7 +140,7 @@
           "blur, logout_dialog"
         ];
         "$scratchpad" = "class:^(scratchpad)$";
-        # "$pip" = "title:^(Picture-in-Picture)$";
+        "$pip" = "title:^(Picture-in-Picture)$";
         windowrulev2 = [
           #transpancy
           "opacity 0.95, class:^(firefox)"
@@ -129,6 +149,10 @@
           "opacity 0.95, class:^(vesktop)"
           "opacity 0.95, class:^(jetbrains)"
 
+          #pip
+          "float,         $pip"
+          "pin,           $pip"
+          "size 40% 40%,  $pip"
 
           # Scratchpads
           "float,                     $scratchpad"
@@ -209,7 +233,8 @@
           "SUPER SHIFT, 6, movetoworkspacesilent, 6"
           "SUPER SHIFT, 7, movetoworkspacesilent, 7"
           "SUPER SHIFT, 8, movetoworkspacesilent, 8"
-
+          
+          "ALT,Tab,cyclenext"
         ];
 
         bindm = [

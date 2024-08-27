@@ -11,6 +11,13 @@
     stylix.url = "github:danth/stylix/8c507cb2256a7246817aef5cd9e7752099184d15";
     spicetify-nix.url = "github:the-argus/spicetify-nix/";
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
+    
+    #Prevents version mismatch TODO 
+    # hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
   };
 
   outputs = { self, nixpkgs, home-manager, nixneovimplugins,spicetify-nix, ... }@inputs: 
