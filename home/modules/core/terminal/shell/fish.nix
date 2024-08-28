@@ -8,6 +8,7 @@
   	programs.fish = {
   		enable = true;
 			interactiveShellInit = ''
+        direnv hook fish | source
     		set fish_greeting # Disable greeting
   		'';
   		shellAliases = {
@@ -18,8 +19,10 @@
   			nr-desktop = "nh && sudo nixos-rebuild switch --flake .#desktop"; 
   			nr-server = "nh && sudo nixos-rebuild switch --flake .#server"; 
   			nr-laptop = "nh && sudo nixos-rebuild switch --flake .#laptop"; 
-  			bdir = "nautilus --select . &"; 
+  			bdir = "nautilus --select . &";  
+  			mkscript = "echo '#!/usr/bin/env bash' > script-template.sh && chmod +x script-template.sh";  
   		};
+
  		};
   };
 }

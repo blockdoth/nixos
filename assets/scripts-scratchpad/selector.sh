@@ -1,26 +1,10 @@
-{ pkgs, config, lib, ... }:
-{  
-  options = {
-    modules.dev.env.direnv.enable = lib.mkEnableOption "Enables direnvs";
-  };
+      JAVA_ENV="test"
+      C_ENV="test"
+      RUST_ENV="test"
+      PYTHON_ENV="test"
+      TYPESCRIPT_ENV="test"
+      DEFAULT_ENV="test"
 
-  config = 
-    let
-      # function to import a nix file and escape it such that it can be used in a bash scriipt
-      replaceAndReadFile = path: builtins.replaceStrings ["\""] ["\\\""] (builtins.readFile path);
-
-      # script to init nix env for various languages 
-      devinit = pkgs.writeShellScriptBin "devinit"
-      ''
-      JAVA_ENV="${replaceAndReadFile ./template-shells/java.nix}"
-      C_ENV="${replaceAndReadFile ./template-shells/c.nix}"
-      RUST_ENV="${replaceAndReadFile ./template-shells/rust.nix}"
-      PYTHON_ENV="${replaceAndReadFile ./template-shells/python.nix}"
-      TYPESCRIPT_ENV="${replaceAndReadFile ./template-shells/typescript.nix}"
-      DEFAULT_ENV="${replaceAndReadFile ./template-shells/default.nix}"
-      
-      echo $JAVA_ENV
-      
       SEPERATOR="――――――――――――――――――――――――――――"
       echo "Initializing a nix environment"
       echo "$SEPERATOR"
@@ -40,37 +24,37 @@
       do
         case $opt in
           "java")
-            echo "$JAVA_ENV" > "shell.nix"
+            echo $JAVA_ENV > "shell.nix"
             echo "$SEPERATOR"
             echo "Created a java nix shell template"
             break
             ;;
           "c")
-            echo "$C_ENV" > "shell.nix"
+            echo $C_ENV > "shell.nix"
             echo "$SEPERATOR"
             echo "Created a c nix shell template"
             break
             ;;
           "rust")
-            echo "$RUST_ENV" > "shell.nix"
+            echo $RUST_ENV > "shell.nix"
             echo "$SEPERATOR"
             echo "Created a rust nix shell template"
             break
             ;;
           "python")
-            echo "$PYTHON_ENV" > "shell.nix"
+            echo $PYTHON_ENV > "shell.nix"
             echo "$SEPERATOR"
             echo "Created a python nix shell template"
             break
             ;; 
           "typescript")
-            echo "$TYPESCRIPT_ENV" > "shell.nix"
+            echo $TYPESCRIPT_ENV > "shell.nix"
             echo "$SEPERATOR"
             echo "Created a typescript nix shell template"
             break
             ;;    
           "default")
-            echo "$DEFAULT_ENV" > "shell.nix"
+            echo $DEFAULT_ENV > "shell.nix"
             echo "$SEPERATOR"
             echo "Created an default nix shell template"
             break
@@ -83,8 +67,7 @@
           *) echo "invalid option: \"$REPLY\"";;
         esac
       done
-      
-      # create .envrc for direnv
+
       echo "use nix
       export DIRENV_LOG_FORMAT="$(printf "\033[2mdirenv: %%s\033[0m")"
       eval "$(direnv hook zsh)"
@@ -92,24 +75,5 @@
         eval "$(direnv export zsh 2> >(egrep -v -e '^....direnv: export' >&2))"
       };
       " > .envrc
-
-      # enable env
       direnv allow
-      '';
-
-    in
-    lib.mkIf config.modules.dev.editors.jetbrains.enable {
-
-    home.packages = with pkgs; [
-      devinit
-    ];
-
-    programs.direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-  };
-}
-    
-
-
+      echo "initialized direnv"

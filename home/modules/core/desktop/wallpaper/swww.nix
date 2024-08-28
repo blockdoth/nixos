@@ -17,7 +17,7 @@
           # Check if a selection was made
           if [ -n "$SELECTED" ]; then
               # Set the selected wallpaper using swww
-              swww img --transition-fps 144 --transition-type grow --transition-duration 2 --invert-y --transition-pos "$(hyprctl cursorpos | grep -E '^[0-9]' || echo "0,0")" "${wallpaperBasePath}/$SELECTED"
+              swww img --transition-fps 144 --transition-type grow --transition-duration 2 --invert-y --transition-pos 0,0 "${wallpaperBasePath}/$SELECTED"
               break
           else
               # Exit the loop if no selection is made (e.g., user closes wofi or presses ESC)

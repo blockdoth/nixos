@@ -18,6 +18,7 @@
       btop
       bottom
       qimgv
+      vlc
     ];
   };
 

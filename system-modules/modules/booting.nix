@@ -39,9 +39,9 @@
       # https://github.com/NixOS/nixpkgs/pull/108294
       initrd.verbose = false;
 
-
+      #disabled boot animations because it breaks booting
       plymouth = {
-        enable = true;
+        enable = false;
         theme = lib.mkForce "rings"; # Prevent conflict with stylix
         themePackages = with pkgs; [
           # By default we would install all themes

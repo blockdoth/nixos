@@ -4,7 +4,76 @@
     modules.core.desktop.taskbar.waybar.enable = lib.mkEnableOption "Enables waybar";
   };
 
-  config = lib.mkIf config.modules.core.desktop.taskbar.waybar.enable {
+  config = 
+  let
+    mediaplayer-state-file = "$HOME/waybar/mediaplayer-inputswitcher.state";
+
+    # TODO move scripts somewhere else
+    waybar-mediaplayer-playpause = pkgs.writeShellScriptBin "waybar-mediaplayer-playpause"
+    ''
+      STATE_FILE="$HOME/waybar/mediaplayer-inputswitcher.state"
+      SELECTED_INDEX=$(cat $STATE_FILE)p 
+      SELECTED_PLAYER=$(playerctl -l | sed -n $SELECTED_INDEX)
+      playerctl --player=$SELECTED_PLAYER play-pause
+    '';
+
+    waybar-mediaplayer-info = pkgs.writeShellScriptBin "waybar-mediaplayer-info" 
+      ''
+      STATE_FILE="$HOME/waybar/mediaplayer-inputswitcher.state"
+      SELECTED_INDEX=$(cat $STATE_FILE)p 
+      SELECTED_PLAYER=$(playerctl -l | sed -n $SELECTED_INDEX)
+
+
+      PLAYER_ICON=""
+      if [[ $SELECTED_PLAYER == *"firefox"* ]]; then
+        PLAYER_ICON="󰈹"
+      elif [[ $SELECTED_PLAYER == *"spotify"* ]]; then
+        PLAYER_ICON=""
+      fi
+
+      STATUS=$(playerctl metadata --player=$SELECTED_PLAYER --format '{{lc(status)}}')
+      STATE_ICON=""
+      if [[ $STATUS == "playing" ]]; then
+        STATE_ICON=""
+      fi
+
+
+      METADATA=$(playerctl metadata --player=$SELECTED_PLAYER --format '{{artist}} - {{title}}')
+      if [[ ''${#METADATA} > 40 ]]; then
+        METADATA=$(echo $METADATA | cut -c1-40)"..."
+      fi
+
+      echo "| <span font='15' rise='-2pt'>$PLAYER_ICON $STATE_ICON</span> $METADATA |"
+      '';
+
+    waybar-mediaplayer-inputswitcher = pkgs.writeShellScriptBin "waybar-mediaplayer-inputswitcher" 
+      ''
+      # file to save the input state
+      STATE_FILE=${mediaplayer-state-file}   
+
+      # create dir if it not exists 
+      mkdir -p "$(dirname "$STATE_FILE")"
+
+      # set default state if state file doesnt exist
+      if [ ! -f "$STATE_FILE" ]; then
+        echo "0" > "$STATE_FILE"  
+      fi
+
+      current_source=$(cat "$STATE_FILE")
+      num_sources=$(playerctl -l | wc -l)
+
+      # increment source with wrapping
+      echo $(((current_source) % num_sources + 1)) > "$STATE_FILE"
+      '';
+  in
+  lib.mkIf config.modules.core.desktop.taskbar.waybar.enable 
+  {
+    #import scripts
+    home.packages = with pkgs; [
+      waybar-mediaplayer-info
+      waybar-mediaplayer-inputswitcher
+      waybar-mediaplayer-playpause
+    ];
 
     programs.waybar = 
     let
@@ -35,7 +104,7 @@
           ];
           modules-right= [
             "tray" 
-            "mpd"
+            "custom/spotify"
             "pulseaudio"
             "temperature"
             "cpu"
@@ -56,7 +125,17 @@
           
           "custom/logo" = {
             format = "<span font='${icon-size}'></span>";
-            on-click = "rofi -show drun";
+            on-click = "wallpaperchanger";
+            tooltip = false;
+          };
+          
+          "custom/spotify" = {
+            format = "{}";
+            exec = "waybar-mediaplayer-info";
+            exec-on-event = true;
+            on-click = "waybar-mediaplayer-playpause";
+            on-click-middle = "waybar-mediaplayer-inputswitcher";
+            interval = 1;
             tooltip = false;
           };
           
@@ -91,6 +170,7 @@
                 ".*Discord.*"             = "<span font='${icon-size}' rise='${v-offset}'></span> Discord";
                 ".*VSCodium.*"            = "<span font='${icon-size}' rise='${v-offset}'></span> VSCodium";
                 ".*Steam.*"               = "<span font='${icon-size}' rise='${v-offset}'></span> Steam";
+                "Spotify"                 = "<span font='${icon-size}' rise='${v-offset}'></span> Spotify";
                 ".*~.*"                   = "<span font='${icon-size}' rise='${v-offset}'></span> Alacritty";
             };
             "separate-outputs" = true;
@@ -106,7 +186,7 @@
             interval= 5;
           };
           cpu= {
-            format = "<span font='${icon-size}' rise='${v-offset}'></span> {usage}% |";
+            format = "<span font='${icon-size}' rise='${v-offset}'></span> {usage:2}% |";
             interval = 2;
           };
           disk = {
@@ -156,19 +236,18 @@
           };
 
           pulseaudio = {
-            format                 = "<span font='${icon-size}' rise='-4.5pt'>{icon}</span> {volume}% |";
-            format-bluetooth       = "<span font='${icon-size}' rise='-4.5pt'>{icon}</span> {volume}%  |";
+            format                 = "<span font='${icon-size}' rise='-4.5pt'>{icon}</span> {volume:3}% |";
+            format-bluetooth       = "<span font='${icon-size}' rise='-4.5pt'>{icon}</span> {volume:3}%  |";
             format-bluetooth-muted = "<span font='${icon-size}' rise='-4.5pt'>{icon}</span> {icon} {format_source} |";
             format-muted = "{format_source}";
             format-source = "";
             format-source-muted = "";
             format-icons = {
               headphone = "";
-              car = "";
               default = ["" "" ""];
             };
             on-click = "pavucontrol";
-            on-click-right = "";
+            on-click-right = "pavucontrol";
           };
 
           mpd = {

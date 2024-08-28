@@ -88,9 +88,9 @@
           gaps_in = 3;
           gaps_out = 3;
           border_size = 3;
-          # "col.active_border" = "rgba(82B8C8ee)";
+          # "col.active_border" = lib.mkForce "rgba(${config.lib.stylix.colors.base0B}ee)";
           # "col.inactive_border" = "rgba(6A9FB5aa)";
-          apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
+          apply_sens_to_raw = 1; 
           layout = "dwindle";
         };
 
@@ -140,7 +140,8 @@
           "blur, logout_dialog"
         ];
         "$scratchpad" = "class:^(scratchpad)$";
-        "$pip" = "title:^(Picture-in-Picture)$";
+        "$pip"        = "title:^(Picture-in-Picture)$";
+        "$pavu"       = "class:^(pavucontrol)$";
         windowrulev2 = [
           #transpancy
           "opacity 0.95, class:^(firefox)"
@@ -153,6 +154,11 @@
           "float,         $pip"
           "pin,           $pip"
           "size 40% 40%,  $pip"
+
+          #pavucontrol
+          "float,         $pavu"
+          "pin,           $pavu"
+          "size 40% 40%,  $pavu"
 
           # Scratchpads
           "float,                     $scratchpad"

@@ -10,6 +10,7 @@
       margin = "30";
       border-radius = "10";
       border-radius-active = "10";
+      colors = config.lib.stylix.colors;
     in  
     lib.mkIf config.modules.core.desktop.logout.wlogout.enable {
     programs.wlogout = {

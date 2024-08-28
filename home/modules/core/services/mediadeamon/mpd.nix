@@ -13,7 +13,7 @@
       enable = true;
       musicDirectory = "/home/blockdoth/Music";
       # user = "blockdoth";
-      network.startWhenNeeded = true; 
+      network.startWhenNeeded = false; 
       extraConfig = ''
         audio_output {
           type "pipewire"
