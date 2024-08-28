@@ -6,7 +6,7 @@
 
   config = lib.mkIf config.modules.programs.steam.enable {
     home.packages = with pkgs; [
-      steam
+      # steam
     ];
   };
 }

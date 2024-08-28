@@ -12,7 +12,7 @@
     services.xserver.videoDrivers = [ "amdgpu" ];
     
     programs.steam = {
-      enable = false;
+      enable = true;
       gamescopeSession.enable = true; 
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;

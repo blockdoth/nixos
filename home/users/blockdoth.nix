@@ -12,11 +12,10 @@
   ];
 
   modules = {
-    gui.enable      = true;
-    dev.enable      = true;
-    theming.enable  = true;
-    programs.enable = true;
-    
+    gui.enable             = true;
+    dev.enable             = true;
+    theming.enable         = true;
+    programs.enable        = true;
   };
 
 

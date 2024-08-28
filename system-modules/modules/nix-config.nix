@@ -5,9 +5,11 @@
   };
 
   config = lib.mkIf config.nix-config.enable {
+    nixpkgs.config.allowUnfree = true;
     nix = {
       package = pkgs.nixFlakes;
       settings = {
+        cores = 11;
         experimental-features = [ "nix-command" "flakes" ];
         auto-optimise-store = true;
         http-connections = 50;

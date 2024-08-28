@@ -7,5 +7,6 @@
     ./discord/discord.nix
     ./spotify.nix
     ./steam.nix
+    ./minecraft.nix
   ];
 }

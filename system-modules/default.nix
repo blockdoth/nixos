@@ -1,16 +1,18 @@
 {config, lib, pkgs, inputs, ...}:
 let 
-  enableGui           = config.system-modules.gui.enable;
-  enableGaming        = config.system-modules.gaming.enable;
-  enableAudio         = config.system-modules.audio.enable; 
-  enableBluetooth     = config.system-modules.bluetooth.enable;
-  enableSsh           = config.system-modules.ssh.enable;
-  enableUserHeadless  = config.system-modules.users.headless.enable;
+  enableGui             = config.system-modules.gui.enable;
+  enableGaming          = config.system-modules.gaming.enable;
+  enableAudio           = config.system-modules.audio.enable; 
+  enableBluetooth       = config.system-modules.bluetooth.enable;
+  enableSsh             = config.system-modules.ssh.enable;
+  enableMinecraftServer = config.system-modules.minecraftserver.enable;
+  enableUserHeadless    = config.system-modules.users.headless.enable;
   enableUserBlockdoth   = config.system-modules.users.blockdoth.enable;
 in
 {
   imports = [
     ./modules/display
+    ./modules/servers
     ./modules/users
     ./modules/audio.nix
     ./modules/bluetooth.nix
@@ -27,15 +29,16 @@ in
 
   options = {
     system-modules = {
-      common.enable         = lib.mkEnableOption "Enables the core services";
-      gui.enable            = lib.mkOption { type = lib.types.bool; default = false; }; 
-      ssh.enable            = lib.mkOption { type = lib.types.bool; default = false; };
-      gaming.enable         = lib.mkOption { type = lib.types.bool; default = false; };
-      audio.enable          = lib.mkOption { type = lib.types.bool; default = false; };
-      bluetooth.enable      = lib.mkOption { type = lib.types.bool; default = false; };
-      laptop.enable         = lib.mkOption { type = lib.types.bool; default = false; };
-      users.blockdoth.enable   = lib.mkOption { type = lib.types.bool; default = false; };
-      users.headless.enable = lib.mkOption { type = lib.types.bool; default = false; };
+      common.enable           = lib.mkEnableOption "Enables the core services";
+      gui.enable              = lib.mkOption { type = lib.types.bool; default = false; }; 
+      ssh.enable              = lib.mkOption { type = lib.types.bool; default = false; };
+      gaming.enable           = lib.mkOption { type = lib.types.bool; default = false; };
+      audio.enable            = lib.mkOption { type = lib.types.bool; default = false; };
+      bluetooth.enable        = lib.mkOption { type = lib.types.bool; default = false; };
+      minecraftserver.enable  = lib.mkOption { type = lib.types.bool; default = false; };
+      laptop.enable           = lib.mkOption { type = lib.types.bool; default = false; };
+      users.blockdoth.enable  = lib.mkOption { type = lib.types.bool; default = false; };
+      users.headless.enable   = lib.mkOption { type = lib.types.bool; default = false; };
     };
   };
 
@@ -62,6 +65,7 @@ in
     audio.enable = enableAudio;
     bluetooth.enable = enableBluetooth;
     ssh.enable = enableSsh;
+    minecraftserver.enable = enableMinecraftServer;
 
     # Enables the users, at least one must be defined
     headless.enable = config.system-modules.users.headless.enable;

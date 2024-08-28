@@ -1,9 +1,9 @@
 { config, lib, pkgs, inputs, ... }:
 let 
-  enableGui      = config.modules.gui.enable;
-  enableDev      = config.modules.dev.enable;
-  enablePrograms = config.modules.programs.enable;
-  enableTheming  = config.modules.theming.enable;
+  enableGui             = config.modules.gui.enable;
+  enableDev             = config.modules.dev.enable;
+  enablePrograms        = config.modules.programs.enable;
+  enableTheming         = config.modules.theming.enable;
 in
 {
   imports = [
@@ -13,10 +13,10 @@ in
   ];
 
   options =  with lib; {
-    modules.gui.enable          = mkOption { type = types.bool; default = false; };
-    modules.dev.enable          = mkOption { type = types.bool; default = false; };
-    modules.programs.enable     = mkOption { type = types.bool; default = false; };
-    modules.theming.enable      = mkOption { type = types.bool; default = false; };
+    modules.gui.enable             = mkOption { type = types.bool; default = false; };
+    modules.dev.enable             = mkOption { type = types.bool; default = false; };
+    modules.programs.enable        = mkOption { type = types.bool; default = false; };
+    modules.theming.enable         = mkOption { type = types.bool; default = false; };
   };
 
 
@@ -76,10 +76,11 @@ in
           dolphin.enable  = mkDefault enablePrograms;
           yazi.enable     = mkDefault enablePrograms;
         };
-        firefox.enable = mkDefault enablePrograms;
-        discord.enable = mkDefault enablePrograms;
-        spotify.enable = mkDefault enablePrograms;
-        steam.enable   = mkDefault enablePrograms;
+        firefox.enable    = mkDefault enablePrograms;
+        discord.enable    = mkDefault enablePrograms;
+        spotify.enable    = mkDefault enablePrograms;
+        steam.enable      = mkDefault enablePrograms;
+        minecraft.enable  = mkDefault enablePrograms;
       };
     };
 

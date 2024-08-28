@@ -32,9 +32,13 @@
       package = pkgs.hyprland; # hyprlandFlake or pkgs.hyprland
       xwayland.enable = true;
       plugins = [
-        "${pkgs.hyprlandPlugins.hyprwinwrap}/lib/libhyprwinwrap.so"
+        # "${pkgs.hyprlandPlugins.hyprwinwrap}/lib/libhyprwinwrap.so"
       ];      
       settings = {
+        debug = {
+          disable_logs = false;
+        };
+
         monitor = [
             "DP-2,2560x1440@143.972Hz,0x0,1"
         ];
@@ -47,7 +51,6 @@
           "swww-daemon && swww img ../../../../../assets/wallpapers/rusty.jpg"
           "pypr"
           "gammastep"
-          "mpd"
           "[workspace 1 silent] firefox"
           "[workspace 2 silent] codium"
           "[workspace 3 silent] vesktop"
@@ -72,16 +75,17 @@
         };
 
         plugins = {
-          hyprexpo = {
-            columns = 3;
-            gap_size = 5;
-            bg_col = "rgb(111111)";
-            workspace_method = "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
-          };
-
-          hyprwinwrap = {
-            class = "alacritty-bg";
-          };
+          # hyprexpo = {
+          #   columns = 3;
+          #   gap_size = 5;
+          #   bg_col = "rgb(111111)";
+          #   workspace_method = "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
+          # };
+          
+          # crashes hyprland in combination with prismlauncher for some reason
+          # hyprwinwrap = {
+          #   class = "alacritty-bg";
+          # };
         };
 
         general = {

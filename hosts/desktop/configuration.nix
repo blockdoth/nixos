@@ -10,6 +10,7 @@
     gui.enable = true;
     audio.enable = true;
     gaming.enable = true;
+    minecraftserver.enable = true;
     users.blockdoth.enable = true;
   };
   

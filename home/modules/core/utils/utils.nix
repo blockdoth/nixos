@@ -19,6 +19,7 @@
       bottom
       qimgv
       vlc
+      xorg.xeyes # To detect if wayland vs xwayland
     ];
   };
 

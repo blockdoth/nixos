@@ -22,8 +22,10 @@
       STATE_FILE="$HOME/waybar/mediaplayer-inputswitcher.state"
       SELECTED_INDEX=$(cat $STATE_FILE)p 
 
-      # print nothing if nothing is playing
-      if [[ $SELECTED_INDEX == "0p" ]]; then
+      NUM_SOURCES=$(playerctl -l | wc -l)
+      
+      # Turn off module if nothing is playing 
+      if [[ $NUM_SOURCES == "0" ]]; then
         echo "|"
         exit
       fi
@@ -48,6 +50,7 @@
       if [[ ''${#METADATA} > 40 ]]; then
         METADATA=$(echo $METADATA | cut -c1-40)"..."
       fi
+      
 
       echo "| <span font='15' rise='-2pt'>$PLAYER_ICON $STATE_ICON</span> $METADATA |"
       '';
