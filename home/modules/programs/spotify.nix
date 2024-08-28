@@ -6,7 +6,9 @@ in
   options = {
     modules.programs.spotify.enable = lib.mkEnableOption "Enables spotify";
   };
-
+  imports = [
+    inputs.spicetify-nix.homeManagerModules.default
+  ];
 
   config = lib.mkIf config.modules.programs.spotify.enable {
 

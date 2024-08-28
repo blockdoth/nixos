@@ -14,7 +14,7 @@
     cbonsai
     tty-clock
     lolcat
-    mesa-demos # gears and such
+    # mesa-demos # gears and such
   ];
 }
   

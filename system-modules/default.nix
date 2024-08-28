@@ -3,6 +3,7 @@ let
   enableGui             = config.system-modules.gui.enable;
   enableGaming          = config.system-modules.gaming.enable;
   enableAudio           = config.system-modules.audio.enable; 
+  enableVirtualisation  = config.system-modules.virtualisation.enable; 
   enableBluetooth       = config.system-modules.bluetooth.enable;
   enableSsh             = config.system-modules.ssh.enable;
   enableMinecraftServer = config.system-modules.minecraftserver.enable;
@@ -34,6 +35,7 @@ in
       ssh.enable              = lib.mkOption { type = lib.types.bool; default = false; };
       gaming.enable           = lib.mkOption { type = lib.types.bool; default = false; };
       audio.enable            = lib.mkOption { type = lib.types.bool; default = false; };
+      virtualisation.enable   = lib.mkOption { type = lib.types.bool; default = false; };
       bluetooth.enable        = lib.mkOption { type = lib.types.bool; default = false; };
       minecraftserver.enable  = lib.mkOption { type = lib.types.bool; default = false; };
       laptop.enable           = lib.mkOption { type = lib.types.bool; default = false; };
@@ -66,6 +68,7 @@ in
     bluetooth.enable = enableBluetooth;
     ssh.enable = enableSsh;
     minecraftserver.enable = enableMinecraftServer;
+    virtualisation.enable = enableVirtualisation;
 
     # Enables the users, at least one must be defined
     headless.enable = config.system-modules.users.headless.enable;

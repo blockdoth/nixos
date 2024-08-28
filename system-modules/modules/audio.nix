@@ -9,24 +9,17 @@
     services.pipewire = {
       enable = true;
       alsa = {
-        enable = true;
-        support32Bit = true;
+        enable = false;
+        support32Bit = false;
       };
-      pulse.enable = true;
+      pulse.enable = false;
       wireplumber = {
-        enable = true;
-        extraConfig = {
+        enable = false;
 
-        };
       };
     };
     
     hardware.pulseaudio.enable = false;
-
-    nixpkgs.config = {
-      pulseaudio = false;
-    };
-
     # https://github.com/NixOS/nixpkgs/issues/319809
     sound.enable = true; # conflicts with pipewire
   };

@@ -37,7 +37,7 @@ in
         };
         services = {
           idle.hypridle.enable        = mkDefault enableGui;
-          mediadeamon.mpd.enable      = mkDefault enableGui;
+          mediadeamon.mpd.enable      = mkDefault false;
           nightmode.gammastep.enable  = mkDefault enableGui;
           notifications.dunst.enable  = mkDefault enableGui;
         };

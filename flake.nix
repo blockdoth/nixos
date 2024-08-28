@@ -9,9 +9,9 @@
     };
 
     stylix.url = "github:danth/stylix/8c507cb2256a7246817aef5cd9e7752099184d15";
-    spicetify-nix.url = "github:the-argus/spicetify-nix/";
+    # spicetify-nix.url = "github:the-argus/spicetify-nix/";
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
-    nix-minecraft.url = "github:InfiniDoge/nix-minecraft";
+    # nix-minecraft.url = "github:InfiniDoge/nix-minecraft";
     
     #Prevents version mismatch TODO 
     # hyprland.url = "github:hyprwm/Hyprland";
@@ -21,7 +21,7 @@
     # };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixneovimplugins,spicetify-nix, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
 	let
 		system = "x86_64-linux";
 		pkgs = import nixpkgs { 
@@ -72,11 +72,9 @@
         modules = [
           {
             nixpkgs.overlays = [
-              nixneovimplugins.overlays.default
+              inputs.nixneovimplugins.overlays.default
             ];
           }
-          inputs.spicetify-nix.homeManagerModules.default
-          inputs.stylix.homeManagerModules.stylix
         	home/users/blockdoth.nix
       	];
     	};
