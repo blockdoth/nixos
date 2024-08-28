@@ -79,6 +79,7 @@ in
         firefox.enable = mkDefault enablePrograms;
         discord.enable = mkDefault enablePrograms;
         spotify.enable = mkDefault enablePrograms;
+        steam.enable   = mkDefault enablePrograms;
       };
     };
 

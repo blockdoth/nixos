@@ -2,8 +2,12 @@
 STATE_FILE="$HOME/waybar/mediaplayer-inputswitcher.state"
 SELECTED_INDEX=$(cat $STATE_FILE)p 
 echo $SELECTED_INDEX
+# print nothing if nothing is playing
+if [[ $SELECTED_INDEX == "0p" ]]; then
+  echo "|"
+  exit
+fi
 SELECTED_PLAYER=$(playerctl -l | sed -n $SELECTED_INDEX)
-
 
 PLAYER_ICON=""
 if [[ $SELECTED_PLAYER == *"firefox"* ]]; then

@@ -21,9 +21,15 @@
       ''
       STATE_FILE="$HOME/waybar/mediaplayer-inputswitcher.state"
       SELECTED_INDEX=$(cat $STATE_FILE)p 
+
+      # print nothing if nothing is playing
+      if [[ $SELECTED_INDEX == "0p" ]]; then
+        echo "|"
+        exit
+      fi
+
       SELECTED_PLAYER=$(playerctl -l | sed -n $SELECTED_INDEX)
-
-
+      
       PLAYER_ICON=""
       if [[ $SELECTED_PLAYER == *"firefox"* ]]; then
         PLAYER_ICON="󰈹"
@@ -49,21 +55,27 @@
     waybar-mediaplayer-inputswitcher = pkgs.writeShellScriptBin "waybar-mediaplayer-inputswitcher" 
       ''
       # file to save the input state
-      STATE_FILE=${mediaplayer-state-file}   
-
+      STATE_FILE="$HOME/waybar/mediaplayer-inputswitcher.state"    
+      
       # create dir if it not exists 
       mkdir -p "$(dirname "$STATE_FILE")"
-
+      
       # set default state if state file doesnt exist
       if [ ! -f "$STATE_FILE" ]; then
         echo "0" > "$STATE_FILE"  
       fi
-
-      current_source=$(cat "$STATE_FILE")
-      num_sources=$(playerctl -l | wc -l)
-
-      # increment source with wrapping
-      echo $(((current_source) % num_sources + 1)) > "$STATE_FILE"
+      
+      CURRENT_SOURCE=$(cat "$STATE_FILE")
+      NUM_SOURCES=$(playerctl -l | wc -l)
+      
+      if [[ $NUM_SOURCES == "0" ]]; then
+        echo "0" > "$STATE_FILE" 
+      else
+        echo $(((CURRENT_SOURCE % NUM_SOURCES) + 1)) > "$STATE_FILE"
+      fi
+      
+      
+      echo $(cat "$STATE_FILE") 
       '';
   in
   lib.mkIf config.modules.core.desktop.taskbar.waybar.enable 

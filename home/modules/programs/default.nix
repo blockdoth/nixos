@@ -6,5 +6,6 @@
     ./filebrowser/yazi.nix
     ./discord/discord.nix
     ./spotify.nix
+    ./steam.nix
   ];
 }
