@@ -125,7 +125,6 @@
             "cpu"
             "memory"
             "disk"
-            # "pulseaudio"
             "bluetooth"
             "network"
             "battery"

@@ -9,7 +9,7 @@
     users.users.blockdoth = {
       isNormalUser = true;
       shell = pkgs.fish;
-      extraGroups = [ "wheel" "networkmanager"];
+      extraGroups = [ "wheel" "networkmanager" "audio"];
     };
   };
 }

@@ -4,8 +4,6 @@
     modules.core.style.theme.stylix.enable = lib.mkEnableOption "Enables stylix";
   }; 
 
-  # imports= [ inputs.stylix.homeManagerModules.stylix ];
-
   config = lib.mkIf config.modules.core.style.theme.stylix.enable {
 
     stylix = {

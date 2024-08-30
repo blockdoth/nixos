@@ -133,12 +133,17 @@
             "windows,       1,  5,   overshot"
             "windowsOut,    1,  7,   overshot"
             "windowsMove,   1,  6,   overshot"
-            "workspaces,    1,  5,   default"
+            "workspaces,    1,  4,   default"
             "fade,          1,  6,   default"
             "border,        1,  10,  default"
             "borderangle,   1,  8,   default"
           ];
         };
+
+        binds = {
+          allow_workspace_cycles = "yes";
+        };
+
         # doesnt display the other layers, only
         layerrule = [
           "blur, logout_dialog"
@@ -174,6 +179,9 @@
           "workspace 1,   class:(firefox)"
           "workspace 2,   class:(VSCodium)"
           "workspace 3,   class:(vesktop)"
+
+          # make discord not steal focus
+          "noinitialfocus, class:(vesktop)"
         ];
 
         bind = [
@@ -244,7 +252,7 @@
           "SUPER SHIFT, 7, movetoworkspacesilent, 7"
           "SUPER SHIFT, 8, movetoworkspacesilent, 8"
           
-          "ALT,Tab,cyclenext"
+          "SUPER,Tab,workspace,previous"
         ];
 
         bindm = [

@@ -9,9 +9,9 @@
     };
 
     stylix.url = "github:danth/stylix/8c507cb2256a7246817aef5cd9e7752099184d15";
-    # spicetify-nix.url = "github:the-argus/spicetify-nix/";
+    spicetify-nix.url = "github:the-argus/spicetify-nix/";
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
-    # nix-minecraft.url = "github:InfiniDoge/nix-minecraft";
+    nix-minecraft.url = "github:InfiniDoge/nix-minecraft";
     
     #Prevents version mismatch TODO 
     # hyprland.url = "github:hyprwm/Hyprland";
@@ -46,21 +46,24 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/laptop/configuration.nix
-          home-manager.nixosModules.home-manager         
+          home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix         
 				];
       };
       desktop = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/desktop/configuration.nix
-          home-manager.nixosModules.home-manager         
+          home-manager.nixosModules.home-manager 
+          inputs.stylix.nixosModules.stylix                 
         ];
     	};
       server = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/server/configuration.nix
-          home-manager.nixosModules.home-manager         
+          home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix         
         ];
     	};  
     };
@@ -75,12 +78,14 @@
               inputs.nixneovimplugins.overlays.default
             ];
           }
+          inputs.stylix.homeManagerModules.stylix
         	home/users/blockdoth.nix
       	];
     	};
       headless = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
       	modules = [
+          inputs.stylix.homeManagerModules.stylix
         	home/users/headless.nix
       	];
     	};

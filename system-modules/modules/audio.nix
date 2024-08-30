@@ -6,21 +6,34 @@
 
   config = lib.mkIf config.audio.enable {
     security.rtkit.enable = true;
-    services.pipewire = {
-      enable = true;
-      alsa = {
-        enable = false;
-        support32Bit = false;
-      };
-      pulse.enable = false;
-      wireplumber = {
-        enable = false;
+    
+    # all disabled since it doesnt work
+    # services.pipewire = {
+    #   # enable = true;
+    #   alsa = {
+    #     enable = true;
+    #     support32Bit = true;
+    #   };
+    #   wireplumber.enable = true;
 
+    #   pulse.enable = true;
+    #   jack.enable = true;
+    # };
+    
+    # only pulse audio seems to work, not pipewire
+    hardware = {
+      enableAllFirmware = true;
+      pulseaudio ={
+        enable = true;
+        support32Bit = true;
       };
     };
-    
-    hardware.pulseaudio.enable = false;
-    # https://github.com/NixOS/nixpkgs/issues/319809
-    sound.enable = true; # conflicts with pipewire
+
+
+    # triggers a full local rebuild if set to false
+    nixpkgs.config = {
+      pulseaudio = true;
+    };
+    sounds.enable = false;
   };
 }
