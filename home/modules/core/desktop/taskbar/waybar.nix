@@ -6,6 +6,7 @@
 
   config = 
   let
+    toStr = var: builtins.toString var;
     mediaplayer-state-file = "$HOME/waybar/mediaplayer-inputswitcher.state";
 
     # TODO move scripts somewhere else
@@ -26,7 +27,6 @@
       
       # Turn off module if nothing is playing 
       if [[ $NUM_SOURCES == "0" ]]; then
-        echo "|"
         exit
       fi
 
@@ -47,12 +47,12 @@
 
 
       METADATA=$(playerctl metadata --player=$SELECTED_PLAYER --format '{{artist}} - {{title}}')
-      if [[ ''${#METADATA} > 40 ]]; then
+      if [[ ''${#METADATA} > 30 ]]; then
         METADATA=$(echo $METADATA | cut -c1-40)"..."
       fi
       
 
-      echo "| <span font='15' rise='-2pt'>$PLAYER_ICON $STATE_ICON</span> $METADATA |"
+      echo "| <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.2)}pt'>$PLAYER_ICON $STATE_ICON</span> $METADATA "
       '';
 
     waybar-mediaplayer-inputswitcher = pkgs.writeShellScriptBin "waybar-mediaplayer-inputswitcher" 
@@ -80,6 +80,9 @@
       
       echo $(cat "$STATE_FILE") 
       '';
+    colors = config.lib.stylix.colors;
+    icon-size = config.stylix.fonts.sizes.desktop * 1.8;
+    v-offset = config.stylix.fonts.sizes.desktop / 3.5 * -1;
   in
   lib.mkIf config.modules.core.desktop.taskbar.waybar.enable 
   {
@@ -91,11 +94,6 @@
     ];
 
     programs.waybar = 
-    let
-      colors = config.lib.stylix.colors;
-      icon-size = "20";
-      v-offset = "-4pt";
-    in
     {
       enable = true;
     
@@ -107,8 +105,6 @@
         mainBar = {
           position= "top";
           layer= "top";
-          spacing= 3;
-          height= 13;
           modules-left= [
             "custom/logo"
             "hyprland/workspaces"
@@ -119,7 +115,7 @@
           ];
           modules-right= [
             "tray" 
-            "custom/spotify"
+            "custom/media"
             "pulseaudio"
             "temperature"
             "cpu"
@@ -132,23 +128,27 @@
 
           clock= {
             calendar = {
-              format = { today = "<span color='#b4befe'><b><u>{}</u></b></span>"; };
+              format = { today = " <span color='#b4befe'><b><u>{}</u></b></span>"; };
             };
             format = " {:%H:%M %d/%m/%y }";
           };
-          
+
+          "custom/divider" = {
+            format = " | ";
+          };
+
           "custom/logo" = {
-            format = "<span font='${icon-size}'></span>";
+            format = "  <span font='${toStr icon-size}'></span> ";
             on-click = "wallpaperchanger";
             tooltip = false;
           };
           
-          "custom/spotify" = {
+          "custom/media" = {
             format = "{}";
             exec = "waybar-mediaplayer-info";
             exec-on-event = true;
             on-click = "waybar-mediaplayer-playpause";
-            on-click-middle = "waybar-mediaplayer-inputswitcher";
+            on-click-right = "waybar-mediaplayer-inputswitcher";
             interval = 1;
             tooltip = false;
           };
@@ -180,47 +180,48 @@
           "hyprland/window" = {
             "format" = "{}";
             "rewrite" = {
-                "(.*) — Mozilla Firefox"  = "<span font='${icon-size}' rise='${v-offset}'>󰈹</span> $1";
-                ".*Discord.*"             = "<span font='${icon-size}' rise='${v-offset}'></span> Discord";
-                ".*VSCodium.*"            = "<span font='${icon-size}' rise='${v-offset}'></span> VSCodium";
-                ".*Steam.*"               = "<span font='${icon-size}' rise='${v-offset}'></span> Steam";
-                "Spotify"                 = "<span font='${icon-size}' rise='${v-offset}'></span> Spotify";
-                ".*~.*"                   = "<span font='${icon-size}' rise='${v-offset}'></span> Alacritty";
+                "(.*) — Mozilla Firefox"  = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'>󰈹</span>  $1";
+                ".*Discord.*"             = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Discord";
+                ".*VSCodium.*"            = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  VSCodium";
+                ".*Steam.*"               = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Steam";
+                "Spotify"                 = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Spotify";
+                ".*~.*"                   = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Alacritty";
             };
             "separate-outputs" = true;
           };
 
           temperature = {
-            critical-threshold = 80;
-            format     = "<span font='11' rise='0.8pt'></span> {temperatureC}°C |";
+            critical-threshold = 80; 
+            format     = "| <span font='${toStr (icon-size * 0.6)}' rise='${toStr (v-offset * -0.1)}pt'></span> {temperatureC}°C ";
+            interval= 5;
           };
           memory= {
-            format     = "<span font='${icon-size}' rise='${v-offset}'></span> {percentage}% |";
-            format-alt = "<span font='${icon-size}' rise='${v-offset}'></span> {used} GB / {total} GB |";
+            format     = "| <span font='${toStr icon-size}' rise='${toStr v-offset}pt'></span> {percentage}% ";
+            format-alt = "| <span font='${toStr icon-size}' rise='${toStr v-offset}pt'></span> {used} GB / {total} GB ";
             interval= 5;
           };
           cpu= {
-            format = "<span font='${icon-size}' rise='${v-offset}'></span> {usage:2}% |";
+            format = "| <span font='${toStr icon-size}' rise='${toStr v-offset}pt'></span> {usage:2}% ";
             interval = 2;
           };
           disk = {
             # path = "/";
-            format      = "<span font='${icon-size}' rise='${v-offset}'></span> {percentage_used}% |";
-            format-alt  = "<span font='${icon-size}' rise='${v-offset}'></span> {used} / {total} |";
+            format      = "| <span font='${toStr icon-size}' rise='${toStr v-offset}pt'></span> {percentage_used}% ";
+            format-alt  = "| <span font='${toStr icon-size}' rise='${toStr v-offset}pt'></span> {used} / {total} ";
             interval= 60;
             unit = "GB";
           };
           network = {
+            format-wifi         = "| <span font='${toStr icon-size}' rise='${toStr v-offset}pt'>{icon}</span> ";
+            format-ethernet     = "| <span font='15' rise='-2pt'>󱘖</span> ";
+            format-disconnected = "| <span font='15' rise='-2pt'></span> ";
             tooltip-format      = "Connected to {essid} via {gwaddr}";
-            format-wifi         = "{icon}";
-            format-ethernet     = "<span font='15' rise='-2pt'>󱘖</span> Ethernet";
-            format-disconnected = "<span font='15' rise='-2pt'></span> Disconnected";
             format-icons = [
-              "<span font='${icon-size}' rise='${v-offset}'>󰤯</span> Wifi"
-              "<span font='${icon-size}' rise='${v-offset}'>󰤟</span> Wifi"
-              "<span font='${icon-size}' rise='${v-offset}'>󰤢</span> Wifi"
-              "<span font='${icon-size}' rise='${v-offset}'>󰤢</span> Wifi"
-              "<span font='${icon-size}' rise='${v-offset}'>󰤨</span> Wifi"
+              "󰤯"
+              "󰤟"
+              "󰤢"
+              "󰤢"
+              "󰤨"
             ];
           };
           
@@ -230,9 +231,9 @@
               warning = 30;
               critical = 20;
             };
-            format = "{icon} {capacity}%";
-            format-charging = " {capacity}%";
-            format-plugged = " {capacity}%";
+            format          = "| <span font='${toStr (icon-size * 0.5)}' rise='${toStr (v-offset * -0.15)}pt'>{icon}</span> {capacity}% ";
+            format-charging = "| <span font='${toStr (icon-size * 0.5)}' rise='${toStr (v-offset * -0.15)}pt'>󰂄</span> {capacity}% ";
+            format-plugged  = "| <span font='${toStr (icon-size * 0.5)}' rise='${toStr (v-offset * -0.15)}pt'></span> {capacity}% ";
             format-alt = "{time} {icon}";
             format-icons = [
               "󰂎"
@@ -250,9 +251,9 @@
           };
 
           pulseaudio = {
-            format                 = "<span font='${icon-size}' rise='-4.5pt'>{icon}</span> {volume:3}% |";
-            format-bluetooth       = "<span font='${icon-size}' rise='-4.5pt'>{icon}</span> {volume:3}%  |";
-            format-bluetooth-muted = "<span font='${icon-size}' rise='-4.5pt'>{icon}</span> {icon} {format_source} |";
+            format                 = "| <span font='${toStr icon-size}' rise='${toStr (v-offset * 1)}pt'>{icon}</span> {volume:3}% ";
+            format-bluetooth       = "| <span font='${toStr icon-size}' rise='${toStr (v-offset * 1)}pt'>{icon}</span> {volume:3}%  ";
+            format-bluetooth-muted = "| <span font='${toStr icon-size}' rise='${toStr (v-offset * 1)}pt'>{icon}</span> {icon} {format_source} ";
             format-muted = "{format_source}";
             format-source = "";
             format-source-muted = "";
@@ -264,39 +265,12 @@
             on-click-right = "pavucontrol";
           };
 
-          mpd = {
-            format= " {stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) |";
-            format-disconnected= " Disconnected |";
-            format-stopped= " {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped |";
-            interval= 10;
-            # consume-icons = {
-            #   on = " "; 
-            # };
-            # random-icons = {
-            #   off = "<span color=\"#f53c3c\"></span> "; 
-            #   on = " ";
-            # };
-            # repeat-icons = {
-            #   on = " ";
-            # };
-            # single-icons = {
-            #   on = "1 ";
-            # };
-            # state-icons = {
-            #   paused = "";
-            #   playing = "";
-            # };
-            tooltip-format = "MPD (connected)";
-            tooltip-format-disconnected = "MPD (disconnected)";
-          };
-
           tray= {
-            icon-size= 15;
             spacing= 8;
           };
 
           bluetooth = {
-            format = "󰂯";
+            format = "| <span font='${toStr (icon-size * 0.5)}' rise='${toStr (v-offset * -0.3)}pt'>󰂯</span> ";
             format-no-controller = ""; # Hide when no bluetooth module detected
             tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
             tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
@@ -351,6 +325,7 @@
           transition-property: background-color;
           transition-duration: 0.2s;
           color: #${colors.base07};
+          font-size: ${toStr config.stylix.fonts.sizes.desktop}pt;
         }
         
         @keyframes blink_red {
@@ -366,21 +341,16 @@
           border-width: 3px;
           border-color: rgba(80, 73, 69, 0.7); /* TODO fix this with stylix #${colors.base02} */
           border-style: solid;
-          
         }
         
 
-        .modules-left,
-        .modules-center, 
+        .modules-left 
+        {
+          margin-left: 5px;
+        }
         .modules-right 
         {
-          margin: 0px 5px 0px 5px;
-        }
-
-
-        #window {
-          padding-left: 5px;
-          padding-right: 8px;
+          margin-right: 10px;
         }
 
         #workspaces {
@@ -422,17 +392,13 @@
         #battery, 
         #tray,
         #bluetooth,
-        #custom-logo
+        #custom-logo,
+        #custom-media
         {   
-          margin-left: 5px;
-          margin-right: 5px;
+          border-radius: 0px;
+          margin: 0px;
         }
-
-
-        #custom-logo {
-          margin-left: 10px;   
-          padding: 0px;
-        }
+        
       '';
     };
   };

@@ -34,6 +34,6 @@
     nixpkgs.config = {
       pulseaudio = true;
     };
-    sounds.enable = false;
+    sound.enable = lib.mkForce false;
   };
 }

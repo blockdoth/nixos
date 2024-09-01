@@ -55,7 +55,7 @@
         ''
         * {
             background-image: none;
-            font-size: 30px;
+            font-size: 20px;
             color: rgba(230, 230, 230, 0.8);
           }
           

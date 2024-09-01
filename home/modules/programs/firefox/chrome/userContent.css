@@ -5,6 +5,3 @@
 @import url("ShyFox/content/shy-global-content.css");
 @import url("ShyFox/shy-variables.css");
 
-:root[lwt-newtab-brighttext] {
-  --newtab-background-color: #282828 !important;
-}

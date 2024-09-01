@@ -13,6 +13,7 @@
       devinit = pkgs.writeShellScriptBin "devinit"
       ''
       JAVA_ENV="${replaceAndReadFile ./template-shells/java.nix}"
+      SCALA_ENV="${replaceAndReadFile ./template-shells/scala.nix}"
       C_ENV="${replaceAndReadFile ./template-shells/c.nix}"
       CPP_ENV="${replaceAndReadFile ./template-shells/cpp.nix}"
       RUST_ENV="${replaceAndReadFile ./template-shells/rust.nix}"
@@ -28,6 +29,7 @@
       Choose an environment: "
       options=(
         "java" 
+        "scala" 
         "c" 
         "cpp" 
         "rust" 
@@ -46,6 +48,12 @@
             echo "Created a java nix shell template"
             break
             ;;
+          "scala")
+            echo "$SCALA_ENV" > "flake.nix"
+            echo "$SEPERATOR"
+            echo "Created a scala nix shell template"
+            break
+            ;;            
           "c")
             echo "$C_ENV" > "flake.nix"
             echo "$SEPERATOR"
