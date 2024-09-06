@@ -13,9 +13,7 @@
       
       polarity = "dark";
       cursor = {
-        # package = pkgs.oreo-cursors-plus;
-        # name = "oreo_spark_orange_cursors";
-        # size = 18;
+        size = 15;
       };
       fonts = {
         monospace = {

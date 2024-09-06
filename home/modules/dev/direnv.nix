@@ -7,19 +7,19 @@
   config = 
     let
       # function to import a nix file and escape it such that it can be used in a bash scriipt
-      replaceAndReadFile = path: builtins.replaceStrings ["\""] ["\\\""] (builtins.readFile path);
+      readAndEscapeFile = path: builtins.replaceStrings ["\""] ["\\\""] (builtins.readFile path);
 
       # script to init nix env for various languages 
       devinit = pkgs.writeShellScriptBin "devinit"
       ''
-      JAVA_ENV="${replaceAndReadFile ./template-shells/java.nix}"
-      SCALA_ENV="${replaceAndReadFile ./template-shells/scala.nix}"
-      C_ENV="${replaceAndReadFile ./template-shells/c.nix}"
-      CPP_ENV="${replaceAndReadFile ./template-shells/cpp.nix}"
-      RUST_ENV="${replaceAndReadFile ./template-shells/rust.nix}"
-      PYTHON_ENV="${replaceAndReadFile ./template-shells/python.nix}"
-      TYPESCRIPT_ENV="${replaceAndReadFile ./template-shells/typescript.nix}"
-      DEFAULT_ENV="${replaceAndReadFile ./template-shells/default.nix}"
+      JAVA_ENV="${readAndEscapeFile ./template-shells/java.nix}"
+      SCALA_ENV="${readAndEscapeFile ./template-shells/scala.nix}"
+      C_ENV="${readAndEscapeFile ./template-shells/c.nix}"
+      CPP_ENV="${readAndEscapeFile ./template-shells/cpp.nix}"
+      RUST_ENV="${readAndEscapeFile ./template-shells/rust.nix}"
+      PYTHON_ENV="${readAndEscapeFile ./template-shells/python.nix}"
+      TYPESCRIPT_ENV="${readAndEscapeFile ./template-shells/typescript.nix}"
+      DEFAULT_ENV="${readAndEscapeFile ./template-shells/default.nix}"
       
       SEPERATOR="――――――――――――――――――――――――――――"
       echo "Initializing a nix environment"
@@ -93,7 +93,8 @@
           "clean")
             rm ./.direnv -r
             rm ./.envrc 
-            rm ./shell.nix
+            rm ./flake.nix
+            rm ./flake.lock
             echo "$SEPERATOR"
             echo "Cleaned up environment"
             exit
@@ -109,13 +110,18 @@
       
       # create .envrc for direnv
       echo "use flake" > .envrc
-
+      if[(git rev-parse --is-inside-work-tree) != "true"] then
+        git add .envrc flake.nix .direnv/
+      fi
       # enable flake
       direnv allow
+      if[(git rev-parse --is-inside-work-tree) != "true"] then
+        git add flake.lock
+      fi
       '';
 
     in
-    lib.mkIf config.modules.dev.editors.jetbrains.enable {
+    {
 
     home.packages = with pkgs; [
       devinit

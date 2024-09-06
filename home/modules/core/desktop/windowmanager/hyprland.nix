@@ -191,12 +191,20 @@
           "SUPER,D,exec,vesktop"
           "SUPER,E,exec,wallpaperchanger"
           "SUPER,F,exec,nautilus"
+
           # "SUPER,G,"
-          "SUPER,H,movefocus,l"
+
+          "SUPER,H, togglespecialworkspace, magic"
+          "SUPER,H, movetoworkspace, +0"
+          "SUPER,H, togglespecialworkspace, magic"
+          "SUPER,H, movetoworkspace, special:magic"
+          "SUPER,H, togglespecialworkspace, magic"
+
           # "SUPER,I,"
-          "SUPER,K,movefocus,u"
-          "SUPER,J,movefocus,d"
-          "SUPER,L,movefocus,r"
+          # "SUPER,H,movefocus,l"
+          # "SUPER,K,movefocus,u"
+          # "SUPER,J,movefocus,d"
+          # "SUPER,L,movefocus,r"
           # "SUPER,M,"
           "SUPER,N,fullscreen" 
           "SUPER,O,pseudo,"
@@ -253,6 +261,7 @@
           "SUPER SHIFT, 8, movetoworkspacesilent, 8"
           
           "SUPER,Tab,workspace,previous"
+
         ];
 
         bindm = [
@@ -264,8 +273,8 @@
 
         bindle = [
             # Backlight Keys
-            ",XF86MonBrightnessUp,exec,light -A 5"
-            ",XF86MonBrightnessDown,exec,light -U 5"
+            ",XF86MonBrightnessUp   ,exec,brightnessctl set +20"
+            ",XF86MonBrightnessDown ,exec,brightnessctl set 20-"
             # Volume Keys
             ",XF86AudioRaiseVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ +5%  "
             ",XF86AudioLowerVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ -5%  "
