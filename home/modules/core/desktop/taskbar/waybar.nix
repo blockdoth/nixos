@@ -105,6 +105,9 @@
         mainBar = {
           position= "top";
           layer= "top";
+          margin-left = 3;
+          margin-right = 3;
+
           modules-left= [
             "custom/logo"
             "hyprland/workspaces"
@@ -337,9 +340,9 @@
 
 
         window#waybar {
-          background-color: rgba(60, 56, 54, 0.7); /* TODO fix this with stylix #${colors.base01} */
+          background-color: rgba(60, 56, 54, 0.6); /* TODO fix this with stylix #${colors.base01} */
           border-width: 3px;
-          border-color: rgba(80, 73, 69, 0.7); /* TODO fix this with stylix #${colors.base02} */
+          border-color: rgba(80, 73, 69, 0.6); /* TODO fix this with stylix #${colors.base02} */
           border-style: solid;
         }
         

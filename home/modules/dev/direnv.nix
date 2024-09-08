@@ -19,6 +19,7 @@
       RUST_ENV="${readAndEscapeFile ./template-shells/rust.nix}"
       PYTHON_ENV="${readAndEscapeFile ./template-shells/python.nix}"
       TYPESCRIPT_ENV="${readAndEscapeFile ./template-shells/typescript.nix}"
+      HASKELL_ENV="${readAndEscapeFile ./template-shells/haskell.nix}"
       DEFAULT_ENV="${readAndEscapeFile ./template-shells/default.nix}"
       
       SEPERATOR="――――――――――――――――――――――――――――"
@@ -35,6 +36,7 @@
         "rust" 
         "python" 
         "typescript" 
+        "haskell"
         "default" 
         "clean"
         "exit"
@@ -84,6 +86,12 @@
             echo "Created a typescript nix shell template"
             break
             ;;    
+          "haskell")
+            echo "$HASKELL_ENV" > "flake.nix"
+            echo "$SEPERATOR"
+            echo "Created a haskell nix shell template"
+            break
+            ;;                
           "default")
             echo "$DEFAULT_ENV" > "flake.nix"
             echo "$SEPERATOR"
@@ -108,16 +116,20 @@
         esac
       done
       
-      # create .envrc for direnv
+     # create .envrc for direnv
       echo "use flake" > .envrc
-      if[(git rev-parse --is-inside-work-tree) != "true"] then
-        git add .envrc flake.nix .direnv/
-      fi
+
+      # create .envrc for direnv
+      # if [[ $(git rev-parse --is-inside-work-tree) == "true" ]]; then
+      #   git add .envrc flake.nix .direnv/
+      # fi
+
       # enable flake
       direnv allow
-      if[(git rev-parse --is-inside-work-tree) != "true"] then
-        git add flake.lock
-      fi
+
+      # if [[ $(git rev-parse --is-inside-work-tree) == "true" ]]; then
+      #   git add flake.lock
+      # fi
       '';
 
     in

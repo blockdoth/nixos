@@ -8,7 +8,7 @@
     home.packages = with pkgs; [
       jetbrains.clion
       jetbrains.webstorm
-      jetbrains.pycharm-community
+      jetbrains.pycharm-professional
       jetbrains.idea-ultimate
       jetbrains.rust-rover
     ];

@@ -153,11 +153,11 @@
         "$pavu"       = "class:^(pavucontrol)$";
         windowrulev2 = [
           #transpancy
-          "opacity 0.95, class:^(firefox)"
-          "opacity 0.95, class:^(Spotify)"
-          "opacity 0.95, class:^(VSCodium)"
-          "opacity 0.95, class:^(vesktop)"
-          "opacity 0.95, class:^(jetbrains)"
+          # "opacity 0.9, class:^(firefox)"
+          "opacity 0.75, class:^(Spotify)"
+          "opacity 0.75, class:^(VSCodium)"
+          "opacity 0.75, class:^(vesktop)"
+          "opacity 0.75, class:^(jetbrains)"
 
           #pip
           "float,         $pip"
