@@ -89,9 +89,9 @@
         };
 
         general = {
-          gaps_in = 3;
-          gaps_out = 3;
-          border_size = 3;
+          gaps_in = 6;
+          gaps_out = 6;
+          border_size = 1;
           # "col.active_border" = lib.mkForce "rgba(${config.lib.stylix.colors.base0B}ee)";
           # "col.inactive_border" = "rgba(6A9FB5aa)";
           apply_sens_to_raw = 1; 
@@ -102,17 +102,20 @@
           rounding = 5;
           shadow_ignore_window = true;
           drop_shadow = true;
-          shadow_range = 10;
-          shadow_render_power = 3;
+          shadow_range = 8;
+          shadow_render_power = 4;
+          shadow_offset = "5 5";
+          "col.shadow" = lib.mkForce "rgba(000000AA)";
           blur = {
             enabled = true;
-            size = 4;
-            passes = 1;
+            size = 3;
+            passes = 3;
             new_optimizations = true;
             ignore_opacity = true;
             noise = 0.0117;
             contrast = 1.3;
             brightness = 1;
+            popups = true;
             # xray = true;
           };
         };
@@ -153,16 +156,19 @@
         "$pavu"       = "class:^(pavucontrol)$";
         windowrulev2 = [
           #transpancy
-          # "opacity 0.9, class:^(firefox)"
-          "opacity 0.75, class:^(Spotify)"
-          "opacity 0.75, class:^(VSCodium)"
-          "opacity 0.75, class:^(vesktop)"
-          "opacity 0.75, class:^(jetbrains)"
+          "opacity 0.9, class:^(firefox)"
+          "opacity 0.9, class:^(Spotify)"
+          "opacity 0.9, class:^(VSCodium)"
+          "opacity 0.9, class:^(vesktop)"
+          "opacity 0.9, class:^(jetbrains)"
+          "opacity 0.9, class:^(Nautilus)$"
 
           #pip
-          "float,         $pip"
-          "pin,           $pip"
-          "size 40% 40%,  $pip"
+          "float,           $pip"
+          "pin,             $pip"
+          "keepaspectratio, $pip"
+          "opaque, $pip"
+          "size 40% 40%,    $pip"
 
           #pavucontrol
           "float,         $pavu"
