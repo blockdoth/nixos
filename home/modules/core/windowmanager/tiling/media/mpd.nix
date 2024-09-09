@@ -1,10 +1,10 @@
 { pkgs, config, lib, ... }:
 {
   options = {
-    modules.core.services.mediadeamon.mpd.enable = lib.mkEnableOption "Enables mpd";
+    modules.core.windowmanager.tiling.mediadeamon.mpd.enable = lib.mkEnableOption "Enables mpd";
   };
 
-  config = lib.mkIf config.modules.core.services.mediadeamon.mpd.enable {
+  config = lib.mkIf config.modules.core.windowmanager.tiling.mediadeamon.mpd.enable {
     home.packages = with pkgs; [
       mpc-cli
     ];

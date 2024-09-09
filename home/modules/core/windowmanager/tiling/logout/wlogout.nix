@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 {
   options = {
-    modules.core.desktop.logout.wlogout.enable = lib.mkEnableOption "Enables wlogout";
+    modules.core.windowmanager.tiling.logout.wlogout.enable = lib.mkEnableOption "Enables wlogout";
   };
 
   config = 
@@ -12,7 +12,7 @@
       border-radius-active = "10";
       colors = config.lib.stylix.colors;
     in  
-    lib.mkIf config.modules.core.desktop.logout.wlogout.enable {
+    lib.mkIf config.modules.core.windowmanager.tiling.logout.wlogout.enable {
     programs.wlogout = {
       enable = true;
       layout = [

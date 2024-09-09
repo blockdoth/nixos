@@ -1,10 +1,10 @@
 { pkgs, config, lib, ... }:
 {
   options = {
-    modules.core.services.nightmode.gammastep.enable = lib.mkEnableOption "Enables hyprpaper";
+    modules.core.windowmanager.tiling.nightmode.gammastep.enable = lib.mkEnableOption "Enables hyprpaper";
   };
 
-  config = lib.mkIf config.modules.core.services.nightmode.gammastep.enable {
+  config = lib.mkIf config.modules.core.windowmanager.tiling.nightmode.gammastep.enable {
     services.gammastep = {
       enable = true;
       provider = "manual";

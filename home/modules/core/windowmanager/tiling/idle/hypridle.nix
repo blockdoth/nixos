@@ -7,10 +7,10 @@ let
 in {
 
   options = {
-    modules.core.services.idle.hypridle.enable = lib.mkEnableOption "Enables hypridle";
+    modules.core.windowmanager.tiling.idle.hypridle.enable = lib.mkEnableOption "Enables hypridle";
   };
 
-  config = lib.mkIf config.modules.core.services.idle.hypridle.enable {
+  config = lib.mkIf config.modules.core.windowmanager.tiling.idle.hypridle.enable {
     services.hypridle = {
       enable = true;
       settings = {

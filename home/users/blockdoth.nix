@@ -12,10 +12,13 @@
   ];
 
   modules = {
-    gui.enable             = true;
+    hyprland.enable        = true;
     dev.enable             = true;
     theming.enable         = true;
     programs.enable        = true;
+    
+    # overrides
+    core.windowmanager.tiling.mediadeamon.mpd.enable = false;
   };
 
 

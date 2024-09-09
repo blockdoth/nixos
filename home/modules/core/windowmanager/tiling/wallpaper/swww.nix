@@ -1,12 +1,12 @@
 { pkgs, config, lib, ... }:
 {
   options = {
-    modules.core.desktop.wallpaper.swww.enable = lib.mkEnableOption "Enables swww";
+    modules.core.windowmanager.tiling.wallpaper.swww.enable = lib.mkEnableOption "Enables swww";
   };
 
   config = 
   let 
-    wallpaperBasePath = "${../../../../../assets/wallpapers}";
+    wallpaperBasePath = "${../../../../../../assets/wallpapers}";
     wallpaperchanger = pkgs.writeShellScriptBin "wallpaperchanger" 
       ''
 
@@ -26,7 +26,7 @@
       done
       '';
   in
-  lib.mkIf config.modules.core.desktop.wallpaper.swww.enable 
+  lib.mkIf config.modules.core.windowmanager.tiling.wallpaper.swww.enable 
   {
     home.packages = with pkgs; [
       swww

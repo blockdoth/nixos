@@ -4,10 +4,10 @@
   in
 {
   options = {
-    modules.core.desktop.launcher.rofi.enable = lib.mkEnableOption "Enables rofi";
+    modules.core.windowmanager.tiling.launcher.rofi.enable = lib.mkEnableOption "Enables rofi";
   };
 
-  config = lib.mkIf config.modules.core.desktop.launcher.rofi.enable {
+  config = lib.mkIf config.modules.core.windowmanager.tiling.launcher.rofi.enable {
 
     programs.rofi = {
       enable = true;

@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 {
   options = {
-    modules.core.desktop.taskbar.waybar.enable = lib.mkEnableOption "Enables waybar";
+    modules.core.windowmanager.tiling.taskbar.waybar.enable = lib.mkEnableOption "Enables waybar";
   };
 
   config = 
@@ -84,7 +84,7 @@
     icon-size = config.stylix.fonts.sizes.desktop * 1.8;
     v-offset = config.stylix.fonts.sizes.desktop / 3.5 * -1;
   in
-  lib.mkIf config.modules.core.desktop.taskbar.waybar.enable 
+  lib.mkIf config.modules.core.windowmanager.tiling.taskbar.waybar.enable 
   {
     #import scripts
     home.packages = with pkgs; [

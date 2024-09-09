@@ -1,10 +1,10 @@
 { pkgs, config, lib, ... }:
 {
   options = {
-   modules.core.desktop.widgets.pyprland.enable = lib.mkEnableOption "Enables hyprpaper";
+   modules.core.windowmanager.tiling.widgets.pyprland.enable = lib.mkEnableOption "Enables hyprpaper";
   };
 
-  config = lib.mkIf config.modules.core.desktop.widgets.pyprland.enable {
+  config = lib.mkIf config.modules.core.windowmanager.tiling.widgets.pyprland.enable {
     home.packages = with pkgs; [
       pyprland
     ];

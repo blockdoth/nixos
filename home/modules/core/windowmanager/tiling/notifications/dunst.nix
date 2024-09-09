@@ -1,10 +1,10 @@
 { pkgs, config, lib, ... }:
 {
   options = {
-    modules.core.services.notifications.dunst.enable = lib.mkEnableOption "Enables dunst";
+    modules.core.windowmanager.tiling.notifications.dunst.enable = lib.mkEnableOption "Enables dunst";
   };
 
-  config = lib.mkIf config.modules.core.services.notifications.dunst.enable {
+  config = lib.mkIf config.modules.core.windowmanager.tiling.notifications.dunst.enable {
     home.packages = with pkgs; [
       libnotify
     ];

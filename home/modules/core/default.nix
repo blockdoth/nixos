@@ -1,21 +1,23 @@
-{ ...}:
+{ ... }:
 {
   imports = [
 
-    ./desktop/launcher/rofi.nix
-    ./desktop/lockscreen/hyprlock.nix
-    ./desktop/logout/wlogout.nix
-    ./desktop/taskbar/waybar.nix
-    ./desktop/wallpaper/hyprpaper.nix
-    ./desktop/wallpaper/swww.nix
-    ./desktop/widgets/pyprland.nix
-    ./desktop/windowmanager/hyprland.nix
+    ./windowmanager/stacking/gnome
 
-    ./services/idle/hypridle.nix
-    ./services/mediadeamon/mpd.nix
-    ./services/nightmode/gammastep.nix
-    ./services/notifications/dunst.nix
-
+    ./windowmanager/tiling/hyprland
+    ./windowmanager/tiling/idle/hypridle.nix
+    ./windowmanager/tiling/launcher/rofi.nix
+    ./windowmanager/tiling/lockscreen/hyprlock.nix
+    ./windowmanager/tiling/logout/wlogout.nix
+    ./windowmanager/tiling/media/mpd.nix
+    ./windowmanager/tiling/nightmode/gammastep.nix
+    ./windowmanager/tiling/notifications/dunst.nix
+    ./windowmanager/tiling/taskbar/waybar.nix
+    ./windowmanager/tiling/wallpaper/hyprpaper.nix
+    ./windowmanager/tiling/wallpaper/swww.nix
+    ./windowmanager/tiling/widgets/pyprland.nix
+    ./windowmanager/tiling/widgets/ags.nix
+    
     ./style/fonts
     ./style/rice/rice.nix
     ./style/stylix.nix

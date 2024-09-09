@@ -1,6 +1,10 @@
 { config, lib, pkgs, inputs, ... }:
 let 
-  enableGui             = config.modules.gui.enable;
+  enableGnome           = config.modules.gnome.enable;
+  enableHyprland        = config.modules.hyprland.enable;
+  enableStackingWM      = enableGnome;
+  enableTilingWM        = enableHyprland;
+  enableGui             = enableStackingWM || enableTilingWM;
   enableDev             = config.modules.dev.enable;
   enablePrograms        = config.modules.programs.enable;
   enableTheming         = config.modules.theming.enable;
@@ -13,37 +17,44 @@ in
   ];
 
   options =  with lib; {
-    modules.gui.enable             = mkOption { type = types.bool; default = false; };
-    modules.dev.enable             = mkOption { type = types.bool; default = false; };
-    modules.programs.enable        = mkOption { type = types.bool; default = false; };
-    modules.theming.enable         = mkOption { type = types.bool; default = false; };
+    modules.hyprland.enable = mkOption { type = types.bool; default = false; };
+    modules.gnome.enable    = mkOption { type = types.bool; default = false; };
+    modules.dev.enable      = mkOption { type = types.bool; default = false; };
+    modules.programs.enable = mkOption { type = types.bool; default = false; };
+    modules.theming.enable  = mkOption { type = types.bool; default = false; };
   };
-
 
   config = with lib; {
     modules = {
       core = {
-        desktop = {
-          launcher.rofi.enable          = mkDefault enableGui;
-          lockscreen.hyprlock.enable    = mkDefault enableGui;
-          logout.wlogout.enable         = mkDefault enableGui;
-          taskbar.waybar.enable         = mkDefault enableGui;
-          wallpaper = {
-            hyprpaper.enable  = mkDefault enableGui;
-            swww.enable       = mkDefault enableGui;
+        windowmanager = {
+          stacking = {
+            gnome.enable = mkDefault enableGnome;
           };
-          widgets.pyprland.enable       = mkDefault enableGui;
-          windowmanager.hyprland.enable = mkDefault enableGui;
-        };
-        services = {
-          idle.hypridle.enable        = mkDefault enableGui;
-          mediadeamon.mpd.enable      = mkDefault false;
-          nightmode.gammastep.enable  = mkDefault enableGui;
-          notifications.dunst.enable  = mkDefault enableGui;
+
+          tiling = {
+            hyprland.enable               = mkDefault enableHyprland;
+            launcher.rofi.enable          = mkDefault enableTilingWM;
+            lockscreen.hyprlock.enable    = mkDefault enableTilingWM;
+            logout.wlogout.enable         = mkDefault enableTilingWM;
+            taskbar.waybar.enable         = mkDefault enableTilingWM;
+            wallpaper = {
+              hyprpaper.enable  = mkDefault enableTilingWM;
+              swww.enable       = mkDefault enableTilingWM;
+            };
+            widgets = {
+              pyprland.enable   = mkDefault enableTilingWM;
+              ags.enable        = mkDefault enableTilingWM;
+            };
+            idle.hypridle.enable          = mkDefault enableTilingWM;
+            mediadeamon.mpd.enable        = mkDefault enableTilingWM;
+            nightmode.gammastep.enable    = mkDefault enableTilingWM;
+            notifications.dunst.enable    = mkDefault enableTilingWM;
+          };
         };
 
         style = {
-          fonts.enable          = mkDefault true;
+          fonts.enable          = mkDefault enableGui;
           theme.stylix.enable   = mkDefault enableTheming;
         };
 
@@ -89,6 +100,10 @@ in
         { 
           assertion = enableGui || !(enableGui && enablePrograms);
           message = "In order to enable programs, the GUI must be enabled";
+        } 
+        { 
+          assertion = enableGui || !(enableGui && enableDev);
+          message = "In order to enable dev tools, the GUI must be enabled";
         } 
       ];
   };
