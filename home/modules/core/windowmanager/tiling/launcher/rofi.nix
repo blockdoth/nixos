@@ -47,7 +47,7 @@
 
         #window {
           background-color: #${colors.base01}DF;
-          border:           3;
+          border:           2;
           border-radius:    6;
           border-color:     @bordercolor;
           padding:          15;

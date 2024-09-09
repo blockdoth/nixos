@@ -48,7 +48,7 @@
           corner_radius = 5;
           format = "<b>%s</b>\\n%b";
           progress_bar_corner_radius = 10;
-          frame_width = 3;
+          frame_width = 2;
           offset = "3x3";
           horizontal_padding = 10;
           icon_position = "left";

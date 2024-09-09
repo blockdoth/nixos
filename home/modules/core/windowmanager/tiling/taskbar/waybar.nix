@@ -105,8 +105,9 @@
         mainBar = {
           position= "top";
           layer= "top";
-          margin-left = 3;
-          margin-right = 3;
+          margin-left = 6;
+          margin-right = 6;
+          margin-top = 6;
 
           modules-left= [
             "custom/logo"
@@ -147,7 +148,7 @@
           };
           
           "custom/media" = {
-            format = "{}";
+            format = " {}";
             exec = "waybar-mediaplayer-info";
             exec-on-event = true;
             on-click = "waybar-mediaplayer-playpause";
@@ -324,7 +325,7 @@
         * {
           min-height: 0;
           font-weight: bold;
-          border-radius: 11px;
+          border-radius: 8px;
           transition-property: background-color;
           transition-duration: 0.2s;
           color: #${colors.base07};
@@ -341,7 +342,7 @@
 
         window#waybar {
           background-color: rgba(60, 56, 54, 0.6); /* TODO fix this with stylix #${colors.base01} */
-          border-width: 3px;
+          border-width: 2px;
           border-color: rgba(80, 73, 69, 0.6); /* TODO fix this with stylix #${colors.base02} */
           border-style: solid;
         }

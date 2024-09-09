@@ -5,6 +5,7 @@
       
       layerrule = [
         "blur, logout_dialog"
+        "blur, waybar"
       ];
       
       "$scratchpad" = "class:^(scratchpad)$";
@@ -13,12 +14,12 @@
       
       windowrulev2 = [
         #transpancy
-        "opacity 0.9, class:^(firefox)"
-        "opacity 0.9, class:^(Spotify)"
-        "opacity 0.9, class:^(VSCodium)"
-        "opacity 0.9, class:^(vesktop)"
-        "opacity 0.9, class:^(jetbrains)"
-        "opacity 0.9, class:^(Nautilus)$"
+        "opacity 0.85, class:^(firefox)"
+        "opacity 0.75, class:^(Spotify)"
+        "opacity 0.85, class:^(VSCodium)"
+        "opacity 0.75, class:^(vesktop)"
+        "opacity 0.85, class:^(jetbrains)"
+        "opacity 0.85, class:^(Nautilus)$"
         #pip
         "float,           $pip"
         "pin,             $pip"
