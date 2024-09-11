@@ -18,6 +18,7 @@
       CPP_ENV="${readAndEscapeFile ./template-shells/cpp.nix}"
       RUST_ENV="${readAndEscapeFile ./template-shells/rust.nix}"
       PYTHON_ENV="${readAndEscapeFile ./template-shells/python.nix}"
+      JUPYTER_ENV="${readAndEscapeFile ./template-shells/python-jupyter.nix}"
       TYPESCRIPT_ENV="${readAndEscapeFile ./template-shells/typescript.nix}"
       HASKELL_ENV="${readAndEscapeFile ./template-shells/haskell.nix}"
       DEFAULT_ENV="${readAndEscapeFile ./template-shells/default.nix}"
@@ -35,6 +36,7 @@
         "cpp" 
         "rust" 
         "python" 
+        "python-jupyter" 
         "typescript" 
         "haskell"
         "default" 
@@ -78,6 +80,12 @@
             echo "$PYTHON_ENV" > "flake.nix"
             echo "$SEPERATOR"
             echo "Created a python nix shell template"
+            break
+            ;; 
+          "python-jupyter")
+            echo "$JUPYTER_ENV" > "flake.nix"
+            echo "$SEPERATOR"
+            echo "Created a jupyter notebook nix shell template"
             break
             ;; 
           "typescript")
