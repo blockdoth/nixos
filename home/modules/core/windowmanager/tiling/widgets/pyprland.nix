@@ -22,13 +22,13 @@
       animation = "fromBottom"
       command = "alacritty --class scratchpad.alacritty"
       class = "scratchpad.alacritty"
+      size = "90% 90%"
       
 
-      # [scratchpads.spotify]
-      # animation = "fromBottom"
-      # command = "spotify --class scratchpad.spotify"
-      # class = "spotify"
-      # size = "75% 60%"
+      [scratchpads.spotify]
+      animation = "fromBottom"
+      command = "spotify --class scratchpad.spotify"
+      class = "scratchpad.spotify"
     '';
   };
 }

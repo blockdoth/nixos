@@ -30,7 +30,7 @@
         "SUPER,P,pin,"
         "SUPER,Q,killactive"
         "SUPER,R,exec,rofi -show drun -show-icons"
-        # "SUPER,S,"
+        "SUPER,S,exec, pypr toggle spotify"
         "SUPER,T,exec,alacritty"
         # "SUPER,U,"
         "SUPER,V,togglefloating"

@@ -12,7 +12,7 @@
     spicetify-nix.url = "github:the-argus/spicetify-nix/";
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
     nix-minecraft.url = "github:InfiniDoge/nix-minecraft";
-    
+    ags.url = "github:Aylur/ags";
     #Prevents version mismatch TODO 
     # hyprland.url = "github:hyprwm/Hyprland";
     # hyprland-plugins = {

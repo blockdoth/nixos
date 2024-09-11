@@ -11,6 +11,7 @@
     home.packages = with pkgs; [
       jq
       fd
+      unzip
       ripgrep
       fzf
       imagemagick

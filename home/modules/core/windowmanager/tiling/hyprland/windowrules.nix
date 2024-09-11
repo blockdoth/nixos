@@ -8,23 +8,25 @@
         "blur, waybar"
       ];
       
-      "$scratchpad" = "class:^(scratchpad)$";
-      "$pip"        = "title:^(Picture-in-Picture)$";
-      "$pavu"       = "class:^(pavucontrol)$";
+      "$scratchpad" = "class:^(scratchpad|Spotify)";
+      "$pip"        = "title:^(Picture-in-Picture)";
+      "$pavu"       = "class:^(pavucontrol)";
       
       windowrulev2 = [
         #transpancy
         "opacity 0.85, class:^(firefox)"
+        "opacity 1.00, title:^(.*YouTube.*)"
         "opacity 0.75, class:^(Spotify)"
         "opacity 0.85, class:^(VSCodium)"
-        "opacity 0.75, class:^(vesktop)"
+        "opacity 0.80, class:^(vesktop)"
         "opacity 0.85, class:^(jetbrains)"
-        "opacity 0.85, class:^(Nautilus)$"
+        "opacity 0.85, class:^(Nautilus)"
+        
         #pip
         "float,           $pip"
         "pin,             $pip"
         "keepaspectratio, $pip"
-        "opaque, $pip"
+        "opaque,          $pip"
         "size 40% 40%,    $pip"
         #pavucontrol
         "float,         $pavu"
@@ -32,9 +34,9 @@
         "size 40% 40%,  $pavu"
         # Scratchpads
         "float,                     $scratchpad"
-        "size 90% 90%,              $scratchpad"
         "workspace special silent,  $scratchpad"
         "center,                    $scratchpad"
+        "opacity 0.8,               $scratchpad"
         
         # auto starts workspaces
         "workspace 1,   class:(firefox)"

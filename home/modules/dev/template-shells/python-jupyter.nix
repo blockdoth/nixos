@@ -20,12 +20,21 @@
           shellHook = "
             echo 'Entering a jupyter notebook shell template'
           ";
-          packages = with pkgs.python3Packages; [
-            python
+          packages = with pkgs; [
+            nodejs_22
+            nodePackages.npm
+          ] ++
+          (with pkgs.python3Packages; [
+            ipython
             venvShellHook
+            virtualenv
             pip
 
-          ];
+            numpy 
+            jupyterlab
+            matplotlib
+            notebook
+          ]);
           postVenvCreation = ''
             unset SOURCE_DATE_EPOCH
             pip install -r requirements.txt

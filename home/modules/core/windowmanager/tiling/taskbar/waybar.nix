@@ -7,12 +7,12 @@
   config = 
   let
     toStr = var: builtins.toString var;
-    mediaplayer-state-file = "$HOME/waybar/mediaplayer-inputswitcher.state";
+    mediaplayer-state-file = "$HOME/.local/state/waybar/mediaplayer-inputswitcher.state";
 
     # TODO move scripts somewhere else
     waybar-mediaplayer-playpause = pkgs.writeShellScriptBin "waybar-mediaplayer-playpause"
     ''
-      STATE_FILE="$HOME/waybar/mediaplayer-inputswitcher.state"
+      STATE_FILE="${mediaplayer-state-file}"
       SELECTED_INDEX=$(cat $STATE_FILE)p 
       SELECTED_PLAYER=$(playerctl -l | sed -n $SELECTED_INDEX)
       playerctl --player=$SELECTED_PLAYER play-pause
@@ -20,7 +20,7 @@
 
     waybar-mediaplayer-info = pkgs.writeShellScriptBin "waybar-mediaplayer-info" 
       ''
-      STATE_FILE="$HOME/waybar/mediaplayer-inputswitcher.state"
+      STATE_FILE="${mediaplayer-state-file}"
       SELECTED_INDEX=$(cat $STATE_FILE)p 
 
       NUM_SOURCES=$(playerctl -l | wc -l)
@@ -58,7 +58,7 @@
     waybar-mediaplayer-inputswitcher = pkgs.writeShellScriptBin "waybar-mediaplayer-inputswitcher" 
       ''
       # file to save the input state
-      STATE_FILE="$HOME/waybar/mediaplayer-inputswitcher.state"    
+      STATE_FILE="${mediaplayer-state-file}"    
       
       # create dir if it not exists 
       mkdir -p "$(dirname "$STATE_FILE")"
