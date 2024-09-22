@@ -14,6 +14,7 @@
   		shellAliases = {
   			cls = "clear"; 
   			nh = "cd /home/blockdoth/nixos"; 
+        repos = "cd /home/blockdoth/Documents/repos"; 
   			hr-blockdoth = "nh && home-manager switch --flake .#blockdoth"; 
   			hr-headless = "nh && home-manager switch --flake .#headless"; 
   			nr-desktop = "nh && sudo nixos-rebuild switch --flake .#desktop"; 

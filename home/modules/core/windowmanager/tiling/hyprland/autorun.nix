@@ -13,7 +13,6 @@
         "[workspace 1 silent] firefox"
         "[workspace 2 silent] codium"
         "[workspace 3 silent] vesktop"
-        "[workspace special silent] spotify"
       ];
     };
   }; 

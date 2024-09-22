@@ -11,7 +11,7 @@
         wifi.scanRandMacAddress = false;
       };
       wireless = {
-        enable = true;
+        enable = false;
         userControlled.enable = true;
         networks = {
           eduroam = {
