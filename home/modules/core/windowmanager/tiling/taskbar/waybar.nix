@@ -202,11 +202,11 @@
           memory= {
             format     = "| <span font='${toStr icon-size}' rise='${toStr v-offset}pt'></span> {percentage}% ";
             format-alt = "| <span font='${toStr icon-size}' rise='${toStr v-offset}pt'></span> {used} GB / {total} GB ";
-            interval= 5;
+            interval= 3;
           };
           cpu= {
             format = "| <span font='${toStr icon-size}' rise='${toStr v-offset}pt'></span> {usage:2}% ";
-            interval = 2;
+            interval = 3;
           };
           disk = {
             # path = "/";
@@ -230,6 +230,7 @@
           };
           
           battery = {
+            interval= 3;
             states = {
               good = 95;
               warning = 30;
@@ -238,7 +239,7 @@
             format          = "| <span font='${toStr (icon-size * 0.5)}' rise='${toStr (v-offset * -0.15)}pt'>{icon}</span> {capacity}% ";
             format-charging = "| <span font='${toStr (icon-size * 0.5)}' rise='${toStr (v-offset * -0.15)}pt'>󰂄</span> {capacity}% ";
             format-plugged  = "| <span font='${toStr (icon-size * 0.5)}' rise='${toStr (v-offset * -0.15)}pt'></span> {capacity}% ";
-            format-alt = "{time} {icon}";
+            format-alt = "| <span font='${toStr (icon-size * 0.5)}' rise='${toStr (v-offset * -0.15)}pt'>{icon}</span> {time:10} @ {power:5} W ";
             format-icons = [
               "󰂎"
               "󰁺"
