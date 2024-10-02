@@ -20,6 +20,7 @@
         files.autoSave = "afterDelay";
         editor.tabSize = 2;
         workbench.tree.indent = 12;
+        editor.fontSize =  16;
         editor.detectIndentation = false;
         window.title = "\${activeRepositoryName}\${folderName}";
       };
