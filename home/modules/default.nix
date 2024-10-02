@@ -87,11 +87,12 @@ in
           dolphin.enable  = mkDefault enablePrograms;
           yazi.enable     = mkDefault enablePrograms;
         };
-        firefox.enable    = mkDefault enablePrograms;
-        discord.enable    = mkDefault enablePrograms;
-        spotify.enable    = mkDefault enablePrograms;
-        steam.enable      = mkDefault enablePrograms;
-        minecraft.enable  = mkDefault enablePrograms;
+        firefox.enable        = mkDefault enablePrograms;
+        activate-linux.enable = mkDefault false;
+        discord.enable        = mkDefault enablePrograms;
+        spotify.enable        = mkDefault enablePrograms;
+        steam.enable          = mkDefault enablePrograms;
+        minecraft.enable      = mkDefault enablePrograms;
       };
     };
 

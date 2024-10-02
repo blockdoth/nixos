@@ -11,6 +11,7 @@
     audio.enable = true;
     bluetooth.enable = true;
     users.blockdoth.enable = true;
+    laptop.enable = true;
   };
 
   services = {
