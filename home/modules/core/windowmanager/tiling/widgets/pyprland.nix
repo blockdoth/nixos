@@ -13,7 +13,6 @@
     home.file."/home/blockdoth/.config/hypr/pyprland.toml".text = ''
       [pyprland]
       plugins = [
-      #  "expose", # broken
        "magnify",
        "scratchpads",
       ]
@@ -24,15 +23,12 @@
       command = "alacritty --class scratchpad.alacritty"
       class = "scratchpad.alacritty"
       size = "90% 90%"
-      # lazy = "true"
       
-
       [scratchpads.spotify]
       animation = "fromBottom"
       hide_delay = 0.5
       command = "spotify --class scratchpad.spotify"
       class = "scratchpad.spotify"
-      # lazy = "true"
     '';
   };
 }
