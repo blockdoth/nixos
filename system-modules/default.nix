@@ -7,6 +7,7 @@ let
   enableBluetooth       = config.system-modules.bluetooth.enable;
   enableSsh             = config.system-modules.ssh.enable;
   enableMinecraftServer = config.system-modules.minecraftserver.enable;
+  enableLaptop          = config.system-modules.laptop.enable; 
   enableUserHeadless    = config.system-modules.users.headless.enable;
   enableUserBlockdoth   = config.system-modules.users.blockdoth.enable;
 in
@@ -23,6 +24,7 @@ in
     ./modules/networking.nix
     ./modules/nix-config.nix
     ./modules/localisation.nix
+    ./modules/power.nix
     ./modules/printing.nix
     ./modules/ssh.nix
     ./modules/virtualisation.nix
@@ -66,6 +68,7 @@ in
     x11.enable = enableGui;
     audio.enable = enableAudio;
     bluetooth.enable = enableBluetooth;
+    power.enable = enableLaptop;
     ssh.enable = enableSsh;
     minecraftserver.enable = enableMinecraftServer;
     virtualisation.enable = enableVirtualisation;

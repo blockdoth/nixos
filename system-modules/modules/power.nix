@@ -7,7 +7,11 @@
   config = lib.mkIf config.power.enable {
     services = {
       upower.enable = true;
-      power-profiles-daemon.enable = true;
+      power-profiles-daemon.enable = false;
+      auto-cpufreq.enable = true;
     };
   };
 }
+
+
+
