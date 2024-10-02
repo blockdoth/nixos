@@ -32,7 +32,7 @@
         "SUPER,R,exec,rofi -show drun -show-icons"
         "SUPER,S,exec, pypr toggle spotify"
         "SUPER,T,exec,alacritty"
-        # "SUPER,U,"
+        "SUPER,U,exec,"
         "SUPER,V,togglefloating"
         "SUPER,W,exec,wlogout -b 5"
         # "SUPER,X,exec,pypr attach"
