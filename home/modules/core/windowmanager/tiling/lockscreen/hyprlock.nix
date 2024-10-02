@@ -10,7 +10,7 @@
 
       settings = {
         general = {
-          no_fade_in = false;
+          no_fade_in = true;
           hide_cursor = true;
           ignore_empty_input = true;
           grace = 0;
