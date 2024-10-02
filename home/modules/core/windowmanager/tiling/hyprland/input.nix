@@ -7,7 +7,7 @@
         touchpad = {
           natural_scroll = true;
         };
-        # sensitivity = 0;
+        sensitivity = 0.2;
       };
 
       cursor = {
