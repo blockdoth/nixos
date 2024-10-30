@@ -1,10 +1,10 @@
 { config, lib, ... }:
 {
   options = {
-    audio.enable = lib.mkEnableOption "Enables sound";
+    system-modules.audio.enable = lib.mkEnableOption "Enables sound";
   };
 
-  config = lib.mkIf config.audio.enable {
+  config = lib.mkIf config.system-modules.audio.enable {
     security.rtkit.enable = true;
     
     # all disabled since it doesnt work

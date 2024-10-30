@@ -1,0 +1,1 @@
+nix run nixpkgs#nixos-generators -- -f sd-aarch64 --flake .#rpi --system aarch64-linux -o ./rpi.sd

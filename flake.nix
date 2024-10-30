@@ -38,17 +38,7 @@
 		pkgs = import nixpkgs { 
       inherit system; 
       config.allowUnfree = true;
-    # TODO figure out how to set up the NUR
-    #   config.packageOverrides = pkgs: {1
-    #     nur = import (
-    #       builtins.fetchTarball {
-    #         url = "http://github.com/nix-community/NUR/archive/e78affd5313eef31717a16f81bc658f5e5be2154.tar.gz";
-    #         sha256 = "17dkg56chx64a08f7z5wgikac3105n7p7y8wwdcxms36cqg7iz63";
-    #       }
-    #     ) {
-    #     inherit pkgs;
-    #   };
-    # };
+      # crossSystem = { config = "aarch64-linux"; };  # Enable cross-compilation
     };
 	in {
 
@@ -76,7 +66,22 @@
           home-manager.nixosModules.home-manager
           inputs.stylix.nixosModules.stylix         
         ];
-    	};  
+    	}; 
+
+      # rpi2 = nixpkgs.lib.nixosSystem {
+      #   system = "armv7l-linux";
+      #   specialArgs = { 
+      #     inherit inputs; 
+      #     crossSystem = {
+      #       config = "aarch64-linux";  # Enable cross-compilation to ARM64 (Raspberry Pi)
+      #     };
+      #   };
+      #   modules = [
+      #     ./hosts/rpi/configuration.nix
+      #     home-manager.nixosModules.home-manager
+      #     inputs.stylix.nixosModules.stylix         
+      #   ];
+    	# };   
     };
 
     homeConfigurations = {

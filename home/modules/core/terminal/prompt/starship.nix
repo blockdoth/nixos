@@ -7,6 +7,7 @@
   config = lib.mkIf config.modules.core.terminal.prompt.starship.enable {
   	programs.starship = {
   		enable = true;
+      enableTransience = true;
  		};
   };
 }

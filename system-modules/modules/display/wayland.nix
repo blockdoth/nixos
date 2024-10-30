@@ -1,10 +1,10 @@
 {  config, lib, ... }:
 {
   options = {
-    hyprland.enable = lib.mkEnableOption "Enables Hyprland";
+    system-modules.hyprland.enable = lib.mkEnableOption "Enables Hyprland";
   };
 
-  config = lib.mkIf config.hyprland.enable {
+  config = lib.mkIf config.system-modules.hyprland.enable {
     programs.hyprland = {
       enable = true;
       xwayland.enable = true;

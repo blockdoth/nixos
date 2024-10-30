@@ -18,7 +18,8 @@ in
     ./modules/users
     ./modules/audio.nix
     ./modules/bluetooth.nix
-    ./modules/booting.nix
+    ./modules/crosscompilation.nix
+    ./modules/grub.nix
     ./modules/gaming.nix
     ./modules/greeter.nix
     ./modules/networking.nix
@@ -34,12 +35,6 @@ in
     system-modules = {
       common.enable           = lib.mkEnableOption "Enables the core services";
       gui.enable              = lib.mkOption { type = lib.types.bool; default = false; }; 
-      ssh.enable              = lib.mkOption { type = lib.types.bool; default = false; };
-      gaming.enable           = lib.mkOption { type = lib.types.bool; default = false; };
-      audio.enable            = lib.mkOption { type = lib.types.bool; default = false; };
-      virtualisation.enable   = lib.mkOption { type = lib.types.bool; default = false; };
-      bluetooth.enable        = lib.mkOption { type = lib.types.bool; default = false; };
-      minecraftserver.enable  = lib.mkOption { type = lib.types.bool; default = false; };
       laptop.enable           = lib.mkOption { type = lib.types.bool; default = false; };
       users.blockdoth.enable  = lib.mkOption { type = lib.types.bool; default = false; };
       users.headless.enable   = lib.mkOption { type = lib.types.bool; default = false; };
@@ -54,28 +49,22 @@ in
       git
       home-manager
     ];
+    system-modules = {
+      # Enables the common modules
+      grub.enable = lib.mkDefault true;
+      networking.enable = true;
+      localisation.enable = true;
+      nix-config.enable = true;
 
-    # Enables the common modules
-    booting.enable = true;
-    networking.enable = true;
-    localisation.enable = true;
-    nix-config.enable = true;
-    greeter.enable = true;
+      # Enables the optional modules
+      greeter.enable = enableGui;
+      hyprland.enable = enableGui;
+      x11.enable = enableGui;
+      power.enable = enableLaptop;
 
-    # Enables the optional modules
-    gaming.enable = enableGaming;
-    hyprland.enable = enableGui;
-    x11.enable = enableGui;
-    audio.enable = enableAudio;
-    bluetooth.enable = enableBluetooth;
-    power.enable = enableLaptop;
-    ssh.enable = enableSsh;
-    minecraftserver.enable = enableMinecraftServer;
-    virtualisation.enable = enableVirtualisation;
-
-    # Enables the users, at least one must be defined
-    headless.enable = config.system-modules.users.headless.enable;
-    blockdoth.enable = config.system-modules.users.blockdoth.enable;
+      headless.enable = config.system-modules.users.headless.enable;
+      blockdoth.enable = config.system-modules.users.blockdoth.enable;
+    };
 
     # Prevent me from fucking myself over again
     assertions =

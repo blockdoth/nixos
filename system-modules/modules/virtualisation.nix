@@ -1,10 +1,10 @@
 { config, lib, ... }:
 {
   options = {
-    virtualisation.enable = lib.mkEnableOption "Enables virtualisation";
+    system-modules.virtualisation.enable = lib.mkEnableOption "Enables virtualisation";
   };
 
-  config = lib.mkIf config.virtualisation.enable {
+  config = lib.mkIf config.system-modules.virtualisation.enable {
     virtualisation = {
       docker.rootless = {
         enable = true;

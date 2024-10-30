@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 {
   options = {
-    bluetooth.enable = lib.mkEnableOption "Enables Bluetooth";
+    system-modules.bluetooth.enable = lib.mkEnableOption "Enables Bluetooth";
   };
 
-  config = lib.mkIf config.bluetooth.enable {
+  config = lib.mkIf config.system-modules.bluetooth.enable {
     services.blueman.enable = true;
     hardware.bluetooth = {
       enable = true;

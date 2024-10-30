@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 {
   options = {
-    nix-config.enable = lib.mkEnableOption "Enables default nix config settings";
+    system-modules.nix-config.enable = lib.mkEnableOption "Enables default nix config settings";
   };
 
-  config = lib.mkIf config.nix-config.enable {
+  config = lib.mkIf config.system-modules.nix-config.enable {
     nixpkgs.config.allowUnfree = true;
     nix = {
       package = pkgs.nixFlakes;

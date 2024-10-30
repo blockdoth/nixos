@@ -1,4 +1,4 @@
-{
+3{
   description = "A Nix flake template for a scala development environment";
 
   inputs = {

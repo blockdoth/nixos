@@ -12,6 +12,7 @@
     bluetooth.enable = true;
     users.blockdoth.enable = true;
     laptop.enable = true;
+    crosscompilation.enable = true;
   };
 
   services = {

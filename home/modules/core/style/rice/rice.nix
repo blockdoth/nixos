@@ -15,6 +15,7 @@
     tty-clock
     lolcat
     tree
+    figlet
     # mesa-demos # gears and such
   ];
 }

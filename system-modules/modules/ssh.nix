@@ -1,10 +1,10 @@
 { config, lib, ... }:
 {
   options = {
-    ssh.enable = lib.mkEnableOption "Enables ssh";
+    system-modules.ssh.enable = lib.mkEnableOption "Enables ssh";
   };
 
-  config = lib.mkIf config.ssh.enable {
+  config = lib.mkIf config.system-modules.ssh.enable {
     services.openssh.enable = true;
 
     networking.firewall = {

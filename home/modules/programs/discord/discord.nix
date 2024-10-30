@@ -23,7 +23,7 @@
       "openLinksWithElectron": false
     }
     '';
-
+    # https://raw.githubusercontent.com/refact0r/system24/refs/heads/main/theme/flavors/gruvbox-material.theme.css
     # # Simple CSS
     # home.file.".config/vesktop/settings/quickCss.css".text = 
     # ''

@@ -1,10 +1,10 @@
 { config, lib, ...}:
 {
   options = {
-    gaming.enable = lib.mkEnableOption "Enables services required for games";
+    system-modules.gaming.enable = lib.mkEnableOption "Enables services required for games";
   };
 
-  config = lib.mkIf config.gaming.enable {
+  config = lib.mkIf config.system-modules.gaming.enable {
     hardware.graphics = {
       enable = true;
       enable32Bit = true;

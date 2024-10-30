@@ -21,6 +21,8 @@
   			nr-server = "nh && sudo nixos-rebuild switch --flake .#server"; 
   			nr-laptop = "nh && sudo nixos-rebuild switch --flake .#laptop"; 
   			bdir = "nautilus --select . &";  
+        btm = "btm --mem_as_value -g";
+        config = "nh && codium .";
   			mkscript = "echo '#!/usr/bin/env bash' > script-template.sh && chmod +x script-template.sh";  
   		};
 

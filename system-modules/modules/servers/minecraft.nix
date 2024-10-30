@@ -1,12 +1,17 @@
 { pkgs, config, lib, inputs, ... }:
 {  
   options = {
-    minecraftserver.enable = lib.mkEnableOption "Enables minecraft server";
+    system-modules.minecraftserver.enable = lib.mkEnableOption "Enables minecraft server";
   };
 
-  imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
-  config = lib.mkIf config.minecraftserver.enable {
-    nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
+  imports = [ 
+    inputs.nix-minecraft.nixosModules.minecraft-servers 
+  ];
+
+  config = lib.mkIf config.system-modules.minecraftserver.enable {
+    nixpkgs.overlays = [ 
+      inputs.nix-minecraft.overlay 
+    ];
   
     services.minecraft-servers = {
       enable = true;

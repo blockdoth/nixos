@@ -1,10 +1,10 @@
 { pkgs, lib, config, ... }:
 {
   options = {
-    blockdoth.enable = lib.mkEnableOption "enables user blockdoth";
+    system-modules.blockdoth.enable = lib.mkEnableOption "enables user blockdoth";
   };
 
-  config = lib.mkIf config.blockdoth.enable{
+  config = lib.mkIf config.system-modules.blockdoth.enable{
     security.sudo.wheelNeedsPassword = false;
     users.users.blockdoth = {
       isNormalUser = true;

@@ -1,14 +1,13 @@
 { pkgs, lib, config, ... }:
 {
   options = {
-    headless.enable = lib.mkEnableOption "enables headless user";
+    system-modules.headless.enable = lib.mkEnableOption "enables headless user";
   };
 
-  config = lib.mkIf config.headless.enable {
+  config = lib.mkIf config.system-modules.headless.enable {
     users.users.headless = {
       isNormalUser = true;
-      shell = pkgs.fish;
-      extraGroups = [ "wheel" "networkmanager" "audio"];
+      extraGroups = [ "wheel" "networkmanager"];
     };
   };
 }
