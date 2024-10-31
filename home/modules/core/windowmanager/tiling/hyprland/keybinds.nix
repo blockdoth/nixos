@@ -92,7 +92,7 @@ fi
         # "SUPER,H,movefocus,l"
         # "SUPER,K,movefocus,u"
         # "SUPER,J,movefocus,d"
-        # "SUPER,L,movefocus,r"
+        "SUPER,L,exec,pidof hyprlock | hyprlock"
         # "SUPER,M,"
         "SUPER,N,fullscreen" 
         "SUPER,O,pseudo,"

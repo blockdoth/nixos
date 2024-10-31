@@ -10,7 +10,7 @@
 
       settings = {
         general = {
-          no_fade_in = true;
+          no_fade_in = false;
           hide_cursor = true;
           ignore_empty_input = true;
           grace = 0;
@@ -19,6 +19,7 @@
 
         background = [
           {
+            color = "rgba(0, 0, 0, 0)";
             path = "screenshot"; # ${../../../../../assets/wallpapers/basicblue.png}"
             blur_passes = 2;
             contrast = 0.8916;

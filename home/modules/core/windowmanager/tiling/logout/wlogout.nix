@@ -24,7 +24,7 @@
         }
         {
           label = "lock";
-          action = "kill hyprlock && hyprlock";
+          action = "pidof hyprlock | hyprlock";
           text = "Lock";
           keybind = "l";
         }
