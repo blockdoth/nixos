@@ -23,6 +23,7 @@
           decorations = "buttonless";
         };
 
+        # handled by stylix
         font = {
           # size = 10.0;
           # normal.family = "FuraCode Nerd Font";

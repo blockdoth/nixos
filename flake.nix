@@ -68,6 +68,7 @@
         ];
     	}; 
 
+      # Failed attempt at using nixos on an raspberry pi 2
       # rpi2 = nixpkgs.lib.nixosSystem {
       #   system = "armv7l-linux";
       #   specialArgs = { 

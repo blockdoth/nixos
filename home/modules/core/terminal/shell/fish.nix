@@ -24,8 +24,8 @@
         btm = "btm --mem_as_value -g";
         config = "nh && codium .";
   			mkscript = "echo '#!/usr/bin/env bash' > script-template.sh && chmod +x script-template.sh";  
-  		};
-
+				lock = "kill hyprlock && hyprlock";
+			};
  		};
   };
 }
