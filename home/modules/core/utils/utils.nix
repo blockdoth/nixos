@@ -24,6 +24,8 @@
       powertop
       zip
       ffmpeg
+      xorg.xev # Check keybinds
+      gparted
     ];
   };
 

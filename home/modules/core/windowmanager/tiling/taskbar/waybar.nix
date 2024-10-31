@@ -45,10 +45,14 @@
         STATE_ICON=""
       fi
 
-
+      if [[ $STATUS == "playing" ]]; then
+        STATE_ICON=""
+      fi
+      
       METADATA=$(playerctl metadata --player=$SELECTED_PLAYER --format '{{artist}} - {{title}}')
+      
       if [[ ''${#METADATA} > 30 ]]; then
-        METADATA=$(echo $METADATA | cut -c1-40)"..."
+        METADATA=$(echo $METADATA | cut -c1-30)"..."
       fi
       
 
@@ -121,11 +125,11 @@
             "tray" 
             "custom/media"
             "pulseaudio"
+            "bluetooth"
             "temperature"
             "cpu"
             "memory"
             "disk"
-            "bluetooth"
             "network"
             "battery"
           ];
@@ -261,7 +265,7 @@
             format-bluetooth-muted = "| <span font='${toStr icon-size}' rise='${toStr (v-offset * 1)}pt'>{icon}</span> {icon} {format_source} ";
             format-muted = "{format_source}";
             format-source = "";
-            format-source-muted = "";
+            format-source-muted = "|  ";
             format-icons = {
               headphone = "";
               default = ["" "" ""];
@@ -271,12 +275,13 @@
           };
 
           tray= {
-            spacing= 8;
+            spacing= 10;
           };
 
           bluetooth = {
             format = "| <span font='${toStr (icon-size * 0.5)}' rise='${toStr (v-offset * -0.3)}pt'>󰂯</span> ";
             format-no-controller = ""; # Hide when no bluetooth module detected
+            on-click = "blueman-manager";
             tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
             tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
             tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";

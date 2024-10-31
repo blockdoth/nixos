@@ -155,6 +155,12 @@ fi
           # Backlight Keys
           ",XF86MonBrightnessUp   ,exec,brightnessctl set +20"
           ",XF86MonBrightnessDown ,exec,brightnessctl set 20-"
+          # Media keys
+          # ",XF86AudioPlay,exec,"
+          # ",XF86AudioStop,exec,"
+          # ",XF86AudioPrev,exec,"
+          # ",XF86AudioNext,exec,"
+
           # Volume Keys
           ",XF86AudioRaiseVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ +5%"
           ",XF86AudioLowerVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ -5%"
