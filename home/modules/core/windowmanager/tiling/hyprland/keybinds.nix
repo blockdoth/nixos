@@ -93,6 +93,8 @@ fi
         # "SUPER,K,movefocus,u"
         # "SUPER,J,movefocus,d"
         "SUPER,L,exec,pidof hyprlock | hyprlock"
+        "SUPER SHIFT,L,exec,systemctl suspend"
+
         # "SUPER,M,"
         "SUPER,N,fullscreen" 
         "SUPER,O,pseudo,"
@@ -156,10 +158,10 @@ fi
           ",XF86MonBrightnessUp   ,exec,brightnessctl set +20"
           ",XF86MonBrightnessDown ,exec,brightnessctl set 20-"
           # Media keys
-          # ",XF86AudioPlay,exec,"
-          # ",XF86AudioStop,exec,"
-          # ",XF86AudioPrev,exec,"
-          # ",XF86AudioNext,exec,"
+          ",XF86AudioPlay,exec,playerctl -a play-pause"
+          ",XF86AudioStop,exec,playerctl -a stop"
+          ",XF86AudioPrev,exec,playerctl -a previous"
+          ",XF86AudioNext,exec,playerctl -a next"
 
           # Volume Keys
           ",XF86AudioRaiseVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ +5%"
