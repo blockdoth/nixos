@@ -8,6 +8,11 @@
   	programs.starship = {
   		enable = true;
       enableTransience = false;
+      settings = {
+        scala = {
+          detect_folders = ["!.config" ".metals"];
+        };
+      };
  		};
   };
 }
