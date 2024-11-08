@@ -25,7 +25,8 @@
         config = "nh && codium .";
   			mkscript = "echo '#!/usr/bin/env bash' > script-template.sh && chmod +x script-template.sh";  
 				lock = "kill hyprlock && hyprlock";
-			};
+        print = "firefox -new-tab https://printportal.tudelft.nl:9443/end-user/ui/dashboard";
+      };
  		};
   };
 }
