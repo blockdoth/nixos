@@ -93,6 +93,7 @@ in
         spotify.enable        = mkDefault enablePrograms;
         steam.enable          = mkDefault enablePrograms;
         minecraft.enable      = mkDefault enablePrograms;
+        zenbrowser.enable     = mkDefault enablePrograms;
       };
     };
 

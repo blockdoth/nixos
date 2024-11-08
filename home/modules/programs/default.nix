@@ -9,5 +9,6 @@
     ./spotify.nix
     ./steam.nix
     ./minecraft.nix
+    ./zenbrowser.nix
   ];
 }

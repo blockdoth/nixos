@@ -20,6 +20,8 @@
     # overrides
     core.windowmanager.tiling.mediadeamon.mpd.enable = false;
     programs.activate-linux.enable = true;
+    programs.zenbrowser.enable = true;
+
   };
 
 
