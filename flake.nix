@@ -112,11 +112,11 @@
             home/users/blockdoth.nix
           ];
         };
-        headless = home-manager.lib.homeManagerConfiguration {
+        penger = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
             inputs.stylix.homeManagerModules.stylix
-            home/users/headless.nix
+            home/users/penger.nix
           ];
         };
       };

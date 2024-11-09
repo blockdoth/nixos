@@ -18,7 +18,7 @@ in
     ./display
     ./servers/minecraft.nix
     ./users/blockdoth.nix
-    ./users/headless.nix
+    ./users/penger.nix
     ./audio.nix
     ./bluetooth.nix
     ./crosscompilation.nix

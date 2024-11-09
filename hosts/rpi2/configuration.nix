@@ -13,7 +13,7 @@
 
   system-modules = {
     common.enable = true;
-    users.headless.enable = true;
+    users.penger.enable = true;
     ssh.enable = true;
     grub.enable = false;
   };

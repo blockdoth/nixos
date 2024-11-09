@@ -10,6 +10,15 @@
   };
 
   config = lib.mkIf config.system-modules.common.nix-config.enable {
+
+    environment.systemPackages = [
+      (pkgs.writeScriptBin "rebuildhome" ./rebuildhome.sh)
+      (pkgs.writeScriptBin "rebuildnix" ./rebuildnix.sh)
+    ];
+
+    # skips slow cache rebuilds
+    documentation.man.generateCaches = false;
+
     nixpkgs.config.allowUnfree = true;
     programs = {
       nh = {
@@ -17,7 +26,7 @@
       };
       nix-ld = {
         enable = true;
-        librarues = with pkgs; [
+        libraries = with pkgs; [
           # I will know what to put here when it becomes a problem
         ];
       };
