@@ -7,29 +7,34 @@
         mode = "normal";
         framerate = 60;
       };
+      # autosens = "1";
       input = {
-        method = "pipewire";
+        method = "pulse";
         source = "auto";
       };
-      output.method = "noncurses";
+      output = {
+        method = "noncurses";
+        channels = "mono";
+        mono_option = "average";
+        reverse = "1";
+      };
       color = 
       let
         colors = config.lib.stylix.colors;
       in
       {
         gradient = 1;
-        gradient_count = 5;
-        gradient_color_1 = "'#${colors.base0B}'";
-        gradient_color_2 = "'#${colors.base0C}'";
-        gradient_color_3 = "'#${colors.base0A}'";
-        gradient_color_4 = "'#${colors.base09}'";
-        gradient_color_5 = "'#${colors.base08}'";
+        gradient_color_1 = "'#${colors.base0D}'";
+        # gradient_color_2 = "'#${colors.base0C}'";
 
       };
       eq = {
 
       };
-      smoothing.noise_reduction = 88;
+      smoothing = {
+        monstercat = "1";
+        noise_reduction = 40;
+      };
     };
   };
 }

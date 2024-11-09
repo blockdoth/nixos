@@ -15,26 +15,30 @@
       cursor = {
         size = 15;
       };
-      fonts = {
+      fonts = 
+      let 
+        fontpackage = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+      in 
+      {
         monospace = {
-          package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+          package = fontpackage;
           name = "JetBrainsMono Nerd Font Mono";
         };
         sansSerif = {
-          package = pkgs.raleway;
+          package = fontpackage;
           name = "JetBrainsMono Nerd Font Mono";
         };
         serif = {
-          package = pkgs.merriweather;
+          package = fontpackage;
           name = "JetBrainsMono Nerd Font Mono";
         };
 
         
         sizes = {
-          applications = 12;
-          terminal = 12;
-          desktop = 12;
-          popups = 12;
+          applications = 10;
+          terminal = 10;
+          desktop = 10;
+          popups = 10;
         };
 
       };

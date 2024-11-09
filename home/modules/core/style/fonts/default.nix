@@ -17,6 +17,7 @@
         fonts = [ 
           "FiraCode" 
           "DroidSansMono" 
+          "JetBrainsMono"
         ]; 
       })
     ];

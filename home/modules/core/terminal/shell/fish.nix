@@ -13,16 +13,16 @@
   		'';
   		shellAliases = {
   			cls = "clear"; 
-  			nh = "cd /home/blockdoth/nixos"; 
+  			conf = "cd /home/blockdoth/nixos"; 
         repos = "cd /home/blockdoth/Documents/repos"; 
-  			hr-blockdoth = "nh && home-manager switch --flake .#blockdoth"; 
-  			hr-headless = "nh && home-manager switch --flake .#headless"; 
-  			nr-desktop = "nh && sudo nixos-rebuild switch --flake .#desktop"; 
-  			nr-server = "nh && sudo nixos-rebuild switch --flake .#server"; 
-  			nr-laptop = "nh && sudo nixos-rebuild switch --flake .#laptop"; 
-  			bdir = "nautilus --select . &";  
+  			hr-blockdoth = "conf && home-manager switch --flake .#blockdoth"; 
+  			hr-headless = "conf && home-manager switch --flake .#headless"; 
+  			nr-desktop = "conf && sudo nixos-rebuild switch --flake .#desktop"; 
+  			nr-server = "conf && sudo nixos-rebuild switch --flake .#server"; 
+  			nr-laptop = "conf && sudo nixos-rebuild switch --flake .#laptop"; 
+ 
         btm = "btm --mem_as_value -g";
-        config = "nh && codium .";
+        config = "confh && codium .";
   			mkscript = "echo '#!/usr/bin/env bash' > script-template.sh && chmod +x script-template.sh";  
 				lock = "kill hyprlock && hyprlock";
         print = "firefox -new-tab https://printportal.tudelft.nl:9443/end-user/ui/dashboard";
