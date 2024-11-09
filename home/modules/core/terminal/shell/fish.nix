@@ -23,13 +23,13 @@
             		'';
           shellAliases = {
             cls = "clear";
-            conf = "cd /home/blockdoth/nixos";
+            nix = "cd /home/blockdoth/nixos";
             repos = "cd /home/blockdoth/Documents/repos";
-            hr-blockdoth = "conf && home-manager switch --flake .#blockdoth";
-            hr-headless = "conf && home-manager switch --flake .#headless";
-            nr-desktop = "conf && sudo nixos-rebuild switch --flake .#desktop";
-            nr-server = "conf && sudo nixos-rebuild switch --flake .#server";
-            nr-laptop = "conf && sudo nixos-rebuild switch --flake .#laptop";
+            hr-blockdoth = "rebuild home blockdoth";
+            hr-penger = "rebuild home penger";
+            nr-desktop = "rebuild system desktop";
+            nr-server = "rebuild system server";
+            nr-laptop = "rebuild system laptop";
 
             btm = "btm --mem_as_value -g";
             config = "confh && codium .";
