@@ -17,7 +17,8 @@
       url = "github:nix-community/home-manager";
     	inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    # maybe one day
+    # pog.url = "github:jpetrucciani/pog";
     stylix.url = "github:danth/stylix/8c507cb2256a7246817aef5cd9e7752099184d15";
     spicetify-nix.url = "github:the-argus/spicetify-nix/";
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";

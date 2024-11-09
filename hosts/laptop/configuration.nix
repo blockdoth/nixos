@@ -6,13 +6,12 @@
   ];
 
   system-modules = {
-    common.enable = true;
+    enable = true;
     gui.enable = true;
     audio.enable = true;
     bluetooth.enable = true;
     users.blockdoth.enable = true;
     laptop.enable = true;
-    crosscompilation.enable = true;
   };
 
   services = {

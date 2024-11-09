@@ -2,75 +2,60 @@
 let 
   enableGui             = config.system-modules.gui.enable;
   enableGaming          = config.system-modules.gaming.enable;
-  enableAudio           = config.system-modules.audio.enable; 
-  enableVirtualisation  = config.system-modules.virtualisation.enable; 
-  enableBluetooth       = config.system-modules.bluetooth.enable;
-  enableSsh             = config.system-modules.ssh.enable;
-  enableMinecraftServer = config.system-modules.minecraftserver.enable;
   enableLaptop          = config.system-modules.laptop.enable; 
-  enableUserHeadless    = config.system-modules.users.headless.enable;
+  enableUserPenger      = config.system-modules.users.penger.enable;
   enableUserBlockdoth   = config.system-modules.users.blockdoth.enable;
 in
 {
   imports = [
-    ./modules/display
-    ./modules/servers
-    ./modules/users
-    ./modules/audio.nix
-    ./modules/bluetooth.nix
-    ./modules/crosscompilation.nix
-    ./modules/grub.nix
-    ./modules/gaming.nix
-    ./modules/greeter.nix
-    ./modules/networking.nix
-    ./modules/nix-config.nix
-    ./modules/localisation.nix
-    ./modules/power.nix
-    ./modules/printing.nix
-    ./modules/ssh.nix
-    ./modules/virtualisation.nix
+    ./common
+    ./display
+    ./servers/minecraft.nix
+    ./users/blockdoth.nix
+    ./users/headless.nix
+    ./audio.nix
+    ./bluetooth.nix
+    ./crosscompilation.nix
+    ./gaming.nix
+    ./power.nix
+    ./printing.nix
+    ./ssh.nix
+    ./docker.nix
   ];
 
   options = {
     system-modules = {
-      common.enable           = lib.mkEnableOption "Enables the core services";
-      gui.enable              = lib.mkOption { type = lib.types.bool; default = false; }; 
-      laptop.enable           = lib.mkOption { type = lib.types.bool; default = false; };
-      users.blockdoth.enable  = lib.mkOption { type = lib.types.bool; default = false; };
-      users.headless.enable   = lib.mkOption { type = lib.types.bool; default = false; };
+      enable     = lib.mkEnableOption "Enables the core services";
+      gui.enable = lib.mkOption { type = lib.types.bool; default = false; }; 
     };
   };
 
-
-  config = lib.mkIf config.system-modules.common.enable {
-    
-    # Define the base packages
+  config = lib.mkIf config.system-modules.enable {
     environment.systemPackages = with pkgs; [
       git
       home-manager
     ];
+    
     system-modules = {
-      # Enables the common modules
-      grub.enable = lib.mkDefault true;
-      networking.enable = true;
-      localisation.enable = true;
-      nix-config.enable = true;
+      common = {
+        grub.enable         = lib.mkDefault true;
+        networking.enable   = lib.mkDefault true;
+        localisation.enable = lib.mkDefault true;
+        nix-config.enable   = lib.mkDefault true;
+      };
 
-      # Enables the optional modules
-      greeter.enable = enableGui;
-      hyprland.enable = enableGui;
-      x11.enable = enableGui;
-      power.enable = enableLaptop;
-
-      headless.enable = config.system-modules.users.headless.enable;
-      blockdoth.enable = config.system-modules.users.blockdoth.enable;
+      display = {
+        greeter.enable  = lib.mkDefault enableGui;
+        hyprland.enable = lib.mkDefault enableGui;
+        x11.enable      = lib.mkDefault enableGui;
+      };
     };
 
     # Prevent me from fucking myself over again
     assertions =
     [ 
       { 
-        assertion = enableUserHeadless || enableUserBlockdoth;
+        assertion = enableUserPenger || enableUserBlockdoth;
         message = "At least one user must be enabled";
       }
       { 

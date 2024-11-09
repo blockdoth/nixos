@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 {
   options = {
-    system-modules.grub.enable = lib.mkEnableOption "Enables grub";
+    system-modules.common.grub.enable = lib.mkEnableOption "Enables grub";
   };
 
-  config = lib.mkIf config.system-modules.grub.enable {
+  config = lib.mkIf config.system-modules.common.grub.enable {
     systemd.enableEmergencyMode = false;
     boot = {
       supportedFilesystems = ["ntfs"];

@@ -4,10 +4,10 @@ let
 in 
 {
   options = {
-    system-modules.greeter.enable = lib.mkEnableOption "Enables greeter";
+    system-modules.display.greeter.enable = lib.mkEnableOption "Enables greeter";
   };
 
-  config = lib.mkIf config.system-modules.greeter.enable {
+  config = lib.mkIf config.system-modules.display.greeter.enable {
     services.greetd = {
       enable = true;
       settings = {

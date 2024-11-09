@@ -6,11 +6,10 @@
   ];
 
   system-modules = {
-    common.enable = true;
+    enable = true;
     gui.enable = true;
     audio.enable = true;
     gaming.enable = true;
-    minecraftserver.enable = false;
     users.blockdoth.enable = true;
   };
   
