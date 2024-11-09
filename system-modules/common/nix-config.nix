@@ -12,8 +12,12 @@
   config = lib.mkIf config.system-modules.common.nix-config.enable {
 
     environment.systemPackages = [
-      (pkgs.writeScriptBin "rebuildhome" ./rebuildhome.sh)
-      (pkgs.writeScriptBin "rebuildnix" ./rebuildnix.sh)
+
+      (pkgs.writeShellApplication {
+        name = "rebuild";
+        runtimeInputs = [ pkgs.nixfmt-rfc-style ];
+        text = builtins.readFile ./rebuild.sh;
+      })
     ];
 
     # skips slow cache rebuilds

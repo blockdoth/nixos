@@ -18,7 +18,7 @@
     docker.enable = true;
   };
 
-  networking.hostName = "penger";
+  networking.hostName = "nuc";
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }
