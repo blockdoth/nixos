@@ -1,6 +1,12 @@
-{ pkgs, lib, config, ... }: 
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
-in {
+in
+{
 
   options = {
     modules.core.windowmanager.tiling.idle.hypridle.enable = lib.mkEnableOption "Enables hypridle";

@@ -1,4 +1,4 @@
-{ config, lib, ...}:
+{ config, lib, ... }:
 {
   options = {
     system-modules.power.enable = lib.mkEnableOption "Enables services required to manage power";
@@ -12,6 +12,3 @@
     };
   };
 }
-
-
-

@@ -1,17 +1,24 @@
-{ pkgs, config, lib, inputs, ... }:
-{  
+{
+  pkgs,
+  config,
+  lib,
+  inputs,
+  ...
+}:
+{
   options = {
     modules.programs.minecraft.enable = lib.mkEnableOption "Enables minecraft";
   };
 
   config = lib.mkIf config.modules.programs.minecraft.enable {
     home.packages = with pkgs; [
-      (prismlauncher.override { 
+      (prismlauncher.override {
         withWaylandGLFW = true;
-        jdks = [ jdk17 jdk21]; 
-        }
-      )
+        jdks = [
+          jdk17
+          jdk21
+        ];
+      })
     ];
   };
 }
-    

@@ -16,6 +16,6 @@
       # extraPortals = with pkgs; [
       #   xdg-desktop-portal-gtk
       # ];
-    };  
+    };
   };
 }

@@ -18,16 +18,16 @@
         mono_option = "average";
         reverse = "1";
       };
-      color = 
-      let
-        colors = config.lib.stylix.colors;
-      in
-      {
-        gradient = 1;
-        gradient_color_1 = "'#${colors.base0D}'";
-        # gradient_color_2 = "'#${colors.base0C}'";
+      color =
+        let
+          colors = config.lib.stylix.colors;
+        in
+        {
+          gradient = 1;
+          gradient_color_1 = "'#${colors.base0D}'";
+          # gradient_color_2 = "'#${colors.base0C}'";
 
-      };
+        };
       eq = {
 
       };
@@ -38,7 +38,3 @@
     };
   };
 }
-  
-  
-  
-  

@@ -1,6 +1,6 @@
 { config, lib, ... }:
 {
-  config = lib.mkIf config.modules.core.windowmanager.tiling.hyprland.enable {    
+  config = lib.mkIf config.modules.core.windowmanager.tiling.hyprland.enable {
     wayland.windowManager.hyprland.settings = {
       animations = {
         enabled = true;
@@ -14,7 +14,7 @@
           "border,        1,  10,  default"
           "borderangle,   1,  8,   default"
         ];
-      };    
+      };
     };
   };
 }

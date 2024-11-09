@@ -6,7 +6,7 @@
 
   config = lib.mkIf config.system-modules.audio.enable {
     security.rtkit.enable = true;
-    
+
     # all disabled since it doesnt work
     # services.pipewire = {
     #   # enable = true;
@@ -19,16 +19,15 @@
     #   pulse.enable = true;
     #   jack.enable = true;
     # };
-    
+
     # only pulse audio seems to work, not pipewire
     hardware = {
       enableAllFirmware = true;
-      pulseaudio ={
+      pulseaudio = {
         enable = true;
         support32Bit = true;
       };
     };
-
 
     # triggers a full local rebuild if set to false
     nixpkgs.config = {

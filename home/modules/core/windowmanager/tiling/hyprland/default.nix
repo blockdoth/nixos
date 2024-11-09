@@ -1,4 +1,10 @@
-{ pkgs, config, lib, inputs,... }:
+{
+  pkgs,
+  config,
+  lib,
+  inputs,
+  ...
+}:
 {
   imports = [
     ./animations.nix
@@ -18,7 +24,7 @@
   config = lib.mkIf config.modules.core.windowmanager.tiling.hyprland.enable {
 
     home.packages = with pkgs; [
-      grimblast 
+      grimblast
       hyprpicker
       wl-clipboard
       wf-recorder
@@ -33,7 +39,7 @@
       enable = true;
       package = pkgs.hyprland; # hyprlandFlake or pkgs.hyprland
       xwayland.enable = true;
-    
+
       settings = {
         debug = {
           disable_logs = false;

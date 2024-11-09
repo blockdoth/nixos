@@ -1,8 +1,13 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
 
   programs.fastfetch = {
-  	enable = true;
+    enable = true;
     settings = {
       logo = {
         source = "nixos";

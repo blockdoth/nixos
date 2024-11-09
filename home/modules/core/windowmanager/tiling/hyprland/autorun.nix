@@ -1,6 +1,6 @@
 { config, lib, ... }:
 {
-  config = lib.mkIf config.modules.core.windowmanager.tiling.hyprland.enable {    
+  config = lib.mkIf config.modules.core.windowmanager.tiling.hyprland.enable {
     wayland.windowManager.hyprland.settings = {
       exec-once = [
         "waybar"
@@ -15,5 +15,5 @@
         "[workspace 3 silent] vesktop"
       ];
     };
-  }; 
+  };
 }

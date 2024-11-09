@@ -1,5 +1,11 @@
-{ pkgs, config, lib, inputs, ... }:
-{  
+{
+  pkgs,
+  config,
+  lib,
+  inputs,
+  ...
+}:
+{
   options = {
     modules.programs.steam.enable = lib.mkEnableOption "Enables steam";
   };
@@ -10,4 +16,3 @@
     ];
   };
 }
-    

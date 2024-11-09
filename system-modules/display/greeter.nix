@@ -1,7 +1,12 @@
-{ config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
-in 
+in
 {
   options = {
     system-modules.display.greeter.enable = lib.mkEnableOption "Enables greeter";
@@ -34,9 +39,6 @@ in
     };
   };
   #config = lib.mkIf config.greeter.enable {
-    #TODO auto login and skipp greeter
+  #TODO auto login and skipp greeter
   #};
-}  
-  
-  
-  
+}

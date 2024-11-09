@@ -1,14 +1,17 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   options = {
     modules.core.terminal.alacritty.enable = lib.mkEnableOption "Enables alacritty";
   };
 
   config = lib.mkIf config.modules.core.terminal.alacritty.enable {
-    home.packages = with pkgs; [
-      alacritty
-    ]; 
-      
+    home.packages = with pkgs; [ alacritty ];
+
     programs.alacritty = {
       enable = true;
       settings = {
@@ -43,8 +46,5 @@
       };
     };
   };
-  
 
-  
 }
-

@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   options = {
     modules.programs.filebrowser.yazi.enable = lib.mkEnableOption "Enables yazi";
@@ -8,12 +13,10 @@
 
     programs.yazi = {
       enable = true;
-      settings.yazi = 
-      ''
+      settings.yazi = ''
         [manager]
         show_hidden = true
       '';
     };
   };
 }
-    

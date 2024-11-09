@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   options = {
     modules.core.windowmanager.tiling.lockscreen.hyprlock.enable = lib.mkEnableOption "Enables hyprlock";
@@ -24,7 +29,7 @@
             blur_passes = 2;
             contrast = 0.8916;
             brightness = 0.8172;
-            vibrancy = 0.1696;  
+            vibrancy = 0.1696;
             vibrancy_darkness = 0.0;
           }
         ];
@@ -34,7 +39,7 @@
             size = "2000, 200";
             outline_thickness = 0;
             dots_size = 0.4;
-            dots_spacing = 0.5; 
+            dots_spacing = 0.5;
             dots_center = true;
             outer_color = "rgba(0, 0, 0, 0)";
             inner_color = "rgba(0, 0, 0, 0)";

@@ -1,7 +1,13 @@
-{ inputs, config, pkgs, lib, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   imports = [
-    ./hardware.nix 
+    ./hardware.nix
     ../../system-modules
   ];
 
@@ -25,7 +31,7 @@
       # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
-      generationsDir.enable =false;
+      generationsDir.enable = false;
       raspberryPi = {
         enable = true;
         version = 2;
@@ -40,10 +46,12 @@
   networking = {
     hostName = "rpi";
     interfaces.end0 = {
-      ipv4.addresses = [{
-        address = "192.168.1.42";
-        prefixLength = 24;
-      }];
+      ipv4.addresses = [
+        {
+          address = "192.168.1.42";
+          prefixLength = 24;
+        }
+      ];
     };
     defaultGateway = {
       address = "192.168.1.1"; # or whichever IP your router is
@@ -53,6 +61,6 @@
       "192.168.1.1" # or whichever DNS server you want to use
     ];
   };
-  
+
   system.stateVersion = "24.05"; # Did you read the comment?
 }

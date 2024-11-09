@@ -1,12 +1,17 @@
-{ pkgs, lib, config, inputs, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}:
 {
 
   options = {
     modules.dev.editors.neovim.enable = lib.mkEnableOption "Enables neovim";
   };
 
-  config = lib.mkIf config.modules.dev.editors.neovim.enable{
- 
+  config = lib.mkIf config.modules.dev.editors.neovim.enable {
 
     programs.neovim = {
       defaultEditor = true;
@@ -26,8 +31,10 @@
       ];
 
       # list of possible plugins: https://github.com/NixNeovim/NixNeovimPlugins/blob/main/plugins.md
-      plugins = with pkgs.vimExtraPlugins;
-        with pkgs.vimPlugins; [
+      plugins =
+        with pkgs.vimExtraPlugins;
+        with pkgs.vimPlugins;
+        [
           Comment-nvim
           LuaSnip
           alpha-nvim
@@ -37,7 +44,7 @@
           dracula-nvim
           lualine-nvim
           minimap-vim
-          neodev-nvim 
+          neodev-nvim
           nvim-cmp
           nvim-lspconfig
           nvim-tree-lua
@@ -47,9 +54,9 @@
           telescope-nvim
           toggleterm-nvim
           which-key-nvim
-       ];
+        ];
     };
-    
+
     xdg.configFile = {
       "nvim/init.lua".source = ./config/init.lua;
       "nvim/lua/colourscheme.lua".source = ./config/colourscheme.lua;

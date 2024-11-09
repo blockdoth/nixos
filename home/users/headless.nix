@@ -7,9 +7,7 @@
     stateVersion = "24.05";
   };
 
-  imports = [
-    ../modules
-  ];
+  imports = [ ../modules ];
 
   modules.gui.enable = false;
 
@@ -18,7 +16,7 @@
   ];
 
   home.sessionVariables = {
-    
+
   };
-  
+
 }

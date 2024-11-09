@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   options = {
     modules.core.windowmanager.tiling.nightmode.gammastep.enable = lib.mkEnableOption "Enables hyprpaper";
@@ -10,7 +15,7 @@
       provider = "manual";
       latitude = 52.0;
       longitude = 5.0;
-      temperature ={
+      temperature = {
         day = 6500;
         night = 3300;
       };

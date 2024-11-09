@@ -1,5 +1,11 @@
-{ pkgs, config, lib, inputs, ... }:
-let 
+{
+  pkgs,
+  config,
+  lib,
+  inputs,
+  ...
+}:
+let
   activate-linux = inputs.activate-linux.packages.${pkgs.system}.activate-linux;
   activate-linux-script = pkgs.writeShellScriptBin "activate-activate-linux" ''
     echo "${activate-linux}"

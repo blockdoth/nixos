@@ -1,7 +1,13 @@
-{ inputs, config, pkgs, lib, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   imports = [
-    ./hardware.nix 
+    ./hardware.nix
     ../../system-modules
   ];
 
@@ -15,17 +21,17 @@
   };
 
   services = {
-  	libinput = {
-    	enable = true;
-    	touchpad = {
-      	tapping = true;
-      	naturalScrolling = true;
-      	scrollMethod = "twofinger";
-    	};
-  	};
+    libinput = {
+      enable = true;
+      touchpad = {
+        tapping = true;
+        naturalScrolling = true;
+        scrollMethod = "twofinger";
+      };
+    };
   };
 
   networking.hostName = "laptop";
-  
+
   system.stateVersion = "24.05"; # Did you read the comment?
 }

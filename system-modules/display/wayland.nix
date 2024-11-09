@@ -1,4 +1,4 @@
-{  config, lib, ... }:
+{ config, lib, ... }:
 {
   options = {
     system-modules.display.hyprland.enable = lib.mkEnableOption "Enables Hyprland";
@@ -13,9 +13,9 @@
     xdg.portal = {
       enable = true;
       wlr.enable = true;
-    # extraPortals = with pkgs; [
-    #   xdg-desktop-portal-gtk
-    # ];
+      # extraPortals = with pkgs; [
+      #   xdg-desktop-portal-gtk
+      # ];
     };
   };
 }

@@ -1,4 +1,10 @@
-{ pkgs, config, lib, inputs,... }:
+{
+  pkgs,
+  config,
+  lib,
+  inputs,
+  ...
+}:
 {
   options = {
     modules.core.windowmanager.stacking.gnome.enable = lib.mkEnableOption "Enables gnome";

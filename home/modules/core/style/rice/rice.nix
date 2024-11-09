@@ -19,7 +19,3 @@
     # mesa-demos # gears and such
   ];
 }
-  
-  
-  
-  

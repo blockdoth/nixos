@@ -10,12 +10,12 @@
 
 {
   description = "Blockdoth's nix config";
-  
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
-    	inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     # maybe one day
     # pog.url = "github:jpetrucciani/pog";
@@ -24,7 +24,7 @@
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
     nix-minecraft.url = "github:InfiniDoge/nix-minecraft";
     ags.url = "github:Aylur/ags";
-    activate-linux.url = "github:MrGlockenspiel/activate-linux"; 
+    activate-linux.url = "github:MrGlockenspiel/activate-linux";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     #Prevents version mismatch TODO 
     # hyprland.url = "github:hyprwm/Hyprland";
@@ -34,80 +34,91 @@
     # };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
-	let
-		system = "x86_64-linux";
-		pkgs = import nixpkgs { 
-      inherit system; 
-      config.allowUnfree = true;
-      # crossSystem = { config = "aarch64-linux"; };  # Enable cross-compilation
-    };
-	in {
-
-    nixosConfigurations = {
-      laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/laptop/configuration.nix
-          home-manager.nixosModules.home-manager
-          inputs.stylix.nixosModules.stylix         
-				];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+        # crossSystem = { config = "aarch64-linux"; };  # Enable cross-compilation
       };
-      desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/desktop/configuration.nix
-          home-manager.nixosModules.home-manager 
-          inputs.stylix.nixosModules.stylix                 
-        ];
-    	};
-      server = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/server/configuration.nix
-          home-manager.nixosModules.home-manager
-          inputs.stylix.nixosModules.stylix         
-        ];
-    	}; 
+    in
+    {
 
-      # Failed attempt at using nixos on an raspberry pi 2
-      # rpi2 = nixpkgs.lib.nixosSystem {
-      #   system = "armv7l-linux";
-      #   specialArgs = { 
-      #     inherit inputs; 
-      #     crossSystem = {
-      #       config = "aarch64-linux";  # Enable cross-compilation to ARM64 (Raspberry Pi)
-      #     };
-      #   };
-      #   modules = [
-      #     ./hosts/rpi/configuration.nix
-      #     home-manager.nixosModules.home-manager
-      #     inputs.stylix.nixosModules.stylix         
-      #   ];
-    	# };   
-    };
+      nixosConfigurations = {
+        laptop = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./hosts/laptop/configuration.nix
+            home-manager.nixosModules.home-manager
+            inputs.stylix.nixosModules.stylix
+          ];
+        };
+        desktop = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./hosts/desktop/configuration.nix
+            home-manager.nixosModules.home-manager
+            inputs.stylix.nixosModules.stylix
+          ];
+        };
+        server = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./hosts/server/configuration.nix
+            home-manager.nixosModules.home-manager
+            inputs.stylix.nixosModules.stylix
+          ];
+        };
 
-    homeConfigurations = {
-    	blockdoth = home-manager.lib.homeManagerConfiguration {
-      	inherit pkgs;
-        extraSpecialArgs = { inherit inputs; };
-        modules = [
-          {
-            nixpkgs.overlays = [
-              inputs.nixneovimplugins.overlays.default
-            ];
-          }
-          inputs.stylix.homeManagerModules.stylix
-        	home/users/blockdoth.nix
-      	];
-    	};
-      headless = home-manager.lib.homeManagerConfiguration {
-				inherit pkgs;
-      	modules = [
-          inputs.stylix.homeManagerModules.stylix
-        	home/users/headless.nix
-      	];
-    	};
+        # Failed attempt at using nixos on an raspberry pi 2
+        # rpi2 = nixpkgs.lib.nixosSystem {
+        #   system = "armv7l-linux";
+        #   specialArgs = { 
+        #     inherit inputs; 
+        #     crossSystem = {
+        #       config = "aarch64-linux";  # Enable cross-compilation to ARM64 (Raspberry Pi)
+        #     };
+        #   };
+        #   modules = [
+        #     ./hosts/rpi/configuration.nix
+        #     home-manager.nixosModules.home-manager
+        #     inputs.stylix.nixosModules.stylix         
+        #   ];
+        # };   
+      };
+
+      homeConfigurations = {
+        blockdoth = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            { nixpkgs.overlays = [ inputs.nixneovimplugins.overlays.default ]; }
+            inputs.stylix.homeManagerModules.stylix
+            home/users/blockdoth.nix
+          ];
+        };
+        headless = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            inputs.stylix.homeManagerModules.stylix
+            home/users/headless.nix
+          ];
+        };
+      };
     };
-  };
 }

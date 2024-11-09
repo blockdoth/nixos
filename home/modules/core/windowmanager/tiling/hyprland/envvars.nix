@@ -1,6 +1,6 @@
 { config, lib, ... }:
 {
-  config = lib.mkIf config.modules.core.windowmanager.tiling.hyprland.enable {    
+  config = lib.mkIf config.modules.core.windowmanager.tiling.hyprland.enable {
     home.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = 1;
       NIXOS_OZONE_WL = 1;

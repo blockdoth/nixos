@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   options = {
     system-modules.common.grub.enable = lib.mkEnableOption "Enables grub";
@@ -7,7 +12,7 @@
   config = lib.mkIf config.system-modules.common.grub.enable {
     systemd.enableEmergencyMode = false;
     boot = {
-      supportedFilesystems = ["ntfs"];
+      supportedFilesystems = [ "ntfs" ];
       loader = {
         systemd-boot = {
           enable = false;
@@ -45,9 +50,7 @@
         theme = lib.mkForce "rings"; # Prevent conflict with stylix
         themePackages = with pkgs; [
           # By default we would install all themes
-          (adi1090x-plymouth-themes.override {
-            selected_themes = [ "rings" ];
-          })
+          (adi1090x-plymouth-themes.override { selected_themes = [ "rings" ]; })
         ];
       };
     };

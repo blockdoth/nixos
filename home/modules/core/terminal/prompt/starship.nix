@@ -1,21 +1,26 @@
-{ pkgs, config, lib, ... }:
 {
-	options = {
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+{
+  options = {
     modules.core.terminal.prompt.starship.enable = lib.mkEnableOption "starship";
   };
 
   config = lib.mkIf config.modules.core.terminal.prompt.starship.enable {
-  	programs.starship = {
-  		enable = true;
+    programs.starship = {
+      enable = true;
       enableTransience = false;
       settings = {
         scala = {
-          detect_folders = ["!.config" ".metals"];
+          detect_folders = [
+            "!.config"
+            ".metals"
+          ];
         };
       };
- 		};
+    };
   };
 }
-
-
-

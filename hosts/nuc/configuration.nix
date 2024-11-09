@@ -1,7 +1,13 @@
-{ inputs, config, pkgs, lib, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   imports = [
-    ./hardware.nix 
+    ./hardware.nix
     ../../system-modules
   ];
 

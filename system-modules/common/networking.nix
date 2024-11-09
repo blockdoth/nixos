@@ -1,4 +1,4 @@
-{config, lib, ... }:
+{ config, lib, ... }:
 {
   options = {
     system-modules.common.networking.enable = lib.mkEnableOption "Enables networking";

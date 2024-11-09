@@ -17,7 +17,7 @@
     ./windowmanager/tiling/wallpaper/swww.nix
     ./windowmanager/tiling/widgets/pyprland.nix
     ./windowmanager/tiling/widgets/ags.nix
-    
+
     ./style/fonts
     ./style/rice/rice.nix
     ./style/stylix.nix
@@ -28,5 +28,5 @@
 
     ./utils/utils.nix
     ./utils/git.nix
-  ]; 
+  ];
 }

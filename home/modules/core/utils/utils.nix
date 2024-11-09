@@ -1,8 +1,11 @@
-{ pkgs, config, lib, ... }:
 {
-  imports = [
-    ./git.nix
-  ];
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+{
+  imports = [ ./git.nix ];
 
   options = {
     modules.core.utils.base.enable = lib.mkEnableOption "Enables base utils";
@@ -30,4 +33,3 @@
   };
 
 }
-  

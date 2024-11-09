@@ -1,14 +1,18 @@
-{ pkgs, config, lib, inputs, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  inputs,
+  ...
+}:
 let
   spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
 in
-{  
+{
   options = {
     modules.programs.spotify.enable = lib.mkEnableOption "Enables spotify";
   };
-  imports = [
-    inputs.spicetify-nix.homeManagerModules.default
-  ];
+  imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
   config = lib.mkIf config.modules.programs.spotify.enable {
 
@@ -23,4 +27,3 @@ in
     };
   };
 }
-    
