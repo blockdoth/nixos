@@ -25,12 +25,6 @@
             cls = "clear";
             nix = "cd /home/blockdoth/nixos";
             repos = "cd /home/blockdoth/Documents/repos";
-            hr-blockdoth = "rebuild home blockdoth";
-            hr-penger = "rebuild home penger";
-            nr-desktop = "rebuild system desktop";
-            nr-server = "rebuild system server";
-            nr-laptop = "rebuild system laptop";
-
             btm = "btm --mem_as_value -g";
             config = "confh && codium .";
             mkscript = "echo '#!/usr/bin/env bash' > script-template.sh && chmod +x script-template.sh";
