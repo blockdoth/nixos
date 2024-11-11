@@ -3,6 +3,7 @@
   config,
   lib,
   inputs,
+  hostname,
   ...
 }:
 {
@@ -39,12 +40,23 @@
             name = "JetBrainsMono Nerd Font Mono";
           };
 
-          sizes = {
-            applications = 10;
-            terminal = 10;
-            desktop = 10;
-            popups = 10;
-          };
+          sizes =
+            let
+              # hostname = ???;
+              fontsize = 12;
+            in
+            # if hostname == "laptop" then
+            #   12
+            # else if hostname == "desktop" then
+            #   10
+            # else
+            #   12;
+            {
+              applications = fontsize;
+              terminal = fontsize;
+              desktop = fontsize;
+              popups = fontsize;
+            };
 
         };
       opacity = {
