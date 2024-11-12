@@ -95,7 +95,7 @@
           "SUPER,L,exec,pidof hyprlock | hyprlock"
           "SUPER SHIFT,L,exec,systemctl suspend"
 
-          # "SUPER,M,"
+          "SUPER,M,exec,hyprctl dispatch toggleopaque"
           "SUPER,N,fullscreen"
           "SUPER,O,pseudo,"
           "SUPER,P,pin,"
