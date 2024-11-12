@@ -23,8 +23,6 @@
   };
 
   home.sessionVariables = {
-    BROWSER = "firefox";
-    TERMINAL = "alacritty";
     XDG_SCREENSHOTS_DIR = "/home/blockdoth/Pictures/Screenshots";
   };
 

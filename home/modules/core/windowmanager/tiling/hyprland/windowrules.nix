@@ -16,7 +16,7 @@
         #transpancy
         "opacity 0.85, class:^(firefox)"
         "opacity 1.00, title:^(.*YouTube.*)"
-        "opacity 0.70, class:^(Spotify)"
+        "opacity 0.75, class:^(Spotify)"
         "opacity 0.85, class:^(VSCodium)"
         "opacity 0.80, class:^(vesktop)"
         "opacity 0.85, class:^(jetbrains)"
@@ -37,6 +37,10 @@
         "workspace special silent,  $scratchpad"
         "center,                    $scratchpad"
         "opacity 0.7,               $scratchpad"
+
+        "workspace 1,   class:(firefox)"
+        "workspace 2,   class:(VSCodium)"
+        "workspace 3,   class:(vesktop)"
 
         # make discord not steal focus
         "noinitialfocus, class:(vesktop)"

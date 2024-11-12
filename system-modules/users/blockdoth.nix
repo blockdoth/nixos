@@ -18,6 +18,7 @@
         "wheel"
         "networkmanager"
         "audio"
+        "sharedhome"
       ];
     };
 

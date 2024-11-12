@@ -11,12 +11,4 @@
 
   modules.gui.enable = false;
 
-  home.packages = with pkgs; [
-
-  ];
-
-  home.sessionVariables = {
-
-  };
-
 }

@@ -11,6 +11,9 @@
 
   config = lib.mkIf config.modules.core.terminal.alacritty.enable {
     home.packages = with pkgs; [ alacritty ];
+    home.sessionVariables = {
+      TERMINAL = "alacritty";
+    };
 
     programs.alacritty = {
       enable = true;

@@ -68,7 +68,7 @@ in
               ags.enable = mkDefault enableTilingWM;
             };
             idle.hypridle.enable = mkDefault enableTilingWM;
-            mediadeamon.mpd.enable = mkDefault enableTilingWM;
+            mediadeamon.mpd.enable = mkDefault false; # TODO look at this again
             nightmode.gammastep.enable = mkDefault enableTilingWM;
             notifications.dunst.enable = mkDefault enableTilingWM;
           };

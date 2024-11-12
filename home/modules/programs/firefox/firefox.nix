@@ -14,6 +14,9 @@
       firefoxUser = "default";
     in
     lib.mkIf config.modules.programs.firefox.enable {
+      home.sessionVariables = {
+        BROWSER = "firefox";
+      };
       home.file = {
         ".mozilla/firefox/${firefoxUser}/chrome" = {
           source = ./chrome;

@@ -15,6 +15,7 @@
       extraGroups = [
         "wheel"
         "networkmanager"
+        "rebuildnix"
       ];
     };
   };
