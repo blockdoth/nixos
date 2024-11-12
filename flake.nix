@@ -101,17 +101,30 @@
       };
 
       homeConfigurations = {
-        blockdoth = home-manager.lib.homeManagerConfiguration {
+        desktop-blockdoth = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
+            hostname = "desktop";
             inherit inputs;
           };
           modules = [
-            { nixpkgs.overlays = [ inputs.nixneovimplugins.overlays.default ]; }
             inputs.stylix.homeManagerModules.stylix
             home/users/blockdoth.nix
           ];
         };
+
+        laptop-blockdoth = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            hostname = "laptop";
+            inherit inputs;
+          };
+          modules = [
+            inputs.stylix.homeManagerModules.stylix
+            home/users/blockdoth.nix
+          ];
+        };
+
         penger = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
