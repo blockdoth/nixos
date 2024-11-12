@@ -36,7 +36,7 @@
         "float,                     $scratchpad"
         "workspace special silent,  $scratchpad"
         "center,                    $scratchpad"
-        "opacity 0.8,               $scratchpad"
+        "opacity 0.7,               $scratchpad"
 
         # make discord not steal focus
         "noinitialfocus, class:(vesktop)"
