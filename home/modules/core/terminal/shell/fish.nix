@@ -23,7 +23,7 @@
             		'';
           shellAliases = {
             cls = "clear";
-            nix = "cd /home/blockdoth/nixos";
+            conf = "cd /home/blockdoth/nixos";
             repos = "cd /home/blockdoth/Documents/repos";
             btm = "btm --mem_as_value -g";
             config = "confh && codium .";
