@@ -20,7 +20,7 @@
         "opacity 0.85, class:^(VSCodium)"
         "opacity 0.80, class:^(vesktop)"
         "opacity 0.85, class:^(jetbrains)"
-        "opacity 0.85, class:^(Nautilus)"
+        "opacity 0.85, class:^(*.Nautilus.*)"
 
         #pip
         "float,           $pip"
@@ -36,12 +36,7 @@
         "float,                     $scratchpad"
         "workspace special silent,  $scratchpad"
         "center,                    $scratchpad"
-        "opacity 0.8,               $scratchpad"
 
-        # auto starts workspaces
-        "workspace 1,   class:(firefox)"
-        "workspace 2,   class:(VSCodium)"
-        "workspace 3,   class:(vesktop)"
         # make discord not steal focus
         "noinitialfocus, class:(vesktop)"
       ];

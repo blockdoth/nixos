@@ -88,7 +88,7 @@
           "SUPER,H, togglespecialworkspace, magic"
           "SUPER,H, movetoworkspace, special:magic"
           "SUPER,H, togglespecialworkspace, magic"
-          # "SUPER,I,"
+          "SUPER,I,exec,alacritty msg config window.opacity=0.5"
           # "SUPER,H,movefocus,l"
           # "SUPER,K,movefocus,u"
           # "SUPER,J,movefocus,d"
