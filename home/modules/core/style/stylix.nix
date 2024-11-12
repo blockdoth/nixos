@@ -12,16 +12,21 @@
   };
 
   config = lib.mkIf config.modules.core.style.theme.stylix.enable {
+    home.sessionVariables = {
+      XCURSOR_SIZE = config.stylix.cursor.size;
+      HYPRCURSOR_SIZE = config.stylix.cursor.size;
+    };
 
     stylix = {
       enable = true;
       image = ../../../../assets/wallpapers/castle.png;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-
       polarity = "dark";
+
       cursor = {
         size = 15;
       };
+
       fonts =
         let
           fontpackage = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
