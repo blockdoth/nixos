@@ -28,7 +28,8 @@
       zip
       ffmpeg
       xorg.xev # Check keybinds
-      gparted
+      gparted # partitioning
+      zathura # pdf viewer
     ];
   };
 
