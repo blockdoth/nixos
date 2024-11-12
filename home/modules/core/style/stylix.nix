@@ -42,15 +42,14 @@
 
           sizes =
             let
-              # hostname = ???;
-              fontsize = 12;
+              fontsize =
+                if hostname == "laptop" then
+                  12
+                else if hostname == "desktop" then
+                  10
+                else
+                  12;
             in
-            # if hostname == "laptop" then
-            #   12
-            # else if hostname == "desktop" then
-            #   10
-            # else
-            #   12;
             {
               applications = fontsize;
               terminal = fontsize;
