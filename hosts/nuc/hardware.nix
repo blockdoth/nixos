@@ -13,24 +13,25 @@
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot.initrd.availableKernelModules = [
-    "ehci_pci"
+    "xhci_pci"
     "ahci"
-    "firewire_ohci"
+    "nvme"
     "usb_storage"
+    "usbhid"
     "sd_mod"
-    "sdhci_pci"
+    "rtsx_pci_sdmmc"
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/9f244c7e-49fa-47d8-bafa-da06ef1b5cd9";
+    device = "/dev/disk/by-uuid/9d62a0be-8568-4e8b-b71d-c79b1caf34f0";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/0DF0-3042";
+    device = "/dev/disk/by-uuid/4BB9-7C65";
     fsType = "vfat";
     options = [
       "fmask=0022"
@@ -46,7 +47,7 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp3s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp58s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

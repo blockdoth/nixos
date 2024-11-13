@@ -18,7 +18,16 @@
     docker.enable = true;
   };
 
-  networking.hostName = "nuc";
-
+  networking = {
+    hostName = "nuc";
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        80
+        443
+        22
+      ];
+    };
+  };
   system.stateVersion = "24.05"; # Did you read the comment?
 }

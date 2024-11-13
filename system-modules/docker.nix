@@ -1,10 +1,10 @@
 { config, lib, ... }:
 {
   options = {
-    system-modules.virtualisation.enable = lib.mkEnableOption "Enables virtualisation";
+    system-modules.docker.enable = lib.mkEnableOption "Enables docker";
   };
 
-  config = lib.mkIf config.system-modules.virtualisation.enable {
+  config = lib.mkIf config.system-modules.docker.enable {
 
     virtualisation = {
       docker.enable = true;

@@ -43,6 +43,7 @@
           "nix-command"
           "flakes"
         ];
+        trusted-users = [ "wheel" ];
         auto-optimise-store = true;
         http-connections = 50;
         warn-dirty = false;
@@ -53,6 +54,7 @@
         dates = "weekly";
         options = "--delete-older-than 7d";
       };
+
     };
   };
 }
