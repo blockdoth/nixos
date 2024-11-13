@@ -17,7 +17,6 @@
       package = pkgs.vscodium;
       extensions = with pkgs.vscode-extensions; [
         jnoortheen.nix-ide
-        kamadorueda.alejandra
         llvm-vs-code-extensions.vscode-clangd
         mkhl.direnv
       ];
@@ -29,7 +28,7 @@
         editor.detectIndentation = false;
         window.title = "\${activeRepositoryName}\${folderName}";
         # clangd.arguments= ["--compile-commands-dir=/home/blockdoth/Documents/repos/c-web-server"];
-        # clangd.path = "${env:CLANGD_PATH}";
+        clangd.path = "/home/blockdoth/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd";
       };
     };
 
