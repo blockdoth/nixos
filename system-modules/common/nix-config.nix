@@ -43,7 +43,7 @@
           "nix-command"
           "flakes"
         ];
-        trusted-users = [ "wheel" ];
+        trusted-users = [ "@wheel" ];
         auto-optimise-store = true;
         http-connections = 50;
         warn-dirty = false;
