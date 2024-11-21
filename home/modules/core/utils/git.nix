@@ -10,7 +10,10 @@
   };
 
   config = lib.mkIf config.modules.core.utils.git.enable {
-    home.packages = with pkgs; [ lazygit ];
+    home.packages = with pkgs; [
+      lazygit
+      gitAndTools.git-lfs
+    ];
 
     programs = {
       git = {
