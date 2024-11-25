@@ -21,7 +21,7 @@
     home.file =
       let
         file = ''
-          -Xmx2048m
+          -Xmx8192m
           -Dawt.toolkit.name=WLToolkit
         '';
       in

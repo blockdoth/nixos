@@ -106,7 +106,7 @@
           "SUPER,U,exec,"
           "SUPER,V,togglefloating"
           "SUPER,W,exec,wlogout -b 5"
-          # "SUPER,X,exec,pypr attach"
+          "SUPER,X,exec,pypr attach"
           # "SUPER,Y,"
           "SUPER,Z, exec, pypr zoom "
           "SUPER SHIFT,Z, exec, pypr zoom ++0.6"
