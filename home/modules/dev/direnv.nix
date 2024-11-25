@@ -130,10 +130,15 @@
          
         # create .envrc for direnv
          echo "use flake" > .envrc
+         echo "
+         .idea
+         .envrc
+         .direnv
+         " > .gitignore
 
          # create .envrc for direnv
          # if [[ $(git rev-parse --is-inside-work-tree) == "true" ]]; then
-         #   git add .envrc flake.nix .direnv/
+         #   git add flake.nix 
          # fi
 
          # enable flake
