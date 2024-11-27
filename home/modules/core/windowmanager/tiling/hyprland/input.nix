@@ -4,6 +4,7 @@
     wayland.windowManager.hyprland.settings = {
       input = {
         kb_layout = "us";
+        kb_options = "caps:none";
         touchpad = {
           natural_scroll = true;
         };
