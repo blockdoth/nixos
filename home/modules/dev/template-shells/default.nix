@@ -24,6 +24,7 @@
           default = pkgs.mkShell {
             shellHook = "
             echo 'Entering a default shell template'
+            git pull
           ";
             packages = with pkgs; [
 

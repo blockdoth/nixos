@@ -23,9 +23,9 @@
         { pkgs }:
         {
           default = pkgs.mkShell {
-            venvDir = "./.venv";
             shellHook = "
             echo 'Entering a jupyter notebook shell template'
+            git pull
           ";
             packages =
               with pkgs;
@@ -35,23 +35,12 @@
               ]
               ++ (with pkgs.python3Packages; [
                 ipython
-                venvShellHook
-                virtualenv
-                pip
+                jupyterlab
+                notebook
 
                 numpy
-                jupyterlab
                 matplotlib
-                notebook
               ]);
-            postVenvCreation = ''
-              unset SOURCE_DATE_EPOCH
-              pip install -r requirements.txt
-            '';
-            postShellHook = ''
-              # allow pip to install wheels
-              unset SOURCE_DATE_EPOCH
-            '';
           };
         }
       );

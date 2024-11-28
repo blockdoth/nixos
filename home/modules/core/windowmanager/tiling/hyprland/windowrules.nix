@@ -36,7 +36,7 @@
         "float,                     $scratchpad"
         "workspace special silent,  $scratchpad"
         "center,                    $scratchpad"
-        "opacity 0.7,               $scratchpad"
+        "opacity 0.8,               $scratchpad"
 
         "workspace 1,   class:(firefox)"
         "workspace 2,   class:(VSCodium)"
