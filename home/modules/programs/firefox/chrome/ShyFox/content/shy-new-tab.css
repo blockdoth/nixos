@@ -114,6 +114,10 @@ Styles for new tab
     background-attachment: fixed !important;
   }
   
+  /* :root[lwt-newtab-brighttext] {
+  --newtab-background-color: #282828 !important;
+  } */
+
   /* dark wallpaper */
   :root[lwt-newtab-brighttext] body {
     background-image: url("../../wallpaper.png") !important;

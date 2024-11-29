@@ -10,6 +10,3 @@
 @import url("ShyFox/shy-icons.css");
 @import url("ShyFox/shy-floating-search.css");
 
-:root[lwt-newtab-brighttext] {
-  --newtab-background-color: #282828 !important;
-}
