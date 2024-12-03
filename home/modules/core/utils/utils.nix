@@ -30,6 +30,7 @@
       xorg.xev # Check keybinds
       gparted # partitioning
       zathura # pdf viewer
+      bc
     ];
   };
 
