@@ -90,8 +90,9 @@
           "SUPER,H, togglespecialworkspace, magic"
           "SUPER,I,exec,alacritty msg config window.opacity=0.5"
           # "SUPER,H,movefocus,l"
-          # "SUPER,K,movefocus,u"
-          # "SUPER,J,movefocus,d"
+          "SUPER,K,exec,slurp | xargs -I {} wf-recorder -g {} -f ~/recording_$(date +\"%Y-%m-%d_%H-%M-%S\").mp4"
+          "SUPER,J,exec,killall -s SIGINT wf-recorder"
+
           "SUPER,L,exec,pidof hyprlock | hyprlock"
           "SUPER SHIFT,L,exec,systemctl suspend"
 
