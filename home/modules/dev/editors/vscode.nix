@@ -26,6 +26,8 @@
         workbench.tree.indent = 15;
         editor.fontSize = 16;
         editor.detectIndentation = false;
+        redhat.telemetry.enabled = false;
+        workbench.colorTheme = "Stylix";
         window.title = "\${activeRepositoryName}\${folderName}";
         # clangd.arguments= ["--compile-commands-dir=/home/blockdoth/Documents/repos/c-web-server"];
         clangd.path = "/home/blockdoth/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd";
