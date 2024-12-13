@@ -10,7 +10,7 @@
 
       "$scratchpad" = "class:^(scratchpad|Spotify)";
       "$pip" = "title:^(Picture-in-Picture)";
-      "$pavu" = "class:^(pavucontrol)";
+      "$popup" = "class:^(pavucontrol|.blueman-manager-wrapped)";
 
       windowrulev2 = [
         #transpancy
@@ -28,10 +28,10 @@
         "keepaspectratio, $pip"
         "opaque,          $pip"
         "size 40% 40%,    $pip"
-        #pavucontrol
-        "float,         $pavu"
-        "pin,           $pavu"
-        "size 40% 40%,  $pavu"
+        #popups
+        "float,         $popup"
+        "pin,           $popup"
+        "size 40% 40%,  $popup"
         # Scratchpads
         "float,                     $scratchpad"
         "workspace special silent,  $scratchpad"

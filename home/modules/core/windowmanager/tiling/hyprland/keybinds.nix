@@ -108,7 +108,7 @@
           "SUPER,V,togglefloating"
           "SUPER,W,exec,wlogout -b 5"
           "SUPER,X,exec,pypr attach"
-          # "SUPER,Y,"
+          "SUPER,Y,exec,codium ~/nixos"
           "SUPER,Z, exec, pypr zoom "
           "SUPER SHIFT,Z, exec, pypr zoom ++0.6"
           "SUPER SHIFT, S, exec, grimblast --notify --freeze copysave area"
