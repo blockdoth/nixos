@@ -31,6 +31,8 @@
       gparted # partitioning
       zathura # pdf viewer
       bc
+      micro
+      entr
     ];
   };
 

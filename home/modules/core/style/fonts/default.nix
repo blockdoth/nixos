@@ -18,7 +18,6 @@
       powerline-fonts
       powerline-symbols
       dejavu_fonts
-      xkcd-font
       (nerdfonts.override {
         fonts = [
           "FiraCode"
