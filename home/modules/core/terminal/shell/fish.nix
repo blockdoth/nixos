@@ -25,6 +25,7 @@
         mkscript = "echo '#!/usr/bin/env bash' > script-template.sh && chmod +x script-template.sh";
         lock = "kill hyprlock && hyprlock";
         print = "firefox -new-tab https://printportal.tudelft.nl:9443/end-user/ui/dashboard";
+        log = "git log --graph --pretty=format:'%C(bold red)%h%Creset - %C(bold blue)%an%Creset%C(auto)%d%Creset %s %C(yellow)%ad%Creset %Cgreen(%cr) ' --abbrev-commit --date=human --decorate=full --all";
       };
     };
   };
