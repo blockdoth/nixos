@@ -20,7 +20,7 @@
         "opacity 0.85, class:^(VSCodium)"
         "opacity 0.80, class:^(vesktop)"
         "opacity 0.85, class:^(jetbrains)"
-        "opacity 0.85, class:^(*.Nautilus*)"
+        "opacity 0.85, class:^(Nautilus)"
 
         #pip
         "float,           $pip"
