@@ -15,6 +15,15 @@
       interactiveShellInit = ''
               direnv hook fish | source
           		set fish_greeting # Disable greeting
+
+              function cl
+                if test (count $argv) -gt 0
+                  builtin cd $argv[1]
+                else
+                  builtin cd
+                end
+                ls
+              end              
         		'';
       shellAliases = {
         cls = "clear";
