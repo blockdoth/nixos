@@ -26,7 +26,7 @@
     nix-minecraft.url = "github:InfiniDoge/nix-minecraft";
     ags.url = "github:Aylur/ags";
     activate-linux.url = "github:MrGlockenspiel/activate-linux";
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     #Prevents version mismatch TODO 
     # hyprland.url = "github:hyprwm/Hyprland";
     # hyprland-plugins = {
