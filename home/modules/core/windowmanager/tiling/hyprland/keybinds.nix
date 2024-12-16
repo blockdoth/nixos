@@ -106,7 +106,7 @@
           "SUPER,T,exec,alacritty"
           "SUPER,U,exec,"
           "SUPER,V,togglefloating"
-          "SUPER,W,exec,wlogout -b 5"
+          "SUPER,W,exec,wlogout-script"
           "SUPER,X,exec,pypr attach"
           "SUPER,Y,exec,codium ~/nixos"
           "SUPER,Z, exec, pypr zoom "
