@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-LOCK_FILE="/tmp/$(basename "$0").lock"
+LOCK_FILE="/tmp/wlogout.lock"
 
 cleanup() {
     rm -f "$LOCK_FILE"
