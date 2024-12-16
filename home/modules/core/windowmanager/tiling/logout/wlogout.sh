@@ -8,7 +8,7 @@ cleanup() {
 trap cleanup EXIT
 
 if [ -e "$LOCK_FILE" ]; then
-    exit 1
+    exit 0
 fi
 
 (
