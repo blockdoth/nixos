@@ -6,7 +6,6 @@
         "waybar"
         "dunst"
         "hypridle"
-        "pkill hyprpaper"
         "swww-daemon && swww img ../../../../../assets/wallpapers/rusty.jpg"
         "pypr"
         "gammastep"

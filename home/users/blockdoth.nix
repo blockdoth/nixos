@@ -17,6 +17,7 @@
 
     # overrides
     core.windowmanager.tiling.mediadeamon.mpd.enable = false;
+    core.windowmanager.tiling.wallpaper.hyprpaper.enable = false;
     programs.activate-linux.enable = true;
     programs.zenbrowser.enable = true;
 

@@ -60,7 +60,7 @@ in
             logout.wlogout.enable = mkDefault enableTilingWM;
             taskbar.waybar.enable = mkDefault enableTilingWM;
             wallpaper = {
-              hyprpaper.enable = mkDefault enableTilingWM;
+              # hyprpaper.enable = mkDefault enableTilingWM;
               swww.enable = mkDefault enableTilingWM;
             };
             widgets = {
@@ -110,7 +110,7 @@ in
           yazi.enable = mkDefault enablePrograms;
         };
         firefox.enable = mkDefault enablePrograms;
-        activate-linux.enable = mkDefault false;
+        activate-linux.enable = mkDefault enableGui;
         discord.enable = mkDefault enablePrograms;
         spotify.enable = mkDefault enablePrograms;
         steam.enable = mkDefault enablePrograms;
