@@ -60,7 +60,7 @@ in
             logout.wlogout.enable = mkDefault enableTilingWM;
             taskbar.waybar.enable = mkDefault enableTilingWM;
             wallpaper = {
-              # hyprpaper.enable = mkDefault enableTilingWM;
+              hyprpaper.enable = mkDefault false;
               swww.enable = mkDefault enableTilingWM;
             };
             widgets = {
