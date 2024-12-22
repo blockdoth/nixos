@@ -126,8 +126,12 @@
           ];
         };
 
-        penger = home-manager.lib.homeManagerConfiguration {
+        nuc-penger = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
+          extraSpecialArgs = {
+            hostname = "nuc";
+            inherit inputs;
+          };
           modules = [
             inputs.stylix.homeManagerModules.stylix
             home/users/penger.nix
