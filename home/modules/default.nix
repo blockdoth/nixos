@@ -108,7 +108,7 @@ in
       programs = {
         filebrowser = {
           dolphin.enable = mkDefault enablePrograms;
-          yazi.enable = mkDefault enablePrograms;
+          yazi.enable = mkDefault true;
         };
         firefox.enable = mkDefault enablePrograms;
         activate-linux.enable = mkDefault enableGui;
