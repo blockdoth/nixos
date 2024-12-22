@@ -86,8 +86,9 @@ in
         };
 
         utils = {
-          base.enable = mkDefault true;
           git.enable = mkDefault true;
+          cli.enable = mkDefault true;
+          gui.enable = mkDefault enableGui;
         };
 
       };
@@ -99,7 +100,7 @@ in
           vscode.enable = mkDefault enableDev;
         };
         env = {
-          direnv.enable = mkDefault enableDev;
+          direnv.enable = mkDefault true;
         };
       };
 
