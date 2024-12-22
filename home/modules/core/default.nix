@@ -26,7 +26,8 @@
     ./terminal/shell/fish.nix
     ./terminal/alacritty.nix
 
-    ./utils/utils.nix
     ./utils/git.nix
+    ./utils/utils-cli.nix
+    ./utils/utils-gui.nix
   ];
 }

@@ -9,6 +9,4 @@
 
   imports = [ ../modules ];
 
-  modules.gui.enable = false;
-
 }

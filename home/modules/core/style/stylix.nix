@@ -74,7 +74,7 @@
         firefox.enable = false;
         rofi.enable = false;
         waybar.enable = false;
-        hyprpaper.enable = lib.mkForce false;
+        # hyprpaper.enable = lib.mkForce false;
       };
     };
   };

@@ -60,7 +60,7 @@ in
             logout.wlogout.enable = mkDefault enableTilingWM;
             taskbar.waybar.enable = mkDefault enableTilingWM;
             wallpaper = {
-              hyprpaper.enable = mkDefault enableTilingWM;
+              hyprpaper.enable = mkDefault false;
               swww.enable = mkDefault enableTilingWM;
             };
             widgets = {
@@ -77,6 +77,7 @@ in
         style = {
           fonts.enable = mkDefault enableGui;
           theme.stylix.enable = mkDefault enableTheming;
+          cava.enable = mkDefault (enableTheming && enableGui);
         };
 
         terminal = {
@@ -86,8 +87,9 @@ in
         };
 
         utils = {
-          base.enable = mkDefault true;
           git.enable = mkDefault true;
+          cli.enable = mkDefault true;
+          gui.enable = mkDefault enableGui;
         };
 
       };
@@ -99,17 +101,17 @@ in
           vscode.enable = mkDefault enableDev;
         };
         env = {
-          direnv.enable = mkDefault enableDev;
+          direnv.enable = mkDefault true;
         };
       };
 
       programs = {
         filebrowser = {
           dolphin.enable = mkDefault enablePrograms;
-          yazi.enable = mkDefault enablePrograms;
+          yazi.enable = mkDefault true;
         };
         firefox.enable = mkDefault enablePrograms;
-        activate-linux.enable = mkDefault false;
+        activate-linux.enable = mkDefault enableGui;
         discord.enable = mkDefault enablePrograms;
         spotify.enable = mkDefault enablePrograms;
         steam.enable = mkDefault enablePrograms;

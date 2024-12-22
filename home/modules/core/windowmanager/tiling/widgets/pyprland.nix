@@ -6,7 +6,7 @@
 }:
 {
   options = {
-    modules.core.windowmanager.tiling.widgets.pyprland.enable = lib.mkEnableOption "Enables hyprpaper";
+    modules.core.windowmanager.tiling.widgets.pyprland.enable = lib.mkEnableOption "Enables pyprland";
   };
 
   config = lib.mkIf config.modules.core.windowmanager.tiling.widgets.pyprland.enable {
