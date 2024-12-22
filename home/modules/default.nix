@@ -77,6 +77,7 @@ in
         style = {
           fonts.enable = mkDefault enableGui;
           theme.stylix.enable = mkDefault enableTheming;
+          cava.enable = mkDefault (enableTheming && enableGui);
         };
 
         terminal = {
