@@ -22,26 +22,7 @@
       devShells = forEachSupportedSystem (
         { pkgs }:
         {
-          default = pkgs.mkShell {
-            venvDir = "./.venv";
-            shellHook = "
-            echo 'Entering a python shell template'
-          ";
-            packages = with pkgs.python3Packages; [
-              python
-              venvShellHook
-              pip
-
-            ];
-            postVenvCreation = ''
-              unset SOURCE_DATE_EPOCH
-              pip install -r requirements.txt
-            '';
-            postShellHook = ''
-              # allow pip to install wheels
-              unset SOURCE_DATE_EPOCH
-            '';
-          };
+          default = pkgs.mkShell { packages = with pkgs.python3Packages; [ python ]; };
         }
       );
     };
