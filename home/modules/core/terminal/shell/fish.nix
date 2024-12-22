@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  hostname,
   ...
 }:
 {
@@ -27,8 +28,8 @@
         		'';
       shellAliases = {
         cls = "clear";
-        conf = "cd /home/blockdoth/nixos";
-        repos = "cd /home/blockdoth/Documents/repos";
+        conf = "cd /home/${config.home.username}/nixos";
+        repos = "cd /home/${config.home.username}/Documents/repos";
         btm = "btm --mem_as_value -g";
         config = "confh && codium .";
         mkscript = "echo '#!/usr/bin/env bash' > script-template.sh && chmod +x script-template.sh";
