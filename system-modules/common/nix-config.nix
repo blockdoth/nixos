@@ -2,9 +2,11 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 {
+  imports = [ inputs.nix-index-database.nixosModules.nix-index ];
   options = {
     system-modules.common.nix-config.enable = lib.mkEnableOption "Enables default nix config settings";
   };
@@ -12,7 +14,6 @@
   config = lib.mkIf config.system-modules.common.nix-config.enable {
 
     environment.systemPackages = [
-
       (pkgs.writeShellApplication {
         name = "rebuild";
         runtimeInputs = [ pkgs.nixfmt-rfc-style ];
