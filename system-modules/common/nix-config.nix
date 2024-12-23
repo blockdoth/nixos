@@ -6,7 +6,7 @@
   ...
 }:
 {
-  imports = [ inputs.nix-index-database.nixosModules.nix-index ];
+  imports = [ inputs.flake-programs-sqlite.nixosModules.programs-sqlite ];
   options = {
     system-modules.common.nix-config.enable = lib.mkEnableOption "Enables default nix config settings";
   };
@@ -22,9 +22,6 @@
 
     # skips slow cache rebuilds
     documentation.man.generateCaches = false;
-
-    # command not found database
-    programs.nix-index.enable = false;
 
     nixpkgs.config.allowUnfree = true;
     programs = {

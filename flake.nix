@@ -27,10 +27,11 @@
     ags.url = "github:Aylur/ags";
     activate-linux.url = "github:MrGlockenspiel/activate-linux";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
+    flake-programs-sqlite = {
+      url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     #Prevents version mismatch TODO 
     # hyprland.url = "github:hyprwm/Hyprland";
     # hyprland-plugins = {
