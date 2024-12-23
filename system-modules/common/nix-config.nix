@@ -12,7 +12,6 @@
   };
 
   config = lib.mkIf config.system-modules.common.nix-config.enable {
-
     environment.systemPackages = [
       (pkgs.writeShellApplication {
         name = "rebuild";
@@ -23,6 +22,9 @@
 
     # skips slow cache rebuilds
     documentation.man.generateCaches = false;
+
+    # command not found database
+    # programs.nix-index-database.enable = true;
 
     nixpkgs.config.allowUnfree = true;
     programs = {
