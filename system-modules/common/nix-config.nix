@@ -24,7 +24,7 @@
     documentation.man.generateCaches = false;
 
     # command not found database
-    programs.nix-index.enable = true;
+    programs.nix-index.enable = false;
 
     nixpkgs.config.allowUnfree = true;
     programs = {
