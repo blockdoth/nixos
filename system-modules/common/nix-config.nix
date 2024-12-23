@@ -24,7 +24,7 @@
     documentation.man.generateCaches = false;
 
     # command not found database
-    # programs.nix-index-database.enable = true;
+    programs.nix-index.enable = true;
 
     nixpkgs.config.allowUnfree = true;
     programs = {
@@ -57,7 +57,6 @@
         dates = "weekly";
         options = "--delete-older-than 7d";
       };
-
     };
   };
 }
