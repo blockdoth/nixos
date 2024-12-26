@@ -97,7 +97,7 @@
         waybar-mediaplayer-info
         waybar-mediaplayer-inputswitcher
         waybar-mediaplayer-playpause
-        inputs.iss-piss-stream.packages.${pkgs.system}.iss-piss-stream
+        inputs.iss-piss-stream.packages.${pkgs.system}.default
       ];
 
       programs.waybar = {
