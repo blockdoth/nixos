@@ -156,7 +156,7 @@
 
             "custom/piss" = {
               format = "󰆫 {}%";
-              exec = "echo \"100\"";
+              exec = "iss-piss-stream -p";
             };
 
             "custom/media" = {

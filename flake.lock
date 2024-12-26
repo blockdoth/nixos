@@ -353,11 +353,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1735237888,
-        "narHash": "sha256-lyjGp0T0I4FTkgvM9FsfyNNeVrEe7PD63wMo/OxODQ4=",
+        "lastModified": 1735238802,
+        "narHash": "sha256-bYqgVwRkc6QefTqNJPy+OsoPrvpllYa2VeojxHOKy40=",
         "owner": "blockdoth",
         "repo": "iss-piss-stream",
-        "rev": "7fc46993880ece1a2b1bdb51d1f4f2863e0dfccd",
+        "rev": "4590649ef238e3b552ced94c146f2906b30c82eb",
         "type": "github"
       },
       "original": {
