@@ -155,9 +155,10 @@
             };
 
             "custom/piss" = {
-              format = "󰆫 {}%";
+              format = "<span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'>󰆫</span> {}%";
               format-alt = "ISS Urine tank level {}%";
               exec = "iss-piss-stream -p";
+              return-type = "text";
             };
 
             "custom/media" = {
