@@ -12,10 +12,10 @@
   config =
     let
       local-fonts = pkgs.stdenv.mkDerivation rec {
-        pname = local-fonts;
+        pname = "local-fonts";
         version = "1.0";
         src = ./local;
-        installPhase = ''find ${src} -type f -name '*.ttf' -exec install -Dm644 {} $out/share/fonts/truetype '';
+        installPhase = ''find ${src} -type f -name '*.ttf' -exec install -Dm644 {} $out/share/fonts/truetype/ \;'';
       };
 
     in
@@ -28,6 +28,7 @@
         powerline-fonts
         powerline-symbols
         dejavu_fonts
+        local-fonts
         (nerdfonts.override {
           fonts = [
             "FiraCode"
