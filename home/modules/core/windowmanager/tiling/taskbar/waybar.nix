@@ -119,11 +119,11 @@
               "custom/logo"
               "hyprland/workspaces"
               "hyprland/window"
+              "custome/piss"
             ];
             modules-center = [ "clock" ];
             modules-right = [
               "tray"
-              "custome/piss"
               "custom/media"
               "pulseaudio"
               "bluetooth"
@@ -156,6 +156,7 @@
 
             "custom/piss" = {
               format = "󰆫 {}%";
+              format-alt = "ISS Urine tank level {}%";
               exec = "iss-piss-stream -p";
             };
 
