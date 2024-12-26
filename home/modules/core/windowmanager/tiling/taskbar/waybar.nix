@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
 }:
 {
@@ -96,6 +97,7 @@
         waybar-mediaplayer-info
         waybar-mediaplayer-inputswitcher
         waybar-mediaplayer-playpause
+        inputs.iss-piss-stream
       ];
 
       programs.waybar = {
@@ -121,6 +123,7 @@
             modules-center = [ "clock" ];
             modules-right = [
               "tray"
+              "custome/piss"
               "custom/media"
               "pulseaudio"
               "bluetooth"
@@ -149,6 +152,11 @@
               format = "  <span font='${toStr icon-size}'></span> ";
               on-click = "wallpaperchanger";
               tooltip = false;
+            };
+
+            "custom/piss" = {
+              format = "󰆫 {}%";
+              exec = "echo \"100\"";
             };
 
             "custom/media" = {
