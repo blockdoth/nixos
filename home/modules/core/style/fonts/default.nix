@@ -11,12 +11,16 @@
 
   config =
     let
-      local-fonts = pkgs.stdenv.mkDerivation rec {
-        pname = "local-fonts";
-        version = "1.0";
-        src = ./local;
-        installPhase = ''find ${src} -type f -name '*.ttf' -exec install -Dm644 {} $out/share/fonts/truetype/ \;'';
-      };
+      mkFontDerivation =
+        fontPath: name:
+        pkgs.stdenvNoCC.mkDerivation {
+          pname = name;
+          version = "1.0";
+          dontUnpack = true;
+          installPhase = ''
+            install -Dm755 ${fontPath} $out/share/fonts/truetype/
+          '';
+        };
 
     in
     lib.mkIf config.modules.core.style.fonts.enable {
@@ -28,7 +32,8 @@
         powerline-fonts
         powerline-symbols
         dejavu_fonts
-        local-fonts
+        # (mkFontDerivation "./local/xkcd-script.ttf" "xkcd-script")
+        # (mkFontDerivation "./local/Comic-Sans-MS.ttf" "Comic-Sans-MS")
         (nerdfonts.override {
           fonts = [
             "FiraCode"
@@ -36,6 +41,7 @@
             "JetBrainsMono"
           ];
         })
+
       ];
     };
 }
