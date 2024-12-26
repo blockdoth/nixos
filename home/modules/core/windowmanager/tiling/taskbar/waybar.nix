@@ -114,7 +114,6 @@
             margin-left = 6;
             margin-right = 6;
             margin-top = 6;
-
             modules-left = [
               "custom/logo"
               "hyprland/workspaces"
@@ -122,9 +121,9 @@
             ];
             modules-center = [ "clock" ];
             modules-right = [
-              "custom/piss"
               "tray"
               "custom/media"
+              "custom/piss"
               "pulseaudio"
               "bluetooth"
               "temperature"
@@ -155,8 +154,8 @@
             };
 
             "custom/piss" = {
-              format = "󰆫 {}%";
-              format-alt = "ISS Urine tank level {}%";
+              format = "󰦫  {}%";
+              format-alt = "ISS Urine tank level: {}%";
               exec = "iss-piss-stream -p";
               return-type = "text";
             };
