@@ -119,12 +119,12 @@
               "custom/logo"
               "hyprland/workspaces"
               "hyprland/window"
-              "custome/piss"
             ];
             modules-center = [ "clock" ];
             modules-right = [
               "tray"
               "custom/media"
+              "custom/piss"
               "pulseaudio"
               "bluetooth"
               "temperature"
