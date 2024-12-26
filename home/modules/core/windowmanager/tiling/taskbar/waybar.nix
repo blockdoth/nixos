@@ -122,9 +122,9 @@
             ];
             modules-center = [ "clock" ];
             modules-right = [
+              "custom/piss"
               "tray"
               "custom/media"
-              "custom/piss"
               "pulseaudio"
               "bluetooth"
               "temperature"
