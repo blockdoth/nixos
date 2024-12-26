@@ -114,6 +114,7 @@
             margin-left = 6;
             margin-right = 6;
             margin-top = 6;
+
             modules-left = [
               "custom/logo"
               "hyprland/workspaces"
@@ -154,8 +155,8 @@
             };
 
             "custom/piss" = {
-              format = "󰦫  {}%";
-              format-alt = "ISS Urine tank level: {}%";
+              format = "| <span font='${toStr icon-size}' rise='${toStr v-offset}pt'>󰦫</span>  {}% ";
+              format-alt = "| ISS Urine tank level: {}% ";
               exec = "iss-piss-stream -p";
               return-type = "text";
             };
