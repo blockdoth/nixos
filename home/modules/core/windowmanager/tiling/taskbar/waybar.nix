@@ -93,12 +93,15 @@
     in
     lib.mkIf config.modules.core.windowmanager.tiling.taskbar.waybar.enable {
       #import scripts
-      home.packages = with pkgs; [
-        waybar-mediaplayer-info
-        waybar-mediaplayer-inputswitcher
-        waybar-mediaplayer-playpause
-        inputs.iss-piss-stream
-      ];
+      home.packages =
+        with pkgs;
+        [
+          waybar-mediaplayer-info
+          waybar-mediaplayer-inputswitcher
+          waybar-mediaplayer-playpause
+
+        ]
+        ++ [ inputs.iss-piss-stream ];
 
       programs.waybar = {
         enable = true;
