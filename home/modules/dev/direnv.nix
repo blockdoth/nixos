@@ -154,7 +154,7 @@
 
       home.packages = with pkgs; [ devinit ];
       home.sessionVariables = {
-        DIRENV_WARN_TIMEOUT = "false";
+        DIRENV_WARN_TIMEOUT = "120";
       };
       programs.direnv = {
         enable = true;
