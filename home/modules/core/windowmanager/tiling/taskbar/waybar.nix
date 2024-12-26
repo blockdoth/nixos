@@ -56,7 +56,7 @@
         METADATA=$(playerctl metadata --player=$SELECTED_PLAYER --format '{{artist}} - {{title}}')
 
         if [[ ''${#METADATA} > 30 ]]; then
-          METADATA=$(echo $METADATA | cut -c1-30)" ..."
+          METADATA=$(echo $METADATA | cut -c1-30)"..."
         fi
 
 
