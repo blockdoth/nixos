@@ -26,6 +26,7 @@
       bc
       micro
       entr
+      tmux
     ];
   };
 

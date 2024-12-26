@@ -153,7 +153,9 @@
     {
 
       home.packages = with pkgs; [ devinit ];
-
+      home.sessionVariables = {
+        DIRENV_WARN_TIMEOUT = "false";
+      };
       programs.direnv = {
         enable = true;
         nix-direnv.enable = true;
