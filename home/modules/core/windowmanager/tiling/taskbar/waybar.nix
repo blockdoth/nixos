@@ -155,7 +155,7 @@
             };
 
             "custom/piss" = {
-              format = "| <span font='${toStr (icon-size * 0.6)}' rise='${toStr v-offset}pt'>󰦫</span>  {}% ";
+              format = "| <span font='${toStr (icon-size * 0.8)}' rise='${toStr v-offset}pt'>󰦫</span>  {}% ";
               format-alt = "| ISS Urine tank level: {}% ";
               exec = "iss-piss-stream -p";
               return-type = "text";
