@@ -16,7 +16,9 @@ in
   imports = [
     ./common
     ./display
-    ./servers/minecraft.nix
+    ./services/minecraft.nix
+    ./services/pihole.nix
+    ./services/immich.nix
     ./users/blockdoth.nix
     ./users/penger.nix
     ./audio.nix
