@@ -25,6 +25,7 @@
     ./terminal/prompt/starship.nix
     ./terminal/shell/fish.nix
     ./terminal/alacritty.nix
+    ./terminal/ghostty.nix
 
     ./utils/git.nix
     ./utils/utils-cli.nix
