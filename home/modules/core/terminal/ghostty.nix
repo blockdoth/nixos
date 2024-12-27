@@ -29,6 +29,7 @@
         background-opacity = ${toStr config.stylix.opacity.terminal} 
         window-padding-x = 10
         window-padding-y = 10
+        keybind = clear
         keybind = ctrl+s=new_split:right
         keybind = ctrl+a=new_split:down
         keybind = ctrl+d=close_surface
