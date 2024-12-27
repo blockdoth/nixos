@@ -30,7 +30,7 @@
         window-padding-x = 10
         window-padding-y = 10
         keybind = ctrl+s=new_split:right
-        keybind = ctrl+a=new_split
+        keybind = ctrl+a=new_split:down
         keybind = ctrl+d=close_surface
         keybind = ctrl+e=equalize_splits
       '';
