@@ -16,8 +16,11 @@
     xdg.configFile."ghostty/config".text = ''
       window-decoration = false
       term = xterm-256color
-      fullscreen = true
-      background-opacity = 0.8
+      background-opacity = 0.7
+      command = fastfetch
+      confirm-close-surface = false
+      window-padding-x = 10
+      window-padding-y = 10
     '';
   };
 
