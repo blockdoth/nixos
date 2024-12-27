@@ -27,8 +27,12 @@
         clipboard-trim-trailing-spaces = true
         font-size = ${toStr config.stylix.fonts.sizes.terminal} 
         background-opacity = ${toStr config.stylix.opacity.terminal} 
+        unfocused-split-opacity=0.9
         window-padding-x = 10
         window-padding-y = 10
+        font-feature=-calt
+        font-feature=-liga
+        font-feature=-dlig
         keybind = clear
         keybind = ctrl+s=new_split:right
         keybind = ctrl+a=new_split:down
