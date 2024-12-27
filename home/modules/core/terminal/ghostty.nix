@@ -32,13 +32,13 @@
         foreground = #${stylix.colors.base05}
         selection-foreground = #${stylix.colors.base05} 
         selection-background = #${stylix.colors.base02}     
-        keybind = super+plus=increase_font_size
-        keybind = super+minus=decrease_font_size
-        keybind = super+ctrl+w=reset_font_size
-        keybind = super+ctrl+s=new_split:right
-        keybind = super+ctrl+a=new_split:bottom
-        keybind = super+ctrl+d=close_surface
-        keybind = super+ctrl+e=equalize_splits
+        keybind = ctrl+plus=increase_font_size
+        keybind = ctrl+minus=decrease_font_size
+        keybind = ctrl+w=reset_font_size
+        keybind = ctrl+s=new_split:right
+        keybind = ctrl+a=new_split:bottom
+        keybind = ctrl+d=close_surface
+        keybind = ctrl+e=equalize_splits
       '';
     };
 
