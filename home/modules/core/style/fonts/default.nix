@@ -18,14 +18,14 @@
           version = "1.0";
           dontUnpack = true;
           installPhase = ''
-            install -Dm755 ${fontPath} $out/share/fonts/truetype/
+            install -Dm755 ${fontPath} $out/share/fonts/truetype/${name}
           '';
         };
     in
     lib.mkIf config.modules.core.style.fonts.enable {
       fonts.fontconfig.enable = true;
       home.packages = with pkgs; [
-        # (mkFontDerivation "./local/xkcd-script.ttf" "xkcd-script")
+        (mkFontDerivation ./local/xkcd-script.ttf "xkcd-script")
         # (mkFontDerivation "./local/Comic-Sans-MS.ttf" "Comic-Sans-MS")
         font-manager
         jetbrains-mono
