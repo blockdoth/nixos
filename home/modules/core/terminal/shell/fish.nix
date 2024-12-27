@@ -15,7 +15,8 @@
       enable = true;
       interactiveShellInit = ''
               direnv hook fish | source
-          		set fish_greeting # Disable greeting           
+          		set fish_greeting # Disable greeting 
+              fastfetch          
         		'';
       shellAliases = lib.mkMerge [
         {
