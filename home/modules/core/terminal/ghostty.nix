@@ -32,11 +32,12 @@
         foreground = #${stylix.colors.base05}
         selection-foreground = #${stylix.colors.base05} 
         selection-background = #${stylix.colors.base02}     
-        keybind =super++=increase_font_size
-        keybind =super+-=decrease_font_size
-        keybind =super+backspace=reset_font_size
-        keybind =super+s=new_split
-        keybind =super+d=close_surface
+        keybind = super + shift + e = increase_font_size
+        keybind = super + shift + q = decrease_font_size
+        keybind = super + shift + w = reset_font_size
+        keybind = super + shift + s= new_split
+        keybind = super + shift + d= close_surface
+        keybind = super + shift + e= equalize_splits
       '';
     };
 
