@@ -22,6 +22,8 @@
         window-decoration = false
         confirm-close-surface = false
         term = xterm-256color
+        resize-overlay = never
+        clipboard-trim-trailing-spaces = true
         font-size = ${toStr config.stylix.fonts.sizes.terminal} 
         background-opacity = ${toStr config.stylix.opacity.terminal} 
         window-padding-x = 10
