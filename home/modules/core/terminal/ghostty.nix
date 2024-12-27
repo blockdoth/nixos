@@ -13,7 +13,7 @@
   config = lib.mkIf config.modules.core.terminal.ghostty.enable {
     home.packages = with pkgs; [ inputs.ghostty.packages.x86_64-linux.default ];
 
-    xdg.configFile."ghostty.config".text = ''
+    xdg.configFile."ghostty/config".text = ''
       window-decoration = false
       term = xterm-256color
       fullscreen = true
