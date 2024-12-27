@@ -18,7 +18,6 @@
       term = xterm-256color
       background-opacity = 0.7
       command = fastfetch
-      confirm-close-surface = false
       window-padding-x = 10
       window-padding-y = 10
     '';
