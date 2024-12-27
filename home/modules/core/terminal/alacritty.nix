@@ -41,6 +41,10 @@
 
         shell = {
           program = "fish";
+          args = [
+            "-C"
+            "fastfetch"
+          ];
         };
       };
     };
