@@ -23,11 +23,9 @@
         term = xterm-256color
         font-size = ${toStr config.stylix.fonts.sizes.terminal} 
         background-opacity = ${toStr config.stylix.opacity.terminal} 
-        inital-command = neofetch
         window-padding-x = 10
         window-padding-y = 10
         background = #${stylix.colors.base00}
-        foreground = #${stylix.colors.base05}
         selection-foreground = #${stylix.colors.base05} 
         selection-background = #${stylix.colors.base02}     
       '';
