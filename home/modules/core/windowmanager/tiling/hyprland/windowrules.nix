@@ -22,7 +22,7 @@
         "opacity 0.85, class:^(jetbrains)"
         "opacity 0.80, class:^(org.gnome.Nautilus)"
 
-        "noblur,class:^(ghostty)$"
+        # "noblur,class:^(ghostty)$"
         #pip
         "float,           $pip"
         "pin,             $pip"
