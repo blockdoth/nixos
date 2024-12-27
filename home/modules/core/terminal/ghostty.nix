@@ -21,6 +21,7 @@
       xdg.configFile."ghostty/config".text = ''
         window-decoration = false
         confirm-close-surface = false
+        focus-follows-mouse = true
         term = xterm-256color
         resize-overlay = never
         clipboard-trim-trailing-spaces = true
@@ -28,15 +29,8 @@
         background-opacity = ${toStr config.stylix.opacity.terminal} 
         window-padding-x = 10
         window-padding-y = 10
-        background = #${stylix.colors.base00}
-        foreground = #${stylix.colors.base05}
-        selection-foreground = #${stylix.colors.base05} 
-        selection-background = #${stylix.colors.base02}     
-        keybind = ctrl+plus=increase_font_size
-        keybind = ctrl+minus=decrease_font_size
-        keybind = ctrl+w=reset_font_size
         keybind = ctrl+s=new_split:right
-        keybind = ctrl+a=new_split:bottom
+        keybind = ctrl+a=new_split
         keybind = ctrl+d=close_surface
         keybind = ctrl+e=equalize_splits
       '';
