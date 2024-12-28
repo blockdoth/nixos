@@ -28,10 +28,13 @@
       decoration = {
         rounding = 5;
         shadow_ignore_window = true;
-        drop_shadow = true;
-        shadow_range = 8;
-        shadow_render_power = 4;
-        shadow_offset = "5 5";
+
+        shadow = {
+          enable = true;
+          range = 8;
+          render_power = 4;
+          offset = "5 5";
+        };
         blur = {
           enabled = true;
           size = 3;
