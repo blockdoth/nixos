@@ -23,6 +23,7 @@
         cp -r ${shyfox}/chrome/icons/* $out/
         cp -r ${shyfox}/chrome/ShyFox/* $out/
         cp ${shyfox}/chrome/userContent.css $out/
+        cat "${builtins.readFile ./shyfox-overrides.css}" > $out/test.css
         cat "${shyfox}/chrome/userChrome.css" "${builtins.readFile ./shyfox-overrides.css}" > $out/userChrome.css
       '';
     in
