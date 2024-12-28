@@ -9,6 +9,7 @@
         "swww-daemon && swww img ../../../../../assets/wallpapers/rusty.jpg"
         "pypr"
         "gammastep"
+        "pkill hyprpaper"
         "[workspace 1 silent] firefox"
         "[workspace 2 silent] codium"
         "[workspace 3 silent] vesktop"
