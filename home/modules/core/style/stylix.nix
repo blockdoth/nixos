@@ -29,7 +29,7 @@
 
       fonts =
         let
-          fontpackage = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+          fontpackage = pkgs.nerd-fonts.jetbrains-mono;
         in
         {
           monospace = {
@@ -74,7 +74,8 @@
         firefox.enable = false;
         rofi.enable = false;
         waybar.enable = false;
-        # hyprpaper.enable = lib.mkForce false;
+        spicetify.enable = false;
+        hyprlock.enable = false;
       };
     };
   };

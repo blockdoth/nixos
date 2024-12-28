@@ -13,7 +13,7 @@
   config = lib.mkIf config.modules.programs.minecraft.enable {
     home.packages = with pkgs; [
       (prismlauncher.override {
-        withWaylandGLFW = true;
+        # withWaylandGLFW = true;
         jdks = [
           jdk17
           jdk21

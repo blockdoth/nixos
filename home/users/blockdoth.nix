@@ -20,7 +20,7 @@
     core.windowmanager.tiling.wallpaper.hyprpaper.enable = false;
     programs.activate-linux.enable = true;
     programs.zenbrowser.enable = true;
-
+    programs.spotify.enable = false;
   };
 
   home.sessionVariables = {
