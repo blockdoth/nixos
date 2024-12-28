@@ -18,6 +18,7 @@
         rev = "dd4836fb6f93267de6a51489d74d83d570f0280d";
         sha256 = "sha256-7H+DU4o3Ao8qAgcYDHVScR3pDSOpdETFsEMiErCQSA8=";
       };
+
       override = builtins.readFile ./override.css;
 
       shyfoxOveride = pkgs.runCommand "shyfox" { } ''
