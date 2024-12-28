@@ -12,21 +12,26 @@
   config =
     let
       firefoxUser = "default";
-      shyfox = pkgs.fetchFromGitHub {
-        owner = "Naezr";
-        repo = "ShyFox";
-        rev = "dd4836fb6f93267de6a51489d74d83d570f0280d";
-        sha256 = "sha256-7H+DU4o3Ao8qAgcYDHVScR3pDSOpdETFsEMiErCQSA8=";
-      };
 
       override = builtins.readFile ./override.css;
 
-      shyfoxOveride = pkgs.runCommand "shyfox" { } ''
-        mkdir -p $out
-        cp -r ${shyfox}/chrome/* $out
-        echo "${override}" > $out/test.css
+      shyfoxOveride = pkgs.stdenv.mkDerivation {
+        pname = "concatenate-files";
+        version = "1.0";
 
-      '';
+        src = pkgs.fetchFromGitHub {
+          owner = "Naezr";
+          repo = "ShyFox";
+          rev = "dd4836fb6f93267de6a51489d74d83d570f0280d";
+          sha256 = "sha256-7H+DU4o3Ao8qAgcYDHVScR3pDSOpdETFsEMiErCQSA8=";
+        };
+
+        buildPhase = ''
+          mkdir -p $out
+          cp -r $src/chrome/* $out
+          cat "${override}" > $out/test.css
+        '';
+      };
     in
     # cat "${shyfox}/chrome/userChrome.css" "${override}" > $out/userChrome.css
     lib.mkIf config.modules.programs.firefox.enable {
