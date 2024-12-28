@@ -39,7 +39,7 @@
 
         cursor.style = "Beam";
 
-        shell = {
+        terminal.shell = {
           program = "fish";
           args = [
             "-C"
