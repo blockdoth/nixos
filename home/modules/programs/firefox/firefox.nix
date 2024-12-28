@@ -12,7 +12,19 @@
   config =
     let
       firefoxUser = "default";
-      override = builtins.readFile ./override.css;
+      override = ''
+              
+              @-moz-document regexp("^moz-extension://.*?/sidebar/sidebar.html"){
+          #root.root {
+            --pin-favicon-size: 25px !important;
+          }
+        }
+
+        :root, #screenshots-component *{
+          --sdbr-wdt: 200px !important; 
+        }
+
+      '';
       shyfox = pkgs.fetchFromGitHub {
         owner = "Naezr";
         repo = "ShyFox";
