@@ -36,7 +36,7 @@
       };
     };
     nix = {
-      package = pkgs.nixFlakes;
+      package = pkgs.nixVersions.stable;
       settings = {
         cores = 11;
         experimental-features = [

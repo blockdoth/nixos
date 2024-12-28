@@ -24,7 +24,7 @@
     hardware = {
       enableAllFirmware = true;
       pulseaudio = {
-        enable = true;
+        enable = false;
         support32Bit = true;
       };
     };
@@ -33,6 +33,5 @@
     nixpkgs.config = {
       pulseaudio = true;
     };
-    sound.enable = lib.mkForce false;
   };
 }

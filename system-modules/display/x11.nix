@@ -16,15 +16,13 @@
       desktopManager.gnome.enable = true;
     };
 
-    environment.gnome.excludePackages =
-      (with pkgs; [
+    environment.gnome.excludePackages = (
+      with pkgs;
+      [
         gnome-photos
         gnome-tour
         gedit # text editor
         gnome-connections
-        # gnome-console      
-      ])
-      ++ (with pkgs.gnome; [
         cheese # webcam tool
         gnome-music
         gnome-terminal
@@ -51,8 +49,8 @@
         gnome-music
         gnome-screenshot
         gnome-system-monitor
-      ]);
-
+      ]
+    );
     xdg.portal = {
       enable = true;
       wlr.enable = true;
