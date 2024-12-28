@@ -18,12 +18,16 @@
         rev = "dd4836fb6f93267de6a51489d74d83d570f0280d";
         sha256 = "sha256-7H+DU4o3Ao8qAgcYDHVScR3pDSOpdETFsEMiErCQSA8=";
       };
+
+      # overrides = builtins.replaceStrings [ "\( \)" ] [ "(" ")"] builtins.readFile ./shyfox-overrides.css;
+
       shyfoxOveride = pkgs.runCommand "shyfox" { } ''
         mkdir -p $out
         cp -r ${shyfox}/chrome/* $out/
+        cat $out/userChrome.css "${builtins.readFile ./shyfox-overrides.css}" > $out/combinedUserChrome.css
+        mv $out/combinedUserChrome.css $out/userChrome.css
       '';
     in
-    # cat ${builtins.readFile ./shyfox-overrides.css} >> $out/userChrome.css
     lib.mkIf config.modules.programs.firefox.enable {
       home.sessionVariables = {
         BROWSER = "firefox";
