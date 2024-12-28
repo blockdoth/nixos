@@ -18,13 +18,17 @@
         rev = "dd4836fb6f93267de6a51489d74d83d570f0280d";
         sha256 = "sha256-7H+DU4o3Ao8qAgcYDHVScR3pDSOpdETFsEMiErCQSA8=";
       };
+      override = builtins.readFile ./shyfox-overrides.css;
+
       shyfoxOveride = pkgs.runCommand "shyfox" { } ''
         mkdir -p $out
-        cp -r ${shyfox}/chrome/icons/* $out/
-        cp -r ${shyfox}/chrome/ShyFox/* $out/
+        mkdir -p $out/icons
+        mkdir -p $out/ShyFox
+        cp -r ${shyfox}/chrome/icons/* $out/icons
+        cp -r ${shyfox}/chrome/ShyFox/* $out/ShyFox
         cp ${shyfox}/chrome/userContent.css $out/
-        cat "${builtins.readFile ./shyfox-overrides.css}" > $out/test.css
-        cat "${shyfox}/chrome/userChrome.css" "${builtins.readFile ./shyfox-overrides.css}" > $out/userChrome.css
+        echo "${override}" > $out/test.css
+        cat "${shyfox}/chrome/userChrome.css" "${override}" > $out/userChrome.css
       '';
     in
     lib.mkIf config.modules.programs.firefox.enable {
