@@ -15,7 +15,7 @@ Styles for Sidebery extension
     --general-margin: 4px !important;
     
     --button-size: 35px;
-    --pin-favicon-size: 25px;
+    --pin-favicon-size: 30px;
 
     --nav-btn-margin: calc(var(--margin) / 2) !important;
     --nav-btn-width: var(--button-size) !important;

@@ -12,12 +12,12 @@ Area where website is displayed
 /* set background color */
 #appcontent .browserStack, #browser, .browserContainer {background: var(--bg-col)}
 
-#browser > #appcontent {
+#browser #tabbrowser-tabbox {
   /* shift website content relative to panels */
-  margin-left: var(--left-margin);
-  margin-right: var(--right-margin);
-  margin-top: var(--top-margin);
-  margin-bottom: var(--bottom-margin);
+  margin-left: var(--left-margin) !important;
+  margin-right: var(--right-margin) !important;
+  margin-top: var(--top-margin) !important;
+  margin-bottom: var(--bottom-margin) !important;
   
   /* add smoothness to it */
   transition: var(--transition) !important;
@@ -29,24 +29,30 @@ Area where website is displayed
   --margin: 0px !important;
 }
 
+/* some z-index */
+#navigator-toolbox {z-index: 2 !important;}
+#browser {z-index: 1 !important;}
+
 /* if it not fullscreen video or floating window */
 #main-window:not([inDOMFullscreen="true"])[chromehidden=""]{
     
   /* if navbar is not hidden in f11 fullscreen or not only navbar is visible in f11 or window is not maximized in clean mode */
   &:not(
     :is(
-      :is([titlepreface*="‌"], [titlepreface*="؜"][titlepreface*="​"])[inFullscreen="true"]),
+      :is([titlepreface*="‌"], [titlepreface*="᠎"][titlepreface*="​"])[inFullscreen="true"]),
       [titlepreface*="‍"]:is([sizemode="maximized"], [inFullscreen="true"], [gtktiledwindow="true"])
   ){
     
     /* add rounded corners and outline to browser content */
-    #appcontent browser {
+    #tabbrowser-tabbox {
       border-radius: var(--big-rounding) !important;
       border: var(--outline);
+      outline: none !important;
     }
     
-    #appcontent .browserStack::after {
+    #tabbrowser-tabpanels::after {
       content: "";
+      margin: -1px;
       border: var(--outline);
       position: absolute;
       inset: 0;
@@ -58,7 +64,7 @@ Area where website is displayed
   }
   
   /* if in f11 fullscreen sidebar active but navbar not */
-  &:not([titlepreface*="‍"]):not([titlepreface*="؜"])[titlepreface*="‌"][inFullscreen="true"]{
+  &:not([titlepreface*="‍"]):not([titlepreface*="᠎"])[titlepreface*="‌"][inFullscreen="true"]{
     #appcontent browser {border-left: var(--outline);}
   }
   
@@ -68,7 +74,7 @@ Area where website is displayed
   }
   
   /* if in f11 fullscreen nor toolbar or sidebar active but navbar is */
-  &:not([titlepreface*="‍"])[titlepreface*="؜"][titlepreface*="​"]:not([titlepreface*="‌"])[inFullscreen="true"]{
+  &:not([titlepreface*="‍"])[titlepreface*="᠎"][titlepreface*="​"]:not([titlepreface*="‌"])[inFullscreen="true"]{
     #appcontent browser {border-top: var(--outline);}
   }
 }
@@ -269,7 +275,7 @@ screenshots-buttons{
 }
 
 /* when sidebar hidden */
-#main-window:is([titlepreface*="؜"], [titlepreface*="‍"]){
+#main-window:is([titlepreface*="᠎"], [titlepreface*="‍"]){
   #screenshotsPagePanel{
     bottom: calc(
       var(--bottom-margin)
@@ -553,6 +559,14 @@ File Edit View History Bookmarks Tools Help
   }
 }
 
+/* z-index fix */
+#tabbrowser-tabbox{z-index: 1 !important;}
+
+/* border fix */
+* {
+  border: 0px solid transparent; 
+  outline: 0px solid transparent;
+}
 
 /*
 

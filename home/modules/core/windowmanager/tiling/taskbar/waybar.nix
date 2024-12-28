@@ -202,8 +202,8 @@
                   " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'>󰈹</span>  $1";
                 ".*Discord.*" =
                   " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Discord";
-                ".*VSCodium.*" =
-                  " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  VSCodium";
+                "VSCodium (.*)" =
+                  " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  VSCodium ./$1";
                 ".*Steam.*" =
                   " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Steam";
                 "Spotify" =
