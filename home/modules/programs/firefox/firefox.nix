@@ -24,8 +24,8 @@
       shyfoxOveride = pkgs.runCommand "shyfox" { } ''
         mkdir -p $out
         cp -r ${shyfox}/chrome/* $out/
-        cat $out/userChrome.css "${builtins.readFile ./shyfox-overrides.css}" > $out/combinedUserChrome.css
-        mv $out/combinedUserChrome.css $out/userChrome.css
+        rm $out/userChrome.css
+        cat ${shyfox}/chrome/userChrome.css "${builtins.readFile ./shyfox-overrides.css}" > $out/userChrome.css
       '';
     in
     lib.mkIf config.modules.programs.firefox.enable {
