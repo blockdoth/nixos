@@ -352,17 +352,17 @@
         "zig": "zig"
       },
       "locked": {
-        "lastModified": 1735290043,
-        "narHash": "sha256-7cjD1WhJAgdpYposaLONCNyQ/oRBDP3FnaeNNMo/JSE=",
+        "lastModified": 1735328611,
+        "narHash": "sha256-AbhqEuBWPiHEIdzPhcxZsPcLAc0miJxf9MkI2G598Rk=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "52bc030199fc97aed447a7d534634dfdb7c98da0",
+        "rev": "e6a42f0f61f4083d49a682ddc896821da6deaf06",
         "type": "github"
       },
       "original": {
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "52bc030199fc97aed447a7d534634dfdb7c98da0",
+        "rev": "e6a42f0f61f4083d49a682ddc896821da6deaf06",
         "type": "github"
       }
     },

@@ -22,7 +22,7 @@
           cls = "clear";
           conf = "cd /home/${config.home.username}/nixos";
           repos = "cd /home/${config.home.username}/Documents/repos";
-          btm = "btm --mem_as_value -g";
+          btm = "btm --process_memory_as_value -g";
           mkscript = "echo '#!/usr/bin/env bash' > script-template.sh && chmod +x script-template.sh";
           log = "git log --graph --pretty=format:'%C(bold red)%h%Creset - %C(bold blue)%an%Creset%C(auto)%d%Creset %s %C(yellow)%ad%Creset %Cgreen(%cr) ' --abbrev-commit --date=human --decorate=full --all";
           penger = "ssh -p 2121 penger@insinuatis.ddns.net";
