@@ -14,7 +14,7 @@
       # function to import a nix file and escape it such that it can be used in a bash scriipt
       readAndEscapeFile = path: builtins.replaceStrings [ "\"" ] [ "\\\"" ] (builtins.readFile path);
 
-      # script to init nix env for various languages 
+      # script to init nix env for various languages
       devinit = pkgs.writeShellScriptBin "devinit" ''
          JAVA_ENV="${readAndEscapeFile ./template-shells/java.nix}"
          SCALA_ENV="${readAndEscapeFile ./template-shells/scala.nix}"

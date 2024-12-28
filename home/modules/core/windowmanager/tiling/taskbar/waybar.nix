@@ -198,12 +198,18 @@
             "hyprland/window" = {
               "format" = "{}";
               "rewrite" = {
-                "(.*) — Mozilla Firefox" = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'>󰈹</span>  $1";
-                ".*Discord.*" = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Discord";
-                ".*VSCodium.*" = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  VSCodium";
-                ".*Steam.*" = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Steam";
-                "Spotify" = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Spotify";
-                ".*~.*" = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Alacritty";
+                "(.*) — Mozilla Firefox" =
+                  " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'>󰈹</span>  $1";
+                ".*Discord.*" =
+                  " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Discord";
+                ".*VSCodium.*" =
+                  " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  VSCodium";
+                ".*Steam.*" =
+                  " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Steam";
+                "Spotify" =
+                  " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Spotify";
+                ".*~.*" =
+                  " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Alacritty";
               };
               "separate-outputs" = true;
             };
@@ -302,9 +308,9 @@
               tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
             };
             # pulseaudio = {
-            #     format = "{icon} {volume}%"; 
-            #     format-bluetooth = "B {icon} {volume}%"; 
-            #     format-muted = "M {icon} {volume}%"; 
+            #     format = "{icon} {volume}%";
+            #     format-bluetooth = "B {icon} {volume}%";
+            #     format-muted = "M {icon} {volume}%";
             # };
 
             # cava produces a segfault sadly
@@ -333,7 +339,7 @@
             #     "▅"
             #     "▆"
             #     "▇"
-            #     "█" 
+            #     "█"
             #   ];
             #   actions = {
             #     on-click-right = "mode";

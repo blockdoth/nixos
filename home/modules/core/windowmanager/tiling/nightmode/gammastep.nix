@@ -6,7 +6,8 @@
 }:
 {
   options = {
-    modules.core.windowmanager.tiling.nightmode.gammastep.enable = lib.mkEnableOption "Enables gammastep";
+    modules.core.windowmanager.tiling.nightmode.gammastep.enable =
+      lib.mkEnableOption "Enables gammastep";
   };
 
   config = lib.mkIf config.modules.core.windowmanager.tiling.nightmode.gammastep.enable {

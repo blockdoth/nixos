@@ -17,7 +17,7 @@
         border_size = 1;
         # "col.active_border" = lib.mkForce "rgba(${config.lib.stylix.colors.base0B}ee)";
         # "col.inactive_border" = "rgba(6A9FB5aa)";
-        apply_sens_to_raw = 1;
+        # apply_sens_to_raw = 1;
         layout = "dwindle";
       };
 
@@ -30,7 +30,7 @@
 
         shadow = {
           ignore_window = true;
-          enable = true;
+          # enable = true;
           range = 8;
           render_power = 4;
           offset = "5 5";

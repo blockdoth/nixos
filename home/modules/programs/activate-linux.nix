@@ -15,16 +15,16 @@
 
     # systemd.user.services.activate-linux = {
     #   Unit = {
-    #     Description = "Activate Linux Service";  
+    #     Description = "Activate Linux Service";
     #   };
     #   Install = {
-    #     WantedBy = [ "default.target" ]; 
+    #     WantedBy = [ "default.target" ];
     #   };
 
     #   Service = {
-    #     ExecStart = "activate-activate-linux";  
-    #     Restart = "always";  
-    #     User = "blockdoth";  
+    #     ExecStart = "activate-activate-linux";
+    #     Restart = "always";
+    #     User = "blockdoth";
     #   };
     # };
   };

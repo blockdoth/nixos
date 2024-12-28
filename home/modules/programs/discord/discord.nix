@@ -27,7 +27,7 @@
     '';
     # https://raw.githubusercontent.com/refact0r/system24/refs/heads/main/theme/flavors/gruvbox-material.theme.css
     # # Simple CSS
-    # home.file.".config/vesktop/settings/quickCss.css".text = 
+    # home.file.".config/vesktop/settings/quickCss.css".text =
     # ''
 
     # '';
@@ -36,8 +36,8 @@
     # unfortenately it doesnt auto enable the theme, which means I would need to switch it on after each rebuild... not worth it
     # Vencord settings
     # home.file.".config/vesktop/settings/settings.json" = {
-    #   source = ./vencord-config.json;  
-    # }; 
+    #   source = ./vencord-config.json;
+    # };
 
   };
 }
