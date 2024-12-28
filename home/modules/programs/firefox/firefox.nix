@@ -12,24 +12,11 @@
   config =
     let
       firefoxUser = "default";
-      override = ''
-              
-              @-moz-document regexp("^moz-extension://.*?/sidebar/sidebar.html"){
-          #root.root {
-            --pin-favicon-size: 25px !important;
-          }
-        }
-
-        :root, #screenshots-component *{
-          --sdbr-wdt: 200px !important; 
-        }
-
-      '';
       shyfox = pkgs.fetchFromGitHub {
-        owner = "Naezr";
+        owner = "blockdoth";
         repo = "ShyFox";
-        rev = "dd4836fb6f93267de6a51489d74d83d570f0280d";
-        sha256 = "sha256-7H+DU4o3Ao8qAgcYDHVScR3pDSOpdETFsEMiErCQSA8=";
+        rev = "1ed7b7c46a36d3fb49a14b23121f8f6b9b1a0b93";
+        sha256 = "sha256-nZiWXQOTpbQEFDkKvcJUc1rDRFpnh9jW1WnMwOUQayQ=";
       };
     in
     lib.mkIf config.modules.programs.firefox.enable {
@@ -38,22 +25,12 @@
       };
 
       home.file = {
-        ".mozilla/firefox/${firefoxUser}/chrome" = {
+        ".mozilla/firefox/${firefoxUser}" = {
           source = pkgs.runCommand "shyfox" { } ''
-            mkdir -p $out/icons
-            mkdir -p $out/ShyFox
-            cp -r ${shyfox}/chrome/icons/* $out/icons
-            cp -r ${shyfox}/chrome/ShyFox/* $out/ShyFox
-            cp ${shyfox}/chrome/userContent.css $out/userContent.css
-            echo "${override}" >$out/test.css
-            cat ${shyfox}/chrome/userChrome.css > userChrome.css
-            echo "${override}" >> userChrome.css
-            mv userChrome.css $out/userChrome.css
+            mkdir -p $out
+            cp -r ${shyfox}/chrome/* $out
+            cp ${shyfox}/user.js $out/user.js
           '';
-          recursive = true;
-        };
-        ".mozilla/firefox/${firefoxUser}/user.js" = {
-          source = ./user.js;
           recursive = true;
         };
       };

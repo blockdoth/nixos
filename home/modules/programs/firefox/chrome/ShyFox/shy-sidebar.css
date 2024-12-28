@@ -59,7 +59,7 @@ Styles for sidebar
 }
 
 /* styles for sidebar */
-#sidebar-box{
+#sidebar-boxsidebar-box{
   
   top: calc(
     var(--margin) / 2 
