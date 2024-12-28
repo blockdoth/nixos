@@ -17,16 +17,16 @@
       home.sessionVariables = {
         BROWSER = "firefox";
       };
-      # home.file = {
-      #   ".mozilla/firefox/${firefoxUser}/chrome" = {
-      #     source = ./chrome;
-      #     recursive = true;
-      #   };
-      #   ".mozilla/firefox/${firefoxUser}/user.js" = {
-      #     source = ./user.js;
-      #     recursive = true;
-      #   };
-      # };
+      home.file = {
+        #   ".mozilla/firefox/${firefoxUser}/chrome" = {
+        #     source = ./chrome;
+        #     recursive = true;
+        #   };
+        ".mozilla/firefox/${firefoxUser}/user.js" = {
+          source = ./user.js;
+          recursive = true;
+        };
+      };
 
       programs.firefox = {
         enable = true;
