@@ -28,7 +28,8 @@
         ".mozilla/firefox/${firefoxUser}" = {
           source = pkgs.runCommand "shyfox" { } ''
             mkdir -p $out
-            cp -r ${shyfox}/chrome/* $out
+            mkdir -p $out/chrome
+            cp -r ${shyfox}/chrome/* $out/chrome
             cp ${shyfox}/user.js $out/user.js
           '';
           recursive = true;
