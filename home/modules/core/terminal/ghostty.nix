@@ -38,7 +38,6 @@
         keybind = ctrl+a=new_split:down
         keybind = ctrl+d=close_surface
         keybind = ctrl+e=equalize_splits
-        command = fastfetch
       '';
     };
 
