@@ -15,6 +15,7 @@
     ./keybinds.nix
     ./plugins.nix
     ./windowrules.nix
+    inputs.hyprland.homeManagerModules.default
   ];
 
   options = {
