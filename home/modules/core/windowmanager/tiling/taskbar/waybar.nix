@@ -198,18 +198,12 @@
             "hyprland/window" = {
               "format" = "{}";
               "rewrite" = {
-                "(.*) — Mozilla Firefox" =
-                  " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'>󰈹</span>  $1";
-                ".*Discord.*" =
-                  " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Discord";
-                ".*VSCodium.*" =
-                  " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  VSCodium";
-                ".*Steam.*" =
-                  " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Steam";
-                "Spotify" =
-                  " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Spotify";
-                ".*~.*" =
-                  " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Alacritty";
+                "(.*) — Mozilla Firefox" = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'>󰈹</span>  $1";
+                ".*Discord.*" = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Discord";
+                ".*VSCodium.*" = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  VSCodium";
+                ".*Steam.*" = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Steam";
+                "Spotify" = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Spotify";
+                ".*~.*" = " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Alacritty";
               };
               "separate-outputs" = true;
             };

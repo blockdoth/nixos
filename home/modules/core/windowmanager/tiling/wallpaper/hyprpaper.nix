@@ -6,8 +6,7 @@
 }:
 {
   options = {
-    modules.core.windowmanager.tiling.wallpaper.hyprpaper.enable =
-      lib.mkEnableOption "Enables hyprpaper";
+    modules.core.windowmanager.tiling.wallpaper.hyprpaper.enable = lib.mkEnableOption "Enables hyprpaper";
   };
 
   config =

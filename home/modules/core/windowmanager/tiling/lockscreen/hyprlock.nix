@@ -6,8 +6,7 @@
 }:
 {
   options = {
-    modules.core.windowmanager.tiling.lockscreen.hyprlock.enable =
-      lib.mkEnableOption "Enables hyprlock";
+    modules.core.windowmanager.tiling.lockscreen.hyprlock.enable = lib.mkEnableOption "Enables hyprlock";
   };
 
   config = lib.mkIf config.modules.core.windowmanager.tiling.lockscreen.hyprlock.enable {
