@@ -18,10 +18,10 @@
         BROWSER = "firefox";
       };
       home.file = {
-        # ".mozilla/firefox/${firefoxUser}/chrome" = {
-        #   source = ./chrome;
-        #   recursive = true;
-        # };
+        ".mozilla/firefox/${firefoxUser}/chrome" = {
+          source = ./chrome;
+          recursive = true;
+        };
         ".mozilla/firefox/${firefoxUser}/user.js" = {
           source = ./user.js;
           recursive = true;
@@ -45,7 +45,7 @@
           OverrideFirstRunPage = "";
           OverridePostUpdatePage = "";
           DontCheckDefaultBrowser = true;
-          DisplayBookmarksToolbar = "never"; # alternatives: "always" or "newtab"
+          DisplayBookmarksToolbar = "always"; # alternatives: "always" or "newtab"
           DisplayMenuBar = "always"; # alternatives: "always", "never" or "default-on"
           SearchBar = "unified"; # alternative: "separate"
           FirefoxHome = {
