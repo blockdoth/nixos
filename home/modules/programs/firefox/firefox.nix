@@ -19,7 +19,7 @@
       };
       home.file = {
         ".mozilla/firefox/${firefoxUser}/chrome" = {
-          source = ./shyfox;
+          source = ./chrome;
           recursive = true;
         };
         ".mozilla/firefox/${firefoxUser}/user.js" = {
