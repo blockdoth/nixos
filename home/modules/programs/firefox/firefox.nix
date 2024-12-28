@@ -18,10 +18,10 @@
         BROWSER = "firefox";
       };
       home.file = {
-        #   ".mozilla/firefox/${firefoxUser}/chrome" = {
-        #     source = ./chrome;
-        #     recursive = true;
-        #   };
+        ".mozilla/firefox/${firefoxUser}/chrome" = {
+          source = ./chrome;
+          recursive = true;
+        };
         ".mozilla/firefox/${firefoxUser}/user.js" = {
           source = ./user.js;
           recursive = true;
