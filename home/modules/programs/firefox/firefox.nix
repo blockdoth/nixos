@@ -18,17 +18,6 @@
         rev = "dd4836fb6f93267de6a51489d74d83d570f0280d";
         sha256 = "sha256-7H+DU4o3Ao8qAgcYDHVScR3pDSOpdETFsEMiErCQSA8=";
       };
-      override = ''
-        @-moz-document regexp("^moz-extension://.*?/sidebar/sidebar.html"){
-          #root.root {
-            --pin-favicon-size: 25px !important;
-          }
-        }
-
-        :root, #screenshots-component *{
-          --sdbr-wdt: 200px !important; 
-        }
-      '';
 
       shyfoxOveride = pkgs.runCommand "shyfox" { } ''
         mkdir -p $out
@@ -37,8 +26,15 @@
         cp -r ${shyfox}/chrome/icons/* $out/icons
         cp -r ${shyfox}/chrome/ShyFox/* $out/ShyFox
         cp ${shyfox}/chrome/userContent.css $out/
-        echo "${override}" > $out/test.css
-        cat "${shyfox}/chrome/userChrome.css" "${override}" > $out/userChrome.css
+        cat "${shyfox}/chrome/userChrome.css" "        @-moz-document regexp("^moz-extension://.*?/sidebar/sidebar.html"){
+          #root.root {
+            --pin-favicon-size: 25px !important;
+          }
+        }
+
+        :root, #screenshots-component *{
+          --sdbr-wdt: 200px !important; 
+        }" > $out/userChrome.css
       '';
     in
     lib.mkIf config.modules.programs.firefox.enable {
