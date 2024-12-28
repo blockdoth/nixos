@@ -32,7 +32,6 @@
         shadow_range = 8;
         shadow_render_power = 4;
         shadow_offset = "5 5";
-        "col.shadow" = lib.mkForce "rgba(000000AA)";
         blur = {
           enabled = true;
           size = 3;
