@@ -12,11 +12,18 @@
   config =
     let
       firefoxUser = "default";
+      shyfox = pkgs.fetchFromGitHub {
+        owner = "Naezr";
+        repo = "ShyFox";
+        rev = "dd4836fb6f93267de6a51489d74d83d570f0280d";
+        sha256 = "";
+      };
     in
     lib.mkIf config.modules.programs.firefox.enable {
       home.sessionVariables = {
         BROWSER = "firefox";
       };
+
       home.file = {
         ".mozilla/firefox/${firefoxUser}/chrome" = {
           source = ./chrome;
