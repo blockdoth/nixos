@@ -29,7 +29,7 @@
         buildPhase = ''
           mkdir -p $out
           cp -r $src/chrome/* $out
-          echo "${override}" > $out/test.css
+          echo "test" > $out/test.css
         '';
       };
     in
