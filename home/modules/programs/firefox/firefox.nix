@@ -12,28 +12,14 @@
   config =
     let
       firefoxUser = "default";
-
       override = builtins.readFile ./override.css;
-
-      shyfoxOveride = pkgs.stdenv.mkDerivation {
-        pname = "concatenate-files";
-        version = "1.0";
-
-        src = pkgs.fetchFromGitHub {
-          owner = "Naezr";
-          repo = "ShyFox";
-          rev = "dd4836fb6f93267de6a51489d74d83d570f0280d";
-          sha256 = "sha256-7H+DU4o3Ao8qAgcYDHVScR3pDSOpdETFsEMiErCQSA8=";
-        };
-
-        buildPhase = ''
-          mkdir -p $out
-          cp -r $src/chrome/* $out
-          echo "${override}" > $out/test.css
-        '';
+      shyfox = pkgs.fetchFromGitHub {
+        owner = "Naezr";
+        repo = "ShyFox";
+        rev = "dd4836fb6f93267de6a51489d74d83d570f0280d";
+        sha256 = "sha256-7H+DU4o3Ao8qAgcYDHVScR3pDSOpdETFsEMiErCQSA8=";
       };
     in
-    # cat "${shyfox}/chrome/userChrome.css" "${override}" > $out/userChrome.css
     lib.mkIf config.modules.programs.firefox.enable {
       home.sessionVariables = {
         BROWSER = "firefox";
@@ -41,7 +27,17 @@
 
       home.file = {
         ".mozilla/firefox/${firefoxUser}/chrome" = {
-          source = shyfoxOveride;
+          source = pkgs.runCommand "shyfox" { } ''
+            mkdir -p $out/icons
+            mkdir -p $out/ShyFox
+            cp -r ${shyfox}/chrome/icons/* $out/icons
+            cp -r ${shyfox}/chrome/ShyFox/* $out/ShyFox
+            cp ${shyfox}/chrome/userContent.css $out/userContent.css
+            echo "${override}" >$out/test.css
+            cat ${shyfox}/chrome/userChrome.css > userChrome.css
+            echo "${override}" >> userChrome.css
+            mv userChrome.css $out/userChrome.css
+          '';
           recursive = true;
         };
         ".mozilla/firefox/${firefoxUser}/user.js" = {
