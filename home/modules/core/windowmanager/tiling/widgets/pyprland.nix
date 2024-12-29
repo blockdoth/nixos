@@ -22,7 +22,7 @@
       [scratchpads.term]
       animation = "fromBottom"
       hide_delay = 0.5
-      command = "ghostty --class=scratchpad.alacritty"
+      command = "ghostty --class=scratchpad.alacritty -e \"fish -C fastfetch\""
       class = "scratchpad.alacritty"
       size = "90% 90%"
 
