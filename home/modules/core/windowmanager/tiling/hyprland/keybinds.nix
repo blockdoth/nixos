@@ -82,7 +82,7 @@
           "SUPER,D,exec,vesktop"
           "SUPER,E,exec,wallpaperchanger"
           "SUPER,F,exec,nautilus"
-          "SUPER,G,exec,ghostty"
+          "SUPER,G,exec,ghostty -e \"fish -C fastfetch\""
           "SUPER,H, togglespecialworkspace, magic"
           "SUPER,H, movetoworkspace, +0"
           "SUPER,H, togglespecialworkspace, magic"
