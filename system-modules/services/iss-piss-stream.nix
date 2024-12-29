@@ -26,9 +26,7 @@
       };
     in
     lib.mkIf config.system-modules.services.iss-piss-stream.enable {
-      fonts.packages = [
-        xkcd-script
-      ];
+      fonts.packages = [ xkcd-script ];
 
       systemd.services = {
         piss-stream-consumption = {
@@ -64,16 +62,16 @@
             Restart = "on-failure";
           };
         };
-        systemd.timers = {
-          piss-stream-visualization-timer = {
-            description = "Run piss-stream-visualization daily at midnight";
-            wantedBy = [ "timers.target" ];
-            timerConfig = {
-              OnCalendar = "00:00:00";
-              Unit = "piss-stream-visualization.service";
-            };
-          };
-        };
+        #        systemd.timers = {
+        #          piss-stream-visualization-timer = {
+        #            description = "Run piss-stream-visualization daily at midnight";
+        #            wantedBy = [ "timers.target" ];
+        #            timerConfig = {
+        #              OnCalendar = "00:00:00";
+        #              Unit = "piss-stream-visualization.service";
+        #            };
+        #          };
+        #        };
       };
     };
 }

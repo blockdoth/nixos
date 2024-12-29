@@ -16,9 +16,10 @@ in
   imports = [
     ./common
     ./display
+    ./services/immich.nix
+    ./services/iss-piss-stream.nix
     ./services/minecraft.nix
     ./services/pihole.nix
-    ./services/immich.nix
     ./users/blockdoth.nix
     ./users/penger.nix
     ./audio.nix
