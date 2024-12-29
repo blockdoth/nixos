@@ -16,6 +16,7 @@
     users.penger.enable = true;
     ssh.enable = true;
     docker.enable = true;
+    services.iss-piss-stream.enable = true;
   };
 
   networking = {
