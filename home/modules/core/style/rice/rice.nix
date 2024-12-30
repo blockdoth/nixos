@@ -16,6 +16,7 @@
     lolcat
     tree
     figlet
+    mesa-demos
     # mesa-demos # gears and such
   ];
 }
