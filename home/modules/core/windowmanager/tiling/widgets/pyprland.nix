@@ -17,7 +17,6 @@
       plugins = [
        "magnify",
        "scratchpads",
-       "expose",
       ]
 
       [scratchpads.term]

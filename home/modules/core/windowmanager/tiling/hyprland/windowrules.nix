@@ -10,7 +10,7 @@
 
       "$scratchpad" = "class:^(scratchpad|Spotify)";
       "$pip" = "title:^(Picture-in-Picture)";
-      "$popup" = "class:^(pavucontrol|.blueman-manager-wrapped)";
+      "$popup" = "class:^(*.pavucontrol.*|.blueman-manager-wrapped)";
 
       windowrulev2 = [
         #transpancy
@@ -40,7 +40,7 @@
         "opacity 0.8,               $scratchpad"
 
         "workspace 1,   class:(firefox)"
-        "workspace 2,   class:(VSCodium)"
+        # "workspace 2,   class:(VSCodium)"
         "workspace 3,   class:(vesktop)"
 
         # make discord not steal focus
