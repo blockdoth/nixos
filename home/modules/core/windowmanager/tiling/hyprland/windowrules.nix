@@ -10,7 +10,7 @@
 
       "$scratchpad" = "class:^(scratchpad|Spotify)";
       "$pip" = "title:^(Picture-in-Picture)";
-      "$popup" = "class:^(*.pavucontrol.*|.blueman-manager-wrapped)";
+      "$popup" = "class:^(org.pulseaudio.pavucontrol|.blueman-manager-wrapped)";
 
       windowrulev2 = [
         #transpancy
