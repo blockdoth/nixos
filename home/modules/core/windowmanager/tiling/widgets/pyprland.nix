@@ -17,6 +17,7 @@
       plugins = [
        "magnify",
        "scratchpads",
+       "expose",
       ]
 
       [scratchpads.term]
@@ -31,7 +32,7 @@
       hide_delay = 0.5
       command = "spotify --class scratchpad.spotify"
       class = "scratchpad.spotify"
-      size = "40% 40%"
+      size = "60% 60%"
     '';
   };
 }
