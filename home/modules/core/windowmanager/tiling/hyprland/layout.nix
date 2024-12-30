@@ -44,7 +44,7 @@
           noise = 1.17e-2;
           contrast = 1.3;
           brightness = 1;
-          popups = true;
+          popups = false;
           xray = false;
         };
       };
