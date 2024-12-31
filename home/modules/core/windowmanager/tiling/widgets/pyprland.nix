@@ -22,7 +22,7 @@
       [scratchpads.term]
       animation = "fromBottom"
       hide_delay = 0.5
-      command = "alacritty --class=scratchpad.alacritty 
+      command = "alacritty --class=scratchpad.alacritty"
       class = "scratchpad.alacritty"
       size = "90% 90%"
 
