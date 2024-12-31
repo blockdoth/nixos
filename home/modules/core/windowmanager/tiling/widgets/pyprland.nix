@@ -22,7 +22,7 @@
       [scratchpads.term]
       animation = "fromBottom"
       hide_delay = 0.5
-      command = "ghostty --class=scratchpad.alacritty -e \"fish -C fastfetch\""
+      command = "alacritty --class=scratchpad.alacritty 
       class = "scratchpad.alacritty"
       size = "90% 90%"
 
@@ -31,7 +31,7 @@
       hide_delay = 0.5
       command = "spotify --class scratchpad.spotify"
       class = "scratchpad.spotify"
-      size = "60% 60%"
+      size = "90% 90%"
     '';
   };
 }
