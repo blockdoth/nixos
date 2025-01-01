@@ -33,7 +33,6 @@
         font-feature=-calt
         font-feature=-liga
         font-feature=-dlig
-        keybind = clear
         keybind = ctrl+s=new_split:right
         keybind = ctrl+a=new_split:down
         keybind = ctrl+d=close_surface
