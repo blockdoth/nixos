@@ -24,6 +24,7 @@
         focus-follows-mouse = true
         term = xterm-256color
         resize-overlay = never
+        gtk-single-instance = true
         clipboard-trim-trailing-spaces = true
         font-size = ${toStr config.stylix.fonts.sizes.terminal} 
         background-opacity = ${toStr config.stylix.opacity.terminal} 
@@ -37,6 +38,9 @@
         keybind = ctrl+a=new_split:down
         keybind = ctrl+d=close_surface
         keybind = ctrl+e=equalize_splits
+
+
+        custom-shader-animation=true
       '';
     };
 
