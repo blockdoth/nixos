@@ -31,7 +31,7 @@
       hide_delay = 0.5
       command = "spotify --class scratchpad.spotify"
       class = "scratchpad.spotify"
-      size = "60% 60%"
+      size = "80% 60%"
     '';
   };
 }

@@ -3,7 +3,7 @@
   config = lib.mkIf config.modules.core.windowmanager.tiling.hyprland.enable {
     home.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = 1;
-      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       NIXOS_OZONE_WL = 1;
       # TODO fix this with stylix
       XCURSOR_SIZE = 15;
