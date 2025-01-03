@@ -36,7 +36,7 @@
           {
             gradient = 1;
             gradient_color_1 = "'#${colors.base0D}'";
-            # gradient_color_2 = "'#${colors.base0C}'";
+            gradient_color_2 = "'#${colors.base0C}'";
 
           };
         eq = {
