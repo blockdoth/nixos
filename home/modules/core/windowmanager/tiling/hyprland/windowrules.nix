@@ -40,9 +40,11 @@
         "opacity 0.8,               $scratchpad"
 
         "workspace 1,   class:(firefox)"
-        # "workspace 2,   class:(VSCodium)"
+        "workspace 2,   class:(VSCodium)"
         "workspace 3,   class:(vesktop)"
 
+        # prevent popups from having a weird border in vscode
+        "noblur,        class:^()$,title:^()$"
         # make discord not steal focus
         "noinitialfocus, class:(vesktop)"
       ];
