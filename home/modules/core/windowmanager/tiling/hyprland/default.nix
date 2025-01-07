@@ -34,6 +34,7 @@
       brightnessctl # Control background
       playerctl # Control audio
       pavucontrol
+      pulseaudio
     ];
 
     wayland.windowManager.hyprland = {
