@@ -280,7 +280,7 @@
               format-bluetooth = "| <span font='${toStr icon-size}' rise='${toStr (v-offset * 1)}pt'>{icon}</span> {volume:3}%  ";
               format-bluetooth-muted = "| <span font='${toStr icon-size}' rise='${toStr (v-offset * 1)}pt'>{icon}</span> {icon} {format_source} ";
               format-muted = "{format_source}";
-              format-source = "";
+              format-source = "| <span font='${toStr icon-size}' rise='${toStr (v-offset * 1)}pt'>{icon}</span>";
               format-source-muted = "|  ";
               format-icons = {
                 headphone = "";
