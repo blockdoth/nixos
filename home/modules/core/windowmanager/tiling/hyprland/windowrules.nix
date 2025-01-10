@@ -11,7 +11,7 @@
       "$scratchpad" = "class:^(scratchpad|Spotify)";
       "$pip" = "title:^(Picture-in-Picture)";
       "$popup" =
-        "class:^(org.pulseaudio.pavucontrol|.blueman-manager-wrapped|Matplotlib|),title:^(Enter your username and password — Mozilla Firefox)";
+        "class:^(org.pulseaudio.pavucontrol|.blueman-manager-wrapped|Matplotlib),title:^(Enter your username and password — Mozilla Firefox)";
 
       windowrulev2 = [
         #transpancy
