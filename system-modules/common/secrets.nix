@@ -28,6 +28,7 @@
       secrets = {
         "users/penger/password" = { };
         "users/blockdoth/password" = { };
+        "hosts/desktop/keys/rsa/public" = { };
       };
     };
   };
