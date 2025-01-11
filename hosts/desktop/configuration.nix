@@ -18,6 +18,7 @@
     gaming.enable = true;
     users.blockdoth.enable = true;
     tailscale.enable = true;
+    services.headscale.enable = true;
     ssh.enable = true;
   };
 
