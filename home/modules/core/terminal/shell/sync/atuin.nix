@@ -18,7 +18,7 @@
         auto_sync = true;
         # sync_address = "atuin.insinuatis.ddns.net";
         sync_frequency = "5m";
-        # key_path = config.sops.secrets.atuin-key.path;
+        key_path = config.sops.secrets.atuin-key.path;
       };
     };
   };
