@@ -22,18 +22,18 @@
         user = "penger";
         settings = {
           server_url = "https://headscale.${domain}";
-          # dns_config = {
-          #   base_domain = domain;
-          #   magic_dns = true;
-          #   domains = ["headscale.${domain}"];
-          #   nameservers = [
-          #     "1.1.1.1"
-          #     "9.9.9.9"
-          #   ];
-          # };
-          # ip_prefixes = [
-          #   "100.64.0.0/10"
-          # ];
+          dns = {
+            base_domain = "https://tailnet.${domain}";
+            magic_dns = true;
+            domains = [ "headscale.${domain}" ];
+            nameservers.global = [
+              "1.1.1.1"
+              "9.9.9.9"
+            ];
+          };
+          ip_prefixes = [
+            "100.64.0.0/10"
+          ];
           logtail.enabled = false;
         };
       };
