@@ -14,7 +14,7 @@
       wayland.windowManager.hyprland = {
         plugins = [
           # plugins.hyprexpo
-          plugins.hyprwinwrap
+          # plugins.hyprwinwrap
         ];
         settings = {
           plugins = {
