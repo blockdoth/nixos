@@ -17,6 +17,7 @@
     ssh.enable = true;
     docker.enable = true;
     services.iss-piss-stream.enable = false;
+    tailscale.enable = true;
   };
 
   networking = {

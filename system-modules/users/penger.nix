@@ -29,6 +29,6 @@
     programs = {
       fish.enable = true;
     };
-    services.openssh.passwordAuthentication = false;
+    services.openssh.settings.passwordAuthentication = false;
   };
 }

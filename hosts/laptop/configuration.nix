@@ -19,8 +19,9 @@
     users = {
       blockdoth.enable = true;
     };
-
+    power.enable = true;
     laptop.enable = true;
+    tailscale.enable = true;
   };
 
   services = {
