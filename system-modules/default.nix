@@ -29,6 +29,7 @@ in
     ./power.nix
     ./printing.nix
     ./ssh.nix
+    ./tailscale.nix
     ./docker.nix
   ];
 
