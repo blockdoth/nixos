@@ -17,6 +17,7 @@
     audio.enable = true;
     gaming.enable = true;
     users.blockdoth.enable = true;
+    tailscale.enable = true;
   };
 
   networking.hostName = "desktop";
