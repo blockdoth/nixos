@@ -84,7 +84,10 @@ in
           alacritty.enable = mkDefault enableGui;
           ghostty.enable = mkDefault enableGui;
           prompt.starship.enable = mkDefault true;
-          shell.fish.enable = mkDefault true;
+          shell = {
+            fish.enable = mkDefault true;
+            sync.atuin.enable = mkDefault true;
+          };
         };
 
         utils = {

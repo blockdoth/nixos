@@ -24,6 +24,7 @@
 
     ./terminal/prompt/starship.nix
     ./terminal/shell/fish.nix
+    ./terminal/shell/sync/atuin.nix
     ./terminal/alacritty.nix
     ./terminal/ghostty/ghostty.nix
 

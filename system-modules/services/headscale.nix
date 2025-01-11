@@ -25,7 +25,6 @@
           dns = {
             base_domain = "https://tailnet.${domain}";
             magic_dns = true;
-            domains = [ "headscale.${domain}" ];
             nameservers.global = [
               "1.1.1.1"
               "9.9.9.9"
