@@ -20,8 +20,7 @@
       defaultSopsFormat = "yaml";
       age.keyFile = "/home/blockdoth/.config/sops/age/keys.txt"; # TODO make user agnostic
       secrets = {
-        "mail/personal" = { };
-        "name/alias" = { };
+        atuin-key = { };
       };
     };
   };
