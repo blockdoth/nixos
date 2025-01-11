@@ -19,7 +19,7 @@
     };
     # maybe one day
     # pog.url = "github:jpetrucciani/pog";
-
+    sops-nix.url = "github:Mic92/sops-nix";
     stylix.url = "github:danth/stylix/d13ffb381c83b6139b9d67feff7addf18f8408fe";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
@@ -35,7 +35,7 @@
     };
 
     #Prevents version mismatch TODO
-    hyprland.url = "github:hyprwm/Hyprland/0bd541f2fd902dbfa04c3ea2ccf679395e316887";
+    hyprland.url = "github:hyprwm/Hyprland/";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";

@@ -1,0 +1,11 @@
+keys:
+  - &desktop age1khg7fjnqt04lpjvjczcjq5ullflu6dl4u0hj3pcdvqxlmyxj9ycq2d47xm
+  - &laptop age1khg7fjnqt04lpjvjczcjq5ullflu6dl4u0hj3pcdvqxlmyxj9ycq2d47xm
+  - &nuc age1khg7fjnqt04lpjvjczcjq5ullflu6dl4u0hj3pcdvqxlmyxj9ycq2d47xm
+creation_rules:
+  - path_regex: secrets/secrets.yaml$
+    key_groups:
+    - age:
+      - *desktop
+      - *laptop
+      - *nuc

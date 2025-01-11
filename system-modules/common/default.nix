@@ -10,5 +10,6 @@
     ./localisation.nix
     ./networking.nix
     ./nix-config.nix
+    ./secrets.nix
   ];
 }

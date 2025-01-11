@@ -58,6 +58,7 @@ in
         networking.enable = lib.mkDefault true;
         localisation.enable = lib.mkDefault true;
         nix-config.enable = lib.mkDefault true;
+        secrets.enable = lib.mkDefault true;
       };
 
       display = {
