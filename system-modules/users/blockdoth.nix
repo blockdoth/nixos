@@ -14,7 +14,7 @@
     users.users.blockdoth = {
       isNormalUser = true;
       shell = pkgs.fish;
-      # hashedPassword = config.sops.secrets."users/blockdoth/password".path;
+      hashedPassword = config.sops.secrets."users/blockdoth/password".path;
       extraGroups = [
         "wheel"
         "networkmanager"
