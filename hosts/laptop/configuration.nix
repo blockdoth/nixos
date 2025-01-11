@@ -19,6 +19,7 @@
     users = {
       blockdoth.enable = true;
     };
+    ssh.enable = true;
     power.enable = true;
     laptop.enable = true;
     tailscale.enable = true;
