@@ -16,7 +16,7 @@
     in
     lib.mkIf config.system-modules.services.headscale.enable {
       services.headscale = {
-        enable = true;
+        enable = false;
         address = "0.0.0.0";
         port = 8080;
         user = "penger";
