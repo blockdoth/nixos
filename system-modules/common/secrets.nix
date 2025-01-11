@@ -20,6 +20,9 @@
       sops
       ssh-to-age
     ];
+    environment.etc."test".text = ''
+      ${config.sops.secrets."users/blockdoth/password".path}
+    '';
 
     sops = {
       defaultSopsFile = ../../secrets/secrets.yaml;
