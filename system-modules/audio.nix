@@ -23,10 +23,10 @@
     # only pulse audio seems to work, not pipewire
     hardware = {
       enableAllFirmware = true;
-      pulseaudio = {
-        enable = false;
-        support32Bit = true;
-      };
+    };
+    services.pulseaudio = {
+      enable = false;
+      support32Bit = true;
     };
 
     # triggers a full local rebuild if set to false
