@@ -14,7 +14,6 @@
   config = lib.mkIf config.modules.dev.editors.neovim.enable {
     nixpkgs.overlays = [ inputs.nixneovimplugins.overlays.default ];
     programs.neovim = {
-      defaultEditor = true;
       enable = true;
       viAlias = true;
       vimAlias = true;

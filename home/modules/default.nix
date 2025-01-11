@@ -91,6 +91,7 @@ in
           git.enable = mkDefault true;
           cli.enable = mkDefault true;
           gui.enable = mkDefault enableGui;
+          secrets.enable = mkDefault true;
         };
 
       };

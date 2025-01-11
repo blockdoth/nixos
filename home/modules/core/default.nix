@@ -28,6 +28,7 @@
     ./terminal/ghostty/ghostty.nix
 
     ./utils/git.nix
+    ./utils/secrets.nix
     ./utils/utils-cli.nix
     ./utils/utils-gui.nix
   ];
