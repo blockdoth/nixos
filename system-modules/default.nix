@@ -20,6 +20,7 @@ in
     ./services/iss-piss-stream.nix
     ./services/minecraft.nix
     ./services/pihole.nix
+    ./services/headscale.nix
     ./users/blockdoth.nix
     ./users/penger.nix
     ./audio.nix
