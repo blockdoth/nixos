@@ -27,7 +27,7 @@
     sops = {
       defaultSopsFile = ../../secrets/secrets.yaml;
       defaultSopsFormat = "yaml";
-      age.keyFile = "$/home/blockdoth/.config/sops/age/keys.txt"; # TODO make user agnostic
+      age.keyFile = "/home/blockdoth/.config/sops/age/keys.txt"; # TODO make user agnostic
       secrets = {
         "users/penger/password" = { };
         "users/blockdoth/password" = { };
