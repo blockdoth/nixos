@@ -23,9 +23,8 @@
         settings = {
           server_url = "https://headscale.${domain}";
           dns = {
-            base_domain = "domain";
+            base_domain = "https://tailnet.${domain}";
             magic_dns = true;
-            domains = [ "tailnet.${domain}" ];
             nameservers.global = [
               "1.1.1.1"
               "9.9.9.9"
