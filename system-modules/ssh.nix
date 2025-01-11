@@ -5,8 +5,12 @@
   };
 
   config = lib.mkIf config.system-modules.ssh.enable {
-    services.openssh.enable = true;
-
+    services.openssh = {
+      enable = true;
+      settings = {
+        X11Forwarding = false;
+        PasswordAuthentication = false;
+      };
+    };
   };
-
 }
