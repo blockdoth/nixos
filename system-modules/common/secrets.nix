@@ -24,13 +24,16 @@
     sops = {
       defaultSopsFile = ../../secrets/secrets.yaml;
       defaultSopsFormat = "yaml";
+      validateSopsFiles = false;
+
       age = {
-        # keyFile = "/home/blockdoth/.config/sops/age/keys.txt"; # TODO make user agnostic
+        sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+        keyFile = "/home/blockdoth/.config/sops/age/keys.txt"; # TODO make user agnostic
         generateKey = true;
       };
       secrets = {
-        "users/penger/password" = { };
-        "users/blockdoth/password" = { };
+        penger-password = { };
+        blockdoth-password = { };
       };
     };
   };

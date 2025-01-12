@@ -10,13 +10,17 @@
   };
 
   config = lib.mkIf config.system-modules.users.penger.enable {
+
+    sops.secrets.penger-password.neededForUsers = true;
+    users.mutableUsers = false;
+
     users.users.penger = {
       isNormalUser = true;
       extraGroups = [
         "wheel"
         "networkmanager"
       ];
-      hashedPasswordFile = config.sops.secrets."users/penger/password".path;
+      hashedPasswordFile = config.sops.secrets.penger-password.path;
       openssh = {
         authorizedKeys = {
           keys = [

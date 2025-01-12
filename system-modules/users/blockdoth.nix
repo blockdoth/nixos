@@ -11,10 +11,14 @@
 
   config = lib.mkIf config.system-modules.users.blockdoth.enable {
     security.sudo.wheelNeedsPassword = false;
+
+    sops.secrets.blockdoth-password.neededForUsers = true;
+    users.mutableUsers = false;
+
     users.users.blockdoth = {
       isNormalUser = true;
       shell = pkgs.fish;
-      hashedPasswordFile = config.sops.secrets."users/blockdoth/password".path;
+      hashedPasswordFile = config.sops.secrets.blockdoth-password.path;
       extraGroups = [
         "wheel"
         "networkmanager"
