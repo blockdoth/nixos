@@ -13,7 +13,7 @@ fi
 pushd /home/"$USER"/nixos > /dev/null
 nixfmt . 2>/dev/null
 
-git reset > /dev/null 
+# git reset > /dev/null 
 if [ "$TYPE" = "system" ]; then
   git add ./hosts/* ./system-modules/* ./assets/* ./flake.nix ./flake.lock ./.gitignore ./.sops.yaml ./secrets/*
   git --no-pager diff -U0 --staged .
