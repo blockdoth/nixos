@@ -26,7 +26,6 @@
       defaultSopsFormat = "yaml";
       age = {
         # keyFile = "/home/blockdoth/.config/sops/age/keys.txt"; # TODO make user agnostic
-        sshKeyPaths = [ "/etc/ssh/" ];
         generateKey = true;
       };
       secrets = {
