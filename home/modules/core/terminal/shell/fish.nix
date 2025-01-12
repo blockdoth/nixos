@@ -16,8 +16,6 @@
       interactiveShellInit = ''
               direnv hook fish | source
           		set fish_greeting # Disable greeting   
-              export ATUIN_NOBIND="true"
-              eval "$(atuin init zsh)"       
         		'';
       shellAliases = lib.mkMerge [
         {
