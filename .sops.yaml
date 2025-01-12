@@ -1,6 +1,6 @@
 keys:
   - &users:
-    - &blockdoth: age1khg7fjnqt04lpjvjczcjq5ullflu6dl4u0hj3pcdvqxlmyxj9ycq2d47xm 
+    - &blockdoth age1khg7fjnqt04lpjvjczcjq5ullflu6dl4u0hj3pcdvqxlmyxj9ycq2d47xm 
   - &hosts
     - &desktop age1knf66ddc75gha04ttg8tshevnrgl0gy2qg0vwpvls8ys6kuyl5dsmpv36a
     - &laptop age1vy26kuggmcvqd0ka4dcp7hzxl4qtpmasue7pdsv6s8zflfcazp5qgrm70j
