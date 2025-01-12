@@ -26,14 +26,13 @@
       defaultSopsFormat = "yaml";
       age = {
         keyFile = "/home/blockdoth/.config/sops/age/keys.txt"; # TODO make user agnostic
-        # sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-        # generateKey = true;
+        sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+        generateKey = true;
       };
       secrets = {
         "users/penger/password" = { };
         "users/blockdoth/password" = { };
       };
-
     };
   };
 }

@@ -3,7 +3,7 @@ keys:
   - &desktop age1knf66ddc75gha04ttg8tshevnrgl0gy2qg0vwpvls8ys6kuyl5dsmpv36a
   - &laptop age1vy26kuggmcvqd0ka4dcp7hzxl4qtpmasue7pdsv6s8zflfcazp5qgrm70j
   - &nuc age172srypwfwrc4f9n6ew4kexln0ymug49mg6j3m278jffk752d4dqshxty0g
- creation_rules:
+creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:
     - age:
