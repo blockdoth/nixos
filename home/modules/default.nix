@@ -86,7 +86,7 @@ in
           prompt.starship.enable = mkDefault true;
           shell = {
             fish.enable = mkDefault true;
-            sync.atuin.enable = mkDefault true;
+            sync.atuin.enable = mkDefault false;
           };
         };
 
@@ -94,7 +94,7 @@ in
           git.enable = mkDefault true;
           cli.enable = mkDefault true;
           gui.enable = mkDefault enableGui;
-          secrets.enable = mkDefault true;
+          secrets.enable = mkDefault false;
         };
 
       };
