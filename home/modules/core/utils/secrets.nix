@@ -19,7 +19,7 @@
       defaultSopsFile = ../../../../secrets/secrets.yaml;
       defaultSopsFormat = "yaml";
       age = {
-        sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/id_ed25519.pub" ];
+        sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/id_ed25519" ];
         generateKey = true;
       };
       secrets = {
