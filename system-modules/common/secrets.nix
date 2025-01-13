@@ -33,6 +33,7 @@
       secrets = {
         penger-password = { };
         blockdoth-password = { };
+        tailscale-auth-key = { };
       };
     };
   };
