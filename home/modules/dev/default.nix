@@ -10,6 +10,7 @@
     ./editors/jetbrains.nix
     ./editors/vscode.nix
     ./editors/neovim/neovim.nix
+    ./editors/neovim/nvf.nix
   ];
 
 }

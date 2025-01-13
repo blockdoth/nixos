@@ -33,7 +33,7 @@
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    nvf.url = "github:notashelf/nvf";
     #Prevents version mismatch TODO
     hyprland.url = "github:hyprwm/Hyprland/";
     hyprland-plugins = {
