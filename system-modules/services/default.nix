@@ -13,5 +13,6 @@
     ./headscale.nix
     ./atuin.nix
     ./grafana.nix
+    ./prometheus.nix
   ];
 }
