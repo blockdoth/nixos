@@ -16,9 +16,6 @@
         server = {
           http_addr = "127.0.0.1";
           http_port = 3000;
-          domain = "insinuatis.com";
-          root_url = "https://insinuatis.com/grafana/";
-          serve_from_sub_path = true;
         };
       };
     };
