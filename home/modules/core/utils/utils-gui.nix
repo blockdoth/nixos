@@ -18,6 +18,7 @@
       xorg.xev # Check keybinds
       gparted # partitioning
       zathura # pdf viewer
+      waypipe # display forwarding
     ];
   };
 
