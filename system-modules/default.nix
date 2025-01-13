@@ -48,7 +48,11 @@ in
     environment.systemPackages = with pkgs; [
       git
       home-manager
+      micro
     ];
+    environment.variables = {
+      EDITOR = "micro";
+    };
 
     system-modules = {
       common = {
