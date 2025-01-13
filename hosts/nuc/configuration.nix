@@ -15,8 +15,11 @@
     users.penger.enable = true;
     ssh.enable = true;
     docker.enable = true;
-    services.iss-piss-stream.enable = false;
-    services.headscale.enable = false;
+    services = {
+      iss-piss-stream.enable = false;
+      headscale.enable = false;
+      grafana.enable = true;
+    };
     tailscale.enable = true;
   };
 

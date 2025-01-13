@@ -14,6 +14,7 @@
   config = lib.mkIf config.system-modules.common.nix-config.enable {
     environment.systemPackages = [
       pkgs.nixfmt-rfc-style
+      pkgs.cachix
       (pkgs.writeShellApplication {
         name = "rebuild";
         text = builtins.readFile ./rebuild.sh;
