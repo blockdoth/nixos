@@ -12,7 +12,6 @@
   ];
 
   system-modules = {
-    enable = true;
     gui.enable = true;
     audio.enable = true;
     bluetooth.enable = true;

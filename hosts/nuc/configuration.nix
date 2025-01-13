@@ -12,7 +12,6 @@
   ];
 
   system-modules = {
-    enable = true;
     users.penger.enable = true;
     ssh.enable = true;
     docker.enable = true;

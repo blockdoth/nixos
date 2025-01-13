@@ -32,7 +32,6 @@ in
 
   options = {
     system-modules = {
-      enable = lib.mkEnableOption "Enables the core services";
       gui.enable = lib.mkOption {
         type = lib.types.bool;
         default = false;
@@ -44,12 +43,13 @@ in
     };
   };
 
-  config = lib.mkIf config.system-modules.enable {
+  config = {
     environment.systemPackages = with pkgs; [
       git
       home-manager
       micro
     ];
+
     environment.variables = {
       EDITOR = "micro";
     };
