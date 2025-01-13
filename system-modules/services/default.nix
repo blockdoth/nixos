@@ -12,5 +12,6 @@
     ./pihole.nix
     ./headscale.nix
     ./atuin.nix
+    ./grafana.nix
   ];
 }
