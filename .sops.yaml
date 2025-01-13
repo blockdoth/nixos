@@ -1,7 +1,8 @@
 keys:
-  - &users:
-    - &blockdoth age1khg7fjnqt04lpjvjczcjq5ullflu6dl4u0hj3pcdvqxlmyxj9ycq2d47xm 
-    - &penger age1khg7fjnqt04lpjvjczcjq5ullflu6dl4u0hj3pcdvqxlmyxj9ycq2d47xm 
+  - &users
+    - &blockdoth-desktop age1khg7fjnqt04lpjvjczcjq5ullflu6dl4u0hj3pcdvqxlmyxj9ycq2d47xm
+    - &blockdoth-laptop age1y5xfeflmwsuv5ajlaflen5e2l3e7qczwhtmgpfw40zzrvw6gkyys7xj8h3
+    - &penger-nuc age1zrvv597aage45qs52esglvpr2ynl3cxdceevjnachuvkvyram5psm92lx7
   - &hosts
     - &desktop age1knf66ddc75gha04ttg8tshevnrgl0gy2qg0vwpvls8ys6kuyl5dsmpv36a
     - &laptop age1vy26kuggmcvqd0ka4dcp7hzxl4qtpmasue7pdsv6s8zflfcazp5qgrm70j
@@ -10,8 +11,10 @@ creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:
     - age:
-      - *blockdoth
       - *desktop
       - *laptop
-      - *nuc
+      - *nuc      
+      - *blockdoth-desktop
+      - *blockdoth-laptop
+      - *penger-nuc
       
