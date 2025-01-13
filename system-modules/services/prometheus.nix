@@ -12,12 +12,27 @@
   config = lib.mkIf config.system-modules.services.prometheus.enable {
     services.prometheus = {
       enable = true;
-      # settings = {
-      #   server = {
-      #     http_addr = "127.0.0.1";
-      #     http_port = 3000;
-      #   };
-      # };
+      port = 3020;
+      exporters = {
+        node = {
+          port = 3021;
+          enabledCollectors = [ "systemd" ];
+          enable = true;
+        };
+      };
+
+      scrapeConfigs = [
+        {
+          job_name = "nodes";
+          static_configs = [
+            {
+              targets = [
+                "127.0.0.1:${toString config.services.prometheus.exporters.node.port}"
+              ];
+            }
+          ];
+        }
+      ];
     };
   };
 }
