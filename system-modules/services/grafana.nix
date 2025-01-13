@@ -15,17 +15,17 @@
       enable = true;
       settings = {
         analytics.reporting_enabled = false;
-
         server = {
           http_addr = "127.0.0.1";
           http_port = 3000;
         };
       };
+      # security = {
+      #   admin_user = "";
+      #   admin_password = "";
+      # };
       provision = {
         enable = true;
-
-        # datasources.settings = {
-
         datasources.settings.datasources = [
           {
             name = "Prometheus";
@@ -35,14 +35,7 @@
             url = "http://127.0.0.1:${builtins.toString config.services.prometheus.port}";
           }
         ];
-        # };
       };
-
-      # security = {
-      #   admin_user = "";
-      #   admin_password = "";
-      # };
     };
-
   };
 }

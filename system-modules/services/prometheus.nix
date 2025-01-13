@@ -20,7 +20,6 @@
           enable = true;
         };
       };
-
       scrapeConfigs = [
         {
           job_name = "nodes";

@@ -19,6 +19,7 @@
       iss-piss-stream.enable = false;
       headscale.enable = false;
       grafana.enable = true;
+      prometheus.enable = true;
     };
     tailscale.enable = true;
   };

@@ -22,8 +22,8 @@
       headscale.enable = false;
       atuin.enable = true;
       iss-piss-stream.enable = false;
-      grafana.enable = true;
-      prometheus.enable = true;
+      grafana.enable = false;
+      prometheus.enable = false;
     };
   };
 
