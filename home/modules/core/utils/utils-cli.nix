@@ -27,6 +27,7 @@
       micro
       entr
       tmux
+      comma
     ];
   };
 
