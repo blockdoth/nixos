@@ -18,7 +18,7 @@
     activate-linux.url = "github:MrGlockenspiel/activate-linux";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     iss-piss-stream.url = "github:blockdoth/iss-piss-stream";
-    ghostty.url = "github:ghostty-org/ghostty/e6a42f0f61f4083d49a682ddc896821da6deaf06";
+    ghostty.url = "github:ghostty-org/ghostty";
     flake-programs-sqlite = {
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
