@@ -45,14 +45,14 @@
       initrd.verbose = false;
 
       #disabled boot animations because it breaks booting
-      plymouth = {
-        enable = false;
-        theme = lib.mkForce "rings"; # Prevent conflict with stylix
-        themePackages = with pkgs; [
-          # By default we would install all themes
-          (adi1090x-plymouth-themes.override { selected_themes = [ "rings" ]; })
-        ];
-      };
+      # plymouth = {
+      #   enable = false;
+      #   theme = lib.mkForce "rings"; # Prevent conflict with stylix
+      #   themePackages = with pkgs; [
+      #     # By default we would install all themes
+      #     (adi1090x-plymouth-themes.override { selected_themes = [ "rings" ]; })
+      #   ];
+      # };
     };
   };
 }

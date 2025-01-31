@@ -12,7 +12,7 @@
 
   config =
     let
-      domain = "insinuatis.ddns.net";
+      domain = "insinuatis.com";
     in
     lib.mkIf config.system-modules.services.headscale.enable {
       services.headscale = {
@@ -47,17 +47,30 @@
       services.caddy = {
         enable = true;
         virtualHosts."${domain}".extraConfig = ''
-          reverse_proxy http://localhost:{config.services.headscale.port}        
+          reverse_proxy http://localhost:${builtins.toString config.services.headscale.port}        
         '';
+
+        virtualHosts."test.${domain}".extraConfig = ''
+          respond "Test"
+        '';
+
       };
 
-      # security.acme.certs.${domain} = {
-      #   dnsProvider = "porkbun";
-      # };
+      security.acme = {
+        acceptTerms = true;
+        certs.${domain} = {
+          email = "pepijn.pve@gmail.com";
+          dnsProvider = "cloudflare";
+        };
+      };
 
       networking.firewall = {
         # DERP port (https://tailscale.com/kb/1082/firewall-ports)
         allowedUDPPorts = [ 3478 ];
+        allowedTCPPorts = [
+          80
+          443
+        ];
         trustedInterfaces = [ config.services.tailscale.interfaceName ];
       };
     };
