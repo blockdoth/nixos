@@ -48,19 +48,6 @@
       };
     in
     {
-      formatter.x86_64-linux = pkgs.writeShellApplication {
-        name = "nixfmt-wrapper";
-
-        runtimeInputs = [
-          pkgs.fd
-          pkgs.nixfmt-rfc-style
-        ];
-
-        text = ''
-          fd "$@" -t f -e nix -x nixfmt '{}'
-        '';
-      };
-
       nixosConfigurations = {
         laptop = nixpkgs.lib.nixosSystem {
           specialArgs = {
