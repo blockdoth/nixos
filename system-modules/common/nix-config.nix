@@ -19,6 +19,11 @@
         name = "rebuild";
         text = builtins.readFile ./rebuild.sh;
       })
+      (pkgs.writeShellApplication {
+        name = "rebuild";
+        text = builtins.readFile ./rebuild-penger.sh;
+      })
+
     ];
 
     # skips slow cache rebuilds
