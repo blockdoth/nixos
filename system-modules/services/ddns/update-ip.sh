@@ -26,6 +26,7 @@ fi
 
 ## Get existing IP
 OLD_IP=$(echo "$record" | sed -E 's/.*"content":"(([0-9]{1,3}\.){3}[0-9]{1,3})".*/\1/')
+
 # Compare if they're the same
 if [[ $IP == "$OLD_IP" ]]; then
   echo "DDNS Updater: IP ($IP) for ${RECORD_NAME} has not changed."
@@ -36,10 +37,11 @@ fi
 DNS_RECORD_ID=$(echo "$record" | sed -E 's/.*"id":"([A-Za-z0-9_]+)".*/\1/')
 
 ## Change the IP@Cloudflare using the API
-update=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records/$DNS_RECORD_ID" \
-                     -H "Authorization: Bearer $AUTH_TOKEN" \
-                     -H "Content-Type: application/json" \
-                     --data "{\"type\":\"A\",\"name\":\"$RECORD_NAME\",\"content\":\"$IP\",\"ttl\":$ttl,\"proxied\":${proxy}}")
+update=$(curl -s -X PUT "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records/$DNS_RECORD_ID" \
+                      -H "Authorization: Bearer $AUTH_TOKEN" \
+                      -H "Content-Type: application/json" \
+                      -d "{\"type\": \"A\", \"content\": \"$IP\", \"name\": \"$RECORD_NAME\", \"proxied\": $proxy, \"ttl\": $ttl }"
+        )
 
 ## Report the status
 case "$update" in
