@@ -21,7 +21,10 @@
       grafana.enable = true;
       prometheus.enable = true;
     };
-    tailscale.enable = true;
+    tailscale = {
+      enable = true;
+      exit-node = true;
+    };
   };
 
   networking = {

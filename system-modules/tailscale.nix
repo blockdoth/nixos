@@ -6,7 +6,13 @@
 }:
 {
   options = {
-    system-modules.tailscale.enable = lib.mkEnableOption "Enables tailscale";
+    system-modules.tailscale = {
+      enable = lib.mkEnableOption "Enables tailscale";
+      exit-node.enable = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+      };
+    };
   };
 
   config = lib.mkIf config.system-modules.tailscale.enable {
@@ -15,6 +21,8 @@
     services.tailscale = {
       enable = true;
       authKeyFile = config.sops.secrets.tailscale-auth-key.path;
+      useRoutingFeatures =
+        if config.system-modules.tailscale.exit-node.enable then "server" else "client";
     };
 
     networking.firewall = {
@@ -22,5 +30,4 @@
       allowedUDPPorts = [ config.services.tailscale.port ];
     };
   };
-
 }
