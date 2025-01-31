@@ -38,20 +38,20 @@
           logtail.enabled = false;
           derp.server = {
             enable = true;
-            region_id = 999;
-            stun_listen_addr = "0.0.0.0:3478";
+            # region_id = 999;
+            # stun_listen_addr = "0.0.0.0:3478";
           };
         };
       };
 
       services.caddy = {
         enable = true;
-        virtualHosts."${domain}".extraConfig = ''
+        virtualHosts."headscale.${domain}".extraConfig = ''
           reverse_proxy http://127.0.0.1:${builtins.toString config.services.headscale.port}        
         '';
 
-        virtualHosts."test.${domain}".extraConfig = ''
-          respond "Test"
+        virtualHosts."${domain}".extraConfig = ''
+          respond "Hello World"
         '';
 
       };
