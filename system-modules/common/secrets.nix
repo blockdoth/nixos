@@ -35,7 +35,6 @@
         blockdoth-password = { };
         tailscale-auth-key = { };
         cloudflare-ddns-api-token = { };
-        acme-cloudflare-email = { };
         acme-cloudflare-api-key = { };
       };
     };
