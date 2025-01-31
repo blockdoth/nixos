@@ -20,12 +20,12 @@
       headscale.enable = false;
       grafana.enable = true;
       prometheus.enable = true;
+      ddns.enable = true;
     };
     tailscale = {
       enable = true;
       exit-node = true;
     };
-    ddns.enable = true;
   };
 
   networking = {
