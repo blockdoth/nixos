@@ -20,7 +20,10 @@
         certs.${domain} = {
           dnsProvider = "cloudflare";
           email = "pepijn.pve@gmail.com";
-          environmentFile = config.sops.secrets.acme-credentials.path;
+          credentialFiles = {
+            "CLOUDFLARE_EMAIL_FILE" = config.sops.secrets.acme-cloudflare-email.path;
+            "CLOUDFLARE_API_KEY_FILE" = config.sops.secrets.acme-cloudflare-api-key.path;
+          };
         };
       };
     };
