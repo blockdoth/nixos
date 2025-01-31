@@ -36,6 +36,7 @@
             "100.64.0.0/10"
           ];
           logtail.enabled = false;
+          noise.private_key_path = "/var/lib/headscale/noise_private.key";
           derp.server = {
             enable = true;
             # region_id = 999;
