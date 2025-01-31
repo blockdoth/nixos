@@ -19,7 +19,7 @@
         enable = true;
         address = "127.0.0.1";
         port = 8085;
-        user = "penger";
+        user = "blockdoth";
         settings = {
           server_url = "https://${domain}";
           dns = {
@@ -47,7 +47,7 @@
       services.caddy = {
         enable = true;
         virtualHosts."${domain}".extraConfig = ''
-          reverse_proxy http://localhost:${builtins.toString config.services.headscale.port}        
+          reverse_proxy http://127.0.0.1:${builtins.toString config.services.headscale.port}        
         '';
 
         virtualHosts."test.${domain}".extraConfig = ''

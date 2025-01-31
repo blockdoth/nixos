@@ -21,7 +21,6 @@
           dnsProvider = "cloudflare";
           email = "pepijn.pve@gmail.com";
           credentialFiles = {
-            # "CLOUDFLARE_EMAIL_FILE" = config.sops.secrets.acme-cloudflare-email.path;
             "CF_DNS_API_TOKEN_FILE" = config.sops.secrets.acme-cloudflare-api-key.path;
           };
         };
