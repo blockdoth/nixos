@@ -20,7 +20,7 @@
             text = builtins.readFile ./update-ip.sh;
           })
         ];
-        text = "cat ${config.sops.secrets.cloudflare-ddns-api-token.path} | update-ip-unwrapped";
+        text = "cat ${config.sops.secrets.cloudflare-ddns-api-token.path} ";
       })
     ];
 

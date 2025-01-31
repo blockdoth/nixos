@@ -24,7 +24,7 @@
       iss-piss-stream.enable = false;
       grafana.enable = true;
       prometheus.enable = true;
-      ddns.enable = false;
+      ddns.enable = true;
     };
   };
 
