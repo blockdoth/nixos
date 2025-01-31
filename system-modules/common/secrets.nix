@@ -34,6 +34,7 @@
         penger-password = { };
         blockdoth-password = { };
         tailscale-auth-key = { };
+        cloudflare-ddns-api-token = { };
       };
     };
   };
