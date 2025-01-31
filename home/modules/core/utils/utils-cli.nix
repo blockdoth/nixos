@@ -28,6 +28,7 @@
       entr
       tmux
       comma
+      systemctl-tui
     ];
   };
 
