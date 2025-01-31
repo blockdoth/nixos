@@ -20,7 +20,7 @@
         text = builtins.readFile ./rebuild.sh;
       })
       (pkgs.writeShellApplication {
-        name = "rebuild";
+        name = "rebuild-penger";
         text = builtins.readFile ./rebuild-penger.sh;
       })
 

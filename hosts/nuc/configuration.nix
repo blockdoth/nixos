@@ -25,6 +25,7 @@
       enable = true;
       exit-node = true;
     };
+    ddns.enable = true;
   };
 
   networking = {
