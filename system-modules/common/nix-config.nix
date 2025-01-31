@@ -36,6 +36,7 @@
         ];
       };
     };
+
     nix = {
       package = pkgs.nixVersions.stable;
       settings = {
