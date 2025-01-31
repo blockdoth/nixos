@@ -56,14 +56,6 @@
 
       };
 
-      security.acme = {
-        acceptTerms = true;
-        certs.${domain} = {
-          email = "pepijn.pve@gmail.com";
-          dnsProvider = "cloudflare";
-        };
-      };
-
       networking.firewall = {
         # DERP port (https://tailscale.com/kb/1082/firewall-ports)
         allowedUDPPorts = [ 3478 ];

@@ -7,6 +7,7 @@
 {
   imports = [
     ./ddns/ddns.nix
+    ./acme.nix
     ./immich.nix
     ./iss-piss-stream.nix
     ./minecraft.nix
