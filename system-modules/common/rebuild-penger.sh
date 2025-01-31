@@ -13,7 +13,7 @@ git --no-pager diff -U0 --staged .
 
 NUC_IP=$(tailscale status | rg nuc | awk '{print $1}')
 
-sudo nixos-rebuild --target-host penger@$NUC_IP --use-remote-sudo switch --flake .#nuc
+sudo nixos-rebuild --target-host penger@"$NUC_IP" --use-remote-sudo switch --flake .#nuc
 COMMIT_MESSAGE=$(nixos-rebuild list-generations | sed -n '2p' | awk -v host="$HOSTNAME" -v user="$USERNAME" '{printf "[%s@%s] (%s %s) System Generation %s\n", host, user, $3, substr($4, 0, 5), $1}')
 
 git commit -m "$COMMIT_MESSAGE"
