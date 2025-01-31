@@ -35,3 +35,43 @@
     };
   };
 }
+#  services.nginx = {
+#     enable = true;
+#     recommendedProxySettings = true;
+#     recommendedOptimisation = true;
+#     recommendedGzipSettings = true;
+#     # recommendedTlsSettings = true;
+
+#     upstreams = {
+#       "grafana" = {
+#         servers = {
+#           "127.0.0.1:${toString config.services.grafana.port}" = {};
+#         };
+#       };
+#       "prometheus" = {
+#         servers = {
+#           "127.0.0.1:${toString config.services.prometheus.port}" = {};
+#         };
+#       };
+#     };
+
+#     virtualHosts ={
+#       grafana = {
+#       locations."/" = {
+#         proxyPass = "http://grafana";
+#         proxyWebsockets = true;
+#       };
+#       listen = [{
+#         addr = "192.168.1.10";
+#         port = 8010;
+#       }];
+#       };
+#       prometheus = {
+#         locations."/".proxyPass = "http://prometheus";
+#         listen = [{
+#           addr = "192.168.1.10";
+#           port = 8020;
+#         }];
+#       };
+#     };
+#   };
