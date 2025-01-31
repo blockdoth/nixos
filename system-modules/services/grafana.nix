@@ -14,7 +14,6 @@
     let
       domain = "insinuatis.com";
     in
-
     lib.mkIf config.system-modules.services.grafana.enable {
       services.grafana = {
         enable = true;
