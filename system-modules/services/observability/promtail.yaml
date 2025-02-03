@@ -18,12 +18,13 @@ scrape_configs:
         __path__: "/var/log/pisslog*"
     pipeline_stages:
       - regex:
-          expression: '(?P<timestamp>\d+), (?P<number>\d+)$'
+          expression: '(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}), (?P<number>\d+)$'
       - timestamp:
           source: timestamp
-          format: unix
+          format: "2006-01-02 15:04:05"
       - labels:
           timestamp:
-      - json:
-          expressions:
-            number: number
+      - metrics:
+          - name: number_metric
+            value: '{{ .number }}'
+            type: gauge 
