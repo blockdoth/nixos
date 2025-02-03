@@ -15,4 +15,4 @@ scrape_configs:
         - 127.0.0.1
       labels:
         job: "varlogs"
-        __path__: "/var/log/*"
+        __path__: "/var/log/pisslog*"
