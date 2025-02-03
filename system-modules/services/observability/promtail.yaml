@@ -16,3 +16,14 @@ scrape_configs:
       labels:
         job: "varlogs"
         __path__: "/var/log/pisslog*"
+    pipeline_stages:
+      - regex:
+          expression: '(?P<timestamp>\d+), (?P<number>\d+)$'
+      - timestamp:
+          source: timestamp
+          format: unix
+      - labels:
+          timestamp:
+      - json:
+          expressions:
+            number: number

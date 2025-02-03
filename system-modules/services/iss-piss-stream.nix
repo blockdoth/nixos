@@ -23,7 +23,7 @@
         serviceConfig = {
           ExecStart = "${
             inputs.iss-piss-stream.packages.${pkgs.system}.default
-          }/bin/iss-piss-stream -l -f ./var/log/pisslog";
+          }/bin/iss-piss-stream -l -f -u ./var/log/pisslog.csv";
           Restart = "on-failure";
         };
       };
