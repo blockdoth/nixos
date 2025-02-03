@@ -16,7 +16,7 @@
     ];
 
     systemd.services = {
-      piss-stream-consumption = {
+      iss-piss-stream = {
         description = "Logs the ISS piss stream";
         wantedBy = [ "multi-user.target" ];
         after = [ "network.target" ];
