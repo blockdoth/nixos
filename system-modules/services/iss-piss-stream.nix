@@ -21,7 +21,9 @@
         wantedBy = [ "multi-user.target" ];
         after = [ "network.target" ];
         serviceConfig = {
-          ExecStart = "iss-piss-stream -pr -l -f ./var/log/pisslog";
+          ExecStart = "${
+            inputs.iss-piss-stream.packages.${pkgs.system}.default
+          }/bin/iss-piss-stream -pr -l -f ./var/log/pisslog";
           Restart = "on-failure";
         };
       };
