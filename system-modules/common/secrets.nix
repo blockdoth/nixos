@@ -36,6 +36,7 @@
         tailscale-auth-key = { };
         cloudflare-ddns-api-token = { };
         acme-cloudflare-api-key = { };
+        grafana-password = { };
       };
     };
   };
