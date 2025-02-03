@@ -25,6 +25,6 @@ scrape_configs:
       - labels:
           timestamp:
       - metrics:
-          - name: number_metric
+          - name: "piss_level"
             value: '{{ .number }}'
-            type: gauge 
+            type: "gauge" 
