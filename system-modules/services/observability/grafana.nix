@@ -12,20 +12,20 @@
   # https://gist.github.com/rickhull/895b0cb38fdd537c1078a858cf15d63e
   config =
     let
-      domain = "insinuatis.com";
+      domain = config.system-modules.services.domains.iss-piss-stream;
     in
     lib.mkIf config.system-modules.services.grafana.enable {
       services.grafana = {
         enable = true;
         settings = {
+          security = {
+            admin_user = "user";
+            admin_password = "$__file{${config.sops.secrets.grafana-password.path}}";
+          };
           analytics.reporting_enabled = false;
           server = {
-            http_addr = "127.0.0.1";
+            http_addr = "localhost";
             http_port = 3000;
-          };
-          security = {
-            admin_user = "blockdoth";
-            admin_password = "$__file{${config.sops.secrets.grafana-password.path}}";
           };
         };
         provision = {
@@ -36,16 +36,15 @@
               type = "prometheus";
               access = "proxy";
               editable = false;
-              url = "http://127.0.0.1:${builtins.toString config.services.prometheus.port}";
+              url = "http://localhost:${builtins.toString config.services.prometheus.port}";
             }
           ];
         };
       };
 
       services.caddy = {
-        enable = true;
         virtualHosts."grafana.${domain}".extraConfig = ''
-          reverse_proxy http://127.0.0.1:${builtins.toString config.services.grafana.settings.server.http_port}        
+          reverse_proxy http://localhost:${builtins.toString config.services.grafana.settings.server.http_port}        
         '';
       };
     };

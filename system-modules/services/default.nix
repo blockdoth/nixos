@@ -6,6 +6,7 @@
 }:
 {
   imports = [
+    ./domains.nix
     ./ddns/ddns.nix
     ./acme.nix
     ./immich.nix
@@ -14,7 +15,9 @@
     ./pihole.nix
     ./headscale.nix
     ./atuin.nix
-    ./grafana.nix
-    ./prometheus.nix
+    ./observability/grafana.nix
+    ./observability/prometheus.nix
+    ./observability/promtail.nix
+    ./observability/loki.nix
   ];
 }

@@ -12,7 +12,7 @@
 
   config =
     let
-      domain = "insinuatis.com";
+      domain = config.system-modules.services.domains.iss-piss-stream;
     in
     lib.mkIf config.system-modules.services.headscale.enable {
       services.headscale = {
@@ -46,8 +46,6 @@
       };
 
       services.caddy = {
-        enable = true;
-        email = "pepijn.pve@gmail.com";
         virtualHosts."headscale.${domain}".extraConfig = ''
           reverse_proxy http://127.0.0.1:${builtins.toString config.services.headscale.port}        
         '';

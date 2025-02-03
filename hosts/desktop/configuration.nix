@@ -23,8 +23,10 @@
       atuin.enable = true;
       grafana.enable = true;
       prometheus.enable = true;
+      promtail.enable = true;
+      loki.enable = true;
       acme.enable = true;
-      iss-piss-stream.enable = false;
+      iss-piss-stream.enable = true;
     };
   };
 

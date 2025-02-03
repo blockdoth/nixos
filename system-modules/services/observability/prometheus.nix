@@ -11,12 +11,13 @@
 
   config =
     let
-      domain = "insinuatis.com";
+      domain = config.system-modules.services.domains.iss-piss-stream;
     in
     lib.mkIf config.system-modules.services.prometheus.enable {
       services.prometheus = {
         enable = true;
         port = 3020;
+        # checkConfig = "syntax-only"; # Because some file paths might not be valid yet at build time
         exporters = {
           node = {
             port = 3021;
@@ -30,17 +31,29 @@
             static_configs = [
               {
                 targets = [
-                  "127.0.0.1:${toString config.services.prometheus.exporters.node.port}"
+                  "localhost:${toString config.services.prometheus.exporters.node.port}"
                 ];
               }
             ];
           }
+          # {
+          #   job_name = "pisslog";
+          #   scrape_interval = "5m";
+          #   file_sd_configs = [
+          #     {
+          #       files = [
+          #         "/var/log/pisslog.prom"
+          #       ];
+          #       refresh_interval = "5m";
+          #     }
+          #   ];
+          # }
         ];
       };
+
       services.caddy = {
-        enable = true;
         virtualHosts."prometheus.${domain}".extraConfig = ''
-          reverse_proxy http://127.0.0.1:${builtins.toString config.services.prometheus.port}        
+          reverse_proxy http://localhost:${builtins.toString config.services.prometheus.port}        
         '';
       };
     };
