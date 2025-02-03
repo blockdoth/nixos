@@ -24,7 +24,7 @@
           };
           analytics.reporting_enabled = false;
           server = {
-            http_addr = "localhost";
+            http_addr = "127.0.0.1";
             http_port = 3000;
           };
         };
@@ -36,7 +36,7 @@
               type = "prometheus";
               access = "proxy";
               editable = false;
-              url = "http://localhost:${builtins.toString config.services.prometheus.port}";
+              url = "http://127.0.0.1:${builtins.toString config.services.prometheus.port}";
             }
           ];
         };
@@ -44,7 +44,7 @@
 
       services.caddy = {
         virtualHosts."grafana.${domain}".extraConfig = ''
-          reverse_proxy http://localhost:${builtins.toString config.services.grafana.settings.server.http_port}        
+          reverse_proxy http://127.0.0.1:${builtins.toString config.services.grafana.settings.server.http_port}        
         '';
       };
     };

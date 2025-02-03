@@ -31,7 +31,7 @@
             static_configs = [
               {
                 targets = [
-                  "localhost:${toString config.services.prometheus.exporters.node.port}"
+                  "127.0.0.1:${toString config.services.prometheus.exporters.node.port}"
                 ];
               }
             ];
@@ -53,7 +53,7 @@
 
       services.caddy = {
         virtualHosts."prometheus.${domain}".extraConfig = ''
-          reverse_proxy http://localhost:${builtins.toString config.services.prometheus.port}        
+          reverse_proxy http://127.0.0.1:${builtins.toString config.services.prometheus.port}        
         '';
       };
     };
