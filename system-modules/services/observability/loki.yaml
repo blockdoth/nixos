@@ -12,7 +12,13 @@ common:
 ingester:
   wal:
     enabled: false
-
+  lifecycler:
+    address: 127.0.0.1
+    ring:
+      kvstore:
+        store: inmemory
+      replication_factor: 1
+      
 storage_config:
   boltdb_shipper:
     active_index_directory: /tmp/loki/index
