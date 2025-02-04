@@ -24,13 +24,22 @@
       })
     ];
 
-    # Runs ddns script everyday at 00:00
-    services.cron = {
-      enable = true;
-      systemCronJobs = [
-        "0 0 * * * root update-ip"
-      ];
+    systemd = {
+      timers."ddns" = {
+        wantedBy = [ "timers.target" ];
+        partOf = [ "update-ip.service" ];
+        timerConfig = {
+          OnCalendar = "daily";
+          Persistent = true;
+        };
+      };
+      services."ddns" = {
+        script = "update-ip";
+        serviceConfig = {
+          Type = "oneshot";
+          User = "root";
+        };
+      };
     };
-
   };
 }
