@@ -15,6 +15,10 @@
       domain = config.system-modules.services.domains.iss-piss-stream;
     in
     lib.mkIf config.system-modules.services.grafana.enable {
+      sops.secrets.grafana-password = {
+        owner = "grafana";
+      };
+
       services.grafana = {
         enable = true;
         settings = {
@@ -37,6 +41,13 @@
               access = "proxy";
               editable = false;
               url = "http://127.0.0.1:${builtins.toString config.services.prometheus.port}";
+            }
+            {
+              name = "Loki";
+              type = "loki";
+              access = "proxy";
+              editable = false;
+              url = "http://127.0.0.1:3100";
             }
           ];
         };

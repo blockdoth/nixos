@@ -16,11 +16,15 @@
     ssh.enable = true;
     docker.enable = true;
     services = {
-      iss-piss-stream.enable = false;
-      headscale.enable = false;
+      atuin.enable = true;
+      headscale.enable = true;
       grafana.enable = true;
       prometheus.enable = true;
+      promtail.enable = true;
+      loki.enable = true;
+      acme.enable = true;
       ddns.enable = true;
+      iss-piss-stream.enable = true;
     };
     tailscale = {
       enable = true;

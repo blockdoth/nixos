@@ -11,6 +11,8 @@
   };
 
   config = lib.mkIf config.system-modules.services.ddns.enable {
+    sops.secrets.cloudflare-ddns-api-token = { };
+
     environment.systemPackages = [
       (pkgs.writeShellApplication {
         name = "update-ip";

@@ -10,8 +10,10 @@
   };
 
   config = lib.mkIf config.system-modules.users.penger.enable {
+    sops.secrets.penger-password = {
+      neededForUsers = true;
+    };
 
-    sops.secrets.penger-password.neededForUsers = true;
     users.mutableUsers = false;
 
     users.users.penger = {

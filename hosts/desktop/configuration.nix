@@ -19,15 +19,15 @@
     tailscale.enable = true;
     ssh.enable = true;
     services = {
-      headscale.enable = true;
       atuin.enable = true;
-      grafana.enable = true;
-      prometheus.enable = true;
-      promtail.enable = true;
-      loki.enable = true;
-      acme.enable = true;
-      iss-piss-stream.enable = true;
-      ddns.enable = true;
+      headscale.enable = false;
+      grafana.enable = false;
+      prometheus.enable = false;
+      promtail.enable = false;
+      loki.enable = false;
+      acme.enable = false;
+      ddns.enable = false;
+      iss-piss-stream.enable = false;
     };
   };
 

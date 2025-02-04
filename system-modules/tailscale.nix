@@ -16,6 +16,8 @@
   };
 
   config = lib.mkIf config.system-modules.tailscale.enable {
+    sops.secrets.tailscale-auth-key = { };
+
     environment.systemPackages = with pkgs; [ tailscale ];
 
     services.tailscale = {
