@@ -36,18 +36,6 @@
               }
             ];
           }
-          # {
-          #   job_name = "pisslog";
-          #   scrape_interval = "5m";
-          #   file_sd_configs = [
-          #     {
-          #       files = [
-          #         "/var/log/pisslog.prom"
-          #       ];
-          #       refresh_interval = "5m";
-          #     }
-          #   ];
-          # }
         ];
       };
 
