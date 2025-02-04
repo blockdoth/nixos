@@ -27,6 +27,7 @@
       loki.enable = true;
       acme.enable = true;
       iss-piss-stream.enable = true;
+      ddns.enable = true;
     };
   };
 
