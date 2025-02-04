@@ -36,6 +36,7 @@
       services."ddns" = {
         script = "update-ip";
         serviceConfig = {
+          Environment = "/run/current-system/sw/bin";
           Type = "oneshot";
           User = "root";
         };
