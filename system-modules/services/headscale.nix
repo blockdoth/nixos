@@ -19,7 +19,6 @@
         enable = true;
         address = "127.0.0.1";
         port = 8085;
-        user = "blockdoth";
         settings = {
           server_url = "https://${domain}";
           metrics_listen_addr = "127.0.0.1:8095";
@@ -55,10 +54,6 @@
       networking.firewall = {
         # DERP port (https://tailscale.com/kb/1082/firewall-ports)
         allowedUDPPorts = [ 3478 ];
-        allowedTCPPorts = [
-          80
-          443
-        ];
         trustedInterfaces = [ config.services.tailscale.interfaceName ];
       };
     };
