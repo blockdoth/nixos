@@ -21,7 +21,7 @@
       extraGroups = [
         "wheel"
         "networkmanager"
-      ];
+      ] ++ (if config.system-modules.services.headscale.enable then [ "headscale" ] else [ ]);
       hashedPasswordFile = config.sops.secrets.penger-password.path;
       openssh = {
         authorizedKeys = {
