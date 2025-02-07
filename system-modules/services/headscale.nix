@@ -20,10 +20,10 @@
         address = "127.0.0.1";
         port = 8085;
         settings = {
-          server_url = "https://${domain}";
+          server_url = "https://headscale.${domain}";
           metrics_listen_addr = "127.0.0.1:8095";
           dns = {
-            base_domain = "${domain}";
+            base_domain = domain;
             magic_dns = true;
             behind_proxy = true;
             override_local_dns = true;
@@ -37,11 +37,11 @@
           ];
           logtail.enabled = false;
           noise.private_key_path = "/var/lib/headscale/noise_private.key";
-          derp.server = {
-            enable = true;
-            # region_id = 999;
-            # stun_listen_addr = "0.0.0.0:3478";
-          };
+          # derp.server = {
+          #   enable = true;
+          # region_id = 999;
+          # stun_listen_addr = "0.0.0.0:3478";
+          # };
         };
       };
 

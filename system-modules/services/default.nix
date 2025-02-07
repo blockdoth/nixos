@@ -13,7 +13,7 @@
     ./immich.nix
     ./iss-piss-stream.nix
     ./minecraft.nix
-    ./pihole.nix
+    ./blocky.nix
     ./headscale.nix
     ./atuin.nix
     ./observability/grafana.nix

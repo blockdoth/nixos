@@ -27,6 +27,7 @@
       ddns.enable = true;
       iss-piss-stream.enable = true;
       caddy.enable = true;
+      blocky.enable = true;
     };
     tailscale = {
       enable = true;
