@@ -23,7 +23,7 @@
         enable = true;
         settings = {
           security = {
-            admin_user = "user";
+            admin_user = "blockdoth";
             admin_password = "$__file{${config.sops.secrets.grafana-password.path}}";
           };
           analytics.reporting_enabled = false;

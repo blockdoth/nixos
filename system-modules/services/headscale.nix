@@ -49,11 +49,6 @@
         virtualHosts."headscale.${domain}".extraConfig = ''
           reverse_proxy http://127.0.0.1:${builtins.toString config.services.headscale.port}        
         '';
-
-        virtualHosts."${domain}".extraConfig = ''
-          respond "Hello World"
-        '';
-
       };
 
       networking.firewall = {

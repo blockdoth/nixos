@@ -20,7 +20,8 @@
     ssh.enable = true;
     services = {
       atuin.enable = true;
-      headscale.enable = false;
+      headscale.enable = true;
+      immich.enable = true;
       grafana.enable = false;
       prometheus.enable = false;
       promtail.enable = false;
