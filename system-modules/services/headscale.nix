@@ -23,7 +23,7 @@
           server_url = "https://headscale.${domain}";
           metrics_listen_addr = "127.0.0.1:8095";
           dns = {
-            base_domain = domain;
+            base_domain = "local.com";
             magic_dns = true;
             behind_proxy = true;
             override_local_dns = true;
