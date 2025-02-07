@@ -41,7 +41,7 @@
 
       services.caddy = {
         virtualHosts."prometheus.${domain}".extraConfig = ''
-          reverse_proxy http://127.0.0.1:${builtins.toString config.services.prometheus.port}        
+          reverse_proxy 127.0.0.1:${builtins.toString config.services.prometheus.port}        
         '';
       };
     };
