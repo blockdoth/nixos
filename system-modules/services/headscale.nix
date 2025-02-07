@@ -48,7 +48,7 @@
 
       services.caddy = {
         virtualHosts."headscale.${domain}".extraConfig = ''
-          reverse_proxy http://127.0.0.1:${builtins.toString config.services.headscale.port}        
+          reverse_proxy 127.0.0.1:${builtins.toString config.services.headscale.port}        
         '';
       };
 

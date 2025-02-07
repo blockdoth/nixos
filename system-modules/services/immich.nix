@@ -23,7 +23,7 @@
 
       services.caddy = {
         virtualHosts."immich.${domain}".extraConfig = ''
-          reverse_proxy http://127.0.0.1:${builtins.toString config.services.immich.port}        
+          reverse_proxy 127.0.0.1:${toString config.services.immich.port}        
         '';
       };
     };

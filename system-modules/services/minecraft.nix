@@ -42,7 +42,7 @@
 
       services.caddy = {
         virtualHosts."minecraft.${domain}".extraConfig = ''
-          reverse_proxy http://127.0.0.1:${builtins.toString config.services.minecraft-servers.servers.minecraft_21.serverProperties.server-port}        
+          reverse_proxy 127.0.0.1:${builtins.toString config.services.minecraft-servers.servers.minecraft_21.serverProperties.server-port}        
         '';
       };
     };

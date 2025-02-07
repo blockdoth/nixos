@@ -15,7 +15,6 @@
       domain = config.system-modules.services.domains.iss-piss-stream;
     in
     lib.mkIf config.system-modules.services.atuin.enable {
-
       services.atuin = {
         enable = true;
         openRegistration = true;
