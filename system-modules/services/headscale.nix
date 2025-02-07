@@ -19,6 +19,7 @@
         enable = true;
         address = "127.0.0.1";
         port = 8085;
+        user = "penger";
         settings = {
           server_url = "https://headscale.${domain}";
           metrics_listen_addr = "127.0.0.1:8095";

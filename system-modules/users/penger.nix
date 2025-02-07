@@ -21,7 +21,6 @@
       extraGroups = [
         "wheel"
         "networkmanager"
-        "headscale"
       ];
       hashedPasswordFile = config.sops.secrets.penger-password.path;
       openssh = {
