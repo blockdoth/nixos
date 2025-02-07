@@ -22,6 +22,7 @@
         user = "blockdoth";
         settings = {
           server_url = "https://${domain}";
+          metrics_listen_addr = "127.0.0.1:8095";
           dns = {
             base_domain = "${domain}";
             magic_dns = true;

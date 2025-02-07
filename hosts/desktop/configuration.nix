@@ -21,7 +21,7 @@
     services = {
       atuin.enable = true;
       headscale.enable = true;
-      immich.enable = true;
+      immich.enable = false;
       grafana.enable = false;
       prometheus.enable = false;
       promtail.enable = false;
