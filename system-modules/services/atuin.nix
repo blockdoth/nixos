@@ -24,7 +24,6 @@
       };
 
       services.caddy = {
-        enable = true;
         virtualHosts."atuin.${domain}".extraConfig = ''
           reverse_proxy 127.0.0.1:${toString config.services.atuin.port}
         '';

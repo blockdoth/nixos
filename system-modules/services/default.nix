@@ -9,6 +9,7 @@
     ./domains.nix
     ./ddns/ddns.nix
     ./acme.nix
+    ./caddy.nix
     ./immich.nix
     ./iss-piss-stream.nix
     ./minecraft.nix

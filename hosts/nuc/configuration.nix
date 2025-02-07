@@ -26,6 +26,7 @@
       acme.enable = true;
       ddns.enable = true;
       iss-piss-stream.enable = true;
+      caddy.enable = true;
     };
     tailscale = {
       enable = true;
