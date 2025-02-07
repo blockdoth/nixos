@@ -27,7 +27,7 @@
       ddns.enable = true;
       iss-piss-stream.enable = true;
       caddy.enable = true;
-      blocky.enable = true;
+      blocky.enable = false;
       minecraftserver.enable = true;
     };
     tailscale = {
