@@ -23,7 +23,7 @@
         virtualHosts."${domain}".extraConfig = ''
           respond "Hello World"
         '';
-        configFIle = "/etc/caddy/CaddyFile";
+        configFile = "/etc/caddy/CaddyFile";
       };
 
       networking.firewall = {
