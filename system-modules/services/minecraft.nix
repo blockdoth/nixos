@@ -38,7 +38,7 @@
         };
       };
       # Stops if the server from automatically starting
-      systemd.services.minecraft-server-minecraft.wantedBy = lib.mkForce [ ];
+      systemd.services.minecraft-server-minecraft_21.wantedBy = lib.mkForce [ ];
 
       services.caddy = {
         virtualHosts."minecraft.${domain}".extraConfig = ''
