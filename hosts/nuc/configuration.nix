@@ -28,6 +28,7 @@
       iss-piss-stream.enable = true;
       caddy.enable = true;
       blocky.enable = true;
+      minecraftserver.enable = true;
     };
     tailscale = {
       enable = true;
