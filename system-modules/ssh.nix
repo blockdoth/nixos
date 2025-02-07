@@ -8,7 +8,7 @@
     services.openssh = {
       enable = true;
       settings = {
-        X11Forwarding = false;
+        X11Forwarding = true;
         PasswordAuthentication = false;
       };
     };

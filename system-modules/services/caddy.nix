@@ -17,6 +17,10 @@
       keyPath = "/var/lib/acme/${domain}/privkey.pem";
     in
     lib.mkIf config.system-modules.services.caddy.enable {
+      environment.systemPackages = with pkgs; [
+        caddy
+      ];
+
       services.caddy = {
         enable = true;
         email = "pepijn.pve@gmail.com";
@@ -25,14 +29,7 @@
           respond "Hello World"
         '';
       };
-      users.users = {
-        penger = lib.mkIf config.system-modules.users.penger.enable {
-          extraGroups = [ "caddy" ];
-        };
-        blockdoth = lib.mkIf config.system-modules.users.blockdoth.enable {
-          extraGroups = [ "caddy" ];
-        };
-      };
+
       networking.firewall = {
         allowedTCPPorts = [
           80
