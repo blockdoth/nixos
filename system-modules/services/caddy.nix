@@ -20,9 +20,15 @@
       services.caddy = {
         enable = true;
         email = "pepijn.pve@gmail.com";
+
+        globalConfig = ''
+          tls ${certPath} ${keyPath}
+        '';
+
         virtualHosts."${domain}".extraConfig = ''
           respond "Hello World"
         '';
+        configFile = "/etc/caddy/CaddyFile";
       };
 
       networking.firewall = {
