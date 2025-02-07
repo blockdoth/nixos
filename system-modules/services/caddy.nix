@@ -13,6 +13,8 @@
   config =
     let
       domain = config.system-modules.services.domains.iss-piss-stream;
+      certPath = "/var/lib/acme/${domain}/fullchain.pem";
+      keyPath = "/var/lib/acme/${domain}/privkey.pem";
     in
     lib.mkIf config.system-modules.services.caddy.enable {
       services.caddy = {
@@ -29,6 +31,6 @@
           443
         ];
       };
-
+      users.users.caddy.extraGroups = [ "acme" ];
     };
 }
