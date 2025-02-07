@@ -25,7 +25,14 @@
           respond "Hello World"
         '';
       };
-
+      users.users = {
+        penger = lib.mkIf config.system-modules.users.penger.enable {
+          extraGroups = [ "caddy" ];
+        };
+        blockdoth = lib.mkIf config.system-modules.users.blockdoth.enable {
+          extraGroups = [ "caddy" ];
+        };
+      };
       networking.firewall = {
         allowedTCPPorts = [
           80

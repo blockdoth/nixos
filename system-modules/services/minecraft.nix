@@ -26,6 +26,8 @@
           minecraft_21 = {
             enable = true;
             package = pkgs.vanillaServers.vanilla-1_21;
+            autoStart = false;
+            enableReload = true;
             serverProperties = {
               motd = "A Minecraft Server running on nixos";
               gamemode = "creative";
@@ -33,12 +35,14 @@
               max-players = "69";
               server-port = "25565";
               white-list = "false";
+              # enable-rcon = true;
+              # rcon.password = "dontbother"; # doesnt type check for some reason
             };
           };
         };
       };
       # Stops if the server from automatically starting
-      systemd.services.minecraft-server-minecraft_21.wantedBy = lib.mkForce [ ];
+      # systemd.services.minecraft-server-minecraft_21.wantedBy = lib.mkForce [ ];
 
       services.caddy = {
         virtualHosts."minecraft.${domain}".extraConfig = ''
