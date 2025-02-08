@@ -12,7 +12,7 @@
 
   config =
     let
-      domain = config.system-modules.services.domains.iss-piss-stream;
+      domain = config.system-modules.services.domains.homelab;
     in
     lib.mkIf config.system-modules.services.acme.enable {
       sops.secrets.acme-cloudflare-api-key = { };

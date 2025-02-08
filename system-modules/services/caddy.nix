@@ -12,7 +12,7 @@
 
   config =
     let
-      domain = config.system-modules.services.domains.iss-piss-stream;
+      domain = config.system-modules.services.domains.homelab;
       certPath = "/var/lib/acme/${domain}/fullchain.pem";
       keyPath = "/var/lib/acme/${domain}/privkey.pem";
     in

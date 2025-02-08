@@ -12,6 +12,7 @@
   config = {
     system-modules.services.domains = {
       iss-piss-stream = "insinuatis.com";
+      homelab = "insinuatis.com";
     };
   };
 }
