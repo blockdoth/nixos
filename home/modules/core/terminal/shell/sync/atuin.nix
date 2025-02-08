@@ -16,7 +16,7 @@
       enableFishIntegration = true;
       settings = {
         auto_sync = true;
-        # sync_address = "atuin.insinuatis.ddns.net";
+        sync_address = "atuin.insinuatis.com";
         sync.records = true;
         sync_frequency = "5m";
         key_path = lib.mkIf (hostname != "laptop") config.sops.secrets.atuin-key.path;
