@@ -22,6 +22,9 @@
     power.enable = true;
     laptop.enable = true;
     tailscale.enable = true;
+    services = {
+      syncthing.enable = true;
+    };
   };
 
   services = {
