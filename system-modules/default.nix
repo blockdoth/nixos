@@ -14,7 +14,7 @@ let
 in
 {
   imports = [
-    ./common
+    ./core
     ./display
     ./services
     ./users/blockdoth.nix
@@ -27,6 +27,7 @@ in
     ./printing.nix
     ./ssh.nix
     ./tailscale.nix
+    ./syncthing.nix
     ./docker.nix
   ];
 

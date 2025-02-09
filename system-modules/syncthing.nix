@@ -7,14 +7,14 @@
 }:
 {
   options = {
-    system-modules.services.syncthing.enable = lib.mkEnableOption "Enables syncthing";
+    system-modules.syncthing.enable = lib.mkEnableOption "Enables syncthing";
   };
 
   config =
     let
-      domain = config.system-modules.services.domains.homelab;
+      domain = config.system-modules.domains.homelab;
     in
-    lib.mkIf config.system-modules.services.syncthing.enable {
+    lib.mkIf config.system-modules.syncthing.enable {
       environment.systemPackages = with pkgs; [
         syncthing
       ];

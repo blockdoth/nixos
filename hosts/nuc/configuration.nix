@@ -15,6 +15,7 @@
     users.penger.enable = true;
     ssh.enable = true;
     docker.enable = true;
+    syncthing.enable = true;
     services = {
       atuin.enable = true;
       headscale.enable = true;
@@ -28,7 +29,6 @@
       iss-piss-stream.enable = true;
       caddy.enable = true;
       minecraftserver.enable = true;
-      syncthing.enable = true;
       nextcloud.enable = false;
       blocky.enable = false;
     };

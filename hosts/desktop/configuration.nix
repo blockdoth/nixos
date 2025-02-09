@@ -17,6 +17,7 @@
     gaming.enable = true;
     users.blockdoth.enable = true;
     tailscale.enable = true;
+    syncthing.enable = true;
     ssh.enable = true;
     services = {
       atuin.enable = false;
@@ -29,7 +30,6 @@
       acme.enable = false;
       ddns.enable = false;
       iss-piss-stream.enable = false;
-      syncthing.enable = true;
     };
   };
 
