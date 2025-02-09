@@ -29,6 +29,7 @@
           laptop = "ssh blockdoth@laptop";
           desktop = "ssh blockdoth@desktop";
           temp = "cd ~/temp/";
+          up = "cd ..";
           eep = "systemctl suspend";
         }
         (lib.mkIf (config.home.username != "penger") {
