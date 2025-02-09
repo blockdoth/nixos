@@ -12,7 +12,7 @@
 
   config =
     let
-      domain = config.system-modules.domains.homelab;
+      domain = config.system-modules.services.domains.homelab;
     in
     lib.mkIf config.system-modules.services.syncthing.enable {
       environment.systemPackages = with pkgs; [
