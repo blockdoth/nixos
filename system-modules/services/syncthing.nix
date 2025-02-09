@@ -22,6 +22,9 @@
         enable = true;
         overrideDevices = true;
         overrideFolders = true;
+        user = if (config.system-modules.users.blockdoth.enable) then "blockdoth" else "penger";
+        dataDir =
+          if (config.system-modules.users.blockdoth.enable) then "/home/blockdoth" else "/home/penger";
         settings = {
           options = {
             urAccepted = -1;
