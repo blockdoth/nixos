@@ -24,9 +24,9 @@
             urAccepted = -1;
             relaysEnabled = false;
           };
-          guiAddress = "127.0.0.1:8384"; # Web UI address
+          # guiAddress = "127.0.0.1:8384";
           insecureSkipHostcheck = true;
-          guiTheme = "default"; # Default theme
+          guiTheme = "default";
 
           devices = {
             "nuc" = {
@@ -74,7 +74,7 @@
 
       services.caddy = {
         virtualHosts."syncthing.${domain}".extraConfig = ''
-          reverse_proxy ${config.services.syncthing.settings.guiAddress}
+          reverse_proxy 127.0.0.1:8384        
         '';
       };
     };
