@@ -40,7 +40,7 @@
               id = "HPXVJ5B-U4UDXBT-WKV55TS-33KSKDB-4GABRYH-6VDTISA-5DHG5UZ-EXR74AR";
             };
             "laptop" = {
-              id = "";
+              id = "IWF7EVG-S65KQ4N-OD4O2UX-WQSOKGQ-F4JUEJA-YRCFXG2-OMMVPXI-GNVZUQH";
             };
             "desktop" = {
               id = "FWX7EKE-FKNDAYT-WEL3VEF-AKFXYVN-SQWYSBX-ANVNSHK-VQDCDIH-J2AE6QM";
