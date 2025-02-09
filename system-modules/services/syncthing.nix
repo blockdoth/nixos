@@ -15,6 +15,9 @@
       domain = config.system-modules.services.domains.homelab;
     in
     lib.mkIf config.system-modules.services.syncthing.enable {
+      environment.systemPackages = with pkgs; [
+        syncthing
+      ];
       services.syncthing = {
         enable = true;
         overrideDevices = true;
@@ -34,7 +37,7 @@
 
           devices = {
             "nuc" = {
-              id = "";
+              id = "HPXVJ5B-U4UDXBT-WKV55TS-33KSKDB-4GABRYH-6VDTISA-5DHG5UZ-EXR74AR";
             };
             "laptop" = {
               id = "";
