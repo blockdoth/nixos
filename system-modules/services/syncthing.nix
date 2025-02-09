@@ -91,6 +91,7 @@
           22000
         ];
       };
+
       # Disables a default sync folder from being created
       systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true";
 
