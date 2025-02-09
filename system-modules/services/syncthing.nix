@@ -48,24 +48,32 @@
           };
 
           folders = {
-            "Documents" = {
-              path = "~/Documents";
+            "documents" = {
+              path = "~/documents";
               devices = [
                 "laptop"
                 "desktop"
                 "nuc"
               ];
             };
-            "Pictures" = {
-              path = "~/Pictures";
+            "pictures" = {
+              path = "~/pictures";
               devices = [
                 "laptop"
                 "desktop"
                 "nuc"
               ];
             };
-            "Videos" = {
-              path = "~/Videos";
+            "videos" = {
+              path = "~/videos";
+              devices = [
+                "laptop"
+                "desktop"
+                "nuc"
+              ];
+            };
+            "music" = {
+              path = "~/music";
               devices = [
                 "laptop"
                 "desktop"
