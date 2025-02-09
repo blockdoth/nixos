@@ -16,18 +16,23 @@
     in
     lib.mkIf config.system-modules.services.syncthing.enable {
       services.syncthing = {
+        enable = true;
         overrideDevices = true;
         overrideFolders = true;
         settings = {
+          options = {
+            urAccepted = -1;
+            relaysEnabled = false;
+          };
           devices = {
             "nuc" = {
-              id = "DEVICE-ID-GOES-HERE";
+              id = "";
             };
             "laptop" = {
-              id = "DEVICE-ID-GOES-HERE";
+              id = "";
             };
             "desktop" = {
-              id = "DEVICE-ID-GOES-HERE";
+              id = "";
             };
           };
 
@@ -63,10 +68,10 @@
       # Disables a default sync folder from being created
       systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true";
 
-      services.caddy = {
-        virtualHosts."syncthing.${domain}".extraConfig = ''
-          reverse_proxy 127.0.0.1:${builtins.toString config.services.minecraft-servers.servers.minecraft_21.serverProperties.server-port}        
-        '';
-      };
+      # services.caddy = {
+      #   virtualHosts."syncthing.${domain}".extraConfig = ''
+      #     reverse_proxy ${config.services.syncthing.guiAddress}
+      #   '';
+      # };
     };
 }

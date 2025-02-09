@@ -39,10 +39,11 @@
         ];
       };
 
-      services.caddy = {
-        virtualHosts."prometheus.${domain}".extraConfig = ''
-          reverse_proxy 127.0.0.1:${builtins.toString config.services.prometheus.port}        
-        '';
-      };
+      # shouldnt be exposed
+      # services.caddy = {
+      #   virtualHosts."prometheus.${domain}".extraConfig = ''
+      #     reverse_proxy 127.0.0.1:${builtins.toString config.services.prometheus.port}
+      #   '';
+      # };
     };
 }

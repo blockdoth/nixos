@@ -6,6 +6,9 @@
 
   config = lib.mkIf config.system-modules.common.networking.enable {
     networking = {
+      firewall = {
+        enable = true;
+      };
       networkmanager = {
         enable = true;
         wifi.scanRandMacAddress = false;

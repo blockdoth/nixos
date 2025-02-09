@@ -19,8 +19,8 @@
     tailscale.enable = true;
     ssh.enable = true;
     services = {
-      atuin.enable = true;
-      headscale.enable = true;
+      atuin.enable = false;
+      headscale.enable = false;
       immich.enable = false;
       grafana.enable = false;
       prometheus.enable = false;

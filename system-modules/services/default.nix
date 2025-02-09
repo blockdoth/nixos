@@ -16,6 +16,9 @@
     ./blocky.nix
     ./headscale.nix
     ./atuin.nix
+    ./syncthing.nix
+    ./nextcloud.nix
+    ./atuin.nix
     ./observability/grafana.nix
     ./observability/prometheus.nix
     ./observability/promtail.nix

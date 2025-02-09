@@ -27,8 +27,10 @@
       ddns.enable = true;
       iss-piss-stream.enable = true;
       caddy.enable = true;
-      blocky.enable = false;
       minecraftserver.enable = true;
+      syncthing.enable = true;
+      nextcloud.enable = false;
+      blocky.enable = false;
     };
     tailscale = {
       enable = true;
@@ -36,16 +38,7 @@
     };
   };
 
-  networking = {
-    hostName = "nuc";
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [
-        80
-        443
-        # 22
-      ];
-    };
-  };
+  networking.hostName = "nuc";
+
   system.stateVersion = "24.05"; # Did you read the comment?
 }
