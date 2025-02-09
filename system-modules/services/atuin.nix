@@ -17,7 +17,7 @@
     lib.mkIf config.system-modules.services.atuin.enable {
       services.atuin = {
         enable = true;
-        openRegistration = true;
+        openRegistration = false;
         openFirewall = false;
         port = 8889;
       };
