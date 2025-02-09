@@ -24,9 +24,13 @@
             urAccepted = -1;
             relaysEnabled = false;
           };
-          # guiAddress = "127.0.0.1:8384";
-          insecureSkipHostcheck = true;
-          guiTheme = "default";
+          gui = {
+            user = "blockdoth";
+            tls = true;
+            insecureSkipHostcheck = true;
+          };
+          # guiPasswordFile = config.sops.secrets.acme-cloudflare-api-key.path;
+          guiTheme = "dark";
 
           devices = {
             "nuc" = {
@@ -36,7 +40,7 @@
               id = "";
             };
             "desktop" = {
-              id = "";
+              id = "FWX7EKE-FKNDAYT-WEL3VEF-AKFXYVN-SQWYSBX-ANVNSHK-VQDCDIH-J2AE6QM";
             };
           };
 
@@ -69,6 +73,13 @@
         };
       };
 
+      networking.firewall = {
+        allowedTCPPorts = [ 22000 ];
+        allowedUDPPorts = [
+          21027
+          22000
+        ];
+      };
       # Disables a default sync folder from being created
       systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true";
 
