@@ -17,9 +17,9 @@
     gaming.enable = true;
     users.blockdoth.enable = true;
     tailscale.enable = true;
-    syncthing.enable = true;
     ssh.enable = true;
     services = {
+      syncthing.enable = true;
       atuin.enable = false;
       headscale.enable = false;
       immich.enable = false;

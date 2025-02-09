@@ -27,7 +27,6 @@ in
     ./printing.nix
     ./ssh.nix
     ./tailscale.nix
-    ./syncthing.nix
     ./docker.nix
   ];
 
