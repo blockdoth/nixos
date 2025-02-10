@@ -13,7 +13,6 @@ let
   enableMediaServer = cfg.enable;
   torrentUser = cfg.users.torrenter;
   streamUser = cfg.users.streamer;
-  transmissionPort = cfg.torrentPort;
 in
 {
   options = {
@@ -42,7 +41,7 @@ in
         incomplete-dir = "${mediaDir}/torrents/.incomplete";
         watch-dir-enabled = true;
         watch-dir = "${mediaDir}/torrents/.watch";
-        rpc-port = transmissionPort;
+        rpc-port = 51413;
         rpc-whitelist-enabled = true;
         # rpc-whitelist-enabled = false;
         # rpc-host-whitelist-enabled = false;

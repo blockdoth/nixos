@@ -10,7 +10,6 @@ let
   cfg = config.system-modules.services.mediaserver;
   mediaDir = cfg.dataDir;
   mediaGroup = cfg.group;
-  enableMediaServer = cfg.enable;
   torrentUser = cfg.users.torrenter;
   streamerUser = cfg.users.streamer;
 in

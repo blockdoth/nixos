@@ -18,7 +18,7 @@ in
   };
 
   config = lib.mkIf config.system-modules.services.jellyfin.enable {
-    # Uses port 6767
+    # Uses port 8096
     services.jellyfin = {
       enable = true;
       group = mediaGroup;

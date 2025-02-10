@@ -29,12 +29,6 @@ in
           description = "Directory for media storage";
         };
 
-        torrentPort = lib.mkOption {
-          type = lib.types.int;
-          default = 51413;
-          description = "Port for the torrent service";
-        };
-
         group = lib.mkOption {
           type = lib.types.str;
           default = "media";
@@ -60,6 +54,7 @@ in
     ./jellyfin.nix
     ./prowlarr.nix
     ./radarr.nix
+    ./lidarr.nix
     ./sonarr.nix
     ./transmission.nix
     ./bazarr.nix
@@ -72,6 +67,7 @@ in
         jellyfin.enable = lib.mkDefault enableMediaServer;
         prowlarr.enable = lib.mkDefault enableMediaServer;
         radarr.enable = lib.mkDefault enableMediaServer;
+        lidarr.enable = lib.mkDefault enableMediaServer;
         sonarr.enable = lib.mkDefault enableMediaServer;
         transmission.enable = lib.mkDefault enableMediaServer;
       };
