@@ -24,6 +24,9 @@
     tailscale.enable = true;
     services = {
       syncthing.enable = true;
+      # caddy.enable = true;
+      # nextcloud.enable = true;
+
     };
   };
 
