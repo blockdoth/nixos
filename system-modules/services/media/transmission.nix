@@ -29,13 +29,13 @@ in
     ];
 
     services.transmission = {
-      enable = false;
+      enable = true;
       user = torrentUser;
       group = mediaGroup;
       # package = pkgs.transmission_4;
       openRPCPort = true;
       openPeerPorts = true;
-      webHome = pkgs.unstable.flood-for-transmission;
+      webHome = pkgs.flood-for-transmission;
       settings = {
         download-dir = "${mediaDir}/torrents";
         incomplete-dir-enabled = true;
