@@ -5,28 +5,60 @@
   ...
 }:
 let
-  mediaDir = "/var/lib/media";
-  mediaGroup = "media";
   domain = config.system-modules.services.domains.homelab;
-  enableMediaServer = config.system-modules.mediaserver.enable;
-  torrentUser = "torrenter";
-  streamerUser = "streamer";
+  cfg = config.system-modules.services.mediaserver;
+  mediaDir = cfg.dataDir;
+  mediaGroup = cfg.group;
+  enableMediaServer = cfg.enable;
+  torrentUser = cfg.users.torrenter;
+  streamUser = cfg.users.streamer;
 in
 {
   # This module is heavily inspired by https://github.com/zmitchell/nixos-configs/blob/main/modules/media_server.nix
-
   options = {
     system-modules = {
-      mediaserver.enable = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
+      services.mediaserver = {
+        enable = lib.mkOption {
+          type = lib.types.bool;
+          default = false;
+        };
+
+        dataDir = lib.mkOption {
+          type = lib.types.str;
+          default = "/var/lib/media";
+          description = "Directory for media storage";
+        };
+
+        torrentPort = lib.mkOption {
+          type = lib.types.int;
+          default = 51413;
+          description = "Port for the torrent service";
+        };
+
+        group = lib.mkOption {
+          type = lib.types.str;
+          default = "media";
+          description = "Group for media access";
+        };
+        users = {
+          torrenter = lib.mkOption {
+            type = lib.types.str;
+            default = "torrenter";
+            description = "User for torrent services";
+          };
+          streamer = lib.mkOption {
+            type = lib.types.str;
+            default = "streamer";
+            description = "User for streaming services";
+          };
+        };
       };
     };
   };
 
   imports = [
     ./jellyfin.nix
-    ./prowler.nix
+    ./prowlarr.nix
     ./radarr.nix
     ./sonarr.nix
     ./transmission.nix
@@ -40,7 +72,7 @@ in
         jellyfin.enable = lib.mkDefault enableMediaServer;
         prowlarr.enable = lib.mkDefault enableMediaServer;
         radarr.enable = lib.mkDefault enableMediaServer;
-        sonarr.enable = lib.mkDefault enableMediaServer;
+        # sonarr.enable = lib.mkDefault enableMediaServer;
         transmission.enable = lib.mkDefault enableMediaServer;
       };
     };
@@ -69,7 +101,7 @@ in
     users.users = {
       streamer = {
         isSystemUser = true;
-        group = "streamer";
+        group = streamUser;
       };
       torrenter = {
         isSystemUser = true;

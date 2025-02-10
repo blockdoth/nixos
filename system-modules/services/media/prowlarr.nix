@@ -5,6 +5,15 @@
   inputs,
   ...
 }:
+let
+  domain = config.system-modules.services.domains.homelab;
+  cfg = config.system-modules.services.mediaserver;
+  mediaDir = cfg.dataDir;
+  mediaGroup = cfg.group;
+  enableMediaServer = cfg.enable;
+  torrentUser = cfg.users.torrenter;
+  streamerUser = cfg.users.streamer;
+in
 {
   options = {
     system-modules.services.prowlarr.enable = lib.mkEnableOption "Enables prowlarr";
@@ -14,7 +23,7 @@
     # uses port 9696
     services.prowlarr = {
       enable = true;
-      group = mediaGroup;
+      # group = mediaGroup;
     };
   };
 }

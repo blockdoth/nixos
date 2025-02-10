@@ -5,6 +5,13 @@
   inputs,
   ...
 }:
+let
+  domain = config.system-modules.services.domains.homelab;
+  cfg = config.system-modules.services.mediaserver;
+  mediaDir = cfg.dataDir;
+  mediaGroup = cfg.group;
+  torrentUser = cfg.users.torrenter;
+in
 {
   options = {
     system-modules.services.radarr.enable = lib.mkEnableOption "Enables radarr";

@@ -31,6 +31,7 @@
       syncthing.enable = true;
       nextcloud.enable = false;
       blocky.enable = false;
+      mediaserver.enable = false;
     };
     tailscale = {
       enable = true;

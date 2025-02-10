@@ -5,6 +5,16 @@
   inputs,
   ...
 }:
+let
+  domain = config.system-modules.services.domains.homelab;
+  cfg = config.system-modules.services.mediaserver;
+  mediaDir = cfg.dataDir;
+  mediaGroup = cfg.group;
+  enableMediaServer = cfg.enable;
+  torrentUser = cfg.users.torrenter;
+  streamUser = cfg.users.streamer;
+  transmissionPort = cfg.torrentPort;
+in
 {
   options = {
     system-modules.services.transmission.enable = lib.mkEnableOption "Enables transmission";
