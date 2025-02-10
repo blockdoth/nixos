@@ -14,6 +14,7 @@
         "[workspace 2 silent] codium"
         "[workspace 3 silent] vesktop"
         "activate-linux"
+        "hyprctl setcursor 15" # Fixes cursor sizes being different between apps
       ];
     };
   };
