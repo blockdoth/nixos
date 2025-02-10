@@ -72,7 +72,7 @@ in
         jellyfin.enable = lib.mkDefault enableMediaServer;
         prowlarr.enable = lib.mkDefault enableMediaServer;
         radarr.enable = lib.mkDefault enableMediaServer;
-        # sonarr.enable = lib.mkDefault enableMediaServer;
+        sonarr.enable = lib.mkDefault enableMediaServer;
         transmission.enable = lib.mkDefault enableMediaServer;
       };
     };

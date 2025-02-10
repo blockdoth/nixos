@@ -24,6 +24,14 @@ in
       group = mediaGroup;
     };
 
+    # Fix insecure dependency
+    nixpkgs.config.permittedInsecurePackages = [
+      "aspnetcore-runtime-6.0.36"
+      "aspnetcore-runtime-wrapped-6.0.36"
+      "dotnet-sdk-6.0.428"
+      "dotnet-sdk-wrapped-6.0.428"
+    ];
+
     systemd.tmpfiles.rules = [
       "d ${mediaDir}/torrents/sonarr 0775 ${torrentUser} ${mediaGroup} -"
     ];

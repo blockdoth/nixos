@@ -26,7 +26,7 @@
       syncthing.enable = true;
       caddy.enable = false;
       nextcloud.enable = false;
-      mediaserver.enable = false;
+      mediaserver.enable = true;
 
     };
   };
