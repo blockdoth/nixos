@@ -11,7 +11,7 @@
     # pog.url = "github:jpetrucciani/pog";
     sops-nix.url = "github:Mic92/sops-nix";
     stylix.url = "github:danth/stylix/d13ffb381c83b6139b9d67feff7addf18f8408fe";
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix"; # Remove commit once its not broken anymore
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
     nix-minecraft.url = "github:InfiniDoge/nix-minecraft";
     ags.url = "github:Aylur/ags";

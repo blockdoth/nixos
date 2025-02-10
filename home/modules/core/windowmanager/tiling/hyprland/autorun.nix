@@ -8,7 +8,7 @@
         "hypridle"
         "swww-daemon && swww img ../../../../../assets/wallpapers/rusty.jpg"
         "pypr"
-        "gammastep"
+        "gammastep -b 1:1"
         "pkill hyprpaper"
         "[workspace 1 silent] firefox"
         "[workspace 2 silent] codium"
