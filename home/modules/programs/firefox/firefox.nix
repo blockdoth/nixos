@@ -15,8 +15,8 @@
       shyfox = pkgs.fetchFromGitHub {
         owner = "blockdoth";
         repo = "ShyFox";
-        rev = "";
-        sha256 = "sha256-nZiWXQOTpbQEFDkKvcJUc1rDRFpnh9jW1WnMwOUQayQ=";
+        rev = "fba147660a1b374f00e50df59b525f7c7bb5a4e5";
+        sha256 = "sha256-YfPDJHoyA0tj73rnDOqI65n0bAh8hSTPnXLDEkzQVpg=";
       };
     in
     lib.mkIf config.modules.programs.firefox.enable {
