@@ -15,7 +15,7 @@
       shyfox = pkgs.fetchFromGitHub {
         owner = "blockdoth";
         repo = "ShyFox";
-        rev = "1ed7b7c46a36d3fb49a14b23121f8f6b9b1a0b93";
+        rev = "";
         sha256 = "sha256-nZiWXQOTpbQEFDkKvcJUc1rDRFpnh9jW1WnMwOUQayQ=";
       };
     in
