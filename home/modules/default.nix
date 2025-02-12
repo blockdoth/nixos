@@ -104,6 +104,7 @@ in
           neovim.enable = mkDefault enableDev;
           jetbrains.enable = mkDefault enableDev;
           vscode.enable = mkDefault enableDev;
+          micro.enable = mkDefault true;
         };
         env = {
           direnv.enable = mkDefault true;
