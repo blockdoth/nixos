@@ -20,7 +20,7 @@
       };
     };
 
-    home.file.".config/micro/colorschemes/gruvbox-transparant".text = ''
+    home.file.".config/micro/colorschemes/gruvbox-transparant.micro".text = ''
       color-link default "223,"
       color-link comment "243,"
       color-link constant "175,"
