@@ -16,11 +16,11 @@
       enable = true;
       settings = {
         autosu = true;
-        colorscheme = "grubox-transparant";
+        colorscheme = "gruvbox-transparant";
       };
     };
 
-    home.file.".config/micro/colorschemes".text = ''
+    home.file.".config/micro/colorschemes/gruvbox-transparant".text = ''
       color-link default "223,"
       color-link comment "243,"
       color-link constant "175,"
