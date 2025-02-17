@@ -30,6 +30,7 @@
       acme.enable = false;
       ddns.enable = false;
       iss-piss-stream.enable = false;
+      linkwarden.enable = false;
     };
   };
 

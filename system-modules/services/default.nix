@@ -20,6 +20,7 @@
     ./syncthing.nix
     ./nextcloud.nix
     ./atuin.nix
+    ./linkwarden.nix
     ./observability/grafana.nix
     ./observability/prometheus.nix
     ./observability/promtail.nix
