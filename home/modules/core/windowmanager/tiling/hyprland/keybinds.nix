@@ -91,7 +91,7 @@
           # "SUPER,I,exec,alacritty msg config window.opacity=0.5"
           # "SUPER,H,movefocus,l"
           # "SUPER,K,exec,slurp | xargs -I {} wf-recorder -g {} -f ~/Videos/recording_$(date +\"%Y-%m-%d_%H-%M-%S\").mp4"
-          # "SUPER,J,exec,killall -s SIGINT wf-recorder"
+          "SUPER,J,exec,rickroll"
 
           "SUPER,L,exec,pidof hyprlock | hyprlock"
           "SUPER SHIFT,L,exec,systemctl suspend"
@@ -110,7 +110,7 @@
           "SUPER,W,exec,wlogout-script"
           "SUPER,X,exec,pypr attach"
           "SUPER,Y,exec,codium ~/nixos"
-          "SUPER,Z, exec, pypr zoom "
+          "SUPER,Z, exec, pypr zoom rickroll"
           "SUPER SHIFT,Z, exec, pypr zoom ++0.6"
           "SUPER SHIFT, S, exec, grimblast --notify --freeze copysave area"
           ", PRINT, exec, grimblast --notify copysave screen"
