@@ -37,7 +37,7 @@
           config = "conf && codium .";
           lock = "kill hyprlock && hyprlock";
           print = "firefox -new-tab https://printportal.tudelft.nl:9443/end-user/ui/dashboard";
-          rickroll = "firefox -new-tab https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+          rickroll = "firefox -new-tab 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'";
         })
       ];
     };
