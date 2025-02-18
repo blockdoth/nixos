@@ -23,6 +23,7 @@
     home.file.".config/micro/colorschemes/gruvbox-transparant.micro".text = ''
       color-link default "223,"
       color-link comment "243,"
+      color-link selection "243,"
       color-link constant "175,"
       color-link constant.string "142,"
       color-link identifier "109,"
