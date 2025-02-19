@@ -32,5 +32,4 @@
       systemctl-tui
     ];
   };
-
 }
