@@ -62,7 +62,7 @@
             text = "cmd[update:10] echo \"$(date +\"%-I:%M%p\")\"";
             # color = "#cdd6f4";
             color = "rgba(255, 255, 255, 0.6)";
-            font_size = 400;
+            font_size = 350;
             font_family = "JetBrains Mono Ultra-Bold";
             position = "0, -200";
             halign = "center";
