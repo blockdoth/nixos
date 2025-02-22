@@ -31,6 +31,7 @@
       ddns.enable = false;
       iss-piss-stream.enable = false;
       linkwarden.enable = false;
+      mediaserver.enable = true;
     };
   };
 
