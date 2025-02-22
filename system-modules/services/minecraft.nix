@@ -44,7 +44,7 @@
 
       networking.firewall = {
         allowedTCPPorts = [
-          config.services.minecraft-servers.servers.minecraft_21.serverProperties.server-port
+          (lib.strings.toInt config.services.minecraft-servers.servers.minecraft_21.serverProperties.server-port)
         ];
       };
 
