@@ -41,13 +41,20 @@
           };
         };
       };
+
+      networking.firewall = {
+        allowedTCPPorts = [
+          config.services.minecraft-servers.servers.minecraft_21.serverProperties.server-port
+        ];
+      };
+
       # Stops if the server from automatically starting
       # systemd.services.minecraft-server-minecraft_21.wantedBy = lib.mkForce [ ];
 
-      services.caddy = {
-        virtualHosts."minecraft.${domain}".extraConfig = ''
-          reverse_proxy 127.0.0.1:${builtins.toString config.services.minecraft-servers.servers.minecraft_21.serverProperties.server-port}        
-        '';
-      };
+      # services.caddy = {
+      #   virtualHosts."minecraft.${domain}".extraConfig = ''
+      #     reverse_proxy 127.0.0.1:${builtins.toString config.services.minecraft-servers.servers.minecraft_21.serverProperties.server-port}
+      #   '';
+      # };
     };
 }
