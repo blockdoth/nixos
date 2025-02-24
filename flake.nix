@@ -13,7 +13,10 @@
     sops-nix.url = "github:Mic92/sops-nix";
     stylix.url = "github:danth/stylix/d13ffb381c83b6139b9d67feff7addf18f8408fe";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix"; # Remove commit once its not broken anymore
+
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
+    nvf.url = "github:notashelf/nvf";
+
     nix-minecraft.url = "github:InfiniDoge/nix-minecraft";
     ags.url = "github:Aylur/ags";
     activate-linux.url = "github:MrGlockenspiel/activate-linux";
@@ -24,7 +27,6 @@
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvf.url = "github:notashelf/nvf";
     #Prevents version mismatch TODO
     hyprland.url = "github:hyprwm/Hyprland/";
     hyprland-plugins = {
