@@ -21,7 +21,6 @@
     programs.activate-linux.enable = true;
     programs.zenbrowser.enable = true;
     programs.spotify.enable = true;
-    programs.minecraft.enable = true;
   };
 
   home.sessionVariables = {
