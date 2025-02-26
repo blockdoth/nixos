@@ -33,7 +33,7 @@
         # clangd.arguments= ["--compile-commands-dir=/home/blockdoth/Documents/repos/c-web-server"];
         clangd.path = "/home/blockdoth/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd";
         haskell.manageHLS = "GHCup";
-        jupyter.notebookFileRoot = "\${workspaceFolder}";
+        jupyter.notebookFileRoot = "\${fileDirname}";
       };
     };
   };
