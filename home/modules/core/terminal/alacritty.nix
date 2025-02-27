@@ -39,6 +39,24 @@
 
         cursor.style = "Beam";
 
+        keyboard.bindings = [
+          {
+            key = "Return";
+            mods = "Control|Shift";
+            action = "SpawnNewInstance";
+          }
+          {
+            key = "Plus";
+            mods = "Control";
+            action = "IncreaseFontSize";
+          }
+          {
+            key = "Minus";
+            mods = "Control";
+            action = "DecreaseFontSize";
+          }
+        ];
+
         terminal.shell = {
           program = "fish";
           args = [
