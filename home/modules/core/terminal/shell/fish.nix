@@ -31,6 +31,8 @@
           temp = "cd ~/temp/";
           up = "cd ..";
           eep = "systemctl suspend";
+          notes = "cd ~/documents/notes";
+          note = "cd ~/documents/notes && micro \"$(date +%F)\"";
         }
         (lib.mkIf (config.home.username != "penger") {
           # Graphical
