@@ -19,6 +19,7 @@
       gparted # partitioning
       zathura # pdf viewer
       waypipe # display forwarding
+      qdirstat
     ];
   };
 
