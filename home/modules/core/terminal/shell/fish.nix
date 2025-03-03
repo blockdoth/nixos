@@ -33,6 +33,7 @@
           eep = "systemctl suspend";
           notes = "cd ~/documents/notes";
           note = "cd ~/documents/notes && micro \"$(date +%F)\"";
+          cdf = "mkdir $1; cd $1";
         }
         (lib.mkIf (config.home.username != "penger") {
           # Graphical
