@@ -51,13 +51,17 @@
           end
         '';
         getrep = ''
-          function getrep
-            git clone "https://github.com/blockdoth/$argv[1].git" && cd "$argv[1]"
-          end
+          getrepu blockdoth $argv[1]
         '';
         getrepu = ''
           function getrepu
-            git clone "https://github.com/$argv[1]/$argv[2].git" && cd "$argv[2]"
+            set USER "$argv[1]"
+            set REPO "$argv[2]"
+            if test -d "$REPO_NAME"
+              echo "Repository '$REPO' already exists!"
+            else
+              git clone "https://github.com/$USER/$REPO.git" && cd "$REPO"
+            end
           end
         '';
       };
