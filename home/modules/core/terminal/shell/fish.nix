@@ -55,6 +55,11 @@
             git clone "https://github.com/blockdoth/$argv[1].git" && cd "$argv[1]"
           end
         '';
+        getrepu = ''
+          function getrepu
+            git clone "https://github.com/$argv[1]/$argv[2].git" && cd "$argv[2]"
+          end
+        '';
       };
     };
   };
