@@ -22,6 +22,7 @@
           cls = "clear";
           conf = "cd ~/nixos";
           repos = "cd ~/repos";
+          sources = "cd ~/sources";
           btm = "btm --process_memory_as_value -g";
           mkscript = "echo '#!/usr/bin/env bash' > script-template.sh && chmod +x script-template.sh";
           log = "git log --graph --pretty=format:'%C(bold red)%h%Creset - %C(bold blue)%an%Creset%C(auto)%d%Creset %s %C(yellow)%ad%Creset %Cgreen(%cr) ' --abbrev-commit --date=human --decorate=full --all";
@@ -33,7 +34,7 @@
           eep = "systemctl suspend";
           notes = "cd ~/documents/notes";
           note = "cd ~/documents/notes && micro \"$(date +%F)\"";
-          cdf = "mkdir $1 && cd $1";
+          getrepo = "git clone ";
         }
         (lib.mkIf (config.home.username != "penger") {
           # Graphical
@@ -43,6 +44,18 @@
           rickroll = "firefox -new-tab 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'";
         })
       ];
+      functions = {
+        mcd = ''
+          function mcd
+            mkdir -p -- "$argv[1]"; and cd -- "$argv[1]"
+          end
+        '';
+        getrep = ''
+          function getrep
+            git clone "https://github.com/blockdoth/$argv[1].git" && cd "$argv[1]"
+          end
+        '';
+      };
     };
   };
 }
