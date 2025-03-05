@@ -58,7 +58,7 @@
             set USER "$argv[1]"
             set REPO "$argv[2]"
             if test -d "$REPO"
-              echo "Repository '$REPO' already exists!"
+              echo "Repository $REPO already exists"
             else
               git clone "https://github.com/$USER/$REPO.git" && cd "$REPO"
             end
