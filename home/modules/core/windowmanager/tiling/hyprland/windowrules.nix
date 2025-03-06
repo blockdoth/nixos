@@ -17,7 +17,7 @@
         "opacity 0.85, class:^(firefox)"
         "opacity 1.00, title:^(.*YouTube.*)"
         "opacity 0.75, class:^(Spotify)"
-        "opacity 0.85, class:^(VSCodium)"
+        "opacity 0.85, class:^(VSCodium|codium)"
         "opacity 0.80, class:^(vesktop)"
         "opacity 0.85, class:^(jetbrains)"
         "opacity 0.80, class:^(org.gnome.Nautilus)"
