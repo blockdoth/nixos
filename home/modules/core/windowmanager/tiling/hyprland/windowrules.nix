@@ -8,7 +8,7 @@
         "blur, waybar"
       ];
 
-      "$scratchpad" = "class:^(scratchpad|spotify)";
+      "$scratchpad" = "class:^(scratchpad|spotify|wasistlos)";
       "$pip" = "title:^(Picture-in-Picture)";
       "$popup" = "class:^(org.pulseaudio.pavucontrol|.blueman-manager-wrapped|Matplotlib)";
 
