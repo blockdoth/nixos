@@ -93,7 +93,7 @@
           # "SUPER,K,exec,slurp | xargs -I {} wf-recorder -g {} -f ~/Videos/recording_$(date +\"%Y-%m-%d_%H-%M-%S\").mp4"
           # "SUPER,J,exec,killall -s SIGINT wf-recorder"
 
-          "SUPER,L,exec,pidof hyprlock | hyprlock"
+          "SUPER,L,exec,wlogout-script"
           "SUPER SHIFT,L,exec,systemctl suspend"
 
           "SUPER,M,exec,hyprctl setprop active opaque toggle"
@@ -107,7 +107,7 @@
           "SUPER,T,exec,alacritty"
           "SUPER,U,exec,"
           "SUPER,V,togglefloating"
-          "SUPER,W,exec,wlogout-script"
+          "SUPER,W,exec, pypr toggle whatsapp"
           "SUPER,X,exec,pypr attach"
           "SUPER,Y,exec,codium ~/nixos"
           "SUPER,Z, exec, pypr zoom "

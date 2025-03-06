@@ -32,6 +32,13 @@
       command = "spotify --class scratchpad.spotify"
       class = "scratchpad.spotify"
       size = "80% 60%"
+
+      [scratchpads.whatsapp]
+      animation = "fromBottom"
+      hide_delay = 0.5
+      command = "wasistlos --class scratchpad.whatsapp"
+      class = "scratchpad.whatsapp"
+      size = "80% 80%"      
     '';
   };
 }

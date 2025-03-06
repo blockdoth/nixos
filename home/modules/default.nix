@@ -120,6 +120,7 @@ in
         activate-linux.enable = mkDefault enableGui;
         discord.enable = mkDefault enablePrograms;
         spotify.enable = mkDefault enablePrograms;
+        whatsapp.enable = mkDefault enablePrograms;
         steam.enable = mkDefault enablePrograms;
         minecraft.enable = mkDefault enablePrograms;
         zenbrowser.enable = mkDefault enablePrograms;

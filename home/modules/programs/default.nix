@@ -7,6 +7,7 @@
     ./activate-linux.nix
     ./discord/discord.nix
     ./spotify.nix
+    ./whatsapp.nix
     ./steam.nix
     ./minecraft.nix
     ./zenbrowser.nix
