@@ -113,7 +113,7 @@ in
 
       programs = {
         filebrowser = {
-          dolphin.enable = mkDefault enablePrograms;
+          dolphin.enable = mkDefault false;
           yazi.enable = mkDefault true;
         };
         firefox.enable = mkDefault enablePrograms;
