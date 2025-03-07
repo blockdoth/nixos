@@ -36,8 +36,8 @@
       [scratchpads.whatsapp]
       animation = "fromBottom"
       hide_delay = 0.5
-      command = "wasistlos --class scratchpad.whatsapp"
-      class = "scratchpad.whatsapp"
+      command = "zapzap"
+      class = "com.rtosta.zapzap"
       size = "80% 80%"      
     '';
   };

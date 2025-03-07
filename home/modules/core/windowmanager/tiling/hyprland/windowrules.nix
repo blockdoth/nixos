@@ -8,7 +8,7 @@
         "blur, waybar"
       ];
 
-      "$scratchpad" = "class:^(scratchpad|spotify|wasistlos)";
+      "$scratchpad" = "class:^(scratchpad|spotify|com.rtosta.zapzap)";
       "$pip" = "title:^(Picture-in-Picture)";
       "$popup" = "class:^(org.pulseaudio.pavucontrol|.blueman-manager-wrapped|Matplotlib)";
 
@@ -21,7 +21,7 @@
         "opacity 0.80, class:^(vesktop)"
         "opacity 0.85, class:^(jetbrains)"
         "opacity 0.80, class:^(org.gnome.Nautilus)"
-        "opacity 0.9, class:^(wasistlos)"
+        "opacity 0.9, class:^(com.rtosta.zapzap)"
 
         # "noblur,class:^(ghostty)$"
         #pip

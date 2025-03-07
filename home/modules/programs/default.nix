@@ -6,6 +6,7 @@
     ./filebrowser/yazi.nix
     ./activate-linux.nix
     ./discord/discord.nix
+    ./llms.nix
     ./spotify.nix
     ./whatsapp.nix
     ./steam.nix

@@ -12,7 +12,7 @@
 
   config = lib.mkIf config.modules.programs.whatsapp.enable {
     home.packages = with pkgs; [
-      whatsapp-for-linux
+      zapzap
     ];
   };
 }
