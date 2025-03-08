@@ -86,6 +86,7 @@ in
           prompt.starship.enable = mkDefault true;
           shell = {
             fish.enable = mkDefault true;
+            zoxide.enable = mkDefault true;
             sync.atuin.enable = mkDefault true;
           };
         };
