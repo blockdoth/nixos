@@ -65,7 +65,6 @@ in
             };
             widgets = {
               pyprland.enable = mkDefault enableTilingWM;
-              ags.enable = mkDefault enableTilingWM;
             };
             idle.hypridle.enable = mkDefault enableTilingWM;
             mediadeamon.mpd.enable = mkDefault false; # TODO look at this again
@@ -102,7 +101,6 @@ in
 
       dev = {
         editors = {
-          neovim.enable = mkDefault enableDev;
           jetbrains.enable = mkDefault enableDev;
           vscode.enable = mkDefault enableDev;
           micro.enable = mkDefault true;
