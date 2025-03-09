@@ -30,6 +30,7 @@
       comma
       rclip
       systemctl-tui
+      nix-tree
     ];
   };
 }
