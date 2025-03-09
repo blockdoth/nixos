@@ -20,7 +20,7 @@
     core.windowmanager.tiling.wallpaper.hyprpaper.enable = false;
     programs = {
       activate-linux.enable = true;
-      zenbrowser.enable = true;
+      zenbrowser.enable = false;
       spotify.enable = true;
       llms.enable = false;
     };
