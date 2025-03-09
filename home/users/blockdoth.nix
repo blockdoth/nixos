@@ -18,9 +18,12 @@
     # overrides
     core.windowmanager.tiling.mediadeamon.mpd.enable = false;
     core.windowmanager.tiling.wallpaper.hyprpaper.enable = false;
-    programs.activate-linux.enable = true;
-    programs.zenbrowser.enable = true;
-    programs.spotify.enable = true;
+    programs = {
+      activate-linux.enable = true;
+      zenbrowser.enable = true;
+      spotify.enable = true;
+      llms.enable = false;
+    };
   };
 
   home.sessionVariables = {
