@@ -10,4 +10,12 @@
     ./x11.nix
     ./greeter.nix
   ];
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    #   xdg-desktop-portal-gtk
+    # extraPortals = with pkgs; [
+    # ];
+  };
 }

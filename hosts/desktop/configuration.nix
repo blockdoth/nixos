@@ -18,6 +18,7 @@
     users.blockdoth.enable = true;
     tailscale.enable = true;
     ssh.enable = true;
+    display.x11.enable = false;
     services = {
       syncthing.enable = true;
       atuin.enable = false;
