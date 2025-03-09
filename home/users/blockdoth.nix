@@ -14,7 +14,7 @@
     dev.enable = true;
     theming.enable = true;
     programs.enable = true;
-
+    dev.editors.jetbrains.enable = false;
     # overrides
     core.windowmanager.tiling.mediadeamon.mpd.enable = false;
     core.windowmanager.tiling.wallpaper.hyprpaper.enable = false;
