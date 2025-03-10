@@ -17,6 +17,7 @@
     lib.mkIf config.system-modules.services.anki-sync.enable {
       services.anki-sync-server = {
         enable = true;
+        address = "127.0.0.1";
         users = [
           {
             username = "blockdoth";
