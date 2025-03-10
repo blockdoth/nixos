@@ -123,6 +123,7 @@ in
         whatsapp.enable = mkDefault enablePrograms;
         steam.enable = mkDefault enablePrograms;
         zenbrowser.enable = mkDefault enablePrograms;
+        anki.enable = mkDefault enablePrograms;
       };
     };
 
