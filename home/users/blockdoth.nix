@@ -27,15 +27,4 @@
       llms.enable = false;
     };
   };
-
-  home.sessionVariables = {
-    XDG_SCREENSHOTS_DIR = "$HOME/pictures/screenshots";
-    XDG_DESKTOP_DIR = "$HOME/desktop";
-    XDG_DOCUMENTS_DIR = "$HOME/documents";
-    XDG_DOWNLOAD_DIR = "$HOME/downloads";
-    XDG_MUSIC_DIR = "$HOME/music";
-    XDG_PICTURES_DIR = "$HOME/pictures";
-    XDG_VIDEOS_DIR = "$HOME/videos";
-  };
-
 }

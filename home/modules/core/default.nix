@@ -31,6 +31,7 @@
 
     ./utils/git.nix
     ./utils/secrets.nix
+    ./utils/home-structure.nix
     ./utils/utils-cli.nix
     ./utils/utils-gui.nix
   ];

@@ -94,6 +94,7 @@ in
           git.enable = mkDefault true;
           cli.enable = mkDefault true;
           gui.enable = mkDefault enableGui;
+          home-structure.enable = mkDefault true;
           secrets.enable = mkDefault true;
         };
 
