@@ -30,13 +30,15 @@
     systemd.user.services.setup-home-dir = {
       Unit = {
         Description = "Sets up the home dir ";
-        After = [ "network.target" ];
+      };
+      Install = {
+        WantedBy = [ "default.target" ];
       };
       Service = {
         Type = "oneshot";
         RemainAfterExit = true;
         User = "${config.home.username}";
-        Group = "users";
+        Group = "${config.home.username}";
         ExecStart = pkgs.writeShellScript "setup-home-dir" ''
           mkdir -p "$HOME/desktop"
           mkdir -p "$HOME/documents"
