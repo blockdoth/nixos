@@ -26,7 +26,7 @@
 
     services = {
       syncthing.enable = true;
-      caddy.enable = false;
+      caddy.enable = true;
       nextcloud.enable = false;
       mediaserver.enable = false;
       anki-sync.enable = true;
