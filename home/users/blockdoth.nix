@@ -20,6 +20,7 @@
     core.windowmanager.tiling.mediadeamon.mpd.enable = false;
     core.windowmanager.tiling.wallpaper.hyprpaper.enable = false;
     programs = {
+      filebrowser.nautilus.enable = false;
       activate-linux.enable = true;
       zenbrowser.enable = false;
       spotify.enable = true;
