@@ -122,7 +122,6 @@ in
         llms.enable = mkDefault enablePrograms;
         whatsapp.enable = mkDefault enablePrograms;
         steam.enable = mkDefault enablePrograms;
-        minecraft.enable = mkDefault enablePrograms;
         zenbrowser.enable = mkDefault enablePrograms;
       };
     };
