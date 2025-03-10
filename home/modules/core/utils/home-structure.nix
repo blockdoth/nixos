@@ -31,12 +31,12 @@
       Unit = {
         Description = "Sets up the home dir ";
         After = [ "network.target" ];
-        WantedBy = [ "default.target" ];
       };
       Service = {
         Type = "oneshot";
         RemainAfterExit = true;
         User = "${config.home.username}";
+        Group = "users";
         ExecStart = pkgs.writeShellScript "setup-home-dir" ''
           mkdir -p "$HOME/desktop"
           mkdir -p "$HOME/documents"
