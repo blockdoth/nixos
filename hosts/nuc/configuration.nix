@@ -32,7 +32,7 @@
       nextcloud.enable = false;
       blocky.enable = false;
       mediaserver.enable = false;
-      anki-sync.enable = true;
+      anki-sync.enable = false;
     };
     tailscale = {
       enable = true;
