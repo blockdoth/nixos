@@ -31,6 +31,7 @@
       rclip
       systemctl-tui
       nix-tree
+      gdu
     ];
   };
 }
