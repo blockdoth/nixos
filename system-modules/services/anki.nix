@@ -20,7 +20,7 @@
         users = [
           {
             username = "blockdoth";
-            password = "temppassword";
+            password = "8!mlzW72;1#!72Tb~>2OoLv[mARwZkazL9l[%=x3t^N(XdM~Mz";
             # passwordFile = config.sops.secrets.anki-password.path;
           }
         ];
