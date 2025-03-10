@@ -9,6 +9,7 @@
     ./media
     ./domains.nix
     ./ddns/ddns.nix
+    ./anki.nix
     ./acme.nix
     ./caddy.nix
     ./immich.nix
