@@ -114,7 +114,7 @@ in
       programs = {
         filebrowser = {
           yazi.enable = mkDefault true;
-          nautilus.enable = mkDefault true;
+          nautilus.enable = mkDefault enablePrograms;
         };
         firefox.enable = mkDefault enablePrograms;
         activate-linux.enable = mkDefault enableGui;

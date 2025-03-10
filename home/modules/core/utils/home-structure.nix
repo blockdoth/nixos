@@ -18,7 +18,7 @@
         else if hostname == "desktop" then
           "$HOME/pictures/screenshots/desktop"
         else
-          "$HOME/pictures/screenshots/";
+          "$HOME/pictures/screenshots";
       XDG_DESKTOP_DIR = "$HOME/desktop";
       XDG_DOCUMENTS_DIR = "$HOME/documents";
       XDG_DOWNLOAD_DIR = "$HOME/downloads";
