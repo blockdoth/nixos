@@ -22,7 +22,7 @@
     power.enable = true;
     laptop.enable = true;
     tailscale.enable = true;
-    display.x11.enable = false;
+    # display.x11.enable = false;
 
     services = {
       syncthing.enable = true;
