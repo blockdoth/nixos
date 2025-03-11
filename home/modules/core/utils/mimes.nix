@@ -16,6 +16,7 @@ in
           "application/zip" = [ "org.gnome.FileRoller.desktop" ];
           "application/json" = [ "micro-terminal-json.desktop" ];
           "application/txt" = [ "micro-terminal.desktop" ];
+          "x-scheme-handler/discord" = [ "vesktop.desktop" ];
         };
       };
 
