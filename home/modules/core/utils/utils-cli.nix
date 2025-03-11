@@ -32,6 +32,8 @@ in
       systemctl-tui
       nix-tree
       gdu
+      nix-search
+      file
     ];
   };
 }

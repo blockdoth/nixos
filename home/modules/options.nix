@@ -86,6 +86,7 @@ in
           cli.enable = mkEnableOption "various cli utilities";
           gui.enable = mkEnableOption "various gui utilities";
           home-structure.enable = mkEnableOption "default home structure";
+          mimes.enable = mkEnableOption "mime types";
           secrets.enable = mkEnableOption "secrets";
         };
       };
@@ -170,6 +171,7 @@ in
           cli.enable = mkDefault true;
           secrets.enable = mkDefault true;
           home-structure.enable = mkDefault true;
+          mimes.enable = mkDefault true;
           gui.enable = mkDefault enableGui;
         };
       };
