@@ -26,6 +26,8 @@ in
     ./common
     ./display
     ./services
+    ./users/blockdoth.nix
+    ./users/penger.nix
   ];
 
   options = {
