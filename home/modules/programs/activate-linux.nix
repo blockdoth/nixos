@@ -5,12 +5,11 @@
   inputs,
   ...
 }:
+let
+  module = config.modules.programs.activate-linux;
+in
 {
-  options = {
-    modules.programs.activate-linux.enable = lib.mkEnableOption "Enables activate-linux";
-  };
-
-  config = lib.mkIf config.modules.programs.activate-linux.enable {
+  config = lib.mkIf module.enable {
     home.packages = [ inputs.activate-linux.packages.${pkgs.system}.activate-linux ];
 
     # systemd.user.services.activate-linux = {

@@ -6,14 +6,10 @@
 }:
 let
   colors = config.lib.stylix.colors;
+  module = config.modules.core.windowmanager.tiling.launcher.rofi;
 in
 {
-  options = {
-    modules.core.windowmanager.tiling.launcher.rofi.enable = lib.mkEnableOption "Enables rofi";
-  };
-
-  config = lib.mkIf config.modules.core.windowmanager.tiling.launcher.rofi.enable {
-
+  config = lib.mkIf module.enable {
     programs.rofi = {
       enable = true;
       package = pkgs.rofi-wayland;

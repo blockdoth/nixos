@@ -7,5 +7,5 @@
     stateVersion = "24.05";
   };
 
-  imports = [ ../modules ];
+  imports = [ ../modules/options.nix ];
 }

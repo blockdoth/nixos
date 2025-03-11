@@ -4,23 +4,18 @@
   lib,
   ...
 }:
+let
+  module = config.modules.core.windowmanager.tiling.wallpaper.hyprpaper;
+  wallpaperBasePath = "../../../../../../assets/wallpapers";
+in
 {
-  options = {
-    modules.core.windowmanager.tiling.wallpaper.hyprpaper.enable =
-      lib.mkEnableOption "Enables hyprpaper";
-  };
-
-  config =
-    let
-      wallpaperBasePath = "../../../../../../assets/wallpapers";
-    in
-    lib.mkIf config.modules.core.windowmanager.tiling.wallpaper.hyprpaper.enable {
-      services.hyprpaper = {
-        enable = true;
-        settings = {
-          preload = [ "${wallpaperBasePath}/castle.png" ];
-          wallpaper = [ ",${wallpaperBasePath}/castle.png" ];
-        };
+  config = lib.mkIf module.enable {
+    services.hyprpaper = {
+      enable = true;
+      settings = {
+        preload = [ "${wallpaperBasePath}/castle.png" ];
+        wallpaper = [ ",${wallpaperBasePath}/castle.png" ];
       };
     };
+  };
 }

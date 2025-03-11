@@ -4,12 +4,11 @@
   lib,
   ...
 }:
+let
+  module = config.modules.dev.editors.vscode;
+in
 {
-  options = {
-    modules.dev.editors.vscode.enable = lib.mkEnableOption "Enables vscode";
-  };
-
-  config = lib.mkIf config.modules.dev.editors.vscode.enable {
+  config = lib.mkIf module.enable {
     home.packages = with pkgs; [ vscodium ];
 
     programs.vscode = {

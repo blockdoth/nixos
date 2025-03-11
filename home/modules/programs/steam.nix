@@ -5,12 +5,11 @@
   inputs,
   ...
 }:
+let
+  module = config.modules.programs.steam;
+in
 {
-  options = {
-    modules.programs.steam.enable = lib.mkEnableOption "Enables steam";
-  };
-
-  config = lib.mkIf config.modules.programs.steam.enable {
+  config = lib.mkIf module.enable {
     home.packages = with pkgs; [
       # steam
     ];

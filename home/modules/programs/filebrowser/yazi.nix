@@ -4,13 +4,11 @@
   lib,
   ...
 }:
+let
+  module = config.modules.programs.filebrowser.yazi;
+in
 {
-  options = {
-    modules.programs.filebrowser.yazi.enable = lib.mkEnableOption "Enables yazi";
-  };
-
-  config = lib.mkIf config.modules.programs.filebrowser.yazi.enable {
-
+  config = lib.mkIf module.enable {
     programs.yazi = {
       enable = true;
       settings.yazi = ''

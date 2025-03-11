@@ -5,12 +5,11 @@
   inputs,
   ...
 }:
+let
+  module = config.modules.programs.anki;
+in
 {
-  options = {
-    modules.programs.anki.enable = lib.mkEnableOption "Enables anki";
-  };
-
-  config = lib.mkIf config.modules.programs.anki.enable {
+  config = lib.mkIf module.enable {
     home.packages = with pkgs; [
       anki
     ];

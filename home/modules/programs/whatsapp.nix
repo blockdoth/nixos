@@ -5,12 +5,11 @@
   inputs,
   ...
 }:
+let
+  module = config.modules.programs.whatsapp;
+in
 {
-  options = {
-    modules.programs.whatsapp.enable = lib.mkEnableOption "Enables whatsapp";
-  };
-
-  config = lib.mkIf config.modules.programs.whatsapp.enable {
+  config = lib.mkIf module.enable {
     home.packages = with pkgs; [
       zapzap
     ];

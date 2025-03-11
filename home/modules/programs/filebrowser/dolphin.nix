@@ -4,12 +4,11 @@
   lib,
   ...
 }:
+let
+  module = config.modules.programs.filebrowser.dolphin;
+in
 {
-  options = {
-    modules.programs.filebrowser.dolphin.enable = lib.mkEnableOption "Enables dolphin";
-  };
-
-  config = lib.mkIf config.modules.programs.filebrowser.dolphin.enable {
+  config = lib.mkIf module.enable {
     home.packages = with pkgs; [ dolphin ];
   };
 }

@@ -4,13 +4,11 @@
   lib,
   ...
 }:
+let
+  module = config.modules.core.terminal.alacritty;
+in
 {
-  options = {
-    modules.core.terminal.alacritty.enable = lib.mkEnableOption "Enables alacritty";
-  };
-
-  config = lib.mkIf config.modules.core.terminal.alacritty.enable {
-    home.packages = with pkgs; [ alacritty ];
+  config = lib.mkIf module.enable {
     home.sessionVariables = {
       TERMINAL = "alacritty";
     };

@@ -1,6 +1,15 @@
-{ config, lib, ... }:
 {
-  config = lib.mkIf config.modules.core.windowmanager.tiling.hyprland.enable {
+  pkgs,
+  config,
+  lib,
+  inputs,
+  ...
+}:
+let
+  module = config.modules.core.windowmanager.tiling.hyprland;
+in
+{
+  config = lib.mkIf module.enable {
     home.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = 1;
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";

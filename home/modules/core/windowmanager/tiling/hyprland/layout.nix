@@ -1,6 +1,15 @@
-{ config, lib, ... }:
 {
-  config = lib.mkIf config.modules.core.windowmanager.tiling.hyprland.enable {
+  pkgs,
+  config,
+  lib,
+  inputs,
+  ...
+}:
+let
+  module = config.modules.core.windowmanager.tiling.hyprland;
+in
+{
+  config = lib.mkIf module.enable {
     wayland.windowManager.hyprland.settings = {
       monitor = [
         "DP-2,2560x1440@143.972Hz,0x0,1"

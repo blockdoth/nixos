@@ -5,13 +5,11 @@
   inputs,
   ...
 }:
+let
+  module = config.modules.dev.editors.neovim;
+in
 {
-
-  options = {
-    modules.dev.editors.neovim.enable = lib.mkEnableOption "Enables neovim";
-  };
-
-  config = lib.mkIf config.modules.dev.editors.neovim.enable {
+  config = lib.mkIf module.enable {
     nixpkgs.overlays = [ inputs.nixneovimplugins.overlays.default ];
     programs.neovim = {
       enable = true;

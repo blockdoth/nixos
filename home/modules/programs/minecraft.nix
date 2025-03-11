@@ -5,12 +5,11 @@
   inputs,
   ...
 }:
+let
+  module = config.modules.programs.minecraft;
+in
 {
-  options = {
-    modules.programs.minecraft.enable = lib.mkEnableOption "Enables minecraft";
-  };
-
-  config = lib.mkIf config.modules.programs.minecraft.enable {
+  config = lib.mkIf module.enable {
     home.packages = with pkgs; [
       (prismlauncher.override {
         # withWaylandGLFW = true;

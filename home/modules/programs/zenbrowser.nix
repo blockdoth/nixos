@@ -5,13 +5,11 @@
   inputs,
   ...
 }:
+let
+  module = config.modules.programs.zenbrowser;
+in
 {
-  options = {
-    modules.programs.zenbrowser.enable = lib.mkEnableOption "Enables zen browser";
-  };
-
-  config = lib.mkIf config.modules.programs.zenbrowser.enable {
+  config = lib.mkIf module.enable {
     home.packages = with pkgs; [ inputs.zen-browser.packages."${system}".default ];
-
   };
 }

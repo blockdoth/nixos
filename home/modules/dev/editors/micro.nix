@@ -4,12 +4,12 @@
   lib,
   ...
 }:
+let
+  module = config.modules.dev.editors.micro;
+in
 {
-  options = {
-    modules.dev.editors.micro.enable = lib.mkEnableOption "Enables micro";
-  };
 
-  config = lib.mkIf config.modules.dev.editors.micro.enable {
+  config = lib.mkIf module.enable {
     home.packages = with pkgs; [ micro ];
 
     programs.micro = {

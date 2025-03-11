@@ -5,12 +5,11 @@
   inputs,
   ...
 }:
+let
+  module = config.modules.programs.llms;
+in
 {
-  options = {
-    modules.programs.llms.enable = lib.mkEnableOption "Enables llms";
-  };
-
-  config = lib.mkIf config.modules.programs.llms.enable {
+  config = lib.mkIf module.enable {
     home.packages = with pkgs; [
       jan
     ];

@@ -4,12 +4,11 @@
   lib,
   ...
 }:
+let
+  module = config.modules.core.utils.git;
+in
 {
-  options = {
-    modules.core.utils.git.enable = lib.mkEnableOption "Enables git";
-  };
-
-  config = lib.mkIf config.modules.core.utils.git.enable {
+  config = lib.mkIf module.enable {
     home.packages = with pkgs; [
       lazygit
       gitAndTools.git-lfs

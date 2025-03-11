@@ -5,12 +5,11 @@
   hostname,
   ...
 }:
+let
+  module = config.modules.core.terminal.shell.zoxide;
+in
 {
-  options = {
-    modules.core.terminal.shell.zoxide.enable = lib.mkEnableOption "Enables zoxide";
-  };
-
-  config = lib.mkIf config.modules.core.terminal.shell.zoxide.enable {
+  config = lib.mkIf module.enable {
     programs.zoxide = {
       enable = true;
       enableFishIntegration = true;

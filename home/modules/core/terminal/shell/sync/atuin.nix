@@ -5,12 +5,11 @@
   hostname,
   ...
 }:
+let
+  module = config.modules.core.terminal.shell.sync.atuin;
+in
 {
-  options = {
-    modules.core.terminal.shell.sync.atuin.enable = lib.mkEnableOption "Enables atuin";
-  };
-
-  config = lib.mkIf config.modules.core.terminal.shell.sync.atuin.enable {
+  config = lib.mkIf module.enable {
     programs.atuin = {
       enable = true;
       enableFishIntegration = true;

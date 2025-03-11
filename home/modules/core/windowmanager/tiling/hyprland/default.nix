@@ -5,6 +5,9 @@
   inputs,
   ...
 }:
+let
+  module = config.modules.core.windowmanager.tiling.hyprland;
+in
 {
   imports = [
     ./animations.nix
@@ -18,11 +21,7 @@
     inputs.hyprland.homeManagerModules.default
   ];
 
-  options = {
-    modules.core.windowmanager.tiling.hyprland.enable = lib.mkEnableOption "Enables hyprland";
-  };
-
-  config = lib.mkIf config.modules.core.windowmanager.tiling.hyprland.enable {
+  config = lib.mkIf module.enable {
 
     home.packages = with pkgs; [
       grimblast

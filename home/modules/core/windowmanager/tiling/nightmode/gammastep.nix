@@ -4,13 +4,11 @@
   lib,
   ...
 }:
+let
+  module = config.modules.core.windowmanager.tiling.nightmode.gammastep;
+in
 {
-  options = {
-    modules.core.windowmanager.tiling.nightmode.gammastep.enable =
-      lib.mkEnableOption "Enables gammastep";
-  };
-
-  config = lib.mkIf config.modules.core.windowmanager.tiling.nightmode.gammastep.enable {
+  config = lib.mkIf module.enable {
     services.gammastep = {
       enable = true;
       provider = "manual";

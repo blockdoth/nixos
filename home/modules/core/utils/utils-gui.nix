@@ -4,13 +4,11 @@
   lib,
   ...
 }:
+let
+  module = config.modules.core.utils.gui;
+in
 {
-  imports = [ ./git.nix ];
-
-  options = {
-    modules.core.utils.gui.enable = lib.mkEnableOption "Enables gui utils";
-  };
-  config = lib.mkIf config.modules.core.utils.gui.enable {
+  config = lib.mkIf module.enable {
     home.packages = with pkgs; [
       qimgv
       vlc

@@ -4,12 +4,11 @@
   lib,
   ...
 }:
+let
+  module = config.modules.core.windowmanager.tiling.widgets.pyprland;
+in
 {
-  options = {
-    modules.core.windowmanager.tiling.widgets.pyprland.enable = lib.mkEnableOption "Enables pyprland";
-  };
-
-  config = lib.mkIf config.modules.core.windowmanager.tiling.widgets.pyprland.enable {
+  config = lib.mkIf module.enable {
     home.packages = with pkgs; [ pyprland ];
 
     home.file."/home/blockdoth/.config/hypr/pyprland.toml".text = ''

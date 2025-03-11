@@ -5,17 +5,14 @@
   inputs,
   ...
 }:
+let
+  module = config.modules.core.windowmanager.tiling.widgets.ags;
+in
 {
   imports = [ inputs.ags.homeManagerModules.default ];
-
-  options = {
-    modules.core.windowmanager.tiling.widgets.ags.enable = lib.mkEnableOption "Enables ags";
-  };
-
-  config = lib.mkIf config.modules.core.windowmanager.tiling.widgets.ags.enable {
+  config = lib.mkIf module.enable {
     programs.ags = {
       enable = true;
-
     };
   };
 }

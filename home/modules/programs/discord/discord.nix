@@ -4,12 +4,11 @@
   lib,
   ...
 }:
+let
+  module = config.modules.programs.discord;
+in
 {
-  options = {
-    modules.programs.discord.enable = lib.mkEnableOption "Enables discord";
-  };
-
-  config = lib.mkIf config.modules.programs.discord.enable {
+  config = lib.mkIf module.enable {
     home.packages = with pkgs; [ vesktop ];
 
     # Vesktop settings

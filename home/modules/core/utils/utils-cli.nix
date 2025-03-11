@@ -4,13 +4,13 @@
   lib,
   ...
 }:
+let
+  module = config.modules.core.utils.cli;
+in
 {
   imports = [ ./git.nix ];
 
-  options = {
-    modules.core.utils.cli.enable = lib.mkEnableOption "Enables cli utils";
-  };
-  config = lib.mkIf config.modules.core.utils.cli.enable {
+  config = lib.mkIf module.enable {
     home.packages = with pkgs; [
       jq
       fd

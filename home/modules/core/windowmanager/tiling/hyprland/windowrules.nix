@@ -1,19 +1,22 @@
-{ config, lib, ... }:
 {
-  config = lib.mkIf config.modules.core.windowmanager.tiling.hyprland.enable {
+  pkgs,
+  config,
+  lib,
+  inputs,
+  ...
+}:
+let
+  module = config.modules.core.windowmanager.tiling.hyprland;
+in
+{
+  config = lib.mkIf module.enable {
     wayland.windowManager.hyprland.settings = {
-
-      layerrule = [
-        "blur, logout_dialog"
-        "blur, waybar"
-      ];
-
       "$scratchpad" = "class:^(scratchpad|spotify|Spotify|com.rtosta.zapzap)";
       "$pip" = "title:^(Picture-in-Picture)";
       "$popup" = "class:^(org.pulseaudio.pavucontrol|.blueman-manager-wrapped|Matplotlib)";
 
       windowrulev2 = [
-        #transpancy
+        #transparency
         "opacity 0.85, class:^(firefox)"
         "opacity 1.00, title:^(.*YouTube.*)"
         "opacity 0.75, class:^(spotify|Spotify)"
@@ -49,6 +52,11 @@
         "noblur,        class:^()$,title:^()$"
         # make discord not steal focus
         "noinitialfocus, class:(vesktop)"
+      ];
+
+      layerrule = [
+        "blur, logout_dialog"
+        "blur, waybar"
       ];
     };
   };

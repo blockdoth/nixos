@@ -7,18 +7,19 @@
     stateVersion = "24.05";
   };
 
-  imports = [ ../modules ];
+  imports = [ ../modules/options.nix ];
 
   modules = {
-    hyprland.enable = true;
-    dev.enable = true;
-    theming.enable = true;
-    programs.enable = true;
+    presets = {
+      hyprland.enable = true;
+      dev.enable = true;
+      theming.enable = true;
+      programs.enable = true;
+    };
+
+    # overrides
     programs.minecraft.enable = false;
     dev.editors.jetbrains.enable = false;
-    # overrides
-    core.windowmanager.tiling.mediadeamon.mpd.enable = false;
-    core.windowmanager.tiling.wallpaper.hyprpaper.enable = false;
     programs = {
       filebrowser.nautilus.enable = false;
       activate-linux.enable = true;

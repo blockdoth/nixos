@@ -5,12 +5,11 @@
   hostname,
   ...
 }:
+let
+  module = config.modules.core.terminal.shell.fish;
+in
 {
-  options = {
-    modules.core.terminal.shell.fish.enable = lib.mkEnableOption "Enables fish";
-  };
-
-  config = lib.mkIf config.modules.core.terminal.shell.fish.enable {
+  config = lib.mkIf module.enable {
     programs.fish = {
       enable = true;
       interactiveShellInit = ''

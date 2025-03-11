@@ -5,12 +5,11 @@
   hostname,
   ...
 }:
+let
+  module = config.modules.core.utils.home-structure;
+in
 {
-  options = {
-    modules.core.utils.home-structure.enable = lib.mkEnableOption "Enables home-structure";
-  };
-
-  config = lib.mkIf config.modules.core.utils.home-structure.enable {
+  config = lib.mkIf module.enable {
     home.sessionVariables = {
       XDG_SCREENSHOTS_DIR =
         if hostname == "laptop" then

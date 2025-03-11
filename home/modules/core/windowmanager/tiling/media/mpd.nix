@@ -4,17 +4,15 @@
   lib,
   ...
 }:
+let
+  module = config.modules.core.windowmanager.tiling.mediadeamon.mpd;
+in
 {
-  options = {
-    modules.core.windowmanager.tiling.mediadeamon.mpd.enable = lib.mkEnableOption "Enables mpd";
-  };
-
-  config = lib.mkIf config.modules.core.windowmanager.tiling.mediadeamon.mpd.enable {
+  config = lib.mkIf module.enable {
     home.packages = with pkgs; [ mpc-cli ];
-
     services.mpd = {
       enable = true;
-      musicDirectory = "/home/blockdoth/Music";
+      # musicDirectory = "/home/blockdoth/Music";
       # user = "blockdoth";
       network.startWhenNeeded = false;
       extraConfig = ''

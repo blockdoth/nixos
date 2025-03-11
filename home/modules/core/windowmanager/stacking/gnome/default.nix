@@ -5,12 +5,10 @@
   inputs,
   ...
 }:
+let
+  module = config.modules.core.desktop.windowmanager.stacking.gnome;
+in
 {
-  options = {
-    modules.core.windowmanager.stacking.gnome.enable = lib.mkEnableOption "Enables gnome";
-  };
-
-  config = lib.mkIf config.modules.core.desktop.windowmanager.stacking.gnome.enable {
-
+  config = lib.mkIf module.enable {
   };
 }

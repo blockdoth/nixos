@@ -4,13 +4,11 @@
   lib,
   ...
 }:
+let
+  module = config.modules.core.windowmanager.tiling.lockscreen.hyprlock;
+in
 {
-  options = {
-    modules.core.windowmanager.tiling.lockscreen.hyprlock.enable =
-      lib.mkEnableOption "Enables hyprlock";
-  };
-
-  config = lib.mkIf config.modules.core.windowmanager.tiling.lockscreen.hyprlock.enable {
+  config = lib.mkIf module.enable {
     programs.hyprlock = {
       enable = true;
 

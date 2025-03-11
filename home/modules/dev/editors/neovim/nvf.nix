@@ -5,16 +5,15 @@
   inputs,
   ...
 }:
+let
+  module = config.modules.dev.editors.nvf;
+in
 {
   imports = [
     inputs.nvf.homeManagerModules.default
   ];
 
-  options = {
-    modules.dev.editors.nvf.enable = lib.mkEnableOption "Enables neovim";
-  };
-
-  config = lib.mkIf config.modules.dev.editors.nvf.enable {
+  config = lib.mkIf module.enable {
     programs.nvf = {
       enable = true;
       settings.vim = {

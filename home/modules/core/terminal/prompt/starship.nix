@@ -4,12 +4,11 @@
   lib,
   ...
 }:
+let
+  module = config.modules.core.terminal.prompt.starship;
+in
 {
-  options = {
-    modules.core.terminal.prompt.starship.enable = lib.mkEnableOption "starship";
-  };
-
-  config = lib.mkIf config.modules.core.terminal.prompt.starship.enable {
+  config = lib.mkIf module.enable {
     programs.starship = {
       enable = true;
       enableTransience = false;

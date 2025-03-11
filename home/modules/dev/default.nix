@@ -13,5 +13,4 @@
     ./editors/neovim/neovim.nix
     ./editors/neovim/nvf.nix
   ];
-
 }

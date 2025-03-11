@@ -4,12 +4,15 @@
   lib,
   ...
 }:
+let
+  module = config.modules.dev.editors.jetbrains;
+  vmOptions = ''
+    -Xmx8192m
+    -Dawt.toolkit.name=WLToolkit
+  '';
+in
 {
-  options = {
-    modules.dev.editors.jetbrains.enable = lib.mkEnableOption "Enables jetbrains idea's";
-  };
-
-  config = lib.mkIf config.modules.dev.editors.jetbrains.enable {
+  config = lib.mkIf module.enable {
     home.packages = with pkgs; [
       jetbrains.clion
       jetbrains.webstorm
@@ -18,18 +21,11 @@
       jetbrains.rust-rover
     ];
 
-    home.file =
-      let
-        file = ''
-          -Xmx8192m
-          -Dawt.toolkit.name=WLToolkit
-        '';
-      in
-      {
-        ".config/JetBrains/IntelliJIdea2024.1/idea64.vmoptions".text = file;
-        ".config/JetBrains/PyCharm2024.1/pycharm64.vmoptions".text = file;
-        ".config/JetBrains/CLion2024.1/clion64.vmoptions".text = file;
-      };
+    home.file = {
+      ".config/JetBrains/IntelliJIdea2024.1/idea64.vmoptions".text = vmOptions;
+      ".config/JetBrains/PyCharm2024.1/pycharm64.vmoptions".text = vmOptions;
+      ".config/JetBrains/CLion2024.1/clion64.vmoptions".text = vmOptions;
+    };
 
   };
 }

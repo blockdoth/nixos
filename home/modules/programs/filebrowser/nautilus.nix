@@ -4,12 +4,12 @@
   lib,
   ...
 }:
+let
+  module = config.modules.programs.filebrowser.nautilus;
+in
 {
-  options = {
-    modules.programs.filebrowser.nautilus.enable = lib.mkEnableOption "Enables nautilus";
-  };
-
-  config = lib.mkIf config.modules.programs.filebrowser.nautilus.enable {
+  config = lib.mkIf module.enable {
+    #TODO figure out why icons get weird
     home.packages = with pkgs; [
       nautilus
     ];
