@@ -140,7 +140,7 @@ in
               swww.enable = mkDefault enableTilingWM;
             };
             widgets = {
-              ags.enable = mkDefault enableTilingWM;
+              ags.enable = mkDefault false;
               pyprland.enable = mkDefault enableHyprland;
             };
             idle.hypridle.enable = mkDefault enableTilingWM;
