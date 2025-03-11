@@ -41,7 +41,7 @@
       };
       sync = {
         atuin.enable = true;
-        anki-sync.enable = false;
+        anki.enable = false;
       };
     };
   };

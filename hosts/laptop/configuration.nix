@@ -20,6 +20,7 @@
     };
     common = {
       syncthing.enable = true;
+      trackpad.enable = true;
     };
   };
 
