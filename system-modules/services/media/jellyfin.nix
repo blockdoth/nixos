@@ -6,18 +6,15 @@
   ...
 }:
 let
-  domain = config.system-modules.services.domains.homelab;
+  domain = config.system-modules.services.network.domains.homelab;
   cfg = config.system-modules.services.mediaserver;
   mediaDir = cfg.dataDir;
   mediaGroup = cfg.group;
   streamUser = cfg.users.streamer;
+  module = config.system-modules.services.media.jellyfin;
 in
 {
-  options = {
-    system-modules.services.jellyfin.enable = lib.mkEnableOption "Enables jellyfin";
-  };
-
-  config = lib.mkIf config.system-modules.services.jellyfin.enable {
+  config = lib.mkIf module.enable {
     # Uses port 8096
     services.jellyfin = {
       enable = true;

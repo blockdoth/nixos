@@ -4,13 +4,13 @@
   inputs,
   ...
 }:
+let
+  module = config.system-modules.display.wayland;
+in
 {
-  options = {
-    system-modules.display.hyprland.enable = lib.mkEnableOption "Enables Hyprland";
-  };
   imports = [ inputs.hyprland.nixosModules.default ];
 
-  config = lib.mkIf config.system-modules.display.hyprland.enable {
+  config = lib.mkIf module.enable {
     programs.hyprland = {
       enable = true;
       xwayland.enable = true;

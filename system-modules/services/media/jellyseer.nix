@@ -6,18 +6,15 @@
   ...
 }:
 let
-  domain = config.system-modules.services.domains.homelab;
+  domain = config.system-modules.services.network.domains.homelab;
   cfg = config.system-modules.services.mediaserver;
   mediaDir = cfg.mediaDir;
   mediaGroup = cfg.mediaGroup;
   streamUser = cfg.users.streamer;
+  module = config.system-modules.services.media.jellyseer;
 in
 {
-  options = {
-    system-modules.services.jellyseer.enable = lib.mkEnableOption "Enables jellyseer";
-  };
-
-  config = lib.mkIf config.system-modules.services.jellyseer.enable {
+  config = lib.mkIf module.enable {
     services.jellyseer = {
       enable = true;
       port = 5055;

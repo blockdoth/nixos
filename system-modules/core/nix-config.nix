@@ -5,13 +5,12 @@
   inputs,
   ...
 }:
+let
+  module = config.system-modules.core.nix-config;
+in
 {
   imports = [ inputs.flake-programs-sqlite.nixosModules.programs-sqlite ];
-  options = {
-    system-modules.common.nix-config.enable = lib.mkEnableOption "Enables default nix config settings";
-  };
-
-  config = lib.mkIf config.system-modules.common.nix-config.enable {
+  config = lib.mkIf module.enable {
     environment.systemPackages = [
       pkgs.nixfmt-rfc-style
       pkgs.cachix

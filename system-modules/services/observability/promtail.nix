@@ -5,12 +5,11 @@
   inputs,
   ...
 }:
+let
+  module = config.system-modules.services.observability.promtail;
+in
 {
-  options = {
-    system-modules.services.promtail.enable = lib.mkEnableOption "Enables promtail";
-  };
-
-  config = lib.mkIf config.system-modules.services.promtail.enable {
+  config = lib.mkIf module.enable {
     services.promtail = {
       enable = true;
       configFile = ./promtail.yaml;

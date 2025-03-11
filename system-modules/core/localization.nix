@@ -1,10 +1,9 @@
 { config, lib, ... }:
+let
+  module = config.system-modules.core.localization;
+in
 {
-  options = {
-    system-modules.common.localisation.enable = lib.mkEnableOption "Enables locale settings";
-  };
-
-  config = lib.mkIf config.system-modules.common.localisation.enable {
+  config = lib.mkIf module.enable {
     time.timeZone = "Europe/Amsterdam";
     i18n = {
       defaultLocale = "en_US.UTF-8";

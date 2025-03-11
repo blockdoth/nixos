@@ -5,13 +5,13 @@
   inputs,
   ...
 }:
+let
+  module = config.system-modules.common.syncthing;
+  domain = config.system-modules.services.domains.homelab;
+in
 {
-  options = {
-    system-modules.services.syncthing.enable = lib.mkEnableOption "Enables syncthing";
-  };
-
   # TODO move to core
-  config = lib.mkIf config.system-modules.services.syncthing.enable {
+  config = lib.mkIf module.enable {
     environment.systemPackages = with pkgs; [
       syncthing
     ];

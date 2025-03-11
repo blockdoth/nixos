@@ -6,18 +6,15 @@
   ...
 }:
 let
-  domain = config.system-modules.services.domains.homelab;
+  domain = config.system-modules.services.network.domains.homelab;
   cfg = config.system-modules.services.mediaserver;
   mediaDir = cfg.dataDir;
   mediaGroup = cfg.group;
   torrentUser = cfg.users.torrenter;
+  module = config.system-modules.services.media.sonarr;
 in
 {
-  options = {
-    system-modules.services.sonarr.enable = lib.mkEnableOption "Enables sonarr";
-  };
-
-  config = lib.mkIf config.system-modules.services.sonarr.enable {
+  config = lib.mkIf module.enable {
     # Uses port 8989
     services.sonarr = {
       enable = true;

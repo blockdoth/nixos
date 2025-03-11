@@ -6,20 +6,17 @@
   ...
 }:
 let
-  domain = config.system-modules.services.domains.homelab;
-  cfg = config.system-modules.services.mediaserver;
+  domain = config.system-modules.services.network.domains.homelab;
+  cfg = config.system-modules.services.media.mediaserver;
   mediaDir = cfg.dataDir;
   mediaGroup = cfg.group;
   enableMediaServer = cfg.enable;
   torrentUser = cfg.users.torrenter;
   streamUser = cfg.users.streamer;
+  module = config.system-modules.services.media.transmission;
 in
 {
-  options = {
-    system-modules.services.transmission.enable = lib.mkEnableOption "Enables transmission";
-  };
-
-  config = lib.mkIf config.system-modules.services.transmission.enable {
+  config = lib.mkIf module.enable {
 
     systemd.tmpfiles.rules = [
       "d ${mediaDir}/torrents 0775 ${torrentUser} ${mediaGroup} -"

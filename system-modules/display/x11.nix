@@ -4,12 +4,11 @@
   pkgs,
   ...
 }:
+let
+  module = config.system-modules.display.x11;
+in
 {
-  options = {
-    system-modules.display.x11.enable = lib.mkEnableOption "Enables X11";
-  };
-
-  config = lib.mkIf config.system-modules.display.x11.enable {
+  config = lib.mkIf module.enable {
     services.xserver = {
       enable = true;
       displayManager.gdm.enable = true;

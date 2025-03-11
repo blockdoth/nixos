@@ -6,18 +6,15 @@
   ...
 }:
 let
-  domain = config.system-modules.services.domains.homelab;
+  domain = config.system-modules.services.network.domains.homelab;
   cfg = config.system-modules.services.mediaserver;
   mediaDir = cfg.dataDir;
   mediaGroup = cfg.group;
   torrentUser = cfg.users.torrenter;
+  module = config.system-modules.services.media.radarr;
 in
 {
-  options = {
-    system-modules.services.radarr.enable = lib.mkEnableOption "Enables radarr";
-  };
-
-  config = lib.mkIf config.system-modules.services.radarr.enable {
+  config = lib.mkIf module.enable {
     # Uses port 7878
     services.radarr = {
       enable = true;

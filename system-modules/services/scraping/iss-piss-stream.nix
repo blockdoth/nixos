@@ -5,12 +5,12 @@
   inputs,
   ...
 }:
+let
+  module = config.system-modules.services.scraping.iss-piss-stream;
+  domain = config.system-modules.services.network.domains.homelab;
+in
 {
-  options = {
-    system-modules.services.iss-piss-stream.enable = lib.mkEnableOption "Enables iss-piss-stream";
-  };
-
-  config = lib.mkIf config.system-modules.services.iss-piss-stream.enable {
+  config = lib.mkIf module.enable {
     environment.systemPackages = with pkgs; [
       inputs.iss-piss-stream.packages.${pkgs.system}.default
     ];

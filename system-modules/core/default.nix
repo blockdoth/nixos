@@ -6,10 +6,13 @@
 }:
 {
   imports = [
+    ./env.nix
     ./grub.nix
-    ./localisation.nix
+    ./localization.nix
     ./networking.nix
     ./nix-config.nix
     ./secrets.nix
+    ./ssh.nix
+    ./tailscale.nix
   ];
 }

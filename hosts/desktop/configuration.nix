@@ -7,33 +7,19 @@
 }:
 {
   imports = [
+    ../../system-modules/options.nix
     ./hardware.nix
-    ../../system-modules
   ];
 
   system-modules = {
-    gui.enable = true;
-    audio.enable = true;
-    gaming.enable = true;
     users.blockdoth.enable = true;
-    tailscale.enable = true;
-    ssh.enable = true;
-
-    # display.x11.enable = false;
-    services = {
+    core.networking.hostname = "desktop";
+    presets = {
+      gui.enable = true;
+      gaming.enable = true;
+    };
+    common = {
       syncthing.enable = true;
-      atuin.enable = false;
-      headscale.enable = false;
-      immich.enable = false;
-      grafana.enable = false;
-      prometheus.enable = false;
-      promtail.enable = false;
-      loki.enable = false;
-      acme.enable = false;
-      ddns.enable = false;
-      iss-piss-stream.enable = false;
-      linkwarden.enable = false;
-      mediaserver.enable = false;
     };
   };
 

@@ -4,46 +4,41 @@
   inputs,
   ...
 }:
+let
+  module = config.system-modules.services.observability.prometheus;
+in
 {
-  options = {
-    system-modules.services.prometheus.enable = lib.mkEnableOption "Enables prometheus";
-  };
-
-  config =
-    let
-      domain = config.system-modules.services.domains.iss-piss-stream;
-    in
-    lib.mkIf config.system-modules.services.prometheus.enable {
-      services.prometheus = {
-        enable = true;
-        port = 3020;
-        # checkConfig = "syntax-only"; # Because some file paths might not be valid yet at build time
-        exporters = {
-          node = {
-            port = 3021;
-            enabledCollectors = [ "systemd" ];
-            enable = true;
-          };
+  config = lib.mkIf module.enable {
+    services.prometheus = {
+      enable = true;
+      port = 3020;
+      # checkConfig = "syntax-only"; # Because some file paths might not be valid yet at build time
+      exporters = {
+        node = {
+          port = 3021;
+          enabledCollectors = [ "systemd" ];
+          enable = true;
         };
-        scrapeConfigs = [
-          {
-            job_name = "nodes";
-            static_configs = [
-              {
-                targets = [
-                  "127.0.0.1:${toString config.services.prometheus.exporters.node.port}"
-                ];
-              }
-            ];
-          }
-        ];
       };
-
-      # shouldnt be exposed
-      # services.caddy = {
-      #   virtualHosts."prometheus.${domain}".extraConfig = ''
-      #     reverse_proxy 127.0.0.1:${builtins.toString config.services.prometheus.port}
-      #   '';
-      # };
+      scrapeConfigs = [
+        {
+          job_name = "nodes";
+          static_configs = [
+            {
+              targets = [
+                "127.0.0.1:${toString config.services.prometheus.exporters.node.port}"
+              ];
+            }
+          ];
+        }
+      ];
     };
+
+    # shouldnt be exposed
+    # services.caddy = {
+    #   virtualHosts."prometheus.${domain}".extraConfig = ''
+    #     reverse_proxy 127.0.0.1:${builtins.toString config.services.prometheus.port}
+    #   '';
+    # };
+  };
 }

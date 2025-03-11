@@ -5,16 +5,15 @@
   lib,
   ...
 }:
+let
+  module = config.system-modules.core.nix-config;
+in
 {
   imports = [
     inputs.sops-nix.nixosModules.sops
   ];
 
-  options = {
-    system-modules.common.secrets.enable = lib.mkEnableOption "Enables secrets";
-  };
-
-  config = lib.mkIf config.system-modules.common.secrets.enable {
+  config = lib.mkIf module.enable {
     environment.systemPackages = with pkgs; [
       age
       sops

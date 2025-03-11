@@ -7,40 +7,44 @@
 }:
 {
   imports = [
+    ../../system-modules/options.nix
     ./hardware.nix
-    ../../system-modules
   ];
 
   system-modules = {
     users.penger.enable = true;
-    ssh.enable = true;
-    docker.enable = true;
-    services = {
-      atuin.enable = true;
-      headscale.enable = true;
-      immich.enable = true;
-      grafana.enable = true;
-      prometheus.enable = true;
-      promtail.enable = true;
-      loki.enable = true;
-      acme.enable = true;
-      ddns.enable = true;
+    core.networking.hostname = "nuc";
+    presets = {
+      mediaserver.enable = true;
       iss-piss-stream.enable = true;
-      caddy.enable = true;
-      minecraftserver.enable = true;
-      syncthing.enable = true;
-      nextcloud.enable = false;
-      blocky.enable = false;
-      mediaserver.enable = false;
-      anki-sync.enable = false;
     };
-    tailscale = {
-      enable = true;
-      exit-node = true;
+    common = {
+      syncthing.enable = true;
+      docker.enable = true;
+    };
+    core.tailscale.exit-node = true;
+
+    services = {
+      network = {
+        acme.enable = true;
+        ddns.enable = true;
+        caddy.enable = true;
+        headscale.enable = true;
+        blocky.enable = false;
+      };
+      gameservers = {
+        minecraft.enable = true;
+      };
+      web = {
+        immich.enable = true;
+        nextcloud.enable = false;
+      };
+      sync = {
+        atuin.enable = true;
+        anki-sync.enable = false;
+      };
     };
   };
-
-  networking.hostName = "nuc";
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }

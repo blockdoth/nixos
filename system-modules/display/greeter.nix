@@ -6,13 +6,10 @@
 }:
 let
   tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+  module = config.system-modules.display.greeter;
 in
 {
-  options = {
-    system-modules.display.greeter.enable = lib.mkEnableOption "Enables greeter";
-  };
-
-  config = lib.mkIf config.system-modules.display.greeter.enable {
+  config = lib.mkIf module.enable {
     services.greetd = {
       enable = true;
       settings = {

@@ -1,0 +1,19 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    ./audio.nix
+    ./bluetooth.nix
+    ./crosscompilation.nix
+    ./docker.nix
+    ./gaming.nix
+    ./power.nix
+    ./printing.nix
+    ./syncthing.nix
+    ./trackpad.nix
+  ];
+}

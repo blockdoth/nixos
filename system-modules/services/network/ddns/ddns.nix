@@ -5,12 +5,11 @@
   inputs,
   ...
 }:
+let
+  module = config.system-modules.services.network.ddns;
+in
 {
-  options = {
-    system-modules.services.ddns.enable = lib.mkEnableOption "Enables ddns";
-  };
-
-  config = lib.mkIf config.system-modules.services.ddns.enable {
+  config = lib.mkIf module.enable {
     sops.secrets.cloudflare-ddns-api-token = { };
 
     environment.systemPackages = [

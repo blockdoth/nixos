@@ -4,12 +4,11 @@
   config,
   ...
 }:
+let
+  module = config.system-modules.users.penger;
+in
 {
-  options = {
-    system-modules.users.penger.enable = lib.mkEnableOption "enables penger user";
-  };
-
-  config = lib.mkIf config.system-modules.users.penger.enable {
+  config = lib.mkIf module.enable {
     sops.secrets.penger-password = {
       neededForUsers = true;
     };

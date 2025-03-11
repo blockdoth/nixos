@@ -1,11 +1,12 @@
 { config, lib, ... }:
+let
+  module = config.system-modules.core.networking;
+  hostname = module.hostname;
+in
 {
-  options = {
-    system-modules.common.networking.enable = lib.mkEnableOption "Enables networking";
-  };
-
-  config = lib.mkIf config.system-modules.common.networking.enable {
+  config = lib.mkIf module.enable {
     networking = {
+      hostName = hostname;
       firewall = {
         enable = true;
       };

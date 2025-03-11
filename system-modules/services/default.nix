@@ -7,24 +7,21 @@
 {
   imports = [
     ./media
-    ./domains.nix
-    ./ddns/ddns.nix
-    ./anki.nix
-    ./acme.nix
-    ./caddy.nix
-    ./immich.nix
-    ./iss-piss-stream.nix
-    ./minecraft.nix
-    ./blocky.nix
-    ./headscale.nix
-    ./atuin.nix
-    ./syncthing.nix
-    ./nextcloud.nix
-    ./atuin.nix
-    ./linkwarden.nix
+    ./network/ddns/ddns.nix
+    ./network/acme.nix
+    ./network/blocky.nix
+    ./network/caddy.nix
+    ./network/headscale.nix
     ./observability/grafana.nix
     ./observability/prometheus.nix
     ./observability/promtail.nix
     ./observability/loki.nix
+    ./scraping/iss-piss-stream.nix
+    ./sync/atuin.nix
+    ./sync/anki.nix
+    ./web/filebrowser.nix
+    ./web/immich.nix
+    ./web/linkwarden.nix
+    ./web/nextcloud.nix
   ];
 }

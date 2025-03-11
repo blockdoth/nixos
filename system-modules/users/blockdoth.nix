@@ -4,12 +4,11 @@
   config,
   ...
 }:
+let
+  module = config.system-modules.users.blockdoth;
+in
 {
-  options = {
-    system-modules.users.blockdoth.enable = lib.mkEnableOption "enables user blockdoth";
-  };
-
-  config = lib.mkIf config.system-modules.users.blockdoth.enable {
+  config = lib.mkIf module.enable {
     sops.secrets.blockdoth-password = {
       neededForUsers = true;
     };

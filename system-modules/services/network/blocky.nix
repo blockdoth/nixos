@@ -5,12 +5,12 @@
   inputs,
   ...
 }:
+let
+  module = config.system-modules.services.network.blocky;
+  domain = config.system-modules.services.network.domains.homelab;
+in
 {
-  options = {
-    system-modules.services.blocky.enable = lib.mkEnableOption "Enables blocky";
-  };
-
-  config = lib.mkIf config.system-modules.services.blocky.enable {
+  config = lib.mkIf module.enable {
     services.blocky = {
       enable = true;
       settings = {

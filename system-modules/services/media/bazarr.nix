@@ -6,18 +6,15 @@
   ...
 }:
 let
-  domain = config.system-modules.services.domains.homelab;
+  domain = config.system-modules.services.network.domains.homelab;
   cfg = config.system-modules.services.mediaserver;
   mediaDir = cfg.dataDir;
   mediaGroup = cfg.group;
   torrentUser = cfg.users.torrenter;
+  module = config.system-modules.services.media.bazarr;
 in
 {
-  options = {
-    system-modules.services.bazarr.enable = lib.mkEnableOption "Enables bazarr";
-  };
-
-  config = lib.mkIf config.system-modules.services.bazarr.enable {
+  config = lib.mkIf module.enable {
     services.bazarr = {
       enable = true;
       group = mediaGroup;

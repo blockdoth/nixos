@@ -6,18 +6,15 @@
   ...
 }:
 let
-  domain = config.system-modules.services.domains.homelab;
+  domain = config.system-modules.services.network.domains.homelab;
   cfg = config.system-modules.services.mediaserver;
   mediaDir = cfg.dataDir;
   mediaGroup = cfg.group;
   torrentUser = cfg.users.torrenter;
+  module = config.system-modules.services.media.lidarr;
 in
 {
-  options = {
-    system-modules.services.lidarr.enable = lib.mkEnableOption "Enables lidarr";
-  };
-
-  config = lib.mkIf config.system-modules.services.lidarr.enable {
+  config = lib.mkIf module.enable {
     # Uses port 7878
     services.lidarr = {
       enable = true;
