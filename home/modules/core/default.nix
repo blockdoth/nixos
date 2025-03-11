@@ -32,6 +32,7 @@
     ./utils/git.nix
     ./utils/secrets.nix
     ./utils/home-structure.nix
+    ./utils/mimes.nix
     ./utils/utils-cli.nix
     ./utils/utils-gui.nix
   ];
