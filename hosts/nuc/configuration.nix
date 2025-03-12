@@ -35,6 +35,9 @@
       gameservers = {
         minecraft.enable = true;
       };
+      observability = {
+        gatus.enable = true;
+      };
       web = {
         immich.enable = true;
         nextcloud.enable = false;
@@ -42,6 +45,7 @@
       sync = {
         atuin.enable = true;
         anki.enable = true;
+        vaultwarden.enable = true;
       };
     };
   };

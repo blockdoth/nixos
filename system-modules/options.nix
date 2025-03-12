@@ -112,6 +112,7 @@ in
           loki.enable = mkEnableOption "loki";
           prometheus.enable = mkEnableOption "prometheus";
           promtail.enable = mkEnableOption "promtail";
+          gatus.enable = mkEnableOption "gatus";
         };
 
         scraping = {
@@ -119,6 +120,7 @@ in
         };
 
         sync = {
+          vaultwarden.enable = mkEnableOption "vaultwarden";
           atuin.enable = mkEnableOption "atuin shell sync";
           anki.enable = mkEnableOption "anki";
         };
