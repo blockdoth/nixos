@@ -6,7 +6,7 @@
   ...
 }:
 let
-  module = config.system-modules.services.network.authelia;
+  module = config.system-modules.services.auth.authelia;
   domain = config.system-modules.services.network.domains.homelab;
   autheliaPort = 9091;
 in

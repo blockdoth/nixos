@@ -91,7 +91,6 @@ in
           blocky.enable = mkEnableOption "blocky";
           caddy.enable = mkEnableOption "caddy";
           headscale.enable = mkEnableOption "headscale";
-          authelia.enable = mkEnableOption "authelia";
           domains = {
             iss-piss-stream = mkOption {
               type = lib.types.str;
@@ -106,6 +105,10 @@ in
               default = "localhost";
             };
           };
+        };
+        auth = {
+          authelia.enable = mkEnableOption "authelia";
+          lldap.enable = mkEnableOption "lldap";
         };
 
         observability = {

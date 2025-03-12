@@ -31,8 +31,12 @@
         caddy.enable = true;
         headscale.enable = true;
         blocky.enable = false;
-        authelia.enable = true;
       };
+      auth = {
+        authelia.enable = true;
+        lldap.enable = true;
+      };
+
       gameservers = {
         minecraft.enable = true;
       };

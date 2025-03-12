@@ -24,7 +24,11 @@
     };
     services = {
       # observability.gatus.enable = true;
-      network.authelia.enable = true;
+
+      auth = {
+        authelia.enable = true;
+        lldap.enable = true;
+      };
     };
   };
 
