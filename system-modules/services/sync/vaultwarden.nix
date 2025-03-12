@@ -25,7 +25,7 @@ in
 
     services.caddy = {
       virtualHosts."vaultwarden.${domain}".extraConfig = ''
-        reverse_proxy 127.0.0.1:${toString config.services.atuin.port}
+        reverse_proxy 127.0.0.1:${builtins.toString config.services.vaultwarden.config.ROCKET_PORT}
       '';
     };
   };
