@@ -13,7 +13,6 @@ in
   config = lib.mkIf module.enable {
     services.vaultwarden = {
       enable = true;
-      dbBackend = "postgresql";
     };
 
     services.caddy = {
