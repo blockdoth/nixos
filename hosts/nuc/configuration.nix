@@ -49,8 +49,7 @@
       };
       sync = {
         atuin.enable = true;
-        anki.enable = true;
-        vaultwarden.enable = true;
+        anki.enable = false;
       };
     };
   };
