@@ -26,15 +26,10 @@
       observability = {
         gatus.enable = true;
       };
-      sync = {
-        vaultwarden.enable = true;
-      };
+      # sync = {
+      #   vaultwarden.enable = true;
+      # };
     };
-  };
-
-  services.vaultwarden = {
-    enable = true;
-    dbBackend = "postgresql";
   };
 
   system.stateVersion = "24.05"; # Did you read the comment?
