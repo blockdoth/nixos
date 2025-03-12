@@ -32,5 +32,10 @@
     };
   };
 
+  services.vaultwarden = {
+    enable = true;
+    dbBackend = "postgresql";
+  };
+
   system.stateVersion = "24.05"; # Did you read the comment?
 }
