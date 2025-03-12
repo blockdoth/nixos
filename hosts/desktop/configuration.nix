@@ -18,14 +18,8 @@
       gui.enable = true;
       gaming.enable = true;
     };
-    common = {
-      syncthing.enable = true;
-    };
-    services = {
-      sync = {
-        anki.enable = true;
-      };
-    };
+    common.syncthing.enable = true;
+    services = { };
   };
 
   networking.hostName = "desktop";
