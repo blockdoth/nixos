@@ -7,7 +7,7 @@
 }:
 let
   domain = config.system-modules.services.network.domains.homelab;
-  cfg = config.system-modules.services.mediaserver;
+  cfg = config.system-modules.services.media;
   mediaDir = cfg.dataDir;
   mediaGroup = cfg.group;
   streamUser = cfg.users.streamer;

@@ -6,7 +6,7 @@
 }:
 let
   domain = config.system-modules.services.domains.homelab;
-  cfg = config.system-modules.presets.mediaserver;
+  cfg = config.system-modules.services.media;
   mediaDir = cfg.dataDir;
   mediaGroup = cfg.group;
   enableMediaServer = cfg.enable;

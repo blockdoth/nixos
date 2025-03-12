@@ -6,7 +6,7 @@
 }:
 let
   module = config.system-modules.services.observability.grafana;
-  domain = config.system-modules.services.domains.network.iss-piss-stream;
+  domain = config.system-modules.services.network.domains.iss-piss-stream;
 in
 {
   # cool snippet for the full stack
