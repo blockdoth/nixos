@@ -24,7 +24,6 @@
     };
     services = {
       # observability.gatus.enable = true;
-      sync.vaultwarden.enable = true;
       network.authelia.enable = true;
     };
   };
