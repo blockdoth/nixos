@@ -19,7 +19,7 @@ in
         ROCKET_ADDRESS = "127.0.0.1";
         ROCKET_PORT = 8222;
         DOMAIN = "https://vaultwarden.${domain}";
-        SIGNUPS_ALLOWED = true;
+        SIGNUPS_ALLOWED = false;
       };
     };
 
