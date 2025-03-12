@@ -6,6 +6,7 @@
 }:
 let
   module = config.system-modules.services.observability.gatus;
+  domain = config.system-modules.services.network.domains.homelab;
 in
 {
   config = lib.mkIf module.enable {

@@ -16,9 +16,11 @@
     ./observability/prometheus.nix
     ./observability/promtail.nix
     ./observability/loki.nix
+    ./observability/gatus.nix
     ./scraping/iss-piss-stream.nix
     ./sync/atuin.nix
     ./sync/anki.nix
+    ./sync/vaultwarden.nix
     ./web/filebrowser.nix
     ./web/immich.nix
     ./web/linkwarden.nix

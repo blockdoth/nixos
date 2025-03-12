@@ -10,7 +10,7 @@ let
   domain = config.system-modules.services.network.domains.homelab;
 in
 {
-  config = {
+  config = lib.mkIf module.enable {
     services.vaultwarden = {
       enable = true;
       dbBackend = "postgresql";

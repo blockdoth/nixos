@@ -26,9 +26,9 @@
       observability = {
         gatus.enable = true;
       };
-      # sync = {
-      #   vaultwarden.enable = true;
-      # };
+      sync = {
+        vaultwarden.enable = true;
+      };
     };
   };
 
