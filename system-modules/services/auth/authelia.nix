@@ -15,6 +15,7 @@ in
     sops.secrets = {
       authelia-jwt = { };
       authelia-storage-encryption = { };
+      lldap-password = { };
     };
 
     services.authelia.instances.main = {
@@ -23,14 +24,33 @@ in
         jwtSecretFile = config.sops.secrets.authelia-jwt.path;
         storageEncryptionKeyFile = config.sops.secrets.authelia-storage-encryption.path;
       };
+      environmentVariables = with config.sops; {
+        AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD_FILE = secrets.lldap-password.path;
+      };
+
       settings = {
         server = {
-          address = "http://127.0.0.1:${builtins.toString autheliaPort}";
+          address = "tcp:127.0.0.1:${builtins.toString autheliaPort}";
 
           # Necessary for Caddy integration
           # See https://www.authelia.com/integration/proxies/caddy/#implementation
           endpoints.authz.forward-auth.implementation = "ForwardAuth";
         };
+        logs.level = "info";
+
+        notifier = {
+          enable = false;
+          # SMTP configuration for sending emails
+          # smtp = {
+          #   host = "smtp.example.com";
+          #   port = 587;
+          #   username = "user@example.com";
+          #   password = "your-smtp-password";
+          #   from = "authelia@example.com";
+          #   subject_prefix = "[Authelia] ";
+          # };
+        };
+
       };
     };
 

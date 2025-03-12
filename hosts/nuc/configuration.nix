@@ -32,10 +32,10 @@
         headscale.enable = true;
         blocky.enable = false;
       };
-      auth = {
-        authelia.enable = true;
-        lldap.enable = true;
-      };
+      # auth = {
+      #   authelia.enable = true;
+      #   lldap.enable = true;
+      # };
 
       gameservers = {
         minecraft.enable = true;
