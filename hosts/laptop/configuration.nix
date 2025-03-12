@@ -22,6 +22,14 @@
       syncthing.enable = true;
       trackpad.enable = true;
     };
+    services = {
+      observability = {
+        gatus.enable = true;
+      };
+      sync = {
+        vaultwarden.enable = true;
+      };
+    };
   };
 
   system.stateVersion = "24.05"; # Did you read the comment?

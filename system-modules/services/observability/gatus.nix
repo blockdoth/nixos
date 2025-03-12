@@ -5,7 +5,7 @@
   ...
 }:
 let
-  module = config.system-modules.services.observability.prometheus;
+  module = config.system-modules.services.observability.gatus;
 in
 {
   config = lib.mkIf module.enable {
