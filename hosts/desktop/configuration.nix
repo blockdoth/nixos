@@ -21,6 +21,11 @@
     common = {
       syncthing.enable = true;
     };
+    services = {
+      sync = {
+        anki.enable = true;
+      };
+    };
   };
 
   networking.hostName = "desktop";

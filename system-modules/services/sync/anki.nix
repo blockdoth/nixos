@@ -11,14 +11,14 @@ let
 in
 {
   config = lib.mkIf module.enable {
+    sops.secrets.anki-password = { };
     services.anki-sync-server = {
       enable = true;
       address = "127.0.0.1";
       users = [
         {
           username = "blockdoth";
-          password = "8!mlzW72;1#!72Tb~>2OoLv[mARwZkazL9l[%=x3t^N(XdM~Mz";
-          # passwordFile = config.sops.secrets.anki-password.path;
+          passwordFile = config.sops.secrets.anki-password.path;
         }
       ];
       port = 27701;
