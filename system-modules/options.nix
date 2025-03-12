@@ -83,6 +83,7 @@ in
       services = {
         gameservers = {
           minecraft.enable = mkEnableOption "minecraft server";
+          factorio.enable = mkEnableOption "factorio server";
         };
         network = {
           ddns.enable = mkEnableOption "ddns";
@@ -96,6 +97,10 @@ in
               default = "localhost";
             };
             homelab = mkOption {
+              type = lib.types.str;
+              default = "localhost";
+            };
+            gameservers = mkOption {
               type = lib.types.str;
               default = "localhost";
             };
@@ -197,6 +202,7 @@ in
           domains = {
             iss-piss-stream = "insinuatis.com";
             homelab = "insinuatis.com";
+            gameservers = "insinuatis.com";
           };
         };
 

@@ -7,7 +7,7 @@
 }:
 let
   module = config.system-modules.services.gameservers.minecraft;
-  domain = config.system-modules.services.domains.homelab;
+  domain = config.system-modules.services.domains.gameservers;
 in
 {
   imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
