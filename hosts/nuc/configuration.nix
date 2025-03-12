@@ -31,7 +31,7 @@
         caddy.enable = true;
         headscale.enable = true;
         blocky.enable = false;
-        authelia.enable = false;
+        authelia.enable = true;
       };
       gameservers = {
         minecraft.enable = true;
