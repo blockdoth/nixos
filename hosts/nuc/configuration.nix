@@ -31,12 +31,13 @@
         caddy.enable = true;
         headscale.enable = true;
         blocky.enable = false;
+        authelia.enable = false;
       };
       gameservers = {
         minecraft.enable = true;
       };
       observability = {
-        gatus.enable = true;
+        gatus.enable = false;
       };
       web = {
         immich.enable = true;
