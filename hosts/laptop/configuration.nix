@@ -23,12 +23,9 @@
       trackpad.enable = true;
     };
     services = {
-      observability = {
-        gatus.enable = true;
-      };
-      sync = {
-        vaultwarden.enable = true;
-      };
+      # observability.gatus.enable = true;
+      sync.vaultwarden.enable = true;
+      network.authelia.enable = true;
     };
   };
 

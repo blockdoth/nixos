@@ -12,6 +12,7 @@
     ./network/blocky.nix
     ./network/caddy.nix
     ./network/headscale.nix
+    ./network/authelia.nix
     ./observability/grafana.nix
     ./observability/prometheus.nix
     ./observability/promtail.nix

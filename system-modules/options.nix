@@ -91,6 +91,7 @@ in
           blocky.enable = mkEnableOption "blocky";
           caddy.enable = mkEnableOption "caddy";
           headscale.enable = mkEnableOption "headscale";
+          authelia.enable = mkEnableOption "authelia";
           domains = {
             iss-piss-stream = mkOption {
               type = lib.types.str;
