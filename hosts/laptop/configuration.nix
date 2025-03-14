@@ -25,11 +25,16 @@
     services = {
       # observability.gatus.enable = true;
 
-      # auth = {
-      #   authelia.enable = true;
-      #   lldap.enable = true;
-      # };
+      network = {
+        caddy.enable = true;
+
+      };
     };
+  };
+  services.caddy = {
+    virtualHosts."jupyter.insinuatis.com".extraConfig = ''
+      reverse_proxy 127.0.0.1:8890        
+    '';
   };
 
   system.stateVersion = "24.05"; # Did you read the comment?
