@@ -22,7 +22,7 @@ in
     };
 
     home.file = {
-      ".mozilla/firefox/${firefoxUser}" = {
+      ".librewolf/${firefoxUser}" = {
         source = pkgs.runCommand "shyfox" { } ''
           mkdir -p $out
           mkdir -p $out/chrome
@@ -35,7 +35,7 @@ in
 
     programs.firefox = {
       enable = true;
-      # package = pkgs.librewolf;
+      package = pkgs.librewolf;
       policies = {
         DisableTelemetry = true;
         DisableFirefoxStudies = true;
