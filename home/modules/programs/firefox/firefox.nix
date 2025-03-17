@@ -21,7 +21,7 @@ in
     };
 
     home.file = {
-      ".librewolf/default" = {
+      ".mozilla/firefox/default" = {
         source = pkgs.runCommand "shyfox" { } ''
           mkdir -p $out
           mkdir -p $out/chrome
@@ -34,7 +34,9 @@ in
 
     programs.firefox = {
       enable = true;
-      package = pkgs.librewolf;
+
+      # package = pkgs.librewolf; # Re-enable whenever mozilla goes rogue
+
       policies = {
         DisableTelemetry = true;
         DisableFirefoxStudies = true;
