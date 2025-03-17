@@ -6,7 +6,6 @@
 }:
 let
   module = config.modules.programs.firefox;
-  firefoxUser = "default";
   #My shyfox fork
   shyfox = pkgs.fetchFromGitHub {
     owner = "blockdoth";
@@ -18,11 +17,11 @@ in
 {
   config = lib.mkIf module.enable {
     home.sessionVariables = {
-      BROWSER = "firefox";
+      BROWSER = "librewolf";
     };
 
     home.file = {
-      ".librewolf/${firefoxUser}" = {
+      ".librewolf/default" = {
         source = pkgs.runCommand "shyfox" { } ''
           mkdir -p $out
           mkdir -p $out/chrome
@@ -78,22 +77,20 @@ in
         };
 
       };
-      profiles = {
-        ${firefoxUser} = {
-          isDefault = true;
+      profiles.default = {
+        isDefault = true;
 
-          # dependent on fixing the NUR
-          # extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          #   ublock-origin
-          #   sponsorblock
-          #   sidebery
-          #   userchrome-toggle
-          #   videospeed
-          #   return-youtube-dislikes
-          #   clearurls
-          #   i-dont-care-about-cookies
-          # ];
-        };
+        # dependent on fixing the NUR
+        # extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        #   ublock-origin
+        #   sponsorblock
+        #   sidebery
+        #   userchrome-toggle
+        #   videospeed
+        #   return-youtube-dislikes
+        #   clearurls
+        #   i-dont-care-about-cookies
+        # ];
       };
     };
   };
