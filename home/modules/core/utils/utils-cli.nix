@@ -34,6 +34,7 @@ in
       gdu
       nix-search
       file
+      cron
     ];
   };
 }

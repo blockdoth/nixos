@@ -31,7 +31,7 @@ in
         Description = "Sets up the home dir ";
       };
       Install = {
-        WantedBy = [ "default.target" ];
+        WantedBy = [ "multi-user.target" ];
       };
       Service = {
         Type = "oneshot";
