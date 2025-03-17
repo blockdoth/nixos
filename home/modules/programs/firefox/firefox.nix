@@ -33,7 +33,7 @@ in
       };
     };
 
-    programs.firefox = {
+    programs.librewolf = {
       enable = true;
       policies = {
         DisableTelemetry = true;
