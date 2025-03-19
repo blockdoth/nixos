@@ -39,7 +39,7 @@ in
         serviceConfig = {
           Environment = "PATH=/run/current-system/sw/bin";
           Type = "oneshot";
-          User = "penger";
+          User = "root";
         };
       };
     };
