@@ -13,7 +13,11 @@
 
   system-modules = {
     users.penger.enable = true;
-    core.networking.hostname = "nuc";
+    core = {
+      networking.hostname = "nuc";
+      tailscale.exit-node = true;
+    };
+
     presets = {
       mediaserver.enable = true;
       iss-piss-stream.enable = true;
@@ -22,7 +26,6 @@
       syncthing.enable = true;
       docker.enable = true;
     };
-    core.tailscale.exit-node = true;
 
     services = {
       network = {
@@ -49,7 +52,8 @@
       };
       sync = {
         atuin.enable = true;
-        anki.enable = false;
+        anki.enable = true;
+        vaultwarden.enable = false;
       };
     };
   };
