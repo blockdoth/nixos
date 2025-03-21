@@ -31,6 +31,7 @@ in
           workbench.tips.enabled = false;
           window.title = "VSCodium \${activeRepositoryName}";
           terminal.integrated.shellIntegration.enabled = false;
+          window.titleBarStyle = "native";
           # clangd.arguments= ["--compile-commands-dir=/home/blockdoth/Documents/repos/c-web-server"];
           clangd.path = "/home/blockdoth/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd";
           haskell.manageHLS = "GHCup";
