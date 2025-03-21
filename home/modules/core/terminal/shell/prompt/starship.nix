@@ -5,7 +5,7 @@
   ...
 }:
 let
-  module = config.modules.core.terminal.prompt.starship;
+  module = config.modules.core.terminal.shell.prompt.starship;
 in
 {
   config = lib.mkIf module.enable {

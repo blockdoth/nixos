@@ -73,11 +73,11 @@ in
         terminal = {
           alacritty.enable = mkEnableOption "Alacritty terminal";
           ghostty.enable = mkEnableOption "Ghostty terminal";
-          prompt.starship.enable = mkEnableOption "prompt from starship";
           shell = {
+            prompt.starship.enable = mkEnableOption "prompt from starship";
+            sync.atuin.enable = mkEnableOption "atuin shell sync";
             fish.enable = mkEnableOption "fish shell";
             zoxide.enable = mkEnableOption "zoxide navigation";
-            sync.atuin.enable = mkEnableOption "atuin shell sync";
           };
         };
 
@@ -158,11 +158,11 @@ in
         terminal = {
           alacritty.enable = mkDefault enableGui;
           ghostty.enable = mkDefault enableGui;
-          prompt.starship.enable = mkDefault enableGui;
           shell = {
+            prompt.starship.enable = mkDefault true;
+            sync.atuin.enable = mkDefault true;
             fish.enable = mkDefault true;
             zoxide.enable = mkDefault true;
-            sync.atuin.enable = mkDefault true;
           };
         };
 

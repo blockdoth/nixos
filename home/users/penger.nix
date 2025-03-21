@@ -8,4 +8,12 @@
   };
 
   imports = [ ../modules/options.nix ];
+
+  modules = {
+    presets = {
+      dev.enable = true;
+      theming.enable = true;
+    };
+
+  };
 }

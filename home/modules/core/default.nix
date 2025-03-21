@@ -22,7 +22,7 @@
     ./style/rice/rice.nix
     ./style/stylix.nix
 
-    ./terminal/prompt/starship.nix
+    ./terminal/shell/prompt/starship.nix
     ./terminal/shell/fish.nix
     ./terminal/shell/zoxide.nix
     ./terminal/shell/sync/atuin.nix
