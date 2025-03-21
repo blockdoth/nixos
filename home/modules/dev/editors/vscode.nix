@@ -28,6 +28,7 @@ in
           editor.detectIndentation = false;
           redhat.telemetry.enabled = false;
           workbench.colorTheme = "Stylix";
+          workbench.tips.enabled = false;
           window.title = "VSCodium \${activeRepositoryName}";
           terminal.integrated.shellIntegration.enabled = false;
           # clangd.arguments= ["--compile-commands-dir=/home/blockdoth/Documents/repos/c-web-server"];
