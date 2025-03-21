@@ -30,6 +30,7 @@ in
           workbench.colorTheme = "Stylix";
           workbench.tips.enabled = false;
           window.title = "VSCodium \${activeRepositoryName}";
+          window.commandCenter = false;
           terminal.integrated.shellIntegration.enabled = false;
           window.titleBarStyle = "native";
           workbench.secondarySideBar.showLabels = false;
