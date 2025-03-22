@@ -2,10 +2,12 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
 }:
 let
   module = config.modules.core.infra.cli-utils;
+  tree_but_cooler = inputs.iss-piss-stream.packages.${pkgs.system}.default;
 in
 {
   config = lib.mkIf module.enable {
@@ -34,6 +36,7 @@ in
       file
       cron
       tree
+      tree_but_cooler
     ];
   };
 }

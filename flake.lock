@@ -995,6 +995,22 @@
     },
     "nixpkgs_12": {
       "locked": {
+        "lastModified": 1742422364,
+        "narHash": "sha256-mNqIplmEohk5jRkqYqG19GA8MbQ/D4gQSK0Mu4LvfRQ=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "a84ebe20c6bc2ecbcfb000a50776219f48d134cc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_13": {
+      "locked": {
         "lastModified": 1735471104,
         "narHash": "sha256-0q9NGQySwDQc7RhAV2ukfnu7Gxa5/ybJ2ANT8DQrQrs=",
         "owner": "nixos",
@@ -1243,6 +1259,7 @@
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
+        "tree_but_cooler": "tree_but_cooler",
         "zen-browser": "zen-browser"
       }
     },
@@ -1506,6 +1523,24 @@
         "type": "github"
       }
     },
+    "tree_but_cooler": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_12"
+      },
+      "locked": {
+        "lastModified": 1742660728,
+        "narHash": "sha256-TX5Brk6QnkRd80F+SEBVhcBhCkQlEQlKOYSD4wJTmjE=",
+        "owner": "blockdoth",
+        "repo": "tree-but-cooler",
+        "rev": "3fadeb08c3c3aa994dac605cb53efefa2a7e9df9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "blockdoth",
+        "repo": "tree-but-cooler",
+        "type": "github"
+      }
+    },
     "utils": {
       "locked": {
         "lastModified": 1678901627,
@@ -1564,7 +1599,7 @@
     },
     "zen-browser": {
       "inputs": {
-        "nixpkgs": "nixpkgs_12"
+        "nixpkgs": "nixpkgs_13"
       },
       "locked": {
         "lastModified": 1742368748,

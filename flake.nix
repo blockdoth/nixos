@@ -22,6 +22,7 @@
     activate-linux.url = "github:MrGlockenspiel/activate-linux";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     iss-piss-stream.url = "github:blockdoth/iss-piss-stream";
+    tree_but_cooler.url = "github:blockdoth/tree-but-cooler";
     ghostty.url = "github:ghostty-org/ghostty";
     flake-programs-sqlite = {
       url = "github:wamserma/flake-programs-sqlite";
