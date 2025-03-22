@@ -90,6 +90,7 @@ in
         };
 
         infra = {
+          git.enable = mkEnableOption "git";
           cli-utils.enable = mkEnableOption "various cli utilities";
           gui-utils.enable = mkEnableOption "various gui utilities";
           home-structure.enable = mkEnableOption "default home structure";
@@ -110,7 +111,6 @@ in
         };
       };
       programs = {
-        git.enable = mkEnableOption "git";
         filebrowser = {
           yazi.enable = mkEnableOption "yazi filebrowser";
           nautilus.enable = mkEnableOption "nautilus filebrowser";
@@ -184,6 +184,7 @@ in
         };
 
         infra = {
+          git.enable = mkDefault true;
           cli-utils.enable = mkDefault true;
           secrets.enable = mkDefault true;
           home-structure.enable = mkDefault true;
@@ -204,7 +205,6 @@ in
         };
       };
       programs = {
-        git.enable = mkDefault true;
         filebrowser = {
           yazi.enable = mkDefault true;
           nautilus.enable = mkDefault false;

@@ -37,5 +37,6 @@
     ./infra/mimes.nix
     ./infra/cli-utils.nix
     ./infra/gui-utils.nix
+    ./infra/git.nix
   ];
 }
