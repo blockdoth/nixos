@@ -1259,7 +1259,7 @@
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
-        "tree_but_cooler": "tree_but_cooler",
+        "tree-but-cooler": "tree-but-cooler",
         "zen-browser": "zen-browser"
       }
     },
@@ -1523,7 +1523,7 @@
         "type": "github"
       }
     },
-    "tree_but_cooler": {
+    "tree-but-cooler": {
       "inputs": {
         "nixpkgs": "nixpkgs_12"
       },
