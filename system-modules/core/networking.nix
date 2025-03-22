@@ -1,7 +1,35 @@
 { config, lib, ... }:
 let
   module = config.system-modules.core.networking;
+  zenmode = config.system-modules.presets.zenmode;
   hostname = module.hostname;
+
+  blockedDomains = [
+    "facebook.com"
+    "www.facebook.com"
+    "instagram.com"
+    "www.instagram.com"
+    "twitter.com"
+    "www.twitter.com"
+    "tiktok.com"
+    "www.tiktok.com"
+    "reddit.com"
+    "www.reddit.com"
+    "linkedin.com"
+    "www.linkedin.com"
+    "youtube.com"
+    "www.youtube.com"
+    "whatsapp.com"
+    "www.whatsapp.com"
+    "messenger.com"
+    "www.messenger.com"
+    "telegram.org"
+    "www.telegram.org"
+    "discord.com"
+    "www.discord.com"
+  ];
+
+  blockedHosts = lib.concatStringsSep "\n" (map (domain: "0.0.0.0 ${domain}") blockedDomains);
 in
 {
   config = lib.mkIf module.enable {
@@ -14,20 +42,8 @@ in
         enable = true;
         wifi.scanRandMacAddress = false;
       };
-      # wireless = {
-      #   enable = false;
-      #   userControlled.enable = true;
-      #   networks = {
-      #     eduroam = {
-      #       auth = ''
-      #         key_mgmt=WPA-EAP
-      #         eap=PWD
-      #         identity="povanegmond@tudelf.nl"
-      #         password="${builtins.readFile ../../secrets/eduroam}"
-      #         '';
-      #     };
-      #   };
-      # };
+      # Block distracting domains in zenmode
+      extraHosts = lib.mkIf zenmode.enable blockedHosts;
     };
   };
 }

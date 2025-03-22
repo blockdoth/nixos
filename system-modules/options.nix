@@ -13,6 +13,7 @@ let
   enablePissStream = config.system-modules.presets.iss-piss-stream.enable;
   enableUserPenger = config.system-modules.users.penger.enable;
   enableUserBlockdoth = config.system-modules.users.blockdoth.enable;
+  zenMode = config.system-modules.zenmode.enable;
   inherit (lib)
     mkIf
     mkEnableOption
@@ -38,6 +39,7 @@ in
         laptop.enable = mkEnableOption "laptop specific config";
         mediaserver.enable = mkEnableOption "mediaserver";
         iss-piss-stream.enable = mkEnableOption "enalbes piss stream observability";
+        zenmode.enable = mkEnableOption "zenmode";
       };
 
       users = {
