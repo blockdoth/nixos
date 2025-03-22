@@ -17,7 +17,7 @@ in
       jetbrains.clion
       jetbrains.webstorm
       jetbrains.pycharm-professional
-      # jetbrains.idea-ultimate
+      jetbrains.idea-ultimate
       jetbrains.rust-rover
     ];
 
