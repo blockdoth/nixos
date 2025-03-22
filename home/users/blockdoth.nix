@@ -19,7 +19,7 @@
 
     # overrides
     programs.minecraft.enable = false;
-    dev.editors.jetbrains.enable = false;
+    # dev.editors.jetbrains.enable = false;
     programs = {
       filebrowser.nautilus.enable = false;
       activate-linux.enable = true;
