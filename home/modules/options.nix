@@ -108,7 +108,11 @@ in
           nautilus.enable = mkEnableOption "nautilus filebrowser";
           dolphin.enable = mkEnableOption "dolphin filebrowser";
         };
-        firefox.enable = mkEnableOption "firefox";
+        browsers = {
+          firefox.enable = mkEnableOption "firefox";
+          zenbrowser.enable = mkEnableOption "zenbrowser";
+          chrome.enable = mkEnableOption "chrome";
+        };
         activate-linux.enable = mkEnableOption "activate linux";
         discord.enable = mkEnableOption "discord";
         spotify.enable = mkEnableOption "spotify";
@@ -116,7 +120,6 @@ in
         whatsapp.enable = mkEnableOption "whatsapp";
         steam.enable = mkEnableOption "steam";
         minecraft.enable = mkEnableOption "minecraft";
-        zenbrowser.enable = mkEnableOption "zenbrowser";
         anki.enable = mkEnableOption "anki";
       };
     };
@@ -192,14 +195,17 @@ in
           yazi.enable = mkDefault true;
           nautilus.enable = mkDefault enableGui;
         };
-        firefox.enable = mkDefault enableGui;
+        browsers = {
+          zenbrowser.enable = mkDefault enableGui;
+          firefox.enable = mkDefault enableGui;
+          chrome.enable = mkDefault enableGui;
+        };
         activate-linux.enable = mkDefault enableGui;
         discord.enable = mkDefault enableGui;
         spotify.enable = mkDefault enableGui;
         llms.enable = mkDefault enableGui;
         whatsapp.enable = mkDefault enableGui;
         steam.enable = mkDefault enableGui;
-        zenbrowser.enable = mkDefault enableGui;
         anki.enable = mkDefault enableGui;
       };
     };

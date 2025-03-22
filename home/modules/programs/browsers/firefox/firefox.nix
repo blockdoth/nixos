@@ -5,7 +5,7 @@
   ...
 }:
 let
-  module = config.modules.programs.firefox;
+  module = config.modules.programs.browsers.firefox;
   #My shyfox fork
   shyfox = pkgs.fetchFromGitHub {
     owner = "blockdoth";

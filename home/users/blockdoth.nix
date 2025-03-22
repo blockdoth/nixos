@@ -22,8 +22,8 @@
     # dev.editors.jetbrains.enable = false;
     programs = {
       filebrowser.nautilus.enable = false;
+      browsers.zenbrowser.enable = false;
       activate-linux.enable = true;
-      zenbrowser.enable = false;
       spotify.enable = true;
       llms.enable = false;
     };
