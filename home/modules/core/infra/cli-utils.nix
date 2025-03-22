@@ -7,7 +7,7 @@
 }:
 let
   module = config.modules.core.infra.cli-utils;
-  tree_but_cooler = inputs.iss-piss-stream.packages.${pkgs.system}.default;
+  tree_but_cooler = inputs.tree-but-cooler.packages.${pkgs.system}.default;
 in
 {
   config = lib.mkIf module.enable {
