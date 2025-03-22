@@ -5,11 +5,9 @@
   ...
 }:
 let
-  module = config.modules.core.utils.cli;
+  module = config.modules.core.infra.cli-utils;
 in
 {
-  imports = [ ./git.nix ];
-
   config = lib.mkIf module.enable {
     home.packages = with pkgs; [
       jq
@@ -35,6 +33,7 @@ in
       nix-search
       file
       cron
+      tree
     ];
   };
 }

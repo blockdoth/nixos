@@ -11,6 +11,7 @@ let
   enableDev = config.modules.presets.dev.enable;
   enablePrograms = config.modules.presets.programs.enable;
   enableTheming = config.modules.presets.theming.enable;
+  zenMode = config.modules.presets.zenmode.enable;
   enableStackingWM = enableGnome;
   enableTilingWM = enableHyprland;
   enableGui = enableStackingWM || enableTilingWM;
@@ -37,6 +38,7 @@ in
         dev.enable = mkEnableOption "dev env and tools";
         programs.enable = mkEnableOption "user programs";
         theming.enable = mkEnableOption "theming";
+        zenmode.enable = mkEnableOption "zen mode";
       };
       core = {
         windowmanager = {
@@ -68,6 +70,12 @@ in
         style = {
           fonts.enable = mkEnableOption "fonts";
           theme.stylix.enable = mkEnableOption "theming";
+          rice = {
+            activate-linux.enable = mkEnableOption "activate linux";
+            fastfetch.enable = mkEnableOption "fastfetch";
+            cli.enable = mkEnableOption "cli";
+            cava.enable = mkEnableOption "cava";
+          };
         };
 
         terminal = {
@@ -81,10 +89,9 @@ in
           };
         };
 
-        utils = {
-          git.enable = mkEnableOption "git";
-          cli.enable = mkEnableOption "various cli utilities";
-          gui.enable = mkEnableOption "various gui utilities";
+        infra = {
+          cli-utils.enable = mkEnableOption "various cli utilities";
+          gui-utils.enable = mkEnableOption "various gui utilities";
           home-structure.enable = mkEnableOption "default home structure";
           mimes.enable = mkEnableOption "mime types";
           secrets.enable = mkEnableOption "secrets";
@@ -103,6 +110,7 @@ in
         };
       };
       programs = {
+        git.enable = mkEnableOption "git";
         filebrowser = {
           yazi.enable = mkEnableOption "yazi filebrowser";
           nautilus.enable = mkEnableOption "nautilus filebrowser";
@@ -156,6 +164,12 @@ in
         style = {
           fonts.enable = mkDefault true;
           theme.stylix.enable = mkDefault true;
+          rice = {
+            activate-linux.enable = mkDefault (enableTheming && enableGui);
+            fastfetch.enable = mkDefault enableTheming;
+            cli.enable = mkDefault enableTheming;
+            cava.enable = mkDefault enableTheming;
+          };
         };
 
         terminal = {
@@ -169,13 +183,12 @@ in
           };
         };
 
-        utils = {
-          git.enable = mkDefault true;
-          cli.enable = mkDefault true;
+        infra = {
+          cli-utils.enable = mkDefault true;
           secrets.enable = mkDefault true;
           home-structure.enable = mkDefault true;
           mimes.enable = mkDefault true;
-          gui.enable = mkDefault enableGui;
+          gui-utils.enable = mkDefault enableGui;
         };
       };
       dev = {
@@ -191,9 +204,10 @@ in
         };
       };
       programs = {
+        git.enable = mkDefault true;
         filebrowser = {
           yazi.enable = mkDefault true;
-          nautilus.enable = mkDefault enableGui;
+          nautilus.enable = mkDefault false;
         };
         browsers = {
           zenbrowser.enable = mkDefault enableGui;
@@ -201,11 +215,11 @@ in
           chrome.enable = mkDefault enableGui;
         };
         activate-linux.enable = mkDefault enableGui;
-        discord.enable = mkDefault enableGui;
+        discord.enable = mkDefault (enableGui && !zenMode);
         spotify.enable = mkDefault enableGui;
         llms.enable = mkDefault enableGui;
-        whatsapp.enable = mkDefault enableGui;
-        steam.enable = mkDefault enableGui;
+        whatsapp.enable = mkDefault (enableGui && !zenMode);
+        steam.enable = mkDefault (enableGui && !zenMode);
         anki.enable = mkDefault enableGui;
       };
     };

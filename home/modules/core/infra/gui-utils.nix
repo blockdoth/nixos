@@ -5,7 +5,7 @@
   ...
 }:
 let
-  module = config.modules.core.utils.gui;
+  module = config.modules.core.infra.gui-utils;
 in
 {
   config = lib.mkIf module.enable {

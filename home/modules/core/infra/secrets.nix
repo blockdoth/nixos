@@ -5,7 +5,7 @@
   ...
 }:
 let
-  module = config.modules.core.utils.secrets;
+  module = config.modules.core.infra.secrets;
   keysFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
 in
 {

@@ -5,7 +5,7 @@
   ...
 }:
 let
-  module = config.modules.core.utils.git;
+  module = config.modules.programs.git;
 in
 {
   config = lib.mkIf module.enable {

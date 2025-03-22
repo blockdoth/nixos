@@ -15,11 +15,12 @@
       dev.enable = true;
       theming.enable = true;
       programs.enable = true;
+      zenmode.enable = false;
     };
 
     # overrides
     programs.minecraft.enable = false;
-    # dev.editors.jetbrains.enable = false;
+    dev.editors.jetbrains.enable = false;
     programs = {
       filebrowser.nautilus.enable = false;
       browsers.zenbrowser.enable = false;

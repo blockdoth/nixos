@@ -5,7 +5,7 @@
   ...
 }:
 let
-  module = config.modules.core.utils.mimes;
+  module = config.modules.core.infra.mimes;
 in
 {
   config = lib.mkIf module.enable {

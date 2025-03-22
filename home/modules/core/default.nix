@@ -19,8 +19,11 @@
     ./windowmanager/tiling/widgets/ags.nix
 
     ./style/fonts
-    ./style/rice/rice.nix
     ./style/stylix.nix
+    ./style/rice/cli.nix
+    ./style/rice/activate-linux.nix
+    ./style/rice/cava.nix
+    ./style/rice/fastfetch.nix
 
     ./terminal/shell/prompt/starship.nix
     ./terminal/shell/fish.nix
@@ -29,11 +32,10 @@
     ./terminal/alacritty.nix
     ./terminal/ghostty/ghostty.nix
 
-    ./utils/git.nix
-    ./utils/secrets.nix
-    ./utils/home-structure.nix
-    ./utils/mimes.nix
-    ./utils/utils-cli.nix
-    ./utils/utils-gui.nix
+    ./infra/secrets.nix
+    ./infra/home-structure.nix
+    ./infra/mimes.nix
+    ./infra/cli-utils.nix
+    ./infra/gui-utils.nix
   ];
 }

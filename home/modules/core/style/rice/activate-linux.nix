@@ -6,7 +6,7 @@
   ...
 }:
 let
-  module = config.modules.programs.activate-linux;
+  module = config.modules.core.style.rice.activate-linux;
 in
 {
   config = lib.mkIf module.enable {

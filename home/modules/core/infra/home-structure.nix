@@ -6,7 +6,7 @@
   ...
 }:
 let
-  module = config.modules.core.utils.home-structure;
+  module = config.modules.core.infra.home-structure;
 in
 {
   config = lib.mkIf module.enable {
