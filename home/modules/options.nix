@@ -194,8 +194,8 @@ in
       dev = {
         editors = {
           micro.enable = mkDefault true;
-          jetbrains.enable = mkDefault (enableDev && enableGui);
-          vscode.enable = mkDefault (enableDev && enableGui);
+          jetbrains.enable = mkDefault (enableDev && enableGui && !zenMode);
+          vscode.enable = mkDefault (enableDev && enableGui && !zenMode);
           neovim.enable = mkDefault false;
           nvf.enable = mkDefault false;
         };
