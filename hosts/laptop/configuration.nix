@@ -17,6 +17,7 @@
     presets = {
       gui.enable = true;
       laptop.enable = true;
+      zenmode.enable = true;
     };
     common = {
       syncthing.enable = true;

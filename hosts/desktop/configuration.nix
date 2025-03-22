@@ -17,7 +17,6 @@
     presets = {
       gui.enable = true;
       gaming.enable = true;
-      zenmode.enable = true;
     };
     common.syncthing.enable = true;
     services = { };
