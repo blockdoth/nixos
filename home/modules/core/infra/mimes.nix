@@ -18,7 +18,6 @@ in
           "application/txt" = [ "micro-terminal.desktop" ];
           "application/xml" = [ "micro-terminal.desktop" ];
           "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-          "text/x-markdown" = [ "codium.desktop" ];
           "text/plain" = [ "micro-terminal.desktop" ];
           "text/csv" = [ "micro-terminal.desktop" ];
           "text/html" = [ "firefox.desktop" ];
@@ -27,7 +26,7 @@ in
           "image/bmp" = [ "qimgv.desktop" ];
           "image/webp" = [ "qimgv.desktop" ];
           "image/gif" = [ "qimgv.desktop" ];
-          "video/mp4" = [ "mpv.desktop" ];
+          "video/mp4" = [ "vlc.desktop" ];
           "default-web-browser" = [ "firefox.desktop" ];
           "x-scheme-handler/discord" = [ "vesktop.desktop" ];
           "x-scheme-handler/spotify" = [ "spotify.desktop" ];
@@ -45,7 +44,7 @@ in
 
         micro-terminal-json = {
           name = "Micro Terminal For Json";
-          exec = "alacritty -e sh -c \"jq %f | micro -\"";
+          exec = "alacritty -e sh -c \"jq . %f | micro \"";
           type = "Application";
           mimeType = [ "application/json" ];
         };
