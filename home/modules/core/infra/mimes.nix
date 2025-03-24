@@ -16,16 +16,25 @@ in
           "application/zip" = [ "org.gnome.FileRoller.desktop" ];
           "application/json" = [ "micro-terminal-json.desktop" ];
           "application/txt" = [ "micro-terminal.desktop" ];
-          "x-scheme-handler/discord" = [ "vesktop.desktop" ];
-          "default-web-browser" = [ "firefox.desktop" ];
+          "application/xml" = [ "micro-terminal.desktop" ];
+          "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+          "text/x-markdown" = [ "codium.desktop" ];
+          "text/plain" = [ "micro-terminal.desktop" ];
+          "text/csv" = [ "micro-terminal.desktop" ];
           "text/html" = [ "firefox.desktop" ];
+          "image/png" = [ "qimgv.desktop" ];
+          "image/jpeg" = [ "qimgv.desktop" ];
+          "image/bmp" = [ "qimgv.desktop" ];
+          "image/webp" = [ "qimgv.desktop" ];
+          "image/gif" = [ "qimgv.desktop" ];
+          "video/mp4" = [ "mpv.desktop" ];
+          "default-web-browser" = [ "firefox.desktop" ];
+          "x-scheme-handler/discord" = [ "vesktop.desktop" ];
+          "x-scheme-handler/spotify" = [ "spotify.desktop" ];
           "x-scheme-handler/http" = [ "firefox.desktop" ];
           "x-scheme-handler/https" = [ "firefox.desktop" ];
-          "x-scheme-handler/about" = [ "firefox.desktop" ];
-          "x-scheme-handler/unknown" = [ "firefox.desktop" ];
         };
       };
-
       desktopEntries = {
         micro-terminal = {
           name = "Micro Terminal";
@@ -33,9 +42,10 @@ in
           type = "Application";
           mimeType = [ "application/txt" ];
         };
+
         micro-terminal-json = {
           name = "Micro Terminal For Json";
-          exec = "alacritty -e sh -c \"jq . \\\"%f\\\" | micro -\"";
+          exec = "alacritty -e sh -c \"jq %f | micro -\"";
           type = "Application";
           mimeType = [ "application/json" ];
         };
