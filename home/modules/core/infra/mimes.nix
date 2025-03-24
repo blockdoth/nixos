@@ -13,14 +13,13 @@ in
       mimeApps = {
         enable = true;
         defaultApplications = {
-          "application/zip" = [ "org.gnome.FileRoller.desktop" ];
           "application/json" = [ "micro-terminal-json.desktop" ];
           "application/txt" = [ "micro-terminal.desktop" ];
           "application/xml" = [ "micro-terminal.desktop" ];
           "application/pdf" = [ "org.pwmt.zathura.desktop" ];
           "text/plain" = [ "micro-terminal.desktop" ];
           "text/csv" = [ "micro-terminal.desktop" ];
-          "text/html" = [ "firefox.desktop" ];
+          "text/html" = [ "micro-terminal.desktop" ];
           "image/png" = [ "qimgv.desktop" ];
           "image/jpeg" = [ "qimgv.desktop" ];
           "image/bmp" = [ "qimgv.desktop" ];
