@@ -15,7 +15,7 @@
       dev.enable = true;
       theming.enable = true;
       programs.enable = true;
-      # zenmode.enable = true;
+      zenmode.enable = false;
     };
 
     # overrides
