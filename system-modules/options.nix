@@ -126,16 +126,8 @@ in
         };
 
         sync = {
-          vaultwarden.enable = mkEnableOption "vaultwarden";
           atuin.enable = mkEnableOption "atuin shell sync";
           anki.enable = mkEnableOption "anki";
-        };
-
-        web = {
-          filebrowser.enable = mkEnableOption "filebrowser";
-          immich.enable = mkEnableOption "immich";
-          linkwarden.enable = mkEnableOption "linkwarden";
-          nextcloud.enable = mkEnableOption "nextcloud";
         };
 
         media = {
@@ -172,6 +164,11 @@ in
             };
           };
         };
+        vaultwarden.enable = mkEnableOption "vaultwarden";
+        filebrowser.enable = mkEnableOption "filebrowser";
+        immich.enable = mkEnableOption "immich";
+        linkwarden.enable = mkEnableOption "linkwarden";
+        nextcloud.enable = mkEnableOption "nextcloud";
       };
     };
   };

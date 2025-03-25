@@ -6,7 +6,7 @@
   ...
 }:
 let
-  module = config.system-modules.services.web.nextcloud;
+  module = config.system-modules.services.nextcloud;
   domain = config.system-modules.services.network.domains.homelab;
 in
 {

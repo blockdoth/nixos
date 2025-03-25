@@ -6,7 +6,7 @@
   ...
 }:
 let
-  module = config.system-modules.services.web.linkwarden;
+  module = config.system-modules.services.linkwarden;
   domain = config.system-modules.services.network.domains.homelab;
 in
 {

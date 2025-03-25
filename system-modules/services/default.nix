@@ -22,10 +22,10 @@
     ./scraping/iss-piss-stream.nix
     ./sync/atuin.nix
     ./sync/anki.nix
-    ./sync/vaultwarden.nix
-    ./web/filebrowser.nix
-    ./web/immich.nix
-    ./web/linkwarden.nix
-    ./web/nextcloud.nix
+    ./vaultwarden.nix
+    ./filebrowser.nix
+    ./immich.nix
+    ./linkwarden.nix
+    ./nextcloud.nix
   ];
 }

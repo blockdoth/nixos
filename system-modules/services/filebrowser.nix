@@ -6,7 +6,7 @@
   ...
 }:
 let
-  module = config.system-modules.services.web.filebrowser;
+  module = config.system-modules.services.filebrowser;
   domain = config.system-modules.services.network.domains.homelab;
 in
 {
@@ -20,7 +20,7 @@ in
 
     services.caddy = {
       virtualHosts."filebrowser.${domain}".extraConfig = ''
-        reverse_proxy 127.0.0.1:${toString config.services.web.filebrowser.port}
+        reverse_proxy 127.0.0.1:${toString config.services.filebrowser.port}
       '';
     };
   };

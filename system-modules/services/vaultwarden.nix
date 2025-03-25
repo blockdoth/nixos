@@ -6,7 +6,7 @@
   ...
 }:
 let
-  module = config.system-modules.services.sync.vaultwarden;
+  module = config.system-modules.services.vaultwarden;
   domain = config.system-modules.services.network.domains.homelab;
 in
 {

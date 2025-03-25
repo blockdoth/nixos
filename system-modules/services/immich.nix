@@ -6,7 +6,7 @@
   ...
 }:
 let
-  module = config.system-modules.services.web.immich;
+  module = config.system-modules.services.immich;
   domain = config.system-modules.services.network.domains.homelab;
 in
 {
