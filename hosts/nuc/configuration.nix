@@ -44,7 +44,7 @@
         minecraft.enable = true;
       };
       observability = {
-        gatus.enable = false;
+        gatus.enable = true;
       };
 
       sync = {

@@ -12,7 +12,43 @@ in
   config = lib.mkIf module.enable {
     services.gatus = {
       enable = true;
-      settings.web.port = 7070;
+      settings = {
+        web.port = 7070;
+        alerting = {
+          discord = {
+            # webhook-url = "https://discord.com/api/webhooks/YOUR-WEBHOOK-URL";
+          };
+        };
+
+        ui = {
+          title = "My Gatus Dashboard";
+          theme = "dark";
+        };
+        # security = {
+        #   authentication = {
+        #     username = "blockdoth";
+        #     password-hash = "";
+        #   };
+        # };
+
+        # tls = {
+        #   certificate-file = "/etc/ssl/certs/gatus.crt";
+        #   private-key-file = "/etc/ssl/private/gatus.key";
+        # };
+
+        endpoints = [
+          {
+            name = "Google";
+            url = "https://www.google.com";
+            interval = "30s";
+            conditions = [
+              "[STATUS] == 200"
+              "[RESPONSE_TIME] < 500"
+            ];
+          }
+        ];
+
+      };
     };
 
     services.caddy = {
