@@ -53,7 +53,7 @@
       sync = {
         atuin.enable = true;
         anki.enable = true;
-        vaultwarden.enable = false;
+        vaultwarden.enable = true;
       };
     };
   };
