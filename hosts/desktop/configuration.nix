@@ -19,7 +19,9 @@
       gaming.enable = true;
     };
     common.syncthing.enable = true;
-    services = { };
+    services = {
+      observability.gatus.enable = true;
+    };
   };
 
   networking.hostName = "desktop";

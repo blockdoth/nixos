@@ -121,10 +121,19 @@ in
           gatus = {
             enable = mkEnableOption "gatus";
             endpoints = lib.mkOption {
-              type = lib.types.listOf lib.types.attrs;
+              type = lib.types.listOf (
+                lib.types.submodule {
+                  options = {
+                    name = lib.mkOption { type = lib.types.str; };
+                    url = lib.mkOption { type = lib.types.str; };
+                    interval = lib.mkOption { type = lib.types.str; };
+                    conditions = lib.mkOption { type = lib.types.listOf lib.types.str; };
+                  };
+                }
+              );
               default = [ ];
-              description = "List of Gatus endpoints merged from multiple modules.";
-              apply = endpoints: lib.mkMerge [ (lib.concatLists endpoints) ];
+              description = "List of Gatus endpoints merged from multiple modules";
+              apply = x: lib.concatLists (lib.singleton x);
             };
           };
         };

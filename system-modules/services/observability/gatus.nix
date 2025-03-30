@@ -24,18 +24,6 @@ in
           title = "My Gatus Dashboard";
           theme = "dark";
         };
-        # security = {
-        #   authentication = {
-        #     username = "blockdoth";
-        #     password-hash = "";
-        #   };
-        # };
-
-        # tls = {
-        #   certificate-file = "/etc/ssl/certs/gatus.crt";
-        #   private-key-file = "/etc/ssl/private/gatus.key";
-        # };
-
         endpoints = config.system-modules.services.observability.gatus.endpoints;
       };
     };
