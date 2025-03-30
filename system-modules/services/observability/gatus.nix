@@ -36,20 +36,23 @@ in
         #   private-key-file = "/etc/ssl/private/gatus.key";
         # };
 
-        endpoints = [
-          {
-            name = "Google";
-            url = "https://www.google.com";
-            interval = "30s";
-            conditions = [
-              "[STATUS] == 200"
-              "[RESPONSE_TIME] < 500"
-            ];
-          }
-        ];
-
+        endpoints = lib.mkMerge [ config.system-modules.gatus.endpoints ];
       };
     };
+
+    system-modules.services.observability.gatus.endpoints = lib.mkMerge [
+      [
+        {
+          name = "test";
+          url = "https://www.youtube.com";
+          interval = "30s";
+          conditions = [
+            "[STATUS] == 200"
+            "[RESPONSE_TIME] < 500"
+          ];
+        }
+      ]
+    ];
 
     services.caddy = {
       virtualHosts."gatus.${domain}".extraConfig = ''

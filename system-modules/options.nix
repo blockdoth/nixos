@@ -118,7 +118,12 @@ in
           loki.enable = mkEnableOption "loki";
           prometheus.enable = mkEnableOption "prometheus";
           promtail.enable = mkEnableOption "promtail";
-          gatus.enable = mkEnableOption "gatus";
+          gatus = {
+            enable = mkEnableOption "gatus";
+            endpoints = mkOption {
+              type = lib.types.list;
+            };
+          };
         };
 
         scraping = {
