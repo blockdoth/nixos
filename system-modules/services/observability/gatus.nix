@@ -15,9 +15,7 @@ in
       settings = {
         web.port = 7070;
         alerting = {
-          discord = {
-            # webhook-url = "https://discord.com/api/webhooks/YOUR-WEBHOOK-URL";
-          };
+          # TODO
         };
 
         ui = {

@@ -15,13 +15,13 @@ in
     services.anki-sync-server = {
       enable = true;
       address = "127.0.0.1";
+      port = 27701;
       users = [
         {
           username = "blockdoth";
           passwordFile = config.sops.secrets.anki-password.path;
         }
       ];
-      port = 27701;
     };
 
     services.caddy.virtualHosts."anki.${domain}".extraConfig = ''

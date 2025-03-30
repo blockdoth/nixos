@@ -20,6 +20,7 @@
     };
     common.syncthing.enable = true;
     services = {
+      gameservers.factorio.enable = true;
       # observability.gatus.enable = true;
     };
   };
