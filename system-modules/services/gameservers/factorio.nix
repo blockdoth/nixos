@@ -12,6 +12,10 @@ let
 in
 {
   config = lib.mkIf module.enable {
+    environment.systemPackages = with pkgs; [
+      factorio-headless
+    ];
+
     services.factorio = {
       enable = true;
       port = 34197;
