@@ -57,7 +57,7 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Grafana";
-        url = "https://www.grafana.${domain}";
+        url = "https://grafana.${domain}";
         interval = "30s";
         conditions = [
           "[STATUS] == 200"

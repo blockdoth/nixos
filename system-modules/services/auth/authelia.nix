@@ -61,7 +61,7 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Authelia";
-        url = "https://www.authelia.${domain}";
+        url = "https://authelia.${domain}";
         interval = "30s";
         conditions = [
           "[STATUS] == 200"

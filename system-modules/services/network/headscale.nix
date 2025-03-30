@@ -49,7 +49,7 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Headscale";
-        url = "https://www.headscale.${domain}";
+        url = "https://headscale.${domain}";
         interval = "30s";
         conditions = [
           "[STATUS] == 200"

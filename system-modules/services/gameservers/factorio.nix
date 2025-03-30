@@ -30,7 +30,7 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Factorio";
-        url = "https://www.factorio.${domain}";
+        url = "https://factorio.${domain}";
         interval = "30s";
         conditions = [
           "[STATUS] == 200"
