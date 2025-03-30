@@ -53,7 +53,7 @@ in
     system-modules.services.observability.gatus.endpoints = lib.mkMerge [
       [
         {
-          name = "test";
+          name = "test2";
           url = "https://www.google.com";
           interval = "30s";
           conditions = [
