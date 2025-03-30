@@ -31,7 +31,7 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Anki";
-        url = "https://www.anki.${domain}.com";
+        url = "https://www.anki.${domain}";
         interval = "30s";
         conditions = [
           "[STATUS] == 200"

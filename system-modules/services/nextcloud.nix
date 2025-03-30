@@ -36,7 +36,7 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Nextcloud";
-        url = "https://www.nextcloud.${domain}.com";
+        url = "https://www.nextcloud.${domain}";
         interval = "30s";
         conditions = [
           "[STATUS] == 200"

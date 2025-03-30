@@ -30,7 +30,7 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Vaultwarden";
-        url = "https://www.vaultwarden.${domain}.com";
+        url = "https://www.vaultwarden.${domain}";
         interval = "30s";
         conditions = [
           "[STATUS] == 200"

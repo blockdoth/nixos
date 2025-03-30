@@ -25,7 +25,7 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Atuin";
-        url = "https://www.atuin.${domain}.com";
+        url = "https://www.atuin.${domain}";
         interval = "30s";
         conditions = [
           "[STATUS] == 200"
