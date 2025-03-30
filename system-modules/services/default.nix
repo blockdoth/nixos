@@ -7,6 +7,8 @@
 {
   imports = [
     ./media
+    ./gameservers/factorio.nix
+    ./gameservers/minecraft.nix
     ./network/ddns/ddns.nix
     ./network/acme.nix
     ./network/blocky.nix
