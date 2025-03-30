@@ -120,7 +120,11 @@ in
           promtail.enable = mkEnableOption "promtail";
           gatus = {
             enable = mkEnableOption "gatus";
-            endpoints = mkOption {
+            endpoints = lib.mkOption {
+              type = lib.types.listOf lib.types.attrs;
+              default = [ ];
+              description = "List of Gatus endpoints merged from multiple modules.";
+              apply = lib.mkMerge;
             };
           };
         };
