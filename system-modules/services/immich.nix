@@ -20,5 +20,17 @@ in
     services.caddy.virtualHosts."immich.${domain}".extraConfig = ''
       reverse_proxy 127.0.0.1:${toString config.services.immich.port}        
     '';
+
+    system-modules.services.observability.gatus.endpoints = [
+      {
+        name = "Immich";
+        url = "https://www.immich.${domain}.com";
+        interval = "30s";
+        conditions = [
+          "[STATUS] == 200"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
   };
 }

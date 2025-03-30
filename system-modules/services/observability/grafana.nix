@@ -53,5 +53,17 @@ in
     services.caddy.virtualHosts."grafana.${domain}".extraConfig = ''
       reverse_proxy 127.0.0.1:${builtins.toString config.services.grafana.settings.server.http_port}        
     '';
+
+    system-modules.services.observability.gatus.endpoints = [
+      {
+        name = "Grafana";
+        url = "https://www.grafana.${domain}.com";
+        interval = "30s";
+        conditions = [
+          "[STATUS] == 200"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
   };
 }

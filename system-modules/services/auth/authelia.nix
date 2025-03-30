@@ -57,5 +57,17 @@ in
     services.caddy.virtualHosts."authelia.${domain}".extraConfig = ''
       reverse_proxy 127.0.0.1:${builtins.toString autheliaPort}        
     '';
+
+    system-modules.services.observability.gatus.endpoints = [
+      {
+        name = "Authelia";
+        url = "https://www.authelia.${domain}.com";
+        interval = "30s";
+        conditions = [
+          "[STATUS] == 200"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
   };
 }

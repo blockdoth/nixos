@@ -27,5 +27,17 @@ in
     services.caddy.virtualHosts."anki.${domain}".extraConfig = ''
       reverse_proxy 127.0.0.1:${toString config.services.anki-sync-server.port}
     '';
+
+    system-modules.services.observability.gatus.endpoints = [
+      {
+        name = "Anki";
+        url = "https://www.anki.${domain}.com";
+        interval = "30s";
+        conditions = [
+          "[STATUS] == 200"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
   };
 }

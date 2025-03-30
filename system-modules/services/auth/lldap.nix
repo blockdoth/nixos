@@ -31,5 +31,17 @@ in
     services.caddy.virtualHosts."lldap.${domain}".extraConfig = ''
       reverse_proxy 127.0.0.1:${builtins.toString config.services.lldap.settings.http_port}        
     '';
+
+    system-modules.services.observability.gatus.endpoints = [
+      {
+        name = "Lldap";
+        url = "https://www.lldap.${domain}.com";
+        interval = "30s";
+        conditions = [
+          "[STATUS] == 200"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
   };
 }

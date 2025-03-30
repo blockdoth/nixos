@@ -26,5 +26,17 @@ in
     services.caddy.virtualHosts."factorio.${domain}".extraConfig = ''
       reverse_proxy 127.0.0.1:${toString config.services.factorio.port}
     '';
+
+    system-modules.services.observability.gatus.endpoints = [
+      {
+        name = "Factorio";
+        url = "https://www.factorio.${domain}.com";
+        interval = "30s";
+        conditions = [
+          "[STATUS] == 200"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
   };
 }

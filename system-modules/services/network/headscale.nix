@@ -46,6 +46,18 @@ in
       reverse_proxy 127.0.0.1:${builtins.toString config.services.headscale.port}        
     '';
 
+    system-modules.services.observability.gatus.endpoints = [
+      {
+        name = "Headscale";
+        url = "https://www.headscale.${domain}.com";
+        interval = "30s";
+        conditions = [
+          "[STATUS] == 200"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
+
     networking.firewall = {
       # DERP port (https://tailscale.com/kb/1082/firewall-ports)
       allowedUDPPorts = [ 3478 ];

@@ -32,5 +32,17 @@ in
     services.caddy.virtualHosts."nextcloud.${domain}".extraConfig = ''
       reverse_proxy 127.0.0.1:${builtins.toString config.services.minecraft-servers.servers.minecraft_21.serverProperties.server-port}        
     '';
+
+    system-modules.services.observability.gatus.endpoints = [
+      {
+        name = "Nextcloud";
+        url = "https://www.nextcloud.${domain}.com";
+        interval = "30s";
+        conditions = [
+          "[STATUS] == 200"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
   };
 }

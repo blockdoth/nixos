@@ -28,18 +28,6 @@ in
       };
     };
 
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "testos";
-        url = "https://www.youtube.com";
-        interval = "30s";
-        conditions = [
-          "[STATUS] == 200"
-          "[RESPONSE_TIME] < 500"
-        ];
-      }
-    ];
-
     services.caddy.virtualHosts."gatus.${domain}".extraConfig = ''
       reverse_proxy 127.0.0.1:${builtins.toString config.services.gatus.settings.web.port}
     '';
