@@ -65,10 +65,8 @@ in
       ]
     ];
 
-    services.caddy = {
-      virtualHosts."grafana.${domain}".extraConfig = ''
-        reverse_proxy 127.0.0.1:${builtins.toString config.services.grafana.settings.server.http_port}        
-      '';
-    };
+    services.caddy.virtualHosts."grafana.${domain}".extraConfig = ''
+      reverse_proxy 127.0.0.1:${builtins.toString config.services.grafana.settings.server.http_port}        
+    '';
   };
 }

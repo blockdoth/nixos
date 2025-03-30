@@ -23,10 +23,8 @@ in
       password = "";
     };
 
-    services.caddy = {
-      virtualHosts."factorio.${domain}".extraConfig = ''
-        reverse_proxy 127.0.0.1:${toString config.services.factorio.port}
-      '';
-    };
+    services.caddy.virtualHosts."factorio.${domain}".extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString config.services.factorio.port}
+    '';
   };
 }

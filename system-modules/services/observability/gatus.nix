@@ -54,10 +54,8 @@ in
       ]
     ];
 
-    services.caddy = {
-      virtualHosts."gatus.${domain}".extraConfig = ''
-        reverse_proxy 127.0.0.1:${builtins.toString config.services.gatus.settings.web.port}
-      '';
-    };
+    services.caddy.virtualHosts."gatus.${domain}".extraConfig = ''
+      reverse_proxy 127.0.0.1:${builtins.toString config.services.gatus.settings.web.port}
+    '';
   };
 }

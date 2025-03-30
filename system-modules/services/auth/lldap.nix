@@ -28,10 +28,8 @@ in
 
     };
 
-    services.caddy = {
-      virtualHosts."lldap.${domain}".extraConfig = ''
-        reverse_proxy 127.0.0.1:${builtins.toString config.services.lldap.settings.http_port}        
-      '';
-    };
+    services.caddy.virtualHosts."lldap.${domain}".extraConfig = ''
+      reverse_proxy 127.0.0.1:${builtins.toString config.services.lldap.settings.http_port}        
+    '';
   };
 }

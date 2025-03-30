@@ -42,11 +42,9 @@ in
       };
     };
 
-    services.caddy = {
-      virtualHosts."headscale.${domain}".extraConfig = ''
-        reverse_proxy 127.0.0.1:${builtins.toString config.services.headscale.port}        
-      '';
-    };
+    services.caddy.virtualHosts."headscale.${domain}".extraConfig = ''
+      reverse_proxy 127.0.0.1:${builtins.toString config.services.headscale.port}        
+    '';
 
     networking.firewall = {
       # DERP port (https://tailscale.com/kb/1082/firewall-ports)

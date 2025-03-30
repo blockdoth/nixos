@@ -54,10 +54,8 @@ in
       };
     };
 
-    services.caddy = {
-      virtualHosts."authelia.${domain}".extraConfig = ''
-        reverse_proxy 127.0.0.1:${builtins.toString autheliaPort}        
-      '';
-    };
+    services.caddy.virtualHosts."authelia.${domain}".extraConfig = ''
+      reverse_proxy 127.0.0.1:${builtins.toString autheliaPort}        
+    '';
   };
 }

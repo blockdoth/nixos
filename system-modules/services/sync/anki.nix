@@ -24,10 +24,8 @@ in
       port = 27701;
     };
 
-    services.caddy = {
-      virtualHosts."anki.${domain}".extraConfig = ''
-        reverse_proxy 127.0.0.1:${toString config.services.anki-sync-server.port}
-      '';
-    };
+    services.caddy.virtualHosts."anki.${domain}".extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString config.services.anki-sync-server.port}
+    '';
   };
 }
