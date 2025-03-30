@@ -121,7 +121,6 @@ in
           gatus = {
             enable = mkEnableOption "gatus";
             endpoints = mkOption {
-              type = lib.types.list;
             };
           };
         };

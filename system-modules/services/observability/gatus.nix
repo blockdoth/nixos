@@ -36,7 +36,7 @@ in
         #   private-key-file = "/etc/ssl/private/gatus.key";
         # };
 
-        endpoints = lib.mkMerge [ config.system-modules.gatus.endpoints ];
+        endpoints = lib.mkMerge [ config.system-modules.services.observability.gatus.endpoints ];
       };
     };
 
