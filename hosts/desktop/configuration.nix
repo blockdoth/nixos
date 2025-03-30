@@ -24,6 +24,17 @@
     };
   };
 
+  system-modules.services.observability.gatus.endpoints = [
+    {
+      name = "test";
+      url = "https://www.google.com";
+      interval = "30s";
+      conditions = [
+        "[STATUS] == 200"
+        "[RESPONSE_TIME] < 500"
+      ];
+    }
+  ];
   networking.hostName = "desktop";
   system.stateVersion = "24.05"; # Did you read the comment?
 }
