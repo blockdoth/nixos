@@ -50,19 +50,17 @@ in
       };
     };
 
-    system-modules.services.observability.gatus.endpoints = lib.mkMerge [
-      [
-        {
-          name = "test2";
-          url = "https://www.google.com";
-          interval = "30s";
-          conditions = [
-            "[STATUS] == 200"
-            "[RESPONSE_TIME] < 500"
-            1
-          ];
-        }
-      ]
+    services.gatus.settings.endpoints = [
+      {
+        name = "test2";
+        url = "https://www.google.com";
+        interval = "30s";
+        conditions = [
+          "[STATUS] == 200"
+          "[RESPONSE_TIME] < 500"
+          1
+        ];
+      }
     ];
 
     services.caddy.virtualHosts."grafana.${domain}".extraConfig = ''
