@@ -8,6 +8,7 @@
 let
   module = config.system-modules.services.auth.authelia;
   domain = config.system-modules.services.network.domains.homelab;
+  gatusIsEnabled = config.system-modules.services.observability.gatus.enable;
   autheliaPort = 9091;
 in
 {
@@ -58,7 +59,7 @@ in
       reverse_proxy 127.0.0.1:${builtins.toString autheliaPort}        
     '';
 
-    system-modules.services.observability.gatus.endpoints = [
+    system-modules.services.observability.gatus.endpoints = lib.mkIf gatusIsEnabled [
       {
         name = "Authelia";
         url = "https://authelia.${domain}";

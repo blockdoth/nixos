@@ -8,6 +8,7 @@
 let
   module = config.system-modules.services.network.headscale;
   domain = config.system-modules.services.network.domains.homelab;
+  gatusIsEnabled = config.system-modules.services.observability.gatus.enable;
 in
 {
   config = lib.mkIf module.enable {
@@ -46,7 +47,7 @@ in
       reverse_proxy 127.0.0.1:${builtins.toString config.services.headscale.port}        
     '';
 
-    system-modules.services.observability.gatus.endpoints = [
+    system-modules.services.observability.gatus.endpoints = lib.mkIf gatusIsEnabled [
       {
         name = "Headscale";
         url = "https://headscale.${domain}/health";

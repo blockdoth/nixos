@@ -8,6 +8,7 @@
 let
   module = config.system-modules.services.immich;
   domain = config.system-modules.services.network.domains.homelab;
+  gatusIsEnabled = config.system-modules.services.observability.gatus.enable;
 in
 {
   config = lib.mkIf module.enable {
@@ -21,7 +22,7 @@ in
       reverse_proxy 127.0.0.1:${toString config.services.immich.port}        
     '';
 
-    system-modules.services.observability.gatus.endpoints = [
+    system-modules.services.observability.gatus.endpoints = lib.mkIf gatusIsEnabled [
       {
         name = "Immich";
         url = "https://immich.${domain}";
