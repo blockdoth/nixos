@@ -124,7 +124,7 @@ in
               type = lib.types.listOf lib.types.attrs;
               default = [ ];
               description = "List of Gatus endpoints merged from multiple modules.";
-              apply = lib.mkMerge;
+              apply = endpoints: lib.mkMerge [ (lib.concatLists endpoints) ];
             };
           };
         };
