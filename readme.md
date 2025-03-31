@@ -4,7 +4,6 @@ The best thing since sliced bread
 ### TODO
 - Single Sign on for all services with authelia and lldap
 - Blocky or an alternative ad blocker
-- Finish headscale user management 
 - Finish setting up media services
 - Finish setting up piss stream observability
 

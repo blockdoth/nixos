@@ -37,6 +37,7 @@ in
       cron
       tree
       tree_but_cooler
+      speedtest-cli
     ];
   };
 }
