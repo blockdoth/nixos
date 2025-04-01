@@ -795,6 +795,22 @@
         "type": "github"
       }
     },
+    "linkwarden-pr": {
+      "locked": {
+        "lastModified": 1743423566,
+        "narHash": "sha256-DqiQXmm+0MyjmmGD72gbJ45qYQO8HCQLa2gZO733nXg=",
+        "owner": "jvanbruegge",
+        "repo": "nixpkgs",
+        "rev": "3c34223b29220589e0fe641e6afb8a7feb7dff7a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jvanbruegge",
+        "ref": "linkwarden",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "mnw": {
       "locked": {
         "lastModified": 1742255973,
@@ -1252,6 +1268,7 @@
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
         "iss-piss-stream": "iss-piss-stream",
+        "linkwarden-pr": "linkwarden-pr",
         "nix-minecraft": "nix-minecraft",
         "nixneovimplugins": "nixneovimplugins",
         "nixpkgs": "nixpkgs_7",
