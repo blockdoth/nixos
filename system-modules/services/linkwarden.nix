@@ -8,7 +8,6 @@
 let
   module = config.system-modules.services.linkwarden;
   domain = config.system-modules.services.network.domains.homelab;
-  gatusIsEnabled = config.system-modules.services.observability.gatus.enable;
 in
 {
   # Imports the module options from a unmerged nixpkgs pr
@@ -34,7 +33,7 @@ in
       reverse_proxy 127.0.0.1:${toString config.services.linkwarden.port}        
     '';
 
-    system-modules.services.observability.gatus.endpoints = lib.mkIf gatusIsEnabled [
+    system-modules.services.observability.gatus.endpoints = [
       {
         name = "Linkwarden";
         url = "https://linkwarden.${domain}";

@@ -8,7 +8,6 @@
 let
   module = config.system-modules.services.sync.atuin;
   domain = config.system-modules.services.network.domains.homelab;
-  gatusIsEnabled = config.system-modules.services.observability.gatus.enable;
 in
 {
   config = lib.mkIf module.enable {
@@ -23,7 +22,7 @@ in
       reverse_proxy 127.0.0.1:${toString config.services.atuin.port}
     '';
 
-    system-modules.services.observability.gatus.endpoints = lib.mkIf gatusIsEnabled [
+    system-modules.services.observability.gatus.endpoints = [
       {
         name = "Atuin";
         url = "https://atuin.${domain}";

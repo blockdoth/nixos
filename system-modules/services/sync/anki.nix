@@ -8,7 +8,6 @@
 let
   module = config.system-modules.services.sync.anki;
   domain = config.system-modules.services.network.domains.homelab;
-  gatusIsEnabled = config.system-modules.services.observability.gatus.enable;
 in
 {
   config = lib.mkIf module.enable {
@@ -29,7 +28,7 @@ in
       reverse_proxy 127.0.0.1:${toString config.services.anki-sync-server.port}
     '';
 
-    system-modules.services.observability.gatus.endpoints = lib.mkIf gatusIsEnabled [
+    system-modules.services.observability.gatus.endpoints = [
       {
         name = "Anki";
         url = "https://anki.${domain}/health";

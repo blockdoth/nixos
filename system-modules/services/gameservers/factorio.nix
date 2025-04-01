@@ -8,7 +8,6 @@
 let
   module = config.system-modules.services.gameservers.factorio;
   domain = config.system-modules.services.network.domains.gameservers;
-  gatusIsEnabled = config.system-modules.services.observability.gatus.enable;
 in
 {
   config = lib.mkIf module.enable {
@@ -32,7 +31,7 @@ in
       reverse_proxy 127.0.0.1:${toString config.services.factorio.port}
     '';
 
-    system-modules.services.observability.gatus.endpoints = lib.mkIf gatusIsEnabled [
+    system-modules.services.observability.gatus.endpoints = [
       {
         name = "Factorio";
         url = "https://factorio.${domain}";

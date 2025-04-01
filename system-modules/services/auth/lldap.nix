@@ -8,7 +8,6 @@
 let
   module = config.system-modules.services.auth.lldap;
   domain = config.system-modules.services.network.domains.homelab;
-  gatusIsEnabled = config.system-modules.services.observability.gatus.enable;
 in
 {
   config = lib.mkIf module.enable {
@@ -33,7 +32,7 @@ in
       reverse_proxy 127.0.0.1:${builtins.toString config.services.lldap.settings.http_port}        
     '';
 
-    system-modules.services.observability.gatus.endpoints = lib.mkIf gatusIsEnabled [
+    system-modules.services.observability.gatus.endpoints = [
       {
         name = "Lldap";
         url = "https://lldap.${domain}";
