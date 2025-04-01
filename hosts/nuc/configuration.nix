@@ -55,7 +55,7 @@
       immich.enable = true;
       vaultwarden.enable = true;
       nextcloud.enable = false;
-
+      linkwarden.enable = true;
     };
   };
 

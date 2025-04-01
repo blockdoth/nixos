@@ -25,7 +25,6 @@
     };
     services = {
       # observability.gatus.enable = true;
-      linkwarden.enable = true;
       # auth = {
       #   authelia.enable = true;
       #   lldap.enable = true;

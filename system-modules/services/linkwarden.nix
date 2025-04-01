@@ -8,25 +8,42 @@
 let
   module = config.system-modules.services.linkwarden;
   domain = config.system-modules.services.network.domains.homelab;
+  gatusIsEnabled = config.system-modules.services.observability.gatus.enable;
 in
 {
+  # Imports the module options from a unmerged nixpkgs pr
   imports = [
     "${inputs.linkwarden-pr}/nixos/modules/services/web-apps/linkwarden.nix"
   ];
 
   config = lib.mkIf module.enable {
-    # environment.systemPackages = with pkgs; [
-    #   inputs.linkwarden-pr.legacyPackages.${pkgs.system}.linkwarden
-    # ];
-
     sops.secrets.linkwarden-nextauth = { };
 
     services.linkwarden = {
       enable = true;
+      # Imports the actual package
       package = inputs.linkwarden-pr.legacyPackages.${pkgs.system}.linkwarden;
+
+      port = 3001;
       enableRegistration = true;
       openFirewall = false;
       secretsFile = config.sops.secrets.linkwarden-nextauth.path;
     };
+
+    services.caddy.virtualHosts."linkwarden.${domain}".extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString config.services.linkwarden.port}        
+    '';
+
+    system-modules.services.observability.gatus.endpoints = lib.mkIf gatusIsEnabled [
+      {
+        name = "Linkwarden";
+        url = "https://linkwarden.${domain}";
+        interval = "30s";
+        conditions = [
+          "[STATUS] == 200"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
   };
 }
