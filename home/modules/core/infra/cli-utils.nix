@@ -38,6 +38,7 @@ in
       tree
       tree_but_cooler
       speedtest-cli
+      dig
     ];
   };
 }
