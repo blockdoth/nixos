@@ -1,0 +1,51 @@
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+  grpc_listen_port: 9095
+
+common:
+  ring:
+    kvstore:
+      store: inmemory 
+
+ingester:
+  wal:
+    enabled: false
+  lifecycler:
+    address: 127.0.0.1
+    ring:
+      kvstore:
+        store: inmemory
+      replication_factor: 1
+      
+storage_config:
+  boltdb_shipper:
+    active_index_directory: /tmp/loki/index
+    cache_location: /tmp/loki/cache
+    resync_interval: 10s
+  filesystem:
+    directory: /tmp/loki/chunks
+
+schema_config:
+  configs:
+    - from: 2024-01-01
+      store: boltdb-shipper
+      object_store: filesystem
+      schema: v11
+      index:
+        prefix: index_
+        period: 24h
+
+limits_config:
+  max_line_size: 1048576
+  max_streams_per_user: 10000
+  max_entries_limit_per_query: 5000
+  allow_structured_metadata: false  
+  reject_old_samples: false
+  creation_grace_period: 10w
+
+compactor:
+  working_directory: /tmp/loki/compactor
+  retention_enabled: false
+  

@@ -7,7 +7,7 @@
 }:
 {
   imports = [
-    ../../system-modules/options.nix
+    ../../modules/system/options.nix
     ./hardware.nix
   ];
 

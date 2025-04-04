@@ -59,8 +59,6 @@
           };
           modules = [
             ./hosts/laptop/configuration.nix
-            home-manager.nixosModules.home-manager
-            inputs.stylix.nixosModules.stylix
           ];
         };
         desktop = nixpkgs.lib.nixosSystem {
@@ -69,8 +67,6 @@
           };
           modules = [
             ./hosts/desktop/configuration.nix
-            home-manager.nixosModules.home-manager
-            inputs.stylix.nixosModules.stylix
           ];
         };
         nuc = nixpkgs.lib.nixosSystem {
@@ -79,8 +75,6 @@
           };
           modules = [
             ./hosts/nuc/configuration.nix
-            home-manager.nixosModules.home-manager
-            inputs.stylix.nixosModules.stylix
           ];
         };
 
@@ -109,8 +103,7 @@
             inherit inputs;
           };
           modules = [
-            inputs.stylix.homeManagerModules.stylix
-            home/users/blockdoth.nix
+            users/blockdoth/home.nix
           ];
         };
 
@@ -118,11 +111,11 @@
           inherit pkgs;
           extraSpecialArgs = {
             hostname = "laptop";
+
             inherit inputs;
           };
           modules = [
-            inputs.stylix.homeManagerModules.stylix
-            home/users/blockdoth.nix
+            users/blockdoth/home.nix
           ];
         };
 
@@ -133,8 +126,7 @@
             inherit inputs;
           };
           modules = [
-            inputs.stylix.homeManagerModules.stylix
-            home/users/penger.nix
+            users/penger/home.nix
           ];
         };
       };

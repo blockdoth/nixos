@@ -1,0 +1,33 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    ./media
+    ./gameservers/factorio.nix
+    ./gameservers/minecraft.nix
+    ./network/ddns/ddns.nix
+    ./network/acme.nix
+    ./network/blocky.nix
+    ./network/caddy.nix
+    ./network/headscale.nix
+    ./auth/authelia.nix
+    ./auth/lldap.nix
+    ./observability/grafana.nix
+    ./observability/prometheus.nix
+    ./observability/promtail.nix
+    ./observability/loki.nix
+    ./observability/gatus.nix
+    ./scraping/iss-piss-stream.nix
+    ./sync/atuin.nix
+    ./sync/anki.nix
+    ./vaultwarden.nix
+    ./filebrowser.nix
+    ./immich.nix
+    ./linkwarden.nix
+    ./nextcloud.nix
+  ];
+}
