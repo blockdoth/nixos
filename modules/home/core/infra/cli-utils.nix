@@ -39,6 +39,7 @@ in
       tree_but_cooler
       speedtest-cli
       dig
+      nmap
     ];
   };
 }
