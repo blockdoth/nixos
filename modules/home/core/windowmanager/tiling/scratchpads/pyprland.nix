@@ -43,7 +43,7 @@ in
       animation = "fromBottom"
       hide_delay = 0.5
       command = "signal-desktop"
-      class = "signal"
+      class = "Signal"
       size = "80% 80%"   
     '';
   };
