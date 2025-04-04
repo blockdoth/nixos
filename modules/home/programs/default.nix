@@ -12,6 +12,7 @@
     ./llms.nix
     ./spotify.nix
     ./whatsapp.nix
+    ./signal.nix
     ./steam.nix
     ./minecraft.nix
   ];
