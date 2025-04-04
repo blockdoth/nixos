@@ -108,6 +108,7 @@ in
         "SUPER,U,exec,"
         "SUPER,V,togglefloating"
         "SUPER,W,exec, pypr toggle whatsapp"
+        "SUPER,D,exec, pypr toggle signal"
         "SUPER SHIFT,W,exec, wlogout-script"
         "SUPER,X,exec,pypr attach"
         "SUPER,Y,exec,codium ~/nixos"

@@ -57,10 +57,7 @@ in
               hyprpaper.enable = mkEnableOption "Hyprland based wallpaper util";
               swww.enable = mkEnableOption "Sway based wallpaper util";
             };
-            widgets = {
-              ags.enable = mkEnableOption "JS widget framework";
-              pyprland.enable = mkEnableOption "Hyprland utils system";
-            };
+            scratchpads.pyprland.enable = mkEnableOption "Hyprland scratchpads";
             idle.hypridle.enable = mkEnableOption "Hyprland based idle monitor";
             mediadeamon.mpd.enable = mkEnableOption "media deamon"; # TODO look at this again
             nightmode.gammastep.enable = mkEnableOption "nightmode";
@@ -156,10 +153,8 @@ in
               hyprpaper.enable = mkDefault false; # Caused issues
               swww.enable = mkDefault enableTilingWM;
             };
-            widgets = {
-              ags.enable = mkDefault false;
-              pyprland.enable = mkDefault enableHyprland;
-            };
+            scratchpads.pyprland.enable = mkDefault enableHyprland;
+
             idle.hypridle.enable = mkDefault enableTilingWM;
             nightmode.gammastep.enable = mkDefault enableTilingWM;
             notifications.dunst.enable = mkDefault enableTilingWM;

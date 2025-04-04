@@ -15,8 +15,7 @@
     ./windowmanager/tiling/taskbar/waybar.nix
     ./windowmanager/tiling/wallpaper/hyprpaper.nix
     ./windowmanager/tiling/wallpaper/swww.nix
-    ./windowmanager/tiling/widgets/pyprland.nix
-    ./windowmanager/tiling/widgets/ags.nix
+    ./windowmanager/tiling/scratchpads/pyprland.nix
 
     ./style/fonts
     ./style/stylix.nix

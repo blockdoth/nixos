@@ -5,7 +5,7 @@
   ...
 }:
 let
-  module = config.modules.core.windowmanager.tiling.widgets.pyprland;
+  module = config.modules.core.windowmanager.tiling.scratchpads.pyprland;
 in
 {
   config = lib.mkIf module.enable {
@@ -37,7 +37,14 @@ in
       hide_delay = 0.5
       command = "zapzap"
       class = "com.rtosta.zapzap"
-      size = "80% 80%"      
+      size = "80% 80%"     
+
+      [scratchpads.signal]
+      animation = "fromBottom"
+      hide_delay = 0.5
+      command = "signal-desktop"
+      class = "signal"
+      size = "80% 80%"   
     '';
   };
 }
