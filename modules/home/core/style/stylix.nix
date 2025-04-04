@@ -10,7 +10,12 @@ let
   module = config.modules.core.style.theme.stylix;
 in
 {
+  imports = [
+    inputs.stylix.homeManagerModules.stylix
+  ];
+
   config = lib.mkIf module.enable {
+
     home.sessionVariables = {
       XCURSOR_SIZE = config.stylix.cursor.size;
       HYPRCURSOR_SIZE = config.stylix.cursor.size;

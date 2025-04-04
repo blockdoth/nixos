@@ -27,6 +27,7 @@ in
     ./core
     ./dev
     ./programs
+    # inputs.home-manager.nixosModules.home-manager
   ];
 
   options = {
@@ -134,6 +135,9 @@ in
   };
 
   config = {
+    # TODO find a better place for this
+    programs.home-manager.enable = true;
+
     modules = {
       core = {
         windowmanager = {

@@ -13,7 +13,7 @@ in
 
   config = lib.mkIf module.enable {
     sops = {
-      defaultSopsFile = ../../../../secrets/secrets.yaml;
+      defaultSopsFile = ../../../../secrets.yaml;
       defaultSopsFormat = "yaml";
       age = {
         sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/id_ed25519" ];
