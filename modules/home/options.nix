@@ -127,6 +127,7 @@ in
         spotify.enable = mkEnableOption "spotify";
         llms.enable = mkEnableOption "llms";
         whatsapp.enable = mkEnableOption "whatsapp";
+        signal.enable = mkEnableOption "signal";
         steam.enable = mkEnableOption "steam";
         minecraft.enable = mkEnableOption "minecraft";
         anki.enable = mkEnableOption "anki";
@@ -223,6 +224,7 @@ in
         spotify.enable = mkDefault enableGui;
         llms.enable = mkDefault enableGui;
         whatsapp.enable = mkDefault (enableGui && !zenMode);
+        signal.enable = mkDefault (enableGui && !zenMode);
         steam.enable = mkDefault (enableGui && !zenMode);
         anki.enable = mkDefault enableGui;
       };
