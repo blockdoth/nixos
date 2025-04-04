@@ -25,7 +25,7 @@ in
         "opacity 0.85, class:^(jetbrains)"
         "opacity 0.80, class:^(org.gnome.Nautilus)"
         "opacity 0.9, class:^(com.rtosta.zapzap)"
-        "opacity 0.9, class:^(Signal)"
+        "opacity 0.8, class:^(Signal)"
         "opacity 0.9, class:^(anki)"
 
         # "noblur,class:^(ghostty)$"
