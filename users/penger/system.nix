@@ -9,12 +9,14 @@ let
 in
 {
   config = lib.mkIf module.enable {
+
     sops.secrets.penger-password.neededForUsers = true;
 
     users = {
       mutableUsers = false;
       users.penger = {
         isNormalUser = true;
+        shell = pkgs.fish;
         extraGroups = [
           "wheel"
           "networkmanager"
