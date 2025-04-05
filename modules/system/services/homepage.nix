@@ -22,7 +22,7 @@ in
         {
           Dev = [
             {
-              Github = [
+              GH = [
                 {
                   abbr = "Github";
                   href = "https://github.com/blockdoth";
@@ -34,7 +34,7 @@ in
         {
           Media = [
             {
-              Youtube = [
+              YT = [
                 {
                   abbr = "Youtube";
                   href = "https://github.com/blockdoth";
@@ -46,7 +46,7 @@ in
         {
           Hosting = [
             {
-              Gatus = [
+              GA = [
                 {
                   abbr = "Gatus";
                   href = "https://gatus.insinuatis.com";
