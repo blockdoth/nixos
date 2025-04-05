@@ -24,6 +24,7 @@ in
       package = inputs.linkwarden-pr.legacyPackages.${pkgs.system}.linkwarden;
 
       port = 3001;
+      host = "127.0.0.1";
       enableRegistration = false;
       openFirewall = false;
       secretsFile = config.sops.secrets.linkwarden-nextauth.path;
