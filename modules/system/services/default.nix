@@ -29,5 +29,6 @@
     ./immich.nix
     ./linkwarden.nix
     ./nextcloud.nix
+    ./homepage.nix
   ];
 }

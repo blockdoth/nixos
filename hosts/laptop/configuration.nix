@@ -29,6 +29,7 @@
       #   authelia.enable = true;
       #   lldap.enable = true;
       # };
+      homepage.enable = true;
     };
   };
 

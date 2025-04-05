@@ -186,6 +186,7 @@ in
         immich.enable = mkEnableOption "immich";
         linkwarden.enable = mkEnableOption "linkwarden";
         nextcloud.enable = mkEnableOption "nextcloud";
+        homepage.enable = mkEnableOption "homepage";
       };
     };
   };
