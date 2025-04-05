@@ -17,6 +17,55 @@ in
       settings = {
 
       };
+
+      bookmarks = [
+        {
+          Dev = [
+            {
+              Github = [
+                {
+                  abbr = "Github";
+                  href = "https://github.com/blockdoth";
+                }
+              ];
+            }
+          ];
+        }
+        {
+          Media = [
+            {
+              Youtube = [
+                {
+                  abbr = "Youtube";
+                  href = "https://github.com/blockdoth";
+                }
+              ];
+            }
+          ];
+        }
+        {
+          Hosting = [
+            {
+              Gatus = [
+                {
+                  abbr = "Gatus";
+                  href = "https://gatus.insinuatis.com";
+                }
+              ];
+            }
+          ];
+        }
+      ];
+
+      widgets = [
+        {
+          resources = {
+            cpu = true;
+            memory = true;
+            disk = "/";
+          };
+        }
+      ];
     };
 
     services.caddy.virtualHosts."homepage.${domain}".extraConfig = ''
