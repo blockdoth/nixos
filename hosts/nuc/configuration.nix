@@ -19,7 +19,7 @@
     };
 
     presets = {
-      mediaserver.enable = true;
+      # mediaserver.enable = true;
       iss-piss-stream.enable = true;
     };
     common = {
