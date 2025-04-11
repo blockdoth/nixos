@@ -229,12 +229,12 @@ in
           };
         };
 
-        observability = {
-          grafana.enable = mkDefault enablePissStream;
-          loki.enable = mkDefault enablePissStream;
-          prometheus.enable = mkDefault enablePissStream;
-          promtail.enable = mkDefault enablePissStream;
-        };
+        # observability = {
+        #   grafana.enable = mkDefault enablePissStream;
+        #   loki.enable = mkDefault enablePissStream;
+        #   prometheus.enable = mkDefault enablePissStream;
+        #   promtail.enable = mkDefault enablePissStream;
+        # };
         scraping = {
           iss-piss-stream.enable = mkDefault enablePissStream;
         };
