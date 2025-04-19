@@ -26,7 +26,7 @@ in
         # globals.mapleader = "";
 
         options = {
-          signcolumn = "no";
+          # signcolumn = "no";
         };
         languages = {
           nix.enable = true;
@@ -54,10 +54,12 @@ in
 
         utility = {
           motion.precognition.enable = true;
+          yazi-nvim.enable = true;
         };
 
         visuals = {
           nvim-scrollbar.enable = true;
+          indent-blankline.enable = true;
         };
 
         dashboard.alpha.enable = true;
