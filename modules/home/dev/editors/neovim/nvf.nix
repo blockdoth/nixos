@@ -28,6 +28,8 @@ in
         options = {
           # signcolumn = "no";
         };
+
+        lsp.lightbulb.enable = true;
         languages = {
           nix.enable = true;
           ts.enable = true;
