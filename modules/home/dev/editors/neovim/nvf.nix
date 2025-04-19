@@ -17,6 +17,12 @@ in
     programs.nvf = {
       enable = true;
       settings.vim = {
+        options = {
+          fillchars = {
+            eob = " ";
+          };
+        };
+
         theme = {
           enable = true;
           name = "gruvbox";
