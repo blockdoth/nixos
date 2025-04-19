@@ -31,7 +31,7 @@
     dev.editors = {
       jetbrains.enable = false;
       neovim.enable = false;
-      nvf.enable = false;
+      nvf.enable = true;
     };
     programs = {
       filebrowser.nautilus.enable = false;
