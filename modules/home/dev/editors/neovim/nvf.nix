@@ -107,13 +107,16 @@ in
           colorizer.enable = true;
         };
         filetree.neo-tree.enable = true;
+        autocomplete.blink-cmp = {
+          enable = true;
+
+        };
 
         dashboard.alpha.enable = true;
         mini.icons.enable = true;
         formatter.conform-nvim.enable = true;
         tabline.nvimBufferline.enable = true;
         telescope.enable = true;
-        autocomplete.nvim-cmp.enable = true;
         statusline.lualine.enable = true;
       };
     };
