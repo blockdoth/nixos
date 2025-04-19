@@ -46,6 +46,8 @@ in
           nvimTree.enable = true;
         };
 
+        tabline.nvimBufferline.enable = true;
+
         telescope.enable = true;
         autocomplete.nvim-cmp.enable = true;
         statusline.lualine.enable = true;
