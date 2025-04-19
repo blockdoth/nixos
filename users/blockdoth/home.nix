@@ -28,7 +28,11 @@
 
     # overrides
     programs.minecraft.enable = false;
-    dev.editors.jetbrains.enable = false;
+    dev.editors = {
+      jetbrains.enable = false;
+      neovim.enable = false;
+      nvf.enable = false;
+    };
     programs = {
       filebrowser.nautilus.enable = false;
       browsers.zenbrowser.enable = false;
