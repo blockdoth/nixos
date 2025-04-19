@@ -18,9 +18,7 @@ in
       enable = true;
       settings.vim = {
         options = {
-          fillchars = {
-            eob = " ";
-          };
+          fillchars.eob = " ";
         };
 
         theme = {
