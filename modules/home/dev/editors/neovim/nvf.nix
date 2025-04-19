@@ -55,6 +55,7 @@ in
         visuals = {
           nvim-scrollbar.enable = true;
         };
+        dashboard.alpha.enable = true;
         mini.icons.enable = true;
         formatter.conform-nvim.enable = true;
         filetree.nvimTree.enable = true;
