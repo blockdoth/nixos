@@ -23,7 +23,11 @@ in
           style = "dark";
           transparent = true;
         };
+        # globals.mapleader = "";
 
+        options = {
+          signcolumn = "no";
+        };
         languages = {
           nix.enable = true;
           ts.enable = true;
@@ -55,6 +59,7 @@ in
         visuals = {
           nvim-scrollbar.enable = true;
         };
+
         dashboard.alpha.enable = true;
         mini.icons.enable = true;
         formatter.conform-nvim.enable = true;
