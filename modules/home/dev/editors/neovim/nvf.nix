@@ -114,7 +114,7 @@ in
         filetree.neo-tree = {
           enable = true;
           setupOpts = {
-            enable_cursor_hijack = true;
+            # enable_cursor_hijack = true;
             enable_git_status = true;
             enable_modified_markers = true;
             open_on_setup = true;
