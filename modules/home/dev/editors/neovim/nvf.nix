@@ -68,14 +68,11 @@ in
         };
 
         utility = {
-          motion = {
-            # hop.enable = true;
-            # leap.enable = true;
-            precognition.enable = true;
-          };
+          motion.precognition.enable = true;
           yazi-nvim.enable = true;
           multicursors.enable = true;
           surround.enable = true;
+          oil-nvim.enable = true;
         };
 
         visuals = {
@@ -109,11 +106,11 @@ in
           noice.enable = false;
           colorizer.enable = true;
         };
+        filetree.neo-tree.enable = true;
 
         dashboard.alpha.enable = true;
         mini.icons.enable = true;
         formatter.conform-nvim.enable = true;
-        filetree.nvimTree.enable = true;
         tabline.nvimBufferline.enable = true;
         telescope.enable = true;
         autocomplete.nvim-cmp.enable = true;
