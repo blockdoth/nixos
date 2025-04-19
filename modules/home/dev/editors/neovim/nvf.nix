@@ -28,9 +28,22 @@ in
         options = {
           # signcolumn = "no";
         };
+        debugger = {
+          nvim-dap = {
+            enable = true;
+            ui.enable = true;
+          };
+        };
+        spellcheck.enable = true;
 
-        lsp.lightbulb.enable = true;
+        lsp = {
+          lightbulb.enable = true;
+          formatOnSave = true;
+        };
         languages = {
+          enableLSP = true;
+          enableFormat = true;
+          enableTreesitter = true;
           nix.enable = true;
           ts.enable = true;
           rust.enable = true;
@@ -55,13 +68,50 @@ in
         };
 
         utility = {
-          motion.precognition.enable = true;
+          motion = {
+            hop.enable = true;
+            leap.enable = true;
+            precognition.enable = true;
+          };
           yazi-nvim.enable = true;
+          multicursors.enable = true;
+          surround.enable = true;
         };
 
         visuals = {
           nvim-scrollbar.enable = true;
           indent-blankline.enable = true;
+          cellular-automaton.enable = true;
+        };
+
+        git = {
+          enable = true;
+          gitsigns.enable = true;
+        };
+
+        minimap = {
+          codewindow.enable = true;
+        };
+
+        projects = {
+          project-nvim.enable = true;
+        };
+
+        notes = {
+          todo-comments.enable = true;
+        };
+
+        terminal = {
+          toggleterm = {
+            enable = true;
+            lazygit.enable = true;
+          };
+        };
+
+        ui = {
+          borders.enable = true;
+          noice.enable = false;
+          colorizer.enable = true;
         };
 
         dashboard.alpha.enable = true;
