@@ -69,8 +69,8 @@ in
 
         utility = {
           motion = {
-            hop.enable = true;
-            leap.enable = true;
+            # hop.enable = true;
+            # leap.enable = true;
             precognition.enable = true;
           };
           yazi-nvim.enable = true;
