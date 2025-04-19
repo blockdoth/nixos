@@ -18,7 +18,8 @@ in
       enable = true;
       settings.vim = {
         options = {
-          fillchars.eob = " ";
+          # fillchars = {eob = " "};
+          tabstop = 4;
         };
 
         theme = {
@@ -110,7 +111,15 @@ in
           noice.enable = false;
           colorizer.enable = true;
         };
-        filetree.neo-tree.enable = true;
+        filetree.neo-tree = {
+          enable = true;
+          setupOpts = {
+            enable_cursor_hijack = true;
+            enable_git_status = true;
+            enable_modified_markers = true;
+            open_on_setup = true;
+          };
+        };
         autocomplete.blink-cmp = {
           enable = true;
 
