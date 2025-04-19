@@ -23,6 +23,7 @@ in
           style = "dark";
           transparent = true;
         };
+
         languages = {
           nix.enable = true;
           ts.enable = true;
@@ -42,16 +43,24 @@ in
           yaml.enable = true;
         };
 
-        filetree = {
-          nvimTree.enable = true;
+        binds = {
+          cheatsheet.enable = true;
+          whichKey.enable = true;
         };
 
-        tabline.nvimBufferline.enable = true;
+        utility = {
+          motion.precognition.enable = true;
+        };
 
+        visuals = {
+          nvim-scrollbar.enable = true;
+        };
+
+        filetree.nvimTree.enable = true;
+        tabline.nvimBufferline.enable = true;
         telescope.enable = true;
         autocomplete.nvim-cmp.enable = true;
         statusline.lualine.enable = true;
-
       };
     };
   };
