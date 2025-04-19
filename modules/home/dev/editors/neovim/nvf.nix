@@ -43,7 +43,7 @@ in
         };
 
         filetree = {
-          neo-tree.enable = true;
+          nvimTree.enable = true;
         };
 
         telescope.enable = true;
