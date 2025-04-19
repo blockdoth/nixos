@@ -803,16 +803,17 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1742591449,
-        "narHash": "sha256-Gt8n7EzrFK4ReXvHQMVb5+3Pgiz90VtdI0EC1XwsL6k=",
+        "lastModified": 1738620413,
+        "narHash": "sha256-pP5bbQGtwNgfaQv++SBZwaBPaZN/yh1NXkOnjI6iHRE=",
         "owner": "blockdoth",
         "repo": "iss-piss-stream",
-        "rev": "e63f8136f440deddd70666f49d6513fc28091edd",
+        "rev": "fed5758fb0da0d59b97e47d9037c4a37b7d40c8d",
         "type": "github"
       },
       "original": {
         "owner": "blockdoth",
         "repo": "iss-piss-stream",
+        "rev": "fed5758fb0da0d59b97e47d9037c4a37b7d40c8d",
         "type": "github"
       }
     },

@@ -174,7 +174,6 @@ in
 
         terminal = {
           alacritty.enable = mkDefault enableGui;
-          ghostty.enable = mkDefault enableGui;
           shell = {
             prompt.starship.enable = mkDefault true;
             sync.atuin.enable = mkDefault true;
