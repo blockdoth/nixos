@@ -56,6 +56,7 @@ in
           nvim-scrollbar.enable = true;
         };
 
+        formatter.conform-nvim.enable = true;
         filetree.nvimTree.enable = true;
         tabline.nvimBufferline.enable = true;
         telescope.enable = true;
