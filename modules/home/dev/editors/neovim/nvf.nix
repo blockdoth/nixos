@@ -21,10 +21,31 @@ in
           enable = true;
           name = "gruvbox";
           style = "dark";
+          transparent = true;
         };
         languages = {
           nix.enable = true;
+          ts.enable = true;
+          rust.enable = true;
+          bash.enable = true;
+          clang.enable = true;
+          css.enable = true;
+          html.enable = true;
+          go.enable = true;
+          python.enable = true;
+          haskell.enable = true;
+          java.enable = true;
+          lua.enable = true;
+          markdown.enable = true;
+          kotlin.enable = true;
+          sql.enable = true;
+          yaml.enable = true;
         };
+
+        filetree = {
+          neo-tree.enable = true;
+        };
+
         telescope.enable = true;
         autocomplete.nvim-cmp.enable = true;
         statusline.lualine.enable = true;
