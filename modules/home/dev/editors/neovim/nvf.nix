@@ -20,7 +20,8 @@ in
       settings.vim = {
         options = {
           # fillchars = {eob = " "};
-          tabstop = 4;
+          tabstop = 2;
+          shiftwidth = 2;
         };
 
         theme = {
@@ -29,17 +30,16 @@ in
           style = "dark";
           transparent = true;
         };
-        # globals.mapleader = "";
 
         options = {
           # signcolumn = "no";
         };
-        debugger = {
-          nvim-dap = {
-            enable = true;
-            ui.enable = true;
-          };
-        };
+        # debugger = {
+        #   nvim-dap = {
+        #     enable = true;
+        #     ui.enable = true;
+        #   };
+        # };
         spellcheck.enable = true;
 
         lsp = {
