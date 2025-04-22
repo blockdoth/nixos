@@ -16,6 +16,7 @@ in
   config = lib.mkIf module.enable {
     programs.nvf = {
       enable = true;
+      enableManpages = true;
       settings.vim = {
         options = {
           # fillchars = {eob = " "};
@@ -124,6 +125,16 @@ in
           enable = true;
 
         };
+
+        keymaps = [
+          # {
+          #   key = "<leader>wq";
+          #   mode = ["n"];
+          #   action = ":wq<CR>";
+          #   silent = true;
+          #   desc = "Save file and quit";
+          # }
+        ];
 
         dashboard.alpha.enable = true;
         mini.icons.enable = true;
