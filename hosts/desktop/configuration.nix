@@ -9,10 +9,12 @@
   imports = [
     ../../modules/system/options.nix
     ./hardware.nix
+    # (import ./disko.nix { device = "/dev/vda"; })
   ];
 
   system-modules = {
     users.blockdoth.enable = true;
+    core.impermanence.enable = false;
     core.networking.hostname = "desktop";
     presets = {
       gui.enable = true;

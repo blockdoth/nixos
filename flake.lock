@@ -158,6 +158,26 @@
         "type": "github"
       }
     },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1745502102,
+        "narHash": "sha256-LqhRwzvIVPEjH0TaPgwzqpyhW6DtCrvz7FnUJDoUZh8=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "ca27b88c88948d96feeee9ed814cbd34f53d0d70",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -798,6 +818,21 @@
         "type": "github"
       }
     },
+    "impermanence": {
+      "locked": {
+        "lastModified": 1737831083,
+        "narHash": "sha256-LJggUHbpyeDvNagTUrdhe/pRVp4pnS6wVKALS782gRI=",
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "rev": "4b3e914cdf97a5b536a889e939fb2fd2b043a170",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "type": "github"
+      }
+    },
     "iss-piss-stream": {
       "inputs": {
         "nixpkgs": "nixpkgs_4"
@@ -1267,11 +1302,13 @@
       "inputs": {
         "activate-linux": "activate-linux",
         "ags": "ags",
+        "disko": "disko",
         "flake-programs-sqlite": "flake-programs-sqlite",
         "ghostty": "ghostty",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
+        "impermanence": "impermanence",
         "iss-piss-stream": "iss-piss-stream",
         "linkwarden-pr": "linkwarden-pr",
         "nix-minecraft": "nix-minecraft",

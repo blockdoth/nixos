@@ -54,6 +54,7 @@ in
           enable = mkEnableOption "networking config";
           hostname = mkOption { type = lib.types.str; };
         };
+        impermanence.enable = mkEnableOption "impermanence";
         localization.enable = mkEnableOption "localization settings";
         nix-config.enable = mkEnableOption "nix config";
         secrets.enable = mkEnableOption "secrets management";
