@@ -39,6 +39,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     impermanence.url = "github:nix-community/impermanence";
+    deploy-rs.url = "github:serokell/deploy-rs";
   };
 
   outputs =
@@ -54,6 +55,18 @@
         inherit system;
         config.allowUnfree = true;
         # crossSystem = { config = "aarch64-linux"; };  # Enable cross-compilation
+      };
+      deployPkgs = import nixpkgs {
+        inherit system;
+        overlays = [
+          inputs.deploy-rs.overlay # or deploy-rs.overlays.default
+          (self: super: {
+            inputs.deploy-rs = {
+              inherit (pkgs) deploy-rs;
+              lib = super.deploy-rs.lib;
+            };
+          })
+        ];
       };
     in
     {
@@ -135,5 +148,20 @@
           ];
         };
       };
+
+      deploy = {
+        nodes.nuc = {
+          hostname = "nuc";
+          interactiveSudo = true;
+          profiles.system = {
+            user = "root";
+            path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.nuc;
+          };
+        };
+      };
+
+      # This is highly advised, and will prevent many possible mistakes
+      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deployPkgs.lib;
+
     };
 }
