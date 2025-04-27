@@ -39,7 +39,6 @@
       #   authelia.enable = true;
       #   lldap.enable = true;
       # };
-
       gameservers = {
         minecraft.enable = true;
       };
@@ -52,10 +51,13 @@
         anki.enable = true;
       };
 
+      media.audiobookshelf.enable = true;
+
       immich.enable = true;
       vaultwarden.enable = true;
       nextcloud.enable = false;
       linkwarden.enable = true;
+      microbin.enable = true;
     };
   };
 

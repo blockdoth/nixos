@@ -30,5 +30,6 @@
     ./linkwarden.nix
     ./nextcloud.nix
     ./homepage.nix
+    ./microbin.nix
   ];
 }

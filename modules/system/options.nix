@@ -148,6 +148,7 @@ in
         };
 
         media = {
+          audiobookshelf.enable = mkEnableOption "audiobookshelf";
           bazarr.enable = mkEnableOption "bazarr";
           jellyfin.enable = mkEnableOption "jellyfin";
           prowlarr.enable = mkEnableOption "prowlarr";
@@ -187,6 +188,7 @@ in
         linkwarden.enable = mkEnableOption "linkwarden";
         nextcloud.enable = mkEnableOption "nextcloud";
         homepage.enable = mkEnableOption "homepage";
+        microbin.enable = mkEnableOption "microbin";
       };
     };
   };

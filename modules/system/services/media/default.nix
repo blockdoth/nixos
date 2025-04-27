@@ -16,6 +16,7 @@ let
 in
 {
   imports = [
+    ./audiobookshelf.nix
     ./jellyfin.nix
     ./prowlarr.nix
     ./radarr.nix
