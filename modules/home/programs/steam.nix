@@ -13,5 +13,11 @@ in
     home.packages = with pkgs; [
       # steam
     ];
+    # home.persistence."/persist/home/${config.home.username}".directories = [
+    #   {
+    #     directory = ".local/share/Steam";
+    #     method = "symlink";
+    #   }
+    # ];
   };
 }

@@ -42,6 +42,7 @@ in
         zenmode.enable = mkEnableOption "zen mode";
       };
       core = {
+        impermanence.enable = mkEnableOption "impermanence";
         windowmanager = {
           stacking = {
             gnome.enable = mkEnableOption "Gnome DE";
