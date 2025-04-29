@@ -136,6 +136,11 @@ in
         "SUPER SHIFT, right, movewindow, r"
         "SUPER SHIFT, up, movewindow, u"
         "SUPER SHIFT, down, movewindow, d"
+
+        "SUPER ALT, left, movefocus, l"
+        "SUPER ALT, right, movefocus, r"
+        "SUPER ALT, up, movefocus, u"
+        "SUPER ALT, down, movefocus, d"
         # Move active window to a workspace with mainMod + ctrl + [0-9] #
         "SUPER SHIFT, 1, movetoworkspacesilent, 1"
         "SUPER SHIFT, 2, movetoworkspacesilent, 2"
