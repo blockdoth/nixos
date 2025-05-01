@@ -40,6 +40,7 @@ in
       speedtest-cli
       dig
       nmap
+      netcat-gnu
     ];
   };
 }
