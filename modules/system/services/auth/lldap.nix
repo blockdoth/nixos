@@ -11,8 +11,12 @@ let
 in
 {
   config = lib.mkIf module.enable {
-    sops.secrets.lldap-keyseed = { };
-    sops.secrets.authelia-jwt = { };
+    sops.secrets.lldap-keyseed = {
+      group = "lldap";
+    };
+    sops.secrets.lldap-jwt = {
+      group = "lldap";
+    };
 
     services.lldap = {
       enable = true;
