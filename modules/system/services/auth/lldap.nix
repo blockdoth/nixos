@@ -8,21 +8,22 @@
 let
   module = config.system-modules.services.auth.lldap;
   domain = config.system-modules.services.network.domains.homelab;
+  lldap-secrets = "lldap-secrets";
 in
 {
   config = lib.mkIf module.enable {
     users.groups.lldap-secrets = { };
 
     sops.secrets.lldap-keyseed = {
-      owner = "lldap-secrets";
-      group = "lldap-secrets";
+      owner = lldap-secrets;
+      group = lldap-secrets;
     };
     sops.secrets.lldap-jwt = {
-      owner = "lldap-secrets";
-      group = "lldap-secrets";
+      owner = lldap-secrets;
+      group = lldap-secrets;
     };
 
-    systemd.services.lldap.serviceConfig.SupplementaryGroups = [ "lldap-secrets" ];
+    systemd.services.lldap.serviceConfig.SupplementaryGroups = [ lldap-secrets ];
 
     services.lldap = {
       enable = true;

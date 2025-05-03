@@ -15,13 +15,13 @@ in
   config = lib.mkIf module.enable {
     sops.secrets = {
       authelia-jwt = {
-        owner = "authelia-main";
+        owner = autheliaUser;
       };
       authelia-storage-encryption = {
-        owner = "authelia-main";
+        owner = autheliaUser;
       };
       lldap-password = {
-        owner = "authelia-main";
+        owner = autheliaUser;
       };
     };
 
