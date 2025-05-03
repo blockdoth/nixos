@@ -9,25 +9,23 @@ let
   module = config.system-modules.services.auth.authelia;
   domain = config.system-modules.services.network.domains.homelab;
   autheliaPort = 9091;
-  autheliaUser = "authelia";
 in
 {
   config = lib.mkIf module.enable {
     sops.secrets = {
       authelia-jwt = {
-        group = autheliaUser;
+        owner = "authelia-main";
       };
       authelia-storage-encryption = {
-        group = autheliaUser;
+        owner = "authelia-main";
       };
       lldap-password = {
-        group = autheliaUser;
+        owner = "authelia-main";
       };
     };
 
     services.authelia.instances.main = {
       enable = true;
-      user = autheliaUser;
       secrets = {
         jwtSecretFile = config.sops.secrets.authelia-jwt.path;
         storageEncryptionKeyFile = config.sops.secrets.authelia-storage-encryption.path;

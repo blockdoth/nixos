@@ -27,7 +27,7 @@ in
         ldap_base_dn = "dc=ldap,dc=com";
       };
       environment = {
-        LLDAP_JWT_SECRET_FILE = config.sops.secrets.authelia-jwt.path;
+        LLDAP_JWT_SECRET_FILE = config.sops.secrets.lldap-jwt.path;
         LLDAP_KEY_SEED_FILE = config.sops.secrets.lldap-keyseed.path;
       };
 
