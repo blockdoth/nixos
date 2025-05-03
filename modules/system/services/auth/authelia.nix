@@ -47,8 +47,8 @@ in
 
         authentication_backend.ldap = {
           address = "ldap://127.0.0.1:${builtins.toString config.services.lldap.settings.ldap_port}";
-          base_dn = "dc=haddock,dc=cc";
-          user = "uid=admin,ou=people,dc=longerhv,dc=xyz";
+          base_dn = "dc=example,dc=com";
+          user = "admin";
           users_filter = "(&({username_attribute}={input})(objectClass=person))";
           groups_filter = "(member={dn})";
         };
@@ -84,7 +84,7 @@ in
         notifier = {
           disable_startup_check = false;
           filesystem = {
-            filename = "/var/lib/authelia/notification.txt"; # log path
+            filename = "/var/lib/authelia-main/notification.txt"; # log path
           };
         };
 

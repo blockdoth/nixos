@@ -56,7 +56,7 @@ in
         ldap_port = 3890;
         http_port = 17170;
         http_url = "http://127.0.0.1";
-        ldap_base_dn = "dc=insinuatis,dc=com";
+        ldap_base_dn = "dc=example,dc=com";
         ldap_user_dn = "admin";
         key_file = ""; # Silence warning
       };
