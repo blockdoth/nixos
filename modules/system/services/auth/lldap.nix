@@ -12,11 +12,16 @@ let
 in
 {
   config = lib.mkIf module.enable {
-    users.groups.lldap-secrets = { };
-    # users.users.lldap = {
-    #   isNormalUser = true;
-    #   group = "lldap";
-    # };
+    users = {
+      groups = {
+        lldap-secrets = { };
+        lldap = { };
+      };
+      users.lldap = {
+        isNormalUser = true;
+        group = "lldap";
+      };
+    };
 
     sops.secrets = {
       lldap-keyseed = {
