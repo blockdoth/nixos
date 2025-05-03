@@ -64,30 +64,26 @@ in
         };
 
         access_control = {
-          default_policy = "one_factor";
+          default_policy = "deny";
           rules = [
             {
-              domain = [ "app.${domain}" ];
+              domain = [ domain ];
               policy = "one_factor";
             }
           ];
         };
 
         session = {
-          cookies = [
-            {
-              authelia_url = "https://auth.${domain}";
-            }
-          ];
-          domain = "${domain}";
+          domain = domain;
+          name = "authelia_session";
         };
 
-        server = {
-          address = "tcp:127.0.0.1:${builtins.toString autheliaPort}";
-          # Necessary for Caddy integration
-          # See https://www.authelia.com/integration/proxies/caddy/#implementation
-          endpoints.authz.forward-auth.implementation = "ForwardAuth";
-        };
+        # server = {
+        #   address = "tcp:127.0.0.1:${builtins.toString autheliaPort}";
+        #   # Necessary for Caddy integration
+        #   # See https://www.authelia.com/integration/proxies/caddy/#implementation
+        #   endpoints.authz.forward-auth.implementation = "ForwardAuth";
+        # };
         regulation = {
           max_retries = 3;
           find_time = 120;
@@ -101,19 +97,9 @@ in
           };
         };
 
-        storage = {
-          postgres = {
-            address = "unix:///run/postgresql";
-            database = autheliaUser;
-            username = autheliaUser;
-          };
-        };
+        storage.local.path = "/var/lib/authelia-main/db.sqlite3";
 
         identity_providers.oidc = {
-          jwks = {
-            strategy = "HMAC";
-            key = config.sops.secrets.authelia-jwt.path;
-          };
           clients = [
             # {
             #   authorization_policy = "one_factor";
