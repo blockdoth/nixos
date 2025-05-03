@@ -24,7 +24,7 @@ in
       };
     };
 
-    systemd.services.authelia.serviceConfig.SupplementaryGroups = [ lldap-secrets ];
+    systemd.services.authelia-main.serviceConfig.SupplementaryGroups = [ lldap-secrets ];
 
     services.postgresql = {
       enable = true;
