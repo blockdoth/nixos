@@ -53,89 +53,45 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        # crossSystem = { config = "aarch64-linux"; };  # Enable cross-compilation
       };
+
+      mkSystem =
+        host:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./hosts/${host}/configuration.nix
+          ];
+        };
+
+      mkHome =
+        user: host:
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            hostname = host;
+            inherit inputs;
+          };
+          modules = [
+            users/${user}/home.nix
+          ];
+        };
     in
     {
-      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
-
       nixosConfigurations = {
-        laptop = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            ./hosts/laptop/configuration.nix
-          ];
-        };
-        desktop = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            ./hosts/desktop/configuration.nix
-          ];
-        };
-        nuc = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            ./hosts/nuc/configuration.nix
-          ];
-        };
-
-        # Failed attempt at using nixos on an raspberry pi 2
-        # rpi2 = nixpkgs.lib.nixosSystem {
-        #   system = "armv7l-linux";
-        #   specialArgs = {
-        #     inherit inputs;
-        #     crossSystem = {
-        #       config = "aarch64-linux";  # Enable cross-compilation to ARM64 (Raspberry Pi)
-        #     };
-        #   };
-        #   modules = [
-        #     ./hosts/rpi/configuration.nix
-        #     home-manager.nixosModules.home-manager
-        #     inputs.stylix.nixosModules.stylix
-        #   ];
-        # };
+        laptop = mkSystem "laptop";
+        desktop = mkSystem "desktop";
+        nuc = mkSystem "nuc";
       };
 
       homeConfigurations = {
-        desktop-blockdoth = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            hostname = "desktop";
-            inherit inputs;
-          };
-          modules = [
-            users/blockdoth/home.nix
-          ];
-        };
-
-        laptop-blockdoth = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            hostname = "laptop";
-
-            inherit inputs;
-          };
-          modules = [
-            users/blockdoth/home.nix
-          ];
-        };
-
-        nuc-penger = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            hostname = "nuc";
-            inherit inputs;
-          };
-          modules = [
-            users/penger/home.nix
-          ];
-        };
+        desktop-blockdoth = mkHome "blockdoth" "desktop";
+        laptop-blockdoth = mkHome "blockdoth" "laptop";
+        nuc-penger = mkHome "penger" "nuc";
       };
+
+      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
     };
 }
