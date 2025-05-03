@@ -13,6 +13,7 @@ let
   torrentUser = cfg.users.torrenter;
   streamerUser = cfg.users.streamer;
   module = config.system-modules.services.media.prowlarr;
+  impermanence = config.system-modules.core.impermanence;
 in
 {
   config = lib.mkIf module.enable {
@@ -22,7 +23,7 @@ in
       # group = mediaGroup;
     };
 
-    environment.persistence."/persist/backup" = {
+    environment.persistence."/persist/backup" = lib.mkIf impermanence.enable {
       directories = [
         {
           directory = "/var/lib/private/prowlarr";

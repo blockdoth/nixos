@@ -30,6 +30,7 @@ let
   ];
 
   blockedHosts = lib.concatStringsSep "\n" (map (domain: "0.0.0.0 ${domain}") blockedDomains);
+  impermanence = config.system-modules.core.impermanence;
 in
 {
   config = lib.mkIf module.enable {
@@ -45,7 +46,7 @@ in
       # Block distracting domains in zenmode
       extraHosts = lib.mkIf zenmode.enable blockedHosts;
     };
-    environment.persistence."/persist/backup" = {
+    environment.persistence."/persist/backup" = lib.mkIf impermanence.enable {
       directories = [ "/etc/NetworkManager/system-connections" ];
     };
   };

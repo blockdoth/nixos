@@ -8,6 +8,7 @@
 let
   module = config.system-modules.services.immich;
   domain = config.system-modules.services.network.domains.homelab;
+  impermanence = config.system-modules.core.impermanence;
 in
 {
   config = lib.mkIf module.enable {
@@ -33,7 +34,7 @@ in
       }
     ];
 
-    environment.persistence."/persist/backup".directories = [
+    environment.persistence."/persist/backup".directories = lib.mkIf impermanence.enable [
       {
         directory = config.services.immich.mediaLocation;
         user = "immich";

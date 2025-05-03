@@ -6,6 +6,7 @@
 }:
 let
   module = config.system-modules.core.tailscale;
+  impermanence = config.system-modules.core.impermanence;
 in
 {
   config = lib.mkIf module.enable {
@@ -26,7 +27,7 @@ in
       allowedUDPPorts = [ config.services.tailscale.port ];
     };
 
-    environment.persistence = {
+    environment.persistence = lib.mkIf impermanence.enable {
       "/persist/backup".directories = [ "/var/lib/tailscale" ];
     };
   };

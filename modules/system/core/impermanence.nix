@@ -26,8 +26,6 @@ in
         "/var/lib/systemd/coredump"
         "/var/lib/systemd/timers"
         "/etc/NetworkManager/system-connections"
-
-        "/etc/NetworkManager/system-connections"
         {
           directory = "/var/lib/colord";
           user = "colord";

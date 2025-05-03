@@ -12,6 +12,7 @@ let
   mediaGroup = cfg.group;
   torrentUser = cfg.users.torrenter;
   module = config.system-modules.services.media.sonarr;
+  impermanence = config.system-modules.core.impermanence;
 in
 {
   config = lib.mkIf module.enable {
@@ -33,7 +34,7 @@ in
       "d ${mediaDir}/torrents/sonarr 0775 ${torrentUser} ${mediaGroup} -"
     ];
 
-    environment.persistence."/persist/backup" = {
+    environment.persistence."/persist/backup" = lib.mkIf impermanence.enable {
       directories = [
         {
           directory = "/var/lib/sonarr";

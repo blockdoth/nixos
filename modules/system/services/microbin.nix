@@ -8,6 +8,7 @@
 let
   module = config.system-modules.services.microbin;
   domain = config.system-modules.services.network.domains.homelab;
+  impermanence = config.system-modules.core.impermanence;
 in
 {
   config = lib.mkIf module.enable {
@@ -42,7 +43,7 @@ in
         ];
       }
     ];
-    environment.persistence."/persist/backup" = {
+    environment.persistence."/persist/backup" = lib.mkIf impermanence.enable {
       directories = [
         {
           directory = "/var/lib/private/microbin";

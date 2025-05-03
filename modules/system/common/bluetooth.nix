@@ -6,6 +6,7 @@
 }:
 let
   module = config.system-modules.common.bluetooth;
+  impermanence = config.system-modules.core.impermanence;
 in
 {
   config = lib.mkIf module.enable {
@@ -31,6 +32,8 @@ in
       serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
     };
 
-    environment.persistence."/persist/backup".directories = [ "/var/lib/bluetooth" ];
+    environment.persistence."/persist/backup".directories = lib.mkIf impermanence.enable [
+      "/var/lib/bluetooth"
+    ];
   };
 }
