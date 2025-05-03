@@ -14,8 +14,6 @@ in
     services.microbin = {
       enable = true;
       settings = {
-        MICROBIN_WIDE = true;
-        MICROBIN_MAX_FILE_SIZE_UNENCRYPTED_MB = 2048;
         MICROBIN_PUBLIC_PATH = "https://microbin.${domain}";
         MICROBIN_BIND = "127.0.0.1";
         MICROBIN_PORT = 8069;
