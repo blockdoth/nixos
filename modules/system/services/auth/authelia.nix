@@ -113,7 +113,7 @@ in
       };
     };
 
-    services.caddy.virtualHosts."authelia.${domain}".extraConfig = ''
+    services.caddy.virtualHosts."auth.${domain}".extraConfig = ''
       reverse_proxy 127.0.0.1:${builtins.toString autheliaPort}        
     '';
 
