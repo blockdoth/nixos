@@ -22,7 +22,23 @@ in
       email = "pepijn.pve@gmail.com";
 
       virtualHosts."${domain}".extraConfig = ''
-        respond "Hello World"
+        route {
+          # Exclude the authelia public paths like the login
+          handle_path /authelia* {
+            reverse_proxy http://127.0.0.1:9091
+          }
+
+          # Protect all routes behind Authelia
+          handle {
+            forward_auth {
+              uri /api/verify?rd=https://{host}{uri}
+              address http://127.0.0.1:9091
+              copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
+            }
+
+            reverse_proxy http://127.0.0.1:7070
+          }
+        }
       '';
     };
 
