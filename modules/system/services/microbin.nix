@@ -21,8 +21,9 @@ in
         MICROBIN_PORT = 8069;
         MICROBIN_HIDE_LOGO = true;
         MICROBIN_HIGHLIGHTSYNTAX = true;
-        MICROBIN_HIDE_HEADER = true;
         MICROBIN_HIDE_FOOTER = true;
+        MICROBIN_QR = true;
+        MICROBIN_DISABLE_TELEMETRY = true;
       };
     };
 
