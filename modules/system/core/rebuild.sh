@@ -11,7 +11,7 @@ if [[ "$TYPE" != "home" && "$TYPE" != "system" ]]; then
 fi
 
 pushd /home/"$USER"/nixos > /dev/null
-nixfmt .
+treefmt
 
 git reset > /dev/null 
 if [ "$TYPE" = "system" ]; then
