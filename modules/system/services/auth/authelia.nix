@@ -30,11 +30,18 @@ in
         jwtSecretFile = config.sops.secrets.authelia-jwt.path;
         storageEncryptionKeyFile = config.sops.secrets.authelia-storage-encryption.path;
       };
-      environmentVariables = with config.sops; {
-        AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD_FILE = secrets.lldap-password.path;
+      environmentVariables = {
+        AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD_FILE = config.sops.secrets.lldap-password.path;
       };
 
       settings = {
+        session = {
+          cookies = [
+            {
+              authelia_url = "https://auth.${domain}";
+            }
+          ];
+        };
         server = {
           address = "tcp:127.0.0.1:${builtins.toString autheliaPort}";
 
@@ -42,21 +49,29 @@ in
           # See https://www.authelia.com/integration/proxies/caddy/#implementation
           endpoints.authz.forward-auth.implementation = "ForwardAuth";
         };
+
         logs.level = "info";
 
-        notifier = {
-          enable = false;
-          # SMTP configuration for sending emails
-          # smtp = {
-          #   host = "smtp.example.com";
-          #   port = 587;
-          #   username = "user@example.com";
-          #   password = "your-smtp-password";
-          #   from = "authelia@example.com";
-          #   subject_prefix = "[Authelia] ";
-          # };
+        regulation = {
+          max_retries = 3;
+          find_time = 120;
+          ban_time = 300;
         };
 
+        access_control = {
+          default_policy = "one_factor";
+        };
+
+        identity_providers.oidc.clients = [ ];
+
+        authentication_backend = {
+          password_reset.disable = false;
+          refresh_interval = "1m";
+          ldap = {
+            implementation = "custom";
+            address = "ldap://127.0.0.1:${builtins.toString config.services.lldap.settings.ldap_port}";
+          };
+        };
       };
     };
 
