@@ -12,7 +12,7 @@ in
   imports = [ inputs.flake-programs-sqlite.nixosModules.programs-sqlite ];
   config = lib.mkIf module.enable {
     environment.systemPackages = [
-      pkgs.nixfmt-rfc-style
+      pkgs.nixfmt-tree
       pkgs.cachix
       (pkgs.writeShellApplication {
         name = "rebuild";
