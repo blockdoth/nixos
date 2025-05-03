@@ -12,11 +12,11 @@ let
 in
 {
   config = lib.mkIf module.enable {
-    # users.groups.lldap-secrets = { };
-    # users.users.lldap-secrets = {
-    #   isNormalUser = true;
-    #   group = lldap-secrets;
-    # };
+    users.groups.lldap = { };
+    users.users.lldap = {
+      isNormalUser = true;
+      group = "lldap";
+    };
     # systemd.services.lldap.serviceConfig.SupplementaryGroups = [ lldap-secrets ];
 
     sops.secrets.lldap-keyseed = {
