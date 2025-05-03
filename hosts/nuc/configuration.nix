@@ -33,7 +33,7 @@
         ddns.enable = true;
         caddy.enable = true;
         headscale.enable = true;
-        blocky.enable = false;
+        fail2ban.enable = true;
       };
       auth = {
         authelia.enable = true;
@@ -51,8 +51,7 @@
         anki.enable = true;
       };
 
-      media.audiobookshelf.enable = false;
-
+      media.audiobookshelf.enable = true;
       immich.enable = true;
       vaultwarden.enable = true;
       linkwarden.enable = true;

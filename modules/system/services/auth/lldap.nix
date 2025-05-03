@@ -68,10 +68,12 @@ in
 
     };
 
-    # services.caddy.virtualHosts."lldap.${domain}".extraConfig = ''
-    #   reverse_proxy 127.0.0.1:${builtins.toString config.services.lldap.settings.http_port}
-    # '';
-
+    system-modules.services.network.caddy.reverse-proxies = [
+      {
+        subdomain = "lldap";
+        port = config.services.lldap.settings.http_port;
+      }
+    ];
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "lldap";

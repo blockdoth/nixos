@@ -27,7 +27,6 @@ in
         group = "authelia-main";
       };
     };
-
     systemd.services.authelia-main.serviceConfig.SupplementaryGroups = [ lldap-config.shared-group ];
 
     services.authelia.instances.main = {
@@ -44,6 +43,15 @@ in
       settings = {
         theme = "dark";
         log.level = "info";
+        storage.local.path = "/var/lib/authelia-main/db.sqlite3";
+        access_control.default_policy = "one_factor";
+
+        server = {
+          address = "127.0.0.1:${builtins.toString module.port}";
+          # Necessary for Caddy integration
+          # See https://www.authelia.com/integration/proxies/caddy/#implementation
+          endpoints.authz.forward-auth.implementation = "ForwardAuth";
+        };
 
         authentication_backend.ldap = {
           address = "ldap://127.0.0.1:${builtins.toString config.services.lldap.settings.ldap_port}";
@@ -53,30 +61,18 @@ in
           groups_filter = "(member={dn})";
         };
 
-        access_control = {
-          default_policy = "one_factor";
-          rules = [
+        session = {
+          cookies = [
             {
-              domain = [ domain ];
-              policy = "one_factor";
+              domain = ".${domain}";
+              authelia_url = "https://auth.${domain}";
+              default_redirection_url = "https://www.${domain}";
             }
           ];
+          inactivity = "24h"; # 1 day
+          expiration = "168h"; # 1 week
         };
 
-        session.cookies = [
-          {
-            domain = ".${domain}";
-            authelia_url = "https://auth.${domain}";
-            default_redirection_url = "https://www.${domain}";
-          }
-        ];
-
-        server = {
-          address = "127.0.0.1:${builtins.toString module.port}";
-          # Necessary for Caddy integration
-          # See https://www.authelia.com/integration/proxies/caddy/#implementation
-          endpoints.authz.forward-auth.implementation = "ForwardAuth";
-        };
         regulation = {
           max_retries = 3;
           find_time = 120;
@@ -89,28 +85,25 @@ in
           };
         };
 
-        storage.local.path = "/var/lib/authelia-main/db.sqlite3";
-
-        identity_providers.oidc = {
-          clients = [
-            {
-              authorization_policy = "one_factor";
-              client_id = "immich";
-              client_secret = "XsdEXVthp2NYx67va6Cy0X4/oJGU7koBbDsWjxqsfjM=";
-              redirect_uris = [
-                "https://immich.${domain}/auth/login"
-                "https://immich.${domain}/user-settings"
-                "app.immich:///oauth-callback"
-              ];
-              scopes = [
-                "openid"
-                "profile"
-                "email"
-              ];
-              userinfo_signed_response_alg = "none";
-            }
-          ];
-        };
+        # TODO make this stub actually functional
+        identity_providers.oidc.clients = [
+          {
+            authorization_policy = "one_factor";
+            client_id = "immich";
+            client_secret = "XsdEXVthp2NYx67va6Cy0X4/oJGU7koBbDsWjxqsfjM=";
+            redirect_uris = [
+              "https://immich.${domain}/auth/login"
+              "https://immich.${domain}/user-settings"
+              "app.immich:///oauth-callback"
+            ];
+            scopes = [
+              "openid"
+              "profile"
+              "email"
+            ];
+            userinfo_signed_response_alg = "none";
+          }
+        ];
       };
     };
 
