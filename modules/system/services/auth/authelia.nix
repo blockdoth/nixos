@@ -22,23 +22,10 @@ in
         owner = "authelia-main";
         group = "authelia-main";
       };
-    };
-
-    services.postgresql = {
-      enable = true;
-      ensureDatabases = [ "authelia-main" ];
-      ensureUsers = [
-        {
-          name = "authelia-main";
-          ensureDBOwnership = true;
-        }
-      ];
-
-      # ensurePrivileges = {
-      #   ${autheliaDB} = {
-      #     "${autheliaUser}" = "ALL PRIVILEGES";
-      #   };
-      # };
+      authelia-oidc-private-key = {
+        owner = "authelia-main";
+        group = "authelia-main";
+      };
     };
 
     systemd.services.authelia-main.serviceConfig.SupplementaryGroups = [ lldap-config.shared-group ];
@@ -48,6 +35,7 @@ in
       secrets = {
         jwtSecretFile = lldap-config.shared-jwt;
         storageEncryptionKeyFile = config.sops.secrets.authelia-storage-encryption.path;
+        oidcIssuerPrivateKeyFile = config.sops.secrets.authelia-oidc-private-key.path;
       };
       environmentVariables = {
         AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD_FILE = lldap-config.shared-password;
@@ -75,16 +63,12 @@ in
           ];
         };
 
-        session = {
-          name = "authelia_session";
-          cookies = [
-            {
-              name = "authelia_session";
-              domain = domain;
-              authelia_url = "https://auth.${domain}";
-            }
-          ];
-        };
+        session.cookies = [
+          {
+            domain = domain;
+            authelia_url = "https://auth.${domain}";
+          }
+        ];
 
         server = {
           address = "tcp:127.0.0.1:${builtins.toString autheliaPort}";
