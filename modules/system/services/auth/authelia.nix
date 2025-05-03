@@ -44,8 +44,19 @@ in
         theme = "dark";
         log.level = "info";
         storage.local.path = "/var/lib/authelia-main/db.sqlite3";
-        access_control.default_policy = "one_factor";
-
+        access_control = {
+          default_policy = "one_factor";
+          rules = [
+            {
+              domain = domain;
+              resources = [
+                "^/health$"
+                "^/healthcheck$"
+              ];
+              policy = "bypass";
+            }
+          ];
+        };
         server = {
           address = "127.0.0.1:${builtins.toString module.port}";
           # Necessary for Caddy integration
