@@ -71,7 +71,7 @@ in
         ];
 
         server = {
-          address = "tcp:127.0.0.1:${builtins.toString autheliaPort}";
+          address = "127.0.0.1:${builtins.toString autheliaPort}";
           # Necessary for Caddy integration
           # See https://www.authelia.com/integration/proxies/caddy/#implementation
           endpoints.authz.forward-auth.implementation = "ForwardAuth";
