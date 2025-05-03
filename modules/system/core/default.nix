@@ -7,7 +7,7 @@
 {
   imports = [
     ./env.nix
-    ./grub.nix
+    ./boot.nix
     ./localization.nix
     ./networking.nix
     ./nix-config.nix

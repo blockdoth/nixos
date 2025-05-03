@@ -31,13 +31,13 @@ in
         };
       };
       # https://wiki.archlinux.org/title/Silent_boot
+
       kernelParams = [
         "quiet"
-        "splash"
-        "vga=current"
-        "rd.systemd.show_status=false"
-        "rd.udev.log_level=3"
+        "loglevel=3"
         "udev.log_priority=3"
+        "vt.global_cursor_default=0"
+        "rd.systemd.show_status=false"
       ];
       consoleLogLevel = 0;
       # https://github.com/NixOS/nixpkgs/pull/108294
