@@ -36,8 +36,8 @@
         blocky.enable = false;
       };
       auth = {
-        authelia.enable = true;
-        lldap.enable = true;
+        authelia.enable = false;
+        lldap.enable = false;
       };
       gameservers = {
         minecraft.enable = true;
@@ -51,7 +51,7 @@
         anki.enable = true;
       };
 
-      media.audiobookshelf.enable = true;
+      media.audiobookshelf.enable = false;
 
       immich.enable = true;
       vaultwarden.enable = true;
