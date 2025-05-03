@@ -74,7 +74,6 @@ in
         };
 
         session = {
-          domain = domain;
           name = "authelia_session";
         };
 
@@ -100,15 +99,24 @@ in
         storage.local.path = "/var/lib/authelia-main/db.sqlite3";
 
         identity_providers.oidc = {
+          jwk = [ ];
           clients = [
-            # {
-            #   authorization_policy = "one_factor";
-            #   client_id = "immich";
-            #   client_secret = "";
-            #   redirect_uris = [ "https://immich.${domain}/auth/login" "https://immich.${domain}/user-settings" "app.immich:///oauth-callback" ];
-            #   scopes = [ "openid" "profile" "email" ];
-            #   userinfo_signed_response_alg = "none";
-            # }
+            {
+              authorization_policy = "one_factor";
+              client_id = "immich";
+              client_secret = "";
+              redirect_uris = [
+                "https://immich.${domain}/auth/login"
+                "https://immich.${domain}/user-settings"
+                "app.immich:///oauth-callback"
+              ];
+              scopes = [
+                "openid"
+                "profile"
+                "email"
+              ];
+              userinfo_signed_response_alg = "none";
+            }
           ];
         };
       };

@@ -35,13 +35,16 @@ in
         owner = "lldap";
         group = "lldap";
       };
+      # Shared so require user and group read perms
       lldap-jwt = {
         owner = "lldap";
         group = lldap-config.shared-group;
+        mode = "440";
       };
       lldap-password = {
         owner = "lldap";
         group = lldap-config.shared-group;
+        mode = "440";
       };
     };
 
