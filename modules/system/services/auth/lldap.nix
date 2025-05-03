@@ -57,7 +57,7 @@ in
         http_port = 17170;
         http_url = "http://127.0.0.1";
         ldap_base_dn = "dc=example,dc=com";
-        ldap_user_dn = "admin";
+        ldap_user_dn = "uid=admin,ou=people,dc=example,dc=com";
         key_file = ""; # Silence warning
       };
       environment = {
