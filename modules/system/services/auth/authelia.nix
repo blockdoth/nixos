@@ -65,6 +65,12 @@ in
 
         access_control = {
           default_policy = "one_factor";
+          rules = [
+            {
+              domain = [ "app.${domain}" ];
+              policy = "one_factor";
+            }
+          ];
         };
 
         session = {
@@ -73,7 +79,7 @@ in
               authelia_url = "https://auth.${domain}";
             }
           ];
-          # domain =
+          domain = "${domain}";
         };
 
         server = {
@@ -103,17 +109,22 @@ in
           };
         };
 
-        identity_providers.oidc.clients = [
-          # {
-          #   authorization_policy = "one_factor";
-          #   client_id = "immich";
-          #   client_secret = "";
-          #   redirect_uris = [ "https://immich.${domain}/auth/login" "https://immich.${domain}/user-settings" "app.immich:///oauth-callback" ];
-          #   scopes = [ "openid" "profile" "email" ];
-          #   userinfo_signed_response_alg = "none";
-          # }
-        ];
-
+        identity_providers.oidc = {
+          jwks = {
+            strategy = "HMAC";
+            key = config.sops.secrets.authelia-jwt.path;
+          };
+          clients = [
+            # {
+            #   authorization_policy = "one_factor";
+            #   client_id = "immich";
+            #   client_secret = "";
+            #   redirect_uris = [ "https://immich.${domain}/auth/login" "https://immich.${domain}/user-settings" "app.immich:///oauth-callback" ];
+            #   scopes = [ "openid" "profile" "email" ];
+            #   userinfo_signed_response_alg = "none";
+            # }
+          ];
+        };
       };
     };
 
