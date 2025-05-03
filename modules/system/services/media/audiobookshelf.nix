@@ -20,6 +20,7 @@ in
       {
         subdomain = "audiobookshelf";
         port = config.services.audiobookshelf.port;
+        require-auth = true;
       }
     ];
 
