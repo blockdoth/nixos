@@ -12,6 +12,7 @@ in
 {
   config = lib.mkIf module.enable {
     sops.secrets.lldap-keyseed = { };
+    sops.secrets.authelia-jwt = { };
 
     services.lldap = {
       enable = true;
