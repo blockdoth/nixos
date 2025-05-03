@@ -55,9 +55,9 @@
 
       immich.enable = true;
       vaultwarden.enable = true;
-      nextcloud.enable = false;
       linkwarden.enable = true;
-      microbin.enable = true;
+      nextcloud.enable = false;
+      microbin.enable = false;
     };
   };
 
