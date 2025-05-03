@@ -62,7 +62,7 @@ in
       };
       environment = {
         LLDAP_JWT_SECRET_FILE = lldap-config.shared-jwt;
-        LLDAP_LDAP_USER_PASS_FILE = lldap-config.shared-password;
+        LLDAP_LDAP_USER_PASS = "admin";
         LLDAP_KEY_SEED_FILE = config.sops.secrets.lldap-keyseed.path;
       };
 
