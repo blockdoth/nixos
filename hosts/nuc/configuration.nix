@@ -36,8 +36,8 @@
         blocky.enable = false;
       };
       auth = {
-        authelia.enable = false;
-        lldap.enable = false;
+        authelia.enable = true;
+        lldap.enable = true;
       };
       gameservers = {
         minecraft.enable = true;
