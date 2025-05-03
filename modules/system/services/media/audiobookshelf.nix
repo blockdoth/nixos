@@ -14,6 +14,7 @@ in
     services.audiobookshelf = {
       enable = true;
       port = 8113;
+
     };
 
     system-modules.services.network.caddy.reverse-proxies = [

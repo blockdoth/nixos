@@ -44,6 +44,10 @@ in
       virtualHosts = {
         "${domain}".extraConfig = ''
           respond "Hello World"
+          @healthcheck {
+            path /health
+          }
+          respond @healthcheck "OK" 200          
         '';
       } // builtins.listToAttrs (map makeReverseProxy module.reverse-proxies);
     };
