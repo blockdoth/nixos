@@ -52,7 +52,7 @@ in
       environment = {
         LLDAP_JWT_SECRET_FILE = config.sops.secrets.lldap-jwt.path;
         LLDAP_KEY_SEED_FILE = config.sops.secrets.lldap-keyseed.path;
-        LLDAP_LDAP_USER_PASS_FILE = config.sops.secrets.lldap-keyseed.path;
+        LLDAP_LDAP_USER_PASS_FILE = config.sops.secrets.lldap-password.path;
       };
 
     };
