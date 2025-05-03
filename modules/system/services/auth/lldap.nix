@@ -14,7 +14,7 @@ in
   config = lib.mkIf module.enable {
     users = {
       groups = {
-        lldap-secrets = { };
+        ${lldap-secrets} = { };
         lldap = { };
       };
       users.lldap = {
