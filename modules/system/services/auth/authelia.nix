@@ -48,7 +48,7 @@ in
         authentication_backend.ldap = {
           address = "ldap://127.0.0.1:${builtins.toString config.services.lldap.settings.ldap_port}";
           base_dn = "dc=example,dc=com";
-          user = "admin";
+          user = "uid=admin,ou=people,dc=example,dc=com";
           users_filter = "(&({username_attribute}={input})(objectClass=person))";
           groups_filter = "(member={dn})";
         };
