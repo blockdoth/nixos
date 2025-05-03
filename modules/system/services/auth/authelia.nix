@@ -48,7 +48,7 @@ in
           default_policy = "one_factor";
           rules = [
             {
-              domain = ".*\\${domain}";
+              domain = "*.${domain}";
               resources = [
                 "^/health$"
                 "^/healthcheck$"
