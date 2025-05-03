@@ -8,15 +8,15 @@
 let
   module = config.system-modules.services.auth.lldap;
   domain = config.system-modules.services.network.domains.homelab;
-  lldap-secrets = "lldap-secrets";
+  lldap-secrets = "lldap";
 in
 {
   config = lib.mkIf module.enable {
-    users.groups.lldap-secrets = { };
-    users.users.lldap-secrets = {
-      isNormalUser = true;
-      group = lldap-secrets;
-    };
+    # users.groups.lldap-secrets = { };
+    # users.users.lldap-secrets = {
+    #   isNormalUser = true;
+    #   group = lldap-secrets;
+    # };
 
     sops.secrets.lldap-keyseed = {
       owner = lldap-secrets;
