@@ -37,7 +37,7 @@ in
       };
       lldap-jwt = {
         owner = "lldap";
-        group = "lldap";
+        group = lldap-config.shared-group;
       };
       lldap-password = {
         owner = "lldap";
