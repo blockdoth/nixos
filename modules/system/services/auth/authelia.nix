@@ -54,7 +54,7 @@ in
         };
 
         access_control = {
-          default_policy = "deny";
+          default_policy = "one_factor";
           rules = [
             {
               domain = [ domain ];
