@@ -56,13 +56,13 @@ in
         ldap_port = 3890;
         http_port = 17170;
         http_url = "http://127.0.0.1";
-        ldap_base_dn = "dc=ldap,dc=com";
-        ldap_user_dn = "admin";
+        ldap_base_dn = "dc=insinuatis,dc=com";
+        ldap_user_dn = "uid=admin,dc=insinuatis,dc=com";
         key_file = ""; # Silence warning
       };
       environment = {
         LLDAP_JWT_SECRET_FILE = lldap-config.shared-jwt;
-        LLDAP_LDAP_USER_PASS = "admin";
+        LLDAP_LDAP_USER_PASS_FILE = lldap-config.shared-password;
         LLDAP_KEY_SEED_FILE = config.sops.secrets.lldap-keyseed.path;
       };
 
