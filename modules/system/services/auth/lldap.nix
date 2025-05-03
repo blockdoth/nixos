@@ -14,9 +14,11 @@ in
     users.groups.lldap-secrets = { };
 
     sops.secrets.lldap-keyseed = {
+      owner = "lldap-secrets";
       group = "lldap-secrets";
     };
     sops.secrets.lldap-jwt = {
+      owner = "lldap-secrets";
       group = "lldap-secrets";
     };
 
