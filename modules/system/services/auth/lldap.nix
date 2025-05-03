@@ -8,7 +8,7 @@
 let
   module = config.system-modules.services.auth.lldap;
   domain = config.system-modules.services.network.domains.homelab;
-  # lldap-secrets = "lldap";
+  lldap-secrets = config.system-modules.services.auth.lldap.password;
 in
 {
   config = lib.mkIf module.enable {
@@ -17,16 +17,22 @@ in
       isNormalUser = true;
       group = "lldap";
     };
-    # systemd.services.lldap.serviceConfig.SupplementaryGroups = [ lldap-secrets ];
 
-    sops.secrets.lldap-keyseed = {
-      owner = "lldap";
-      group = "lldap";
+    sops.secrets = {
+      lldap-keyseed = {
+        owner = "lldap";
+        group = "lldap";
+      };
+      lldap-jwt = {
+        owner = "lldap";
+        group = "lldap";
+      };
+      lldap-password = {
+        owner = lldap-secrets;
+        group = lldap-secrets;
+      };
     };
-    sops.secrets.lldap-jwt = {
-      owner = "lldap";
-      group = "lldap";
-    };
+    systemd.services.lldap.serviceConfig.SupplementaryGroups = [ lldap-secrets ];
 
     services.lldap = {
       enable = true;
@@ -35,10 +41,12 @@ in
         http_port = 17170;
         http_url = "http://127.0.0.1";
         ldap_base_dn = "dc=ldap,dc=com";
+        ldap_user_dn = "admin";
       };
       environment = {
         LLDAP_JWT_SECRET_FILE = config.sops.secrets.lldap-jwt.path;
         LLDAP_KEY_SEED_FILE = config.sops.secrets.lldap-keyseed.path;
+        LLDAP_LDAP_USER_PASS_FILE = config.sops.secrets.lldap-keyseed.path;
       };
 
     };

@@ -8,29 +8,30 @@
 let
   module = config.system-modules.services.auth.authelia;
   domain = config.system-modules.services.network.domains.homelab;
+  lldap-secrets = config.system-modules.services.auth.lldap.password;
   autheliaPort = 9091;
-  autheliaUser = "authelia-main";
 in
 {
   config = lib.mkIf module.enable {
     sops.secrets = {
       authelia-jwt = {
-        owner = autheliaUser;
+        owner = "authelia-main";
+        group = "authelia-main";
       };
       authelia-storage-encryption = {
-        owner = autheliaUser;
-      };
-      lldap-password = {
-        owner = autheliaUser;
+        owner = "authelia-main";
+        group = "authelia-main";
       };
     };
 
+    systemd.services.authelia.serviceConfig.SupplementaryGroups = [ lldap-secrets ];
+
     services.postgresql = {
       enable = true;
-      ensureDatabases = [ autheliaUser ];
+      ensureDatabases = [ "authelia-main" ];
       ensureUsers = [
         {
-          name = autheliaUser;
+          name = "authelia-main";
           ensureDBOwnership = true;
         }
       ];

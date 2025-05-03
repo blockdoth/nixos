@@ -112,7 +112,13 @@ in
         };
         auth = {
           authelia.enable = mkEnableOption "authelia";
-          lldap.enable = mkEnableOption "lldap";
+          lldap = {
+            enable = mkEnableOption "lldap";
+            password = lib.mkOption {
+              type = lib.types.str;
+              default = "lldap-shared-secrets";
+            };
+          };
         };
 
         observability = {
