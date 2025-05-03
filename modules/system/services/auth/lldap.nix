@@ -13,7 +13,7 @@ in
 {
   config = lib.mkIf module.enable {
     system-modules.services.auth.lldap = {
-      shared-group = "lldap-secrets";
+      shared-group = "lldap-shared";
       shared-jwt = config.sops.secrets.lldap-jwt.path;
       shared-password = config.sops.secrets.lldap-password.path;
     };
