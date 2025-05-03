@@ -14,6 +14,7 @@
     ./network/blocky.nix
     ./network/caddy.nix
     ./network/headscale.nix
+    ./network/fail2ban.nix
     ./auth/authelia.nix
     ./auth/lldap.nix
     ./observability/grafana.nix

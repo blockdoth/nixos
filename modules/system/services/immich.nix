@@ -32,5 +32,14 @@ in
         ];
       }
     ];
+
+    environment.persistence."/persist/backup".directories = [
+      {
+        directory = config.services.immich.mediaLocation;
+        user = "immich";
+        group = "immich";
+        mode = "0750";
+      }
+    ];
   };
 }

@@ -15,7 +15,6 @@ in
       enable = true;
       address = "127.0.0.1";
       port = 8085;
-      user = "penger";
       settings = {
         server_url = "https://headscale.${domain}";
         metrics_listen_addr = "127.0.0.1:8095";
@@ -62,6 +61,16 @@ in
       # DERP port (https://tailscale.com/kb/1082/firewall-ports)
       allowedUDPPorts = [ 3478 ];
       trustedInterfaces = [ config.services.tailscale.interfaceName ];
+    };
+    environment.persistence."/persist/backup" = {
+      directories = [
+        {
+          directory = "/var/lib/headscale";
+          user = "headscale";
+          group = "headscale";
+          mode = "0700";
+        }
+      ];
     };
   };
 }

@@ -20,8 +20,20 @@ in
       group = mediaGroup;
       listenPort = 6767;
     };
+
     systemd.tmpfiles.rules = [
       "d ${mediaDir}/torrents/bazarr 0775 ${torrentUser} ${mediaGroup} -"
     ];
+
+    environment.persistence."/persist/backup" = {
+      directories = [
+        {
+          directory = "/var/lib/bazarr";
+          user = "bazarr";
+          group = mediaGroup;
+          mode = "0755";
+        }
+      ];
+    };
   };
 }

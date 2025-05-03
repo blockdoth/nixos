@@ -22,6 +22,8 @@ in
         MICROBIN_HIDE_FOOTER = true;
         MICROBIN_QR = true;
         MICROBIN_DISABLE_TELEMETRY = true;
+        # MICROBIN_ENABLE_BURN_AFTER = true;
+        # MICROBIN_EDITABLE = true;
       };
     };
 
@@ -40,5 +42,15 @@ in
         ];
       }
     ];
+    environment.persistence."/persist/backup" = {
+      directories = [
+        {
+          directory = "/var/lib/private/microbin";
+          mode = "0700";
+          user = "microbin";
+          group = "microbin";
+        }
+      ];
+    };
   };
 }

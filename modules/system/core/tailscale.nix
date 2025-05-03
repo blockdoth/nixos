@@ -25,5 +25,9 @@ in
       trustedInterfaces = [ config.services.tailscale.interfaceName ];
       allowedUDPPorts = [ config.services.tailscale.port ];
     };
+
+    environment.persistence = {
+      "/persist/backup".directories = [ "/var/lib/tailscale" ];
+    };
   };
 }

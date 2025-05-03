@@ -21,5 +21,16 @@ in
       enable = true;
       # group = mediaGroup;
     };
+
+    environment.persistence."/persist/backup" = {
+      directories = [
+        {
+          directory = "/var/lib/private/prowlarr";
+          user = "prowlarr";
+          group = "prowlarr";
+          mode = "0755";
+        }
+      ];
+    };
   };
 }

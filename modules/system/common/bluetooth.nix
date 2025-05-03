@@ -30,5 +30,7 @@ in
       wantedBy = [ "default.target" ];
       serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
     };
+
+    environment.persistence."/persist/backup".directories = [ "/var/lib/bluetooth" ];
   };
 }

@@ -32,5 +32,16 @@ in
     systemd.tmpfiles.rules = [
       "d ${mediaDir}/torrents/sonarr 0775 ${torrentUser} ${mediaGroup} -"
     ];
+
+    environment.persistence."/persist/backup" = {
+      directories = [
+        {
+          directory = "/var/lib/sonarr";
+          user = "sonarr";
+          group = mediaGroup;
+          mode = "0755";
+        }
+      ];
+    };
   };
 }
