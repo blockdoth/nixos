@@ -17,9 +17,12 @@ in
 
     };
 
-    services.caddy.virtualHosts."audiobookshelf.${domain}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${toString config.services.audiobookshelf.port}
-    '';
+    system-modules.services.network.caddy.reverse-proxies = [
+      {
+        subdomain = "audiobookshelf";
+        port = config.services.audiobookshelf.port;
+      }
+    ];
 
     system-modules.services.observability.gatus.endpoints = [
       {

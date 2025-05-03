@@ -42,9 +42,12 @@ in
       };
     };
 
-    services.caddy.virtualHosts."headscale.${domain}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${builtins.toString config.services.headscale.port}        
-    '';
+    system-modules.services.network.caddy.reverse-proxies = [
+      {
+        subdomain = "headscale";
+        port = config.services.headscale.port;
+      }
+    ];
 
     system-modules.services.observability.gatus.endpoints = [
       {

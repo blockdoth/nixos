@@ -18,9 +18,12 @@ in
       host = "127.0.0.1";
     };
 
-    services.caddy.virtualHosts."immich.${domain}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${toString config.services.immich.port}        
-    '';
+    system-modules.services.network.caddy.reverse-proxies = [
+      {
+        subdomain = "immich";
+        port = config.services.immich.port;
+      }
+    ];
 
     system-modules.services.observability.gatus.endpoints = [
       {

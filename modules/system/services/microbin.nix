@@ -28,9 +28,12 @@ in
       };
     };
 
-    services.caddy.virtualHosts."microbin.${domain}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${toString config.services.anki-sync-server.port}
-    '';
+    system-modules.services.network.caddy.reverse-proxies = [
+      {
+        subdomain = "microbin";
+        port = config.services.microbin.settings.MICROBIN_PORT;
+      }
+    ];
 
     system-modules.services.observability.gatus.endpoints = [
       {
@@ -43,6 +46,7 @@ in
         ];
       }
     ];
+
     environment.persistence."/persist/backup" = lib.mkIf impermanence.enable {
       directories = [
         {

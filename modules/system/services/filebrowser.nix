@@ -18,8 +18,11 @@ in
     #   port = 8889;
     # };
 
-    services.caddy.virtualHosts."filebrowser.${domain}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${toString config.services.filebrowser.port}
-    '';
+    system-modules.services.network.caddy.reverse-proxies = [
+      {
+        subdomain = "filebrowser";
+        port = config.services.filebrowser.listenPort;
+      }
+    ];
   };
 }

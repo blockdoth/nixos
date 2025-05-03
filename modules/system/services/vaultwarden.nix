@@ -23,9 +23,12 @@ in
       };
     };
 
-    services.caddy.virtualHosts."vaultwarden.${domain}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${toString config.services.vaultwarden.config.ROCKET_PORT}
-    '';
+    system-modules.services.network.caddy.reverse-proxies = [
+      {
+        subdomain = "vaultwarden";
+        port = config.services.vaultwarden.config.ROCKET_PORT;
+      }
+    ];
 
     system-modules.services.observability.gatus.endpoints = [
       {

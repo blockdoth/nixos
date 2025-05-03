@@ -24,9 +24,12 @@ in
       ];
     };
 
-    services.caddy.virtualHosts."anki.${domain}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${toString config.services.anki-sync-server.port}
-    '';
+    system-modules.services.network.caddy.reverse-proxies = [
+      {
+        subdomain = "anki";
+        port = config.services.anki-sync-server.port;
+      }
+    ];
 
     system-modules.services.observability.gatus.endpoints = [
       {

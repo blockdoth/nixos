@@ -26,12 +26,12 @@ in
       };
     };
 
-    services.caddy.virtualHosts."gatus.${domain}".extraConfig = ''
-      forward_auth 127.0.0.1:9091 {
-              uri /api/authz/forward-auth
-              copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-      }      
-      reverse_proxy 127.0.0.1:${builtins.toString config.services.gatus.settings.web.port}
-    '';
+    system-modules.services.network.caddy.reverse-proxies = [
+      {
+        subdomain = "gatus";
+        port = config.services.gatus.settings.web.port;
+        require-auth = true;
+      }
+    ];
   };
 }

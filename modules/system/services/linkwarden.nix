@@ -30,9 +30,12 @@ in
       secretsFile = config.sops.secrets.linkwarden-nextauth.path;
     };
 
-    services.caddy.virtualHosts."linkwarden.${domain}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${toString config.services.linkwarden.port}        
-    '';
+    system-modules.services.network.caddy.reverse-proxies = [
+      {
+        subdomain = "linkwarden";
+        port = config.services.linkwarden.port;
+      }
+    ];
 
     system-modules.services.observability.gatus.endpoints = [
       {

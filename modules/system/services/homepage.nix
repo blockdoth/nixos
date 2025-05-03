@@ -68,9 +68,12 @@ in
       ];
     };
 
-    services.caddy.virtualHosts."homepage.${domain}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${toString config.services.homepage-dashboard.listenPort}        
-    '';
+    system-modules.services.network.caddy.reverse-proxies = [
+      {
+        subdomain = "homepage";
+        port = config.services.homepage-dashboard.listenPort;
+      }
+    ];
 
     system-modules.services.observability.gatus.endpoints = [
       {

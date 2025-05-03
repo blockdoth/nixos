@@ -9,10 +9,10 @@ let
   module = config.system-modules.services.auth.authelia;
   domain = config.system-modules.services.network.domains.homelab;
   lldap-config = config.system-modules.services.auth.lldap;
-  autheliaPort = 9091;
 in
 {
   config = lib.mkIf module.enable {
+    system-modules.services.auth.authelia.port = 9091;
     sops.secrets = {
       authelia-jwt = {
         owner = "authelia-main";
@@ -72,7 +72,7 @@ in
         ];
 
         server = {
-          address = "127.0.0.1:${builtins.toString autheliaPort}";
+          address = "127.0.0.1:${builtins.toString module.port}";
           # Necessary for Caddy integration
           # See https://www.authelia.com/integration/proxies/caddy/#implementation
           endpoints.authz.forward-auth.implementation = "ForwardAuth";
@@ -114,9 +114,12 @@ in
       };
     };
 
-    services.caddy.virtualHosts."auth.${domain}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${builtins.toString autheliaPort}        
-    '';
+    system-modules.services.network.caddy.reverse-proxies = [
+      {
+        subdomain = "auth";
+        port = module.port;
+      }
+    ];
 
     system-modules.services.observability.gatus.endpoints = [
       {

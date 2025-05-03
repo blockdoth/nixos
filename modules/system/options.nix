@@ -93,9 +93,38 @@ in
           ddns.enable = mkEnableOption "ddns";
           acme.enable = mkEnableOption "acme";
           blocky.enable = mkEnableOption "blocky";
-          caddy.enable = mkEnableOption "caddy";
           headscale.enable = mkEnableOption "headscale";
           fail2ban.enable = mkEnableOption "fail2ban";
+          caddy = {
+            enable = mkEnableOption "caddy";
+            reverse-proxies = mkOption {
+              type = types.listOf (
+                types.submodule {
+                  options = {
+                    subdomain = mkOption { type = types.str; };
+                    port = mkOption {
+                      type = types.int;
+                    };
+                    require-auth = mkOption {
+                      type = types.bool;
+                      default = false;
+                    };
+                    redirect-address = mkOption {
+                      type = types.str;
+                      default = "127.0.0.1";
+                    };
+                    extra-config = mkOption {
+                      type = types.str;
+                      default = "";
+                    };
+                  };
+                }
+              );
+              default = [ ];
+              description = "List of reverse proxied sub domains";
+              apply = x: lib.concatLists (lib.singleton x);
+            };
+          };
           domains = {
             iss-piss-stream = mkOption {
               type = types.str;
@@ -112,7 +141,10 @@ in
           };
         };
         auth = {
-          authelia.enable = mkEnableOption "authelia";
+          authelia = {
+            enable = mkEnableOption "authelia";
+            port = mkOption { type = types.int; };
+          };
           lldap = {
             enable = mkEnableOption "lldap";
             shared-group = mkOption { type = types.str; };

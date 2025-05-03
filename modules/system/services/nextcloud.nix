@@ -29,9 +29,12 @@ in
     };
     users.users.caddy.extraGroups = [ "nextcloud" ];
 
-    services.caddy.virtualHosts."nextcloud.${domain}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${builtins.toString config.services.minecraft-servers.servers.minecraft_21.serverProperties.server-port}        
-    '';
+    system-modules.services.network.caddy.reverse-proxies = [
+      {
+        subdomain = "nextcloud";
+        port = config.services.nextcloud.port;
+      }
+    ];
 
     system-modules.services.observability.gatus.endpoints = [
       {
