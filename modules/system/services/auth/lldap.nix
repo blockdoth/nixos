@@ -13,6 +13,10 @@ in
 {
   config = lib.mkIf module.enable {
     users.groups.lldap-secrets = { };
+    users.users.lldap-secrets = {
+      isNormalUser = true;
+      group = lldap-secrets;
+    };
 
     sops.secrets.lldap-keyseed = {
       owner = lldap-secrets;
