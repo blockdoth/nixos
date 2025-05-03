@@ -41,9 +41,10 @@ in
       # };
     };
 
+    systemd.services.authelia-main.serviceConfig.SupplementaryGroups = [ lldap-config.shared-group ];
+
     services.authelia.instances.main = {
       enable = true;
-      group = lldap-config.shared-group;
       secrets = {
         jwtSecretFile = lldap-config.shared-jwt;
         storageEncryptionKeyFile = config.sops.secrets.authelia-storage-encryption.path;
