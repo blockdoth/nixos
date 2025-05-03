@@ -10,4 +10,3 @@ The best thing since sliced bread
 
 ### Future plans
 - Impermanence with btrfs and disko 
-- File browser service once it gets merged (maybe build from pr)

@@ -34,7 +34,7 @@ in
 
     system-modules.services.observability.gatus.endpoints = [
       {
-        name = "Lldap";
+        name = "lldap";
         url = "https://lldap.${domain}";
         interval = "30s";
         conditions = [
