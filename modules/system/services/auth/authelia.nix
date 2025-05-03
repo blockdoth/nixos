@@ -48,7 +48,7 @@ in
           default_policy = "one_factor";
           rules = [
             {
-              domain = domain;
+              domain = ".*\\${domain}";
               resources = [
                 "^/health$"
                 "^/healthcheck$"
@@ -128,7 +128,7 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Authelia";
-        url = "https://authelia.${domain}";
+        url = "https://auth.${domain}";
         interval = "30s";
         conditions = [
           "[STATUS] == 200"
