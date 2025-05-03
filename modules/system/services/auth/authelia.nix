@@ -65,8 +65,9 @@ in
 
         session.cookies = [
           {
-            domain = domain;
+            domain = ".${domain}";
             authelia_url = "https://auth.${domain}";
+            default_redirection_url = "https://www.${domain}";
           }
         ];
 
@@ -75,6 +76,9 @@ in
           # Necessary for Caddy integration
           # See https://www.authelia.com/integration/proxies/caddy/#implementation
           endpoints.authz.forward-auth.implementation = "ForwardAuth";
+          login_url = "https://auth.${domain}/login";
+          redirection_url = "https://www.${domain}";
+
         };
         regulation = {
           max_retries = 3;
