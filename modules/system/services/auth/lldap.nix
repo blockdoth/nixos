@@ -12,9 +12,11 @@ in
 {
   config = lib.mkIf module.enable {
     sops.secrets.lldap-keyseed = {
+      owner = "lldap";
       group = "lldap";
     };
     sops.secrets.lldap-jwt = {
+      owner = "lldap";
       group = "lldap";
     };
 
