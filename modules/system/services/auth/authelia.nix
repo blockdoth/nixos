@@ -8,7 +8,7 @@
 let
   module = config.system-modules.services.auth.authelia;
   domain = config.system-modules.services.network.domains.homelab;
-  lldap-secrets = config.system-modules.services.auth.lldap.password;
+  lldap-config = config.system-modules.services.auth.lldap;
   autheliaPort = 9091;
 in
 {
@@ -24,7 +24,7 @@ in
       };
     };
 
-    systemd.services.authelia-main.serviceConfig.SupplementaryGroups = [ lldap-secrets ];
+    systemd.services.authelia-main.serviceConfig.SupplementaryGroups = [ lldap-config.shared-group ];
 
     services.postgresql = {
       enable = true;
@@ -46,11 +46,11 @@ in
     services.authelia.instances.main = {
       enable = true;
       secrets = {
-        jwtSecretFile = config.sops.secrets.authelia-jwt.path;
+        jwtSecretFile = lldap-config.shared-jwt;
         storageEncryptionKeyFile = config.sops.secrets.authelia-storage-encryption.path;
       };
       environmentVariables = {
-        AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD_FILE = config.sops.secrets.lldap-password.path;
+        AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD_FILE = lldap-config.shared-password;
       };
 
       settings = {
@@ -79,12 +79,12 @@ in
           name = "authelia_session";
         };
 
-        # server = {
-        #   address = "tcp:127.0.0.1:${builtins.toString autheliaPort}";
-        #   # Necessary for Caddy integration
-        #   # See https://www.authelia.com/integration/proxies/caddy/#implementation
-        #   endpoints.authz.forward-auth.implementation = "ForwardAuth";
-        # };
+        server = {
+          address = "tcp:127.0.0.1:${builtins.toString autheliaPort}";
+          # Necessary for Caddy integration
+          # See https://www.authelia.com/integration/proxies/caddy/#implementation
+          endpoints.authz.forward-auth.implementation = "ForwardAuth";
+        };
         regulation = {
           max_retries = 3;
           find_time = 120;

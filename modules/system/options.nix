@@ -19,6 +19,7 @@ let
     mkEnableOption
     mkDefault
     mkOption
+    types
     ;
 in
 {
@@ -52,7 +53,7 @@ in
         env.enable = mkEnableOption "env";
         networking = {
           enable = mkEnableOption "networking config";
-          hostname = mkOption { type = lib.types.str; };
+          hostname = mkOption { type = types.str; };
         };
         impermanence.enable = mkEnableOption "impermanence";
         localization.enable = mkEnableOption "localization settings";
@@ -97,15 +98,15 @@ in
           fail2ban.enable = mkEnableOption "fail2ban";
           domains = {
             iss-piss-stream = mkOption {
-              type = lib.types.str;
+              type = types.str;
               default = "localhost";
             };
             homelab = mkOption {
-              type = lib.types.str;
+              type = types.str;
               default = "localhost";
             };
             gameservers = mkOption {
-              type = lib.types.str;
+              type = types.str;
               default = "localhost";
             };
           };
@@ -114,10 +115,9 @@ in
           authelia.enable = mkEnableOption "authelia";
           lldap = {
             enable = mkEnableOption "lldap";
-            password = lib.mkOption {
-              type = lib.types.str;
-              default = "lldap-shared-secrets";
-            };
+            shared-group = mkOption { type = types.str; };
+            shared-jwt = mkOption { type = types.str; };
+            shared-password = mkOption { type = types.str; };
           };
         };
 
@@ -128,14 +128,14 @@ in
           promtail.enable = mkEnableOption "promtail";
           gatus = {
             enable = mkEnableOption "gatus";
-            endpoints = lib.mkOption {
-              type = lib.types.listOf (
-                lib.types.submodule {
+            endpoints = mkOption {
+              type = types.listOf (
+                types.submodule {
                   options = {
-                    name = lib.mkOption { type = lib.types.str; };
-                    url = lib.mkOption { type = lib.types.str; };
-                    interval = lib.mkOption { type = lib.types.str; };
-                    conditions = lib.mkOption { type = lib.types.listOf lib.types.str; };
+                    name = mkOption { type = types.str; };
+                    url = mkOption { type = types.str; };
+                    interval = mkOption { type = types.str; };
+                    conditions = mkOption { type = types.listOf types.str; };
                   };
                 }
               );
@@ -167,24 +167,24 @@ in
 
           # This module is heavily inspired by https://github.com/zmitchell/nixos-configs/blob/main/modules/media_server.nix
           dataDir = mkOption {
-            type = lib.types.str;
+            type = types.str;
             default = "/var/lib/media";
             description = "Directory for media storage";
           };
 
           group = mkOption {
-            type = lib.types.str;
+            type = types.str;
             default = "media";
             description = "Group for media access";
           };
           users = {
             torrenter = mkOption {
-              type = lib.types.str;
+              type = types.str;
               default = "torrenter";
               description = "User for torrent services";
             };
             streamer = mkOption {
-              type = lib.types.str;
+              type = types.str;
               default = "streamer";
               description = "User for streaming services";
             };
