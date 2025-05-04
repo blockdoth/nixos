@@ -72,6 +72,7 @@ in
       {
         subdomain = "homepage";
         port = config.services.homepage-dashboard.listenPort;
+        require-auth = true;
       }
     ];
 
