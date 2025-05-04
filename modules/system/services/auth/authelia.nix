@@ -122,6 +122,7 @@ in
               "email"
             ];
             userinfo_signed_response_alg = "RS256";
+            token_endpoint_auth_method = "client_secret_post";
           }
           {
             authorization_policy = "one_factor";
@@ -140,6 +141,25 @@ in
               "profile"
             ];
             userinfo_signed_response_alg = "none";
+            token_endpoint_auth_method = "client_secret_post";
+          }
+          {
+            authorization_policy = "one_factor";
+            client_name = "jellyfin";
+            client_id = "jellyfin";
+            client_secret = "$pbkdf2-sha512$310000$qkXZ.EZQU8mwt6gnDFJXNA$HCrWqza3aH/.K948rFgItGB0.BV5dz02ia1L/HeShlu8eA8fN7kFTYIsxJ6EBBiIXCdRNYS4gEV6N56OyQcF9w";
+            public = false;
+            consent_mode = "implicit";
+            redirect_uris = [
+              "https://jellyfin.${domain}/sso/OID/redirect/authelia"
+            ];
+            scopes = [
+              "openid"
+              "groups"
+              "profile"
+            ];
+            userinfo_signed_response_alg = "none";
+            token_endpoint_auth_method = "client_secret_post";
           }
         ];
       };
