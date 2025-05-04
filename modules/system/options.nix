@@ -191,6 +191,7 @@ in
           audiobookshelf.enable = mkEnableOption "audiobookshelf";
           bazarr.enable = mkEnableOption "bazarr";
           jellyfin.enable = mkEnableOption "jellyfin";
+          jellyseer.enable = mkEnableOption "jellyseer";
           prowlarr.enable = mkEnableOption "prowlarr";
           radarr.enable = mkEnableOption "radarr";
           lidarr.enable = mkEnableOption "lidarr";

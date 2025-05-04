@@ -51,7 +51,10 @@
         anki.enable = true;
       };
 
-      media.audiobookshelf.enable = true;
+      media = {
+        audiobookshelf.enable = true;
+        jellyseer.enable = true;
+      };
       immich.enable = true;
       vaultwarden.enable = true;
       linkwarden.enable = true;

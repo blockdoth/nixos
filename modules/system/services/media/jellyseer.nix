@@ -19,5 +19,25 @@ in
       enable = true;
       port = 5055;
     };
+
+    system-modules.services.network.caddy.reverse-proxies = [
+      {
+        subdomain = "jellyseer";
+        port = config.services.jellyseer.port;
+        require-auth = true;
+      }
+    ];
+
+    system-modules.services.observability.gatus.endpoints = [
+      {
+        name = "Jellyseer";
+        url = "https://jellyseer.${domain}/api/v1/status";
+        interval = "30s";
+        conditions = [
+          "[STATUS] == 200"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
   };
 }
