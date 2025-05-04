@@ -14,7 +14,7 @@ in
     services.homepage-dashboard = {
       enable = true;
       listenPort = 8082;
-      allowedHosts = "127.0.0.1:8082,hompage.${domain}";
+      allowedHosts = "127.0.0.1:8082,homepage.${domain}";
       settings = {
 
       };
