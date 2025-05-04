@@ -42,7 +42,7 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Linkwarden";
-        url = "https://linkwarden.${domain}";
+        url = "https://linkwarden.${domain}/api/v1/logins";
         interval = "30s";
         conditions = [
           "[STATUS] == 200"

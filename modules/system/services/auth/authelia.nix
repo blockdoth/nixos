@@ -53,6 +53,7 @@ in
                 "^/health$"
                 "^/healthcheck$"
                 "^/api/healthcheck$"
+                "^/api/v1/logins$"
               ];
               policy = "bypass";
             }
