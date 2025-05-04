@@ -43,11 +43,6 @@ in
       {
         name = "Linkwarden";
         url = "https://linkwarden.${domain}/api/v1/logins";
-        interval = "30s";
-        conditions = [
-          "[STATUS] == 200"
-          "[RESPONSE_TIME] < 500"
-        ];
       }
     ];
   };

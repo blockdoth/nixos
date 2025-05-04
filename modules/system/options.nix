@@ -166,8 +166,17 @@ in
                   options = {
                     name = mkOption { type = types.str; };
                     url = mkOption { type = types.str; };
-                    interval = mkOption { type = types.str; };
-                    conditions = mkOption { type = types.listOf types.str; };
+                    interval = mkOption {
+                      type = types.str;
+                      default = "30s";
+                    };
+                    conditions = mkOption {
+                      type = types.listOf types.str;
+                      default = [
+                        "[STATUS] == 200"
+                        "[RESPONSE_TIME] < 500"
+                      ];
+                    };
                   };
                 }
               );

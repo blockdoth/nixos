@@ -78,11 +78,6 @@ in
       {
         name = "lldap";
         url = "https://lldap.${domain}";
-        interval = "30s";
-        conditions = [
-          "[STATUS] == 200"
-          "[RESPONSE_TIME] < 500"
-        ];
       }
     ];
   };

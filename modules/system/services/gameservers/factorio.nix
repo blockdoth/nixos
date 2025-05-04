@@ -38,11 +38,6 @@ in
       {
         name = "Factorio";
         url = "https://factorio.${domain}";
-        interval = "30s";
-        conditions = [
-          "[STATUS] == 200"
-          "[RESPONSE_TIME] < 500"
-        ];
       }
     ];
   };

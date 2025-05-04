@@ -34,11 +34,6 @@ in
       {
         name = "Vaultwarden";
         url = "https://vaultwarden.${domain}";
-        interval = "30s";
-        conditions = [
-          "[STATUS] == 200"
-          "[RESPONSE_TIME] < 500"
-        ];
       }
     ];
   };

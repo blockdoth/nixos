@@ -26,6 +26,21 @@ in
       "d ${mediaDir}/torrents/radarr 0775 ${torrentUser} ${mediaGroup} -"
     ];
 
+    system-modules.services.network.caddy.reverse-proxies = [
+      {
+        subdomain = "Radarr";
+        port = 7878;
+        require-auth = true;
+      }
+    ];
+
+    system-modules.services.observability.gatus.endpoints = [
+      {
+        name = "Radarr";
+        url = "https://radarr.${domain}/api/v3/health";
+      }
+    ];
+
     environment.persistence."/persist/backup" = lib.mkIf impermanence.enable {
       directories = [
         {

@@ -35,11 +35,6 @@ in
       {
         name = "Anki";
         url = "https://anki.${domain}/health";
-        interval = "30s";
-        conditions = [
-          "[STATUS] == 200"
-          "[RESPONSE_TIME] < 500"
-        ];
       }
     ];
   };

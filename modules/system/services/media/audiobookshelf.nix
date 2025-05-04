@@ -29,11 +29,6 @@ in
       {
         name = "Audiobookshelf";
         url = "https://audiobookshelf.${domain}/healthcheck";
-        interval = "30s";
-        conditions = [
-          "[STATUS] == 200"
-          "[RESPONSE_TIME] < 500"
-        ];
       }
     ];
   };

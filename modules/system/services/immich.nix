@@ -29,11 +29,6 @@ in
       {
         name = "Immich";
         url = "https://immich.${domain}";
-        interval = "30s";
-        conditions = [
-          "[STATUS] == 200"
-          "[RESPONSE_TIME] < 500"
-        ];
       }
     ];
 

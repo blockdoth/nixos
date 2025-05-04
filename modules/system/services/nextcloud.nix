@@ -40,11 +40,6 @@ in
       {
         name = "Nextcloud";
         url = "https://nextcloud.${domain}";
-        interval = "30s";
-        conditions = [
-          "[STATUS] == 200"
-          "[RESPONSE_TIME] < 500"
-        ];
       }
     ];
   };

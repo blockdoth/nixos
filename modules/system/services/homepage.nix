@@ -81,11 +81,6 @@ in
       {
         name = "Homepage";
         url = "https://homepage.${domain}/api/healthcheck";
-        interval = "30s";
-        conditions = [
-          "[STATUS] == 200"
-          "[RESPONSE_TIME] < 500"
-        ];
       }
     ];
   };

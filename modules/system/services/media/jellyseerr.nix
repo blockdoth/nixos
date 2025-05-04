@@ -32,11 +32,6 @@ in
       {
         name = "Jellyseerr";
         url = "https://jellyseerr.${domain}/api/v1/status";
-        interval = "30s";
-        conditions = [
-          "[STATUS] == 200"
-          "[RESPONSE_TIME] < 500"
-        ];
       }
     ];
   };

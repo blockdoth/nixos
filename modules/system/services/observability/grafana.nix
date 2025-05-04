@@ -61,11 +61,6 @@ in
       {
         name = "Grafana";
         url = "https://grafana.${domain}";
-        interval = "30s";
-        conditions = [
-          "[STATUS] == 200"
-          "[RESPONSE_TIME] < 500"
-        ];
       }
     ];
   };

@@ -12,10 +12,6 @@ let
   mediaGroup = cfg.group;
   streamUser = cfg.users.streamer;
   module = config.system-modules.services.media.jellyfin;
-  ssoPluginManifest = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/9p4/jellyfin-plugin-sso/manifest-release/manifest.json";
-    sha256 = "sha256-MpHfZy+vGo3gBEF+gJ+7Vzl4MIXKxUHn4uP4GDr2heA=";
-  };
 in
 {
   config = lib.mkIf module.enable {
@@ -23,17 +19,6 @@ in
     services.jellyfin = {
       enable = true;
       group = mediaGroup;
-    };
-
-    environment.etc = {
-      "jellyfin/plugins/sso".source = ssoPluginManifest;
-    };
-
-    systemd.services.jellyfin = {
-      preStart = ''
-        mkdir -p /var/lib/jellyfin/plugins
-        cp ${ssoPluginManifest} /var/lib/jellyfin/plugins
-      '';
     };
 
     systemd.tmpfiles.rules = [
@@ -54,11 +39,6 @@ in
       {
         name = "Jellyfin";
         url = "https://jellyfin.${domain}/health";
-        interval = "30s";
-        conditions = [
-          "[STATUS] == 200"
-          "[RESPONSE_TIME] < 500"
-        ];
       }
     ];
   };

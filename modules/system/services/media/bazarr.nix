@@ -26,6 +26,21 @@ in
       "d ${mediaDir}/torrents/bazarr 0775 ${torrentUser} ${mediaGroup} -"
     ];
 
+    system-modules.services.network.caddy.reverse-proxies = [
+      {
+        subdomain = "bazarr";
+        port = config.services.bazarr.listenPort;
+        require-auth = true;
+      }
+    ];
+
+    system-modules.services.observability.gatus.endpoints = [
+      {
+        name = "Bazarr";
+        url = "https://bazarr.${domain}";
+      }
+    ];
+
     environment.persistence."/persist/backup" = lib.mkIf impermanence.enable {
       directories = [
         {

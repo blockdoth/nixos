@@ -54,6 +54,9 @@ in
                 "^/healthcheck$"
                 "^/api/healthcheck$"
                 "^/api/v1/logins$"
+                "^/api/v1/status$"
+                "^/api/v1/health$"
+                "^/api/v3/health$"
               ];
               policy = "bypass";
             }
@@ -152,11 +155,6 @@ in
       {
         name = "Authelia";
         url = "https://auth.${domain}";
-        interval = "30s";
-        conditions = [
-          "[STATUS] == 200"
-          "[RESPONSE_TIME] < 500"
-        ];
       }
     ];
   };
