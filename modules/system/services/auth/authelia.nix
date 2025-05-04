@@ -76,7 +76,7 @@ in
         session = {
           cookies = [
             {
-              domain = ".${domain}";
+              domain = "${domain}";
               authelia_url = "https://auth.${domain}";
               default_redirection_url = "https://www.${domain}";
             }
@@ -116,7 +116,6 @@ in
               "email"
             ];
             userinfo_signed_response_alg = "RS256";
-            token_endpoint_auth_method = "client_secret_post";
           }
         ];
       };
