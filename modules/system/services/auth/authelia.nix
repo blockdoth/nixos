@@ -65,11 +65,12 @@ in
         };
 
         authentication_backend.ldap = {
+          implementation = "lldap";
           address = "ldap://127.0.0.1:${builtins.toString config.services.lldap.settings.ldap_port}";
           base_dn = "dc=example,dc=com";
+          additional_users_dn = "ou=people";
           user = "uid=admin,ou=people,dc=example,dc=com";
-          users_filter = "(&({username_attribute}={input})(objectClass=person))";
-          groups_filter = "(users={dn})";
+          users_filter = "(&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))";
         };
 
         session = {
