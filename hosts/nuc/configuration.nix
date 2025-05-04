@@ -53,7 +53,7 @@
 
       media = {
         audiobookshelf.enable = true;
-        jellyseer.enable = true;
+        jellyseerr.enable = true;
       };
       immich.enable = true;
       vaultwarden.enable = true;

@@ -18,6 +18,7 @@ in
   imports = [
     ./audiobookshelf.nix
     ./jellyfin.nix
+    ./jellyseerr.nix
     ./prowlarr.nix
     ./radarr.nix
     ./lidarr.nix
@@ -41,6 +42,7 @@ in
           "bazarr"
           "prowlarr"
           "jellyfin"
+          "jellyseerr"
           "penger"
           "blockdoth"
           torrentUser
