@@ -52,6 +52,7 @@ in
               resources = [
                 "^/health$"
                 "^/healthcheck$"
+                "^/api/healthcheck$"
               ];
               policy = "bypass";
             }

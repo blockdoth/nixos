@@ -80,7 +80,7 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Homepage";
-        url = "https://homepage.${domain}";
+        url = "https://homepage.${domain}/api/healthcheck";
         interval = "30s";
         conditions = [
           "[STATUS] == 200"
