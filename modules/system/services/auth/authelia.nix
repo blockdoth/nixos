@@ -100,8 +100,10 @@ in
         identity_providers.oidc.clients = [
           {
             authorization_policy = "one_factor";
-            client_id = "immich";
-            client_secret = "XsdEXVthp2NYx67va6Cy0X4/oJGU7koBbDsWjxqsfjM=";
+            client_name = "immich";
+            client_id = "MhxJAZdRPwS-yqMqD2nIvwb.t.qJHf4oYwVb3bJZ5o6RXBHANADsfduLEBeJCbGQPV6osh1o";
+            client_secret = "$pbkdf2-sha512$310000$if976YsJDfS7rZxufv712Q$BNGakqUWUNwduNTuWnq7cpHE/HwB27iug8RiCFGEyS3xSG.yBy.xZ5/1Fsw.RncyjSG7CW2yldWp11Rl/REHug";
+            public = false;
             redirect_uris = [
               "https://immich.${domain}/auth/login"
               "https://immich.${domain}/user-settings"
@@ -113,6 +115,7 @@ in
               "email"
             ];
             userinfo_signed_response_alg = "none";
+            token_endpoint_auth_method = "client_secret_basic";
           }
         ];
       };
