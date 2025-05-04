@@ -58,16 +58,16 @@ in
 
     system-modules.services.network.caddy.reverse-proxies = [
       {
-        subdomain = "sonarr";
-        port = 8989;
+        subdomain = "transmission";
+        port = config.services.transmission.settings.rpc-port;
         require-auth = true;
       }
     ];
 
     system-modules.services.observability.gatus.endpoints = [
       {
-        name = "Sonarr";
-        url = "https://sonarr.${domain}/api/v3/health";
+        name = "Transmission";
+        url = "https://transmission.${domain}";
       }
     ];
   };
