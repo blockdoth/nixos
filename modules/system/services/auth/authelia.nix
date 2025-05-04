@@ -69,7 +69,7 @@ in
           base_dn = "dc=example,dc=com";
           user = "uid=admin,ou=people,dc=example,dc=com";
           users_filter = "(&({username_attribute}={input})(objectClass=person))";
-          groups_filter = "(member={dn})";
+          groups_filter = "(users={dn})";
         };
 
         session = {
