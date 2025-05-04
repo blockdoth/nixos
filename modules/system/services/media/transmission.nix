@@ -55,5 +55,20 @@ in
     };
     # Always prioritize other services wrt. I/O
     systemd.services.transmission.serviceConfig.IOSchedulingPriority = 7;
+
+    system-modules.services.network.caddy.reverse-proxies = [
+      {
+        subdomain = "sonarr";
+        port = 8989;
+        require-auth = true;
+      }
+    ];
+
+    system-modules.services.observability.gatus.endpoints = [
+      {
+        name = "Sonarr";
+        url = "https://sonarr.${domain}/api/v3/health";
+      }
+    ];
   };
 }

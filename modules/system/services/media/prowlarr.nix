@@ -34,7 +34,7 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Prowlarr";
-        url = "https://prowlarr.${domain}/api/v1/health";
+        url = "https://prowlarr.${domain}/ping";
       }
     ];
 

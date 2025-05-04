@@ -57,6 +57,7 @@ in
                 "^/api/v1/status$"
                 "^/api/v1/health$"
                 "^/api/v3/health$"
+                "^/ping$"
               ];
               policy = "bypass";
             }

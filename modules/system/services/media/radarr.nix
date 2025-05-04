@@ -37,7 +37,7 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Radarr";
-        url = "https://radarr.${domain}/api/v3/health";
+        url = "https://radarr.${domain}/ping";
       }
     ];
 
