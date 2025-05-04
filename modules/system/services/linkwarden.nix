@@ -16,7 +16,7 @@ in
   ];
 
   config = lib.mkIf module.enable {
-    sops.secrets.linkwarden-nextauth = { };
+    sops.secrets.linkwarden-secrets = { };
 
     services.linkwarden = {
       enable = true;
@@ -27,13 +27,15 @@ in
       host = "127.0.0.1";
       enableRegistration = false;
       openFirewall = false;
-      secretsFile = config.sops.secrets.linkwarden-nextauth.path;
+      secretsFile = config.sops.secrets.linkwarden-secrets.path;
+
     };
 
     system-modules.services.network.caddy.reverse-proxies = [
       {
         subdomain = "linkwarden";
         port = config.services.linkwarden.port;
+        require-auth = true;
       }
     ];
 

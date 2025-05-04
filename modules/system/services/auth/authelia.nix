@@ -117,6 +117,24 @@ in
             ];
             userinfo_signed_response_alg = "RS256";
           }
+          {
+            authorization_policy = "one_factor";
+            client_name = "linkwarden";
+            client_id = "linkwarden";
+            client_secret = "$pbkdf2-sha512$310000$qNSHYtUc5uD.MtAk.9izHQ$cikRNHSQ38UYKwNqRRYeQ.wED0a1Yadlll9yBh7K88/qYb6EBjCWfeSLmAEVOc4XVMGsaNcyFtgO.zhOXsHbdg";
+            public = false;
+            consent_mode = "implicit";
+            redirect_uris = [
+              "https://linkwarden.${domain}/api/v1/auth/callback/authelia"
+            ];
+            scopes = [
+              "openid"
+              "groups"
+              "email"
+              "profile"
+            ];
+            userinfo_signed_response_alg = "none";
+          }
         ];
       };
     };
