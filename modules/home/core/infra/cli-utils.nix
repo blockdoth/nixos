@@ -41,6 +41,7 @@ in
       dig
       nmap
       netcat-gnu
+      openssl
     ];
   };
 }
