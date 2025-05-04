@@ -102,8 +102,8 @@ in
           {
             authorization_policy = "one_factor";
             client_name = "immich";
-            client_id = "MhxJAZdRPwS-yqMqD2nIvwb.t.qJHf4oYwVb3bJZ5o6RXBHANADsfduLEBeJCbGQPV6osh1o";
-            client_secret = "$pbkdf2-sha512$310000$if976YsJDfS7rZxufv712Q$BNGakqUWUNwduNTuWnq7cpHE/HwB27iug8RiCFGEyS3xSG.yBy.xZ5/1Fsw.RncyjSG7CW2yldWp11Rl/REHug";
+            client_id = "immich";
+            client_secret = "$pbkdf2-sha512$310000$l1GXEdjn4Ec/A5H9IHMTIg$2gyI3RvjK5mfWHTmSH7OL..74fd3aG6F/IPVKMfP.Ghsa/TN6patfBSWRLtpYH57pgMbN57MV8TIBkCN7XHjNw";
             public = false;
             redirect_uris = [
               "https://immich.${domain}/auth/login"
@@ -116,7 +116,7 @@ in
               "email"
             ];
             userinfo_signed_response_alg = "RS256";
-            token_endpoint_auth_method = "client_secret_basic";
+            token_endpoint_auth_method = "client_secret_post";
           }
         ];
       };
