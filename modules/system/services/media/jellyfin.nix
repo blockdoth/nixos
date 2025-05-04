@@ -29,6 +29,13 @@ in
       "jellyfin/plugins/sso".source = ssoPluginManifest;
     };
 
+    systemd.services.jellyfin = {
+      preStart = ''
+        mkdir -p /var/lib/jellyfin/plugins
+        cp ${ssoPluginManifest} /var/lib/jellyfin/plugins
+      '';
+    };
+
     systemd.tmpfiles.rules = [
       "d ${mediaDir}/library/Movies 0775 ${streamUser} ${mediaGroup} -"
       "d ${mediaDir}/library/TV 0775 ${streamUser} ${mediaGroup} -"
