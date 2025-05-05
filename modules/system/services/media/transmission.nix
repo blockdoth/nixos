@@ -34,7 +34,7 @@ in
         incomplete-dir = "${mediaDir}/torrents/.incomplete";
         watch-dir-enabled = true;
         watch-dir = "${mediaDir}/torrents/.watch";
-        rpc-port = 51413;
+        rpc-port = 5141;
         rpc-whitelist-enabled = true;
         # rpc-whitelist-enabled = false;
         # rpc-host-whitelist-enabled = false;
