@@ -213,7 +213,6 @@ in
             default = "/var/lib/media";
             description = "Directory for media storage";
           };
-
           group = mkOption {
             type = types.str;
             default = "media";

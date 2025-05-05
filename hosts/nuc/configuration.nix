@@ -64,5 +64,9 @@
     };
   };
 
+  system.activationScripts.linkMediaFolder.text = ''
+    ln -sfn ${config.system-modules.services.media.dataDir} /home/penger/media
+  '';
+
   system.stateVersion = "24.05"; # Did you read the comment?
 }

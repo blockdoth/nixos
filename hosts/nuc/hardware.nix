@@ -30,10 +30,11 @@
     fsType = "ext4";
   };
 
-  fileSystems."/home/penger/media" = {
+  fileSystems."/var/lib/media" = {
     device = "/dev/disk/by-uuid/8f8eda43-c0f7-4f86-a196-6214ac8cd992";
     fsType = "btrfs";
   };
+  #/home/penger/media
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/4BB9-7C65";
