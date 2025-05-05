@@ -22,7 +22,13 @@ in
           title = "My Gatus Dashboard";
           theme = "dark";
         };
-        endpoints = config.system-modules.services.observability.gatus.endpoints;
+        endpoints = map (
+          ep:
+          ep
+          // {
+            url = ep.url + ep.endpoint;
+          }
+        ) config.system-modules.services.observability.gatus.endpoints;
       };
     };
 

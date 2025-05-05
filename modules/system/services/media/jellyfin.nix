@@ -38,7 +38,8 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Jellyfin";
-        url = "https://jellyfin.${domain}/health";
+        url = "https://jellyfin.${domain}";
+        endpoint = "/health";
       }
     ];
   };

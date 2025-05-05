@@ -42,7 +42,8 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Linkwarden";
-        url = "https://linkwarden.${domain}/api/v1/logins";
+        url = "https://linkwarden.${domain}";
+        endpoint = "/api/v1/logins";
       }
     ];
   };

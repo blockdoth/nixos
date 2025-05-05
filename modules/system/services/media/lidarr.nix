@@ -37,7 +37,8 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Lidarr";
-        url = "https://lidarr.${domain}/api/v1/health";
+        url = "https://lidarr.${domain}";
+        endpoint = "/api/v1/health";
       }
     ];
 

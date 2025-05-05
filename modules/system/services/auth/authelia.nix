@@ -9,6 +9,7 @@ let
   module = config.system-modules.services.auth.authelia;
   domain = config.system-modules.services.network.domains.homelab;
   lldap-config = config.system-modules.services.auth.lldap;
+  healthcheck-endpoints = config.system-modules.services.observability.gatus.endpoints;
 in
 {
   config = lib.mkIf module.enable {
@@ -49,16 +50,17 @@ in
           rules = [
             {
               domain = "*.${domain}";
-              resources = [
-                "^/health$"
-                "^/healthcheck$"
-                "^/api/healthcheck$"
-                "^/api/v1/logins$"
-                "^/api/v1/status$"
-                "^/api/v1/health$"
-                "^/api/v3/health$"
-                "^/ping$"
-              ];
+              resources = map (ep: "^${ep.endpoint}\$") healthcheck-endpoints;
+              # resources = [
+              #   "^/health$"
+              #   "^/healthcheck$"
+              #   "^/api/healthcheck$"
+              #   "^/api/v1/logins$"
+              #   "^/api/v1/status$"
+              #   "^/api/v1/health$"
+              #   "^/api/v3/health$"
+              #   "^/ping$"
+              # ];
               policy = "bypass";
             }
           ];

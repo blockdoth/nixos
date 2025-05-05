@@ -52,7 +52,8 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Headscale";
-        url = "https://headscale.${domain}/health";
+        url = "https://headscale.${domain}";
+        endpoint = "/health";
       }
     ];
 

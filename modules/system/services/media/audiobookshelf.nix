@@ -28,7 +28,8 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Audiobookshelf";
-        url = "https://audiobookshelf.${domain}/healthcheck";
+        url = "https://audiobookshelf.${domain}";
+        endpoint = "/healthcheck";
       }
     ];
   };

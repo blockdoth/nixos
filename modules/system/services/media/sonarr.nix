@@ -45,7 +45,8 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Sonarr";
-        url = "https://sonarr.${domain}/ping";
+        url = "https://sonarr.${domain}";
+        endpoint = "/ping";
       }
     ];
 

@@ -80,7 +80,8 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Homepage";
-        url = "https://homepage.${domain}/api/healthcheck";
+        url = "https://homepage.${domain}";
+        endpoint = "/api/healthcheck";
       }
     ];
   };

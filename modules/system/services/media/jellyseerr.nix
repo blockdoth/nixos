@@ -31,7 +31,8 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Jellyseerr";
-        url = "https://jellyseerr.${domain}/api/v1/status";
+        url = "https://jellyseerr.${domain}";
+        endpoint = "/api/v1/status";
       }
     ];
   };

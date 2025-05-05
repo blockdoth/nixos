@@ -122,7 +122,7 @@ in
               );
               default = [ ];
               description = "List of reverse proxied sub domains";
-              apply = x: lib.concatLists (lib.singleton x);
+              # apply = x: lib.concatLists (lib.singleton x);
             };
           };
           domains = {
@@ -166,6 +166,10 @@ in
                   options = {
                     name = mkOption { type = types.str; };
                     url = mkOption { type = types.str; };
+                    endpoint = mkOption {
+                      type = types.str;
+                      default = "";
+                    };
                     interval = mkOption {
                       type = types.str;
                       default = "30s";
@@ -182,7 +186,7 @@ in
               );
               default = [ ];
               description = "List of Gatus endpoints merged from multiple modules";
-              apply = x: lib.concatLists (lib.singleton x);
+              # apply = eps: map (ep: ep.url + ep.endpoint) eps;
             };
           };
         };

@@ -34,7 +34,8 @@ in
     system-modules.services.observability.gatus.endpoints = [
       {
         name = "Anki";
-        url = "https://anki.${domain}/health";
+        url = "https://anki.${domain}";
+        endpoint = "/health";
       }
     ];
   };
