@@ -10,7 +10,7 @@ let
   domain = config.system-modules.services.network.domains.homelab;
   certPath = "/var/lib/acme/${domain}/fullchain.pem";
   keyPath = "/var/lib/acme/${domain}/privkey.pem";
-
+  mailAddress = "pepijn.pve@gmail.com";
   makeReverseProxy = reverse-proxy: {
     name = "${reverse-proxy.subdomain}.${domain}";
     value.extraConfig = ''
@@ -39,7 +39,7 @@ in
 
     services.caddy = {
       enable = true;
-      email = "pepijn.pve@gmail.com";
+      email = mailAddress;
 
       virtualHosts = {
         "${domain}".extraConfig = ''

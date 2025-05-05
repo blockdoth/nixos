@@ -7,6 +7,13 @@
 let
   module = config.system-modules.services.observability.gatus;
   domain = config.system-modules.services.network.domains.homelab;
+  buildUrl = map (
+    ep:
+    ep
+    // {
+      url = ep.url + ep.endpoint;
+    }
+  );
 in
 {
   config = lib.mkIf module.enable {
@@ -22,13 +29,7 @@ in
           title = "My Gatus Dashboard";
           theme = "dark";
         };
-        endpoints = map (
-          ep:
-          ep
-          // {
-            url = ep.url + ep.endpoint;
-          }
-        ) config.system-modules.services.observability.gatus.endpoints;
+        endpoints = buildUrl config.system-modules.services.observability.gatus.endpoints;
       };
     };
 
