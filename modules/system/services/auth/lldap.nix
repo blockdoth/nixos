@@ -20,7 +20,7 @@ in
 
     users = {
       users.lldap = {
-        isNormalUser = true;
+        isSystemUser = true;
         group = "lldap";
       };
 
