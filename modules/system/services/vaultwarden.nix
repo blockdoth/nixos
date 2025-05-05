@@ -23,18 +23,19 @@ in
       };
     };
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "vaultwarden";
-        port = config.services.vaultwarden.config.ROCKET_PORT;
-      }
-    ];
-
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "Vaultwarden";
-        url = "https://vaultwarden.${domain}";
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "vaultwarden";
+          port = config.services.vaultwarden.config.ROCKET_PORT;
+        }
+      ];
+      observability.gatus.endpoints = [
+        {
+          name = "Vaultwarden";
+          url = "https://vaultwarden.${domain}";
+        }
+      ];
+    };
   };
 }

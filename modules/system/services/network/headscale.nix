@@ -42,20 +42,21 @@ in
       };
     };
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "headscale";
-        port = config.services.headscale.port;
-      }
-    ];
-
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "Headscale";
-        url = "https://headscale.${domain}";
-        endpoint = "/health";
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "headscale";
+          port = config.services.headscale.port;
+        }
+      ];
+      observability.gatus.endpoints = [
+        {
+          name = "Headscale";
+          url = "https://headscale.${domain}";
+          endpoint = "/health";
+        }
+      ];
+    };
 
     networking.firewall = {
       # DERP port (https://tailscale.com/kb/1082/firewall-ports)

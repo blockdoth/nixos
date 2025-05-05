@@ -17,20 +17,21 @@ in
 
     };
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "audiobookshelf";
-        port = config.services.audiobookshelf.port;
-        require-auth = true;
-      }
-    ];
-
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "Audiobookshelf";
-        url = "https://audiobookshelf.${domain}";
-        endpoint = "/healthcheck";
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "audiobookshelf";
+          port = config.services.audiobookshelf.port;
+          require-auth = true;
+        }
+      ];
+      observability.gatus.endpoints = [
+        {
+          name = "Audiobookshelf";
+          url = "https://audiobookshelf.${domain}";
+          endpoint = "/healthcheck";
+        }
+      ];
+    };
   };
 }

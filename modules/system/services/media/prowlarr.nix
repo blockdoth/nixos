@@ -23,21 +23,22 @@ in
       # group = mediaGroup;
     };
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "prowlarr";
-        port = 9696;
-        require-auth = true;
-      }
-    ];
-
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "Prowlarr";
-        url = "https://prowlarr.${domain}";
-        endpoint = "/ping";
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "prowlarr";
+          port = 9696;
+          require-auth = true;
+        }
+      ];
+      observability.gatus.endpoints = [
+        {
+          name = "Prowlarr";
+          url = "https://prowlarr.${domain}";
+          endpoint = "/ping";
+        }
+      ];
+    };
 
     environment.persistence."/persist/backup" = lib.mkIf impermanence.enable {
       directories = [

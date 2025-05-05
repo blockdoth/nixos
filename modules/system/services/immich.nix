@@ -18,19 +18,20 @@ in
       host = "127.0.0.1";
     };
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "immich";
-        port = config.services.immich.port;
-      }
-    ];
-
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "Immich";
-        url = "https://immich.${domain}";
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "immich";
+          port = config.services.immich.port;
+        }
+      ];
+      observability.gatus.endpoints = [
+        {
+          name = "Immich";
+          url = "https://immich.${domain}";
+        }
+      ];
+    };
 
     environment.persistence."/persist/backup".directories = lib.mkIf impermanence.enable [
       {

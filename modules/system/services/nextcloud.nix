@@ -29,18 +29,19 @@ in
     };
     users.users.caddy.extraGroups = [ "nextcloud" ];
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "nextcloud";
-        port = config.services.nextcloud.port;
-      }
-    ];
-
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "Nextcloud";
-        url = "https://nextcloud.${domain}";
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "nextcloud";
+          port = config.services.nextcloud.port;
+        }
+      ];
+      observability.gatus.endpoints = [
+        {
+          name = "Nextcloud";
+          url = "https://nextcloud.${domain}";
+        }
+      ];
+    };
   };
 }

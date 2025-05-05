@@ -27,20 +27,21 @@ in
       "d ${mediaDir}/library/Audiobooks 0775 ${streamUser} ${mediaGroup} -"
     ];
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "jellyfin";
-        port = 8096;
-        require-auth = true;
-      }
-    ];
-
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "Jellyfin";
-        url = "https://jellyfin.${domain}";
-        endpoint = "/health";
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "jellyfin";
+          port = 8096;
+          require-auth = true;
+        }
+      ];
+      observability.gatus.endpoints = [
+        {
+          name = "Jellyfin";
+          url = "https://jellyfin.${domain}";
+          endpoint = "/health";
+        }
+      ];
+    };
   };
 }

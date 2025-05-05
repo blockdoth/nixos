@@ -27,18 +27,20 @@ in
       password = "";
     };
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "factorio";
-        port = config.services.factorio.port;
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "factorio";
+          port = config.services.factorio.port;
+        }
+      ];
 
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "Factorio";
-        url = "https://factorio.${domain}";
-      }
-    ];
+      observability.gatus.endpoints = [
+        {
+          name = "Factorio";
+          url = "https://factorio.${domain}";
+        }
+      ];
+    };
   };
 }

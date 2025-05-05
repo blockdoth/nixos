@@ -17,7 +17,7 @@ let
       ${
         if reverse-proxy.require-auth then
           ''
-            forward_auth 127.0.0.1:9091 {
+            forward_auth 127.0.0.1:${builtins.toString config.system-modules.services.auth.authelia.port} {
               uri /api/authz/forward-auth
               copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
             }

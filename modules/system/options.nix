@@ -121,8 +121,6 @@ in
                 }
               );
               default = [ ];
-              description = "List of reverse proxied sub domains";
-              # apply = x: lib.concatLists (lib.singleton x);
             };
           };
           domains = {
@@ -185,8 +183,6 @@ in
                 }
               );
               default = [ ];
-              description = "List of Gatus endpoints merged from multiple modules";
-              # apply = eps: map (ep: ep.url + ep.endpoint) eps;
             };
           };
         };

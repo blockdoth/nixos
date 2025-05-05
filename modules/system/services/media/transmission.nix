@@ -56,19 +56,21 @@ in
     # Always prioritize other services wrt. I/O
     systemd.services.transmission.serviceConfig.IOSchedulingPriority = 7;
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "transmission";
-        port = config.services.transmission.settings.rpc-port;
-        require-auth = true;
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "transmission";
+          port = config.services.transmission.settings.rpc-port;
+          require-auth = true;
+        }
+      ];
 
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "Transmission";
-        url = "https://transmission.${domain}";
-      }
-    ];
+      observability.gatus.endpoints = [
+        {
+          name = "Transmission";
+          url = "https://transmission.${domain}";
+        }
+      ];
+    };
   };
 }

@@ -51,16 +51,6 @@ in
             {
               domain = "*.${domain}";
               resources = map (ep: "^${ep.endpoint}\$") healthcheck-endpoints;
-              # resources = [
-              #   "^/health$"
-              #   "^/healthcheck$"
-              #   "^/api/healthcheck$"
-              #   "^/api/v1/logins$"
-              #   "^/api/v1/status$"
-              #   "^/api/v1/health$"
-              #   "^/api/v3/health$"
-              #   "^/ping$"
-              # ];
               policy = "bypass";
             }
           ];
@@ -167,18 +157,19 @@ in
       };
     };
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "auth";
-        port = module.port;
-      }
-    ];
-
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "Authelia";
-        url = "https://auth.${domain}";
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "auth";
+          port = module.port;
+        }
+      ];
+      observability.gatus.endpoints = [
+        {
+          name = "Authelia";
+          url = "https://auth.${domain}";
+        }
+      ];
+    };
   };
 }

@@ -69,20 +69,21 @@ in
       ];
     };
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "homepage";
-        port = config.services.homepage-dashboard.listenPort;
-        require-auth = true;
-      }
-    ];
-
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "Homepage";
-        url = "https://homepage.${domain}";
-        endpoint = "/api/healthcheck";
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "homepage";
+          port = config.services.homepage-dashboard.listenPort;
+          require-auth = true;
+        }
+      ];
+      observability.gatus.endpoints = [
+        {
+          name = "Homepage";
+          url = "https://homepage.${domain}";
+          endpoint = "/api/healthcheck";
+        }
+      ];
+    };
   };
 }

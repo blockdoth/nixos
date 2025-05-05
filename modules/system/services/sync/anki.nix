@@ -24,19 +24,20 @@ in
       ];
     };
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "anki";
-        port = config.services.anki-sync-server.port;
-      }
-    ];
-
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "Anki";
-        url = "https://anki.${domain}";
-        endpoint = "/health";
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "anki";
+          port = config.services.anki-sync-server.port;
+        }
+      ];
+      observability.gatus.endpoints = [
+        {
+          name = "Anki";
+          url = "https://anki.${domain}";
+          endpoint = "/health";
+        }
+      ];
+    };
   };
 }

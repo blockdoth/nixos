@@ -18,18 +18,19 @@ in
       port = 8889;
     };
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "atuin";
-        port = config.services.atuin.port;
-      }
-    ];
-
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "Atuin";
-        url = "https://atuin.${domain}";
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "atuin";
+          port = config.services.atuin.port;
+        }
+      ];
+      observability.gatus.endpoints = [
+        {
+          name = "Atuin";
+          url = "https://atuin.${domain}";
+        }
+      ];
+    };
   };
 }

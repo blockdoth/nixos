@@ -68,17 +68,19 @@ in
 
     };
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "lldap";
-        port = config.services.lldap.settings.http_port;
-      }
-    ];
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "lldap";
-        url = "https://lldap.${domain}";
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "lldap";
+          port = config.services.lldap.settings.http_port;
+        }
+      ];
+      observability.gatus.endpoints = [
+        {
+          name = "lldap";
+          url = "https://lldap.${domain}";
+        }
+      ];
+    };
   };
 }

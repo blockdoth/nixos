@@ -20,20 +20,21 @@ in
       port = 5055;
     };
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "jellyseerr";
-        port = config.services.jellyseerr.port;
-        require-auth = true;
-      }
-    ];
-
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "Jellyseerr";
-        url = "https://jellyseerr.${domain}";
-        endpoint = "/api/v1/status";
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "jellyseerr";
+          port = config.services.jellyseerr.port;
+          require-auth = true;
+        }
+      ];
+      observability.gatus.endpoints = [
+        {
+          name = "Jellyseerr";
+          url = "https://jellyseerr.${domain}";
+          endpoint = "/api/v1/status";
+        }
+      ];
+    };
   };
 }

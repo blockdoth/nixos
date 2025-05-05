@@ -50,18 +50,19 @@ in
       };
     };
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "grafana";
-        port = config.services.grafana.settings.server.http_port;
-      }
-    ];
-
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "Grafana";
-        url = "https://grafana.${domain}";
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "grafana";
+          port = config.services.grafana.settings.server.http_port;
+        }
+      ];
+      observability.gatus.endpoints = [
+        {
+          name = "Grafana";
+          url = "https://grafana.${domain}";
+        }
+      ];
+    };
   };
 }

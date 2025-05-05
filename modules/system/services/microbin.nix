@@ -28,19 +28,20 @@ in
       };
     };
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "microbin";
-        port = config.services.microbin.settings.MICROBIN_PORT;
-      }
-    ];
-
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "Microbin";
-        url = "https://microbin.${domain}";
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "microbin";
+          port = config.services.microbin.settings.MICROBIN_PORT;
+        }
+      ];
+      observability.gatus.endpoints = [
+        {
+          name = "Microbin";
+          url = "https://microbin.${domain}";
+        }
+      ];
+    };
 
     environment.persistence."/persist/backup" = lib.mkIf impermanence.enable {
       directories = [

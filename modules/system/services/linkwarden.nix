@@ -31,20 +31,21 @@ in
 
     };
 
-    system-modules.services.network.caddy.reverse-proxies = [
-      {
-        subdomain = "linkwarden";
-        port = config.services.linkwarden.port;
-        require-auth = true;
-      }
-    ];
-
-    system-modules.services.observability.gatus.endpoints = [
-      {
-        name = "Linkwarden";
-        url = "https://linkwarden.${domain}";
-        endpoint = "/api/v1/logins";
-      }
-    ];
+    system-modules.services = {
+      network.caddy.reverse-proxies = [
+        {
+          subdomain = "linkwarden";
+          port = config.services.linkwarden.port;
+          require-auth = true;
+        }
+      ];
+      observability.gatus.endpoints = [
+        {
+          name = "Linkwarden";
+          url = "https://linkwarden.${domain}";
+          endpoint = "/api/v1/logins";
+        }
+      ];
+    };
   };
 }
