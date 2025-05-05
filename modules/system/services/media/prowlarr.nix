@@ -21,6 +21,10 @@ in
       # group = mediaGroup;
     };
 
+    # systemd.tmpfiles.rules = [
+    #   "d ${mediaDir}/torrents/prowlarr 0775 root ${mediaGroup} -"
+    # ];
+
     system-modules.services = {
       network.caddy.reverse-proxies = [
         {

@@ -21,9 +21,10 @@ in
     };
 
     systemd.tmpfiles.rules = [
-      "d ${mediaDir}/library/Movies 0775 root ${mediaGroup} -"
-      "d ${mediaDir}/library/TV 0775 root ${mediaGroup} -"
-      "d ${mediaDir}/library/Audiobooks 0775 root ${mediaGroup} -"
+      "d ${mediaDir}/library/movies 0775 root ${mediaGroup} -"
+      "d ${mediaDir}/library/series 0775 root ${mediaGroup} -"
+      "d ${mediaDir}/library/tv 0775 root ${mediaGroup} -"
+      "d ${mediaDir}/library/audiobooks 0775 root ${mediaGroup} -"
     ];
 
     system-modules.services = {
