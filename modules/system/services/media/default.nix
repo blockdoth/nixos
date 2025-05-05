@@ -6,13 +6,11 @@
 }:
 let
   domain = config.system-modules.services.domains.homelab;
-  cfg = config.system-modules.services.media;
-  mediaDir = cfg.dataDir;
-  mediaGroup = cfg.group;
-  enableMediaServer = cfg.enable;
-  torrentUser = cfg.users.torrenter;
-  streamUser = cfg.users.streamer;
   module = config.system-modules.presets.mediaserver;
+  cfg = config.system-modules.services.media;
+  enableMediaServer = cfg.enable;
+  mediaDir = cfg.mediaDir;
+  mediaGroup = cfg.group;
 in
 {
   imports = [
@@ -33,8 +31,6 @@ in
     ];
 
     users.groups = {
-      streamer = { };
-      torrenter = { };
       ${mediaGroup} = {
         members = [
           "radarr"
@@ -45,19 +41,7 @@ in
           "jellyseerr"
           "penger"
           "blockdoth"
-          torrentUser
         ];
-      };
-    };
-
-    users.users = {
-      streamer = {
-        isSystemUser = true;
-        group = streamUser;
-      };
-      torrenter = {
-        isSystemUser = true;
-        group = torrentUser;
       };
     };
   };

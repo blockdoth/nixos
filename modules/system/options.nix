@@ -208,7 +208,7 @@ in
           transmission.enable = mkEnableOption "transmission";
 
           # This module is heavily inspired by https://github.com/zmitchell/nixos-configs/blob/main/modules/media_server.nix
-          dataDir = mkOption {
+          mediaDir = mkOption {
             type = types.str;
             default = "/var/lib/media";
             description = "Directory for media storage";
@@ -217,18 +217,6 @@ in
             type = types.str;
             default = "media";
             description = "Group for media access";
-          };
-          users = {
-            torrenter = mkOption {
-              type = types.str;
-              default = "torrenter";
-              description = "User for torrent services";
-            };
-            streamer = mkOption {
-              type = types.str;
-              default = "streamer";
-              description = "User for streaming services";
-            };
           };
         };
         vaultwarden.enable = mkEnableOption "vaultwarden";

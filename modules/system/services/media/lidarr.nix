@@ -7,11 +7,10 @@
 }:
 let
   domain = config.system-modules.services.network.domains.homelab;
-  cfg = config.system-modules.services.mediaserver;
-  mediaDir = cfg.dataDir;
+  cfg = config.system-modules.services.media;
+  module = cfg.lidarr;
+  mediaDir = cfg.mediaDir;
   mediaGroup = cfg.group;
-  torrentUser = cfg.users.torrenter;
-  module = config.system-modules.services.media.lidarr;
   impermanence = config.system-modules.core.impermanence;
 in
 {
@@ -23,7 +22,7 @@ in
     };
 
     systemd.tmpfiles.rules = [
-      "d ${mediaDir}/torrents/lidarr 0775 ${torrentUser} ${mediaGroup} -"
+      "d ${mediaDir}/torrents/lidarr 0775 root ${mediaGroup} -"
     ];
 
     system-modules.services = {

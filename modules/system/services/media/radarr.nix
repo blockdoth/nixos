@@ -8,10 +8,9 @@
 let
   domain = config.system-modules.services.network.domains.homelab;
   cfg = config.system-modules.services.media;
-  mediaDir = cfg.dataDir;
+  module = cfg.radarr;
+  mediaDir = cfg.mediaDir;
   mediaGroup = cfg.group;
-  torrentUser = cfg.users.torrenter;
-  module = config.system-modules.services.media.radarr;
   impermanence = config.system-modules.core.impermanence;
 in
 {
@@ -23,7 +22,7 @@ in
     };
 
     systemd.tmpfiles.rules = [
-      "d ${mediaDir}/torrents/radarr 0775 ${torrentUser} ${mediaGroup} -"
+      "d ${mediaDir}/torrents/radarr 0775 root ${mediaGroup} -"
     ];
 
     system-modules.services = {

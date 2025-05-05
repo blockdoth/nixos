@@ -8,25 +8,21 @@
 let
   domain = config.system-modules.services.network.domains.homelab;
   cfg = config.system-modules.services.media;
-  mediaDir = cfg.dataDir;
+  module = cfg.transmission;
+  mediaDir = cfg.mediaDir;
   mediaGroup = cfg.group;
-  enableMediaServer = cfg.enable;
-  torrentUser = cfg.users.torrenter;
-  streamUser = cfg.users.streamer;
-  module = config.system-modules.services.media.transmission;
 in
 {
   config = lib.mkIf module.enable {
 
     systemd.tmpfiles.rules = [
-      "d ${mediaDir}/torrents 0775 ${torrentUser} ${mediaGroup} -"
-      "d ${mediaDir}/torrents/.incomplete 0775 ${torrentUser} ${mediaGroup} -"
-      "d ${mediaDir}/torrents/.watch 0775 ${torrentUser} ${mediaGroup} -"
+      "d ${mediaDir}/torrents 0775 root ${mediaGroup} -"
+      "d ${mediaDir}/torrents/.incomplete 0775 root ${mediaGroup} -"
+      "d ${mediaDir}/torrents/.watch 0775 root ${mediaGroup} -"
     ];
 
     services.transmission = {
       enable = true;
-      user = torrentUser;
       group = mediaGroup;
       # package = pkgs.transmission_4;
       openRPCPort = true;

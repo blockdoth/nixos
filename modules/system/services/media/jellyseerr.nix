@@ -8,10 +8,9 @@
 let
   domain = config.system-modules.services.network.domains.homelab;
   cfg = config.system-modules.services.media;
+  module = cfg.jellyseerr;
   mediaDir = cfg.mediaDir;
-  mediaGroup = cfg.mediaGroup;
-  streamUser = cfg.users.streamer;
-  module = config.system-modules.services.media.jellyseerr;
+  mediaGroup = cfg.group;
 in
 {
   config = lib.mkIf module.enable {

@@ -8,10 +8,9 @@
 let
   domain = config.system-modules.services.network.domains.homelab;
   cfg = config.system-modules.services.media;
-  mediaDir = cfg.dataDir;
+  module = cfg.jellyfin;
+  mediaDir = cfg.mediaDir;
   mediaGroup = cfg.group;
-  streamUser = cfg.users.streamer;
-  module = config.system-modules.services.media.jellyfin;
 in
 {
   config = lib.mkIf module.enable {
@@ -22,9 +21,9 @@ in
     };
 
     systemd.tmpfiles.rules = [
-      "d ${mediaDir}/library/Movies 0775 ${streamUser} ${mediaGroup} -"
-      "d ${mediaDir}/library/TV 0775 ${streamUser} ${mediaGroup} -"
-      "d ${mediaDir}/library/Audiobooks 0775 ${streamUser} ${mediaGroup} -"
+      "d ${mediaDir}/library/Movies 0775 root ${mediaGroup} -"
+      "d ${mediaDir}/library/TV 0775 root ${mediaGroup} -"
+      "d ${mediaDir}/library/Audiobooks 0775 root ${mediaGroup} -"
     ];
 
     system-modules.services = {

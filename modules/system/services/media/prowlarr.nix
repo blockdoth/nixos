@@ -8,11 +8,9 @@
 let
   domain = config.system-modules.services.network.domains.homelab;
   cfg = config.system-modules.services.media;
-  mediaDir = cfg.dataDir;
+  module = cfg.prowlarr;
+  mediaDir = cfg.mediaDir;
   mediaGroup = cfg.group;
-  torrentUser = cfg.users.torrenter;
-  streamerUser = cfg.users.streamer;
-  module = config.system-modules.services.media.prowlarr;
   impermanence = config.system-modules.core.impermanence;
 in
 {
