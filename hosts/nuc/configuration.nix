@@ -66,6 +66,7 @@
 
   system.activationScripts.linkMediaFolder.text = ''
     ln -sfn ${config.system-modules.services.media.dataDir} /home/penger/media
+    chown penger:${config.system-modules.services.media.group} /home/penger/media
   '';
 
   system.stateVersion = "24.05"; # Did you read the comment?
