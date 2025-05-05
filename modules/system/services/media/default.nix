@@ -28,6 +28,7 @@ in
   config = lib.mkIf module.enable {
     systemd.tmpfiles.rules = [
       "d ${mediaDir} 0775 root ${mediaGroup} -"
+      "d ${mediaDir}/library 0775 root ${mediaGroup} -"
       "d ${mediaDir}/library/movies 0775 root ${mediaGroup} -"
       "d ${mediaDir}/library/series 0775 root ${mediaGroup} -"
       "d ${mediaDir}/library/tv 0775 root ${mediaGroup} -"
