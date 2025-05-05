@@ -58,7 +58,7 @@ in
           port = config.services.transmission.settings.rpc-port;
           require-auth = true;
           extra-config = ''
-            header Access-Control-Allow-Origin "https://auth.insinuatis.com"
+            header Access-Control-Allow-Origin *
             header Access-Control-Allow-Methods "GET, POST, OPTIONS"
             header Access-Control-Allow-Headers "X-Transmission-Session-Id, Content-Type"
           '';
