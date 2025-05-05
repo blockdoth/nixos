@@ -35,9 +35,9 @@ in
         watch-dir-enabled = true;
         watch-dir = "${mediaDir}/torrents/.watch";
         rpc-port = 5141;
-        rpc-whitelist-enabled = true;
-        # rpc-whitelist-enabled = false;
-        # rpc-host-whitelist-enabled = false;
+        # rpc-whitelist-enabled = true;
+        # # rpc-whitelist-enabled = false;
+        # # rpc-host-whitelist-enabled = false;
         rpc-authentication-required = false;
         blocklist-enabled = true;
         blocklist-url = "https://github.com/Naunter/BT_BlockLists/raw/master/bt_blocklists.gz";
