@@ -28,6 +28,11 @@ in
   config = lib.mkIf module.enable {
     systemd.tmpfiles.rules = [
       "d ${mediaDir} 0775 root ${mediaGroup} -"
+      "d ${mediaDir}/library/movies 0775 root ${mediaGroup} -"
+      "d ${mediaDir}/library/series 0775 root ${mediaGroup} -"
+      "d ${mediaDir}/library/tv 0775 root ${mediaGroup} -"
+      "d ${mediaDir}/library/audiobooks 0775 root ${mediaGroup} -"
+      "d ${mediaDir}/library/music 0775 root ${mediaGroup} -"
     ];
 
     users.groups = {

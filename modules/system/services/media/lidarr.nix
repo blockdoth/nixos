@@ -15,7 +15,7 @@ let
 in
 {
   config = lib.mkIf module.enable {
-    # Uses port 7878
+    # Uses port 8686
     services.lidarr = {
       enable = true;
       group = mediaGroup;
@@ -29,7 +29,7 @@ in
       network.caddy.reverse-proxies = [
         {
           subdomain = "lidarr";
-          port = 7878;
+          port = 8686;
           require-auth = true;
         }
       ];

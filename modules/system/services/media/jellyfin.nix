@@ -20,13 +20,6 @@ in
       group = mediaGroup;
     };
 
-    systemd.tmpfiles.rules = [
-      "d ${mediaDir}/library/movies 0775 root ${mediaGroup} -"
-      "d ${mediaDir}/library/series 0775 root ${mediaGroup} -"
-      "d ${mediaDir}/library/tv 0775 root ${mediaGroup} -"
-      "d ${mediaDir}/library/audiobooks 0775 root ${mediaGroup} -"
-    ];
-
     system-modules.services = {
       network.caddy.reverse-proxies = [
         {

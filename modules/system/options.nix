@@ -283,7 +283,7 @@ in
           jellyfin.enable = mkDefault enableMediaServer;
           prowlarr.enable = mkDefault enableMediaServer;
           radarr.enable = mkDefault enableMediaServer;
-          lidarr.enable = mkDefault false;
+          lidarr.enable = mkDefault enableMediaServer;
           sonarr.enable = mkDefault enableMediaServer;
           transmission.enable = mkDefault enableMediaServer;
         };
