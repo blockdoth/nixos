@@ -35,7 +35,7 @@
     ./infra/home-structure.nix
     ./infra/mimes.nix
     ./infra/cli-utils.nix
-    ./infra/impermanence.nix
+    # ./infra/impermanence.nix
     ./infra/gui-utils.nix
     ./infra/git.nix
   ];
