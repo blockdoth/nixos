@@ -81,6 +81,7 @@ in
         spicetify.enable = false;
         hyprlock.enable = false;
         hyprpaper.enable = lib.mkForce false;
+        mako.enable = lib.mkForce false;
       };
     };
   };

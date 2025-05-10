@@ -40,6 +40,7 @@ in
           haskell.manageHLS = "GHCup";
           jupyter.notebookFileRoot = "\${fileDirname}";
           jupyter.askForKernelRestart = "false";
+          rust-analyzer.server.path = "rust-analyzer";
         };
       };
     };
