@@ -57,7 +57,7 @@ in
         label = [
           # TIME
           {
-            text = "cmd[update:10] echo \"$(date +\"%-I:%M%p\")\"";
+            text = "cmd[update:10] echo \"$(date + \"%H:%M\")\"";
             # color = "#cdd6f4";
             color = "rgba(255, 255, 255, 0.6)";
             font_size = 350;
