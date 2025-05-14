@@ -27,7 +27,7 @@ in
       # package = pkgs.transmission_4;
       openRPCPort = true;
       openPeerPorts = true;
-      # webHome = pkgs.flood-for-transmission;
+      webHome = pkgs.flood-for-transmission;
       settings = {
         download-dir = "${mediaDir}/torrents";
         incomplete-dir-enabled = true;
