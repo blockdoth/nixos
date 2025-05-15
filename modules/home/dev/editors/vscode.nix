@@ -41,6 +41,9 @@ in
           jupyter.notebookFileRoot = "\${fileDirname}";
           jupyter.askForKernelRestart = "false";
           rust-analyzer.server.path = "rust-analyzer";
+          vscode-pets.petSize = "medium";
+          vscode-pets.throwBallWithMouse = true;
+
         };
       };
     };
