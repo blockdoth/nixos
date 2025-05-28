@@ -19,9 +19,8 @@ in
     services.grafana = {
       enable = true;
       settings = {
-        security = {
-          admin_user = "blockdoth";
-          admin_password = "$__file{${config.sops.secrets.grafana-password.path}}";
+        auth = {
+          disable_login_form = true;
         };
         analytics.reporting_enabled = false;
         server = {
@@ -55,6 +54,7 @@ in
         {
           subdomain = "grafana";
           port = config.services.grafana.settings.server.http_port;
+          require-auth = true;
         }
       ];
       observability.gatus.endpoints = [
