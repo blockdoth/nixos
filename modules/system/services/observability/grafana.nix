@@ -37,7 +37,10 @@ in
           role_attribute_path = "contains(headers['X-Forwarded-Groups'], 'grafana-admins') && 'Admin' || 'Viewer'";
           sync_ttl = 60;
         };
-
+        security = {
+          admin_user = "blockdoth";
+          admin_password = "$__file{${config.sops.secrets.grafana-password.path}}";
+        };
         analytics.reporting_enabled = false;
         server = {
           http_addr = "127.0.0.1";
