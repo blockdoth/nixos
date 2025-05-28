@@ -19,23 +19,21 @@ in
     services.grafana = {
       enable = true;
       settings = {
-        # "auth.basic" = {
-        #   enabled = false;
-        # };
-        # "auth.anonymous" = {
-        #   enabled = true;
-        # };
-        # "auth.proxy" = {
-        #   enabled = true;
-        #   header_name = "X-Forwarded-User";
-        #   header_property = "username";
-        #   auto_sign_up = true;
-        #   # Optional: auto-assign roles based on headers or fallback role
-        #   role_attribute_path = "contains(headers['X-Forwarded-Groups'], 'grafana-admins') && 'Admin' || 'Viewer'";
-        #   sync_ttl = 60;
-        # };
+        "auth.basic" = {
+          enabled = false;
+        };
+        "auth.anonymous" = {
+          enabled = true;
+        };
+        "auth.proxy" = {
+          enabled = true;
+          header_name = "X-Forwarded-User";
+          header_property = "username";
+          auto_sign_up = true;
+          role_attribute_path = "'Admin'";
+        };
         security = {
-          admin_user = "blockdoth";
+          admin_user = "admin";
           admin_password = "$__file{${config.sops.secrets.grafana-password.path}}";
           disable_brute_force_login_protection = true;
         };
