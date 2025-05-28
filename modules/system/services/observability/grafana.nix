@@ -22,12 +22,25 @@ in
         "auth.basic" = {
           enabled = false;
         };
-        auth = {
+        "auth" = {
           disable_login_form = true;
         };
         "auth.anonymous" = {
           enabled = true;
         };
+        "auth.generic_oauth".enabled = false;
+        "auth.ldap".enabled = false;
+
+        "auth.proxy" = {
+          enabled = true;
+          header_name = "X-Forwarded-User";
+          header_property = "username";
+          auto_sign_up = true;
+          # Optional: auto-assign roles based on headers or fallback role
+          role_attribute_path = "contains(headers['X-Forwarded-Groups'], 'grafana-admins') && 'Admin' || 'Viewer'";
+          sync_ttl = 60;
+        };
+
         analytics.reporting_enabled = false;
         server = {
           http_addr = "127.0.0.1";
@@ -61,6 +74,10 @@ in
           subdomain = "grafana";
           port = config.services.grafana.settings.server.http_port;
           require-auth = true;
+          extra-config = ''
+            header_up X-Forwarded-User {http.auth.user}
+            header_up X-Forwarded-Groups {http.auth.groups}            
+          '';
         }
       ];
       observability.gatus.endpoints = [
