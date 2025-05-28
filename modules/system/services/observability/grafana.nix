@@ -23,14 +23,11 @@ in
           enabled = false;
         };
         "auth" = {
-          disable_login_form = true;
+          disable_login_form = false;
         };
         "auth.anonymous" = {
           enabled = true;
         };
-        "auth.generic_oauth".enabled = false;
-        "auth.ldap".enabled = false;
-
         "auth.proxy" = {
           enabled = true;
           header_name = "X-Forwarded-User";
