@@ -20,6 +20,7 @@ in
       enable = true;
       settings = {
         auth = {
+          basic.enabled = false;
           disable_login_form = true;
         };
         analytics.reporting_enabled = false;
