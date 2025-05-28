@@ -20,7 +20,7 @@ in
       enable = true;
       settings = {
         "auth.basic" = {
-          enabled = false;
+          enabled = true;
         };
         "auth.anonymous" = {
           enabled = true;
