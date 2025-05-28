@@ -54,16 +54,6 @@ in
               resources = map (ep: "^${ep.endpoint}\$") healthcheck-endpoints;
               policy = "bypass";
             }
-            {
-              domain = "grafana.${domain}";
-              policy = "one_factor";
-              # Inject headers for Grafana only
-              headers = {
-                "X-Forwarded-User" = "{{ .Username }}";
-                "X-Forwarded-Groups" = "{{ .Groups }}";
-                "X-Forwarded-Email" = "{{ .Email }}";
-              };
-            }
           ];
         };
         server = {
