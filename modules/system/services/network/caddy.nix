@@ -25,8 +25,9 @@ let
         else
           ""
       }
-      reverse_proxy ${reverse-proxy.redirect-address}:${builtins.toString reverse-proxy.port}
-      ${reverse-proxy.extra-config}
+      reverse_proxy ${reverse-proxy.redirect-address}:${builtins.toString reverse-proxy.port} {
+        ${reverse-proxy.extra-config}
+      }
     '';
   };
 in
