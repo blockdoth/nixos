@@ -44,6 +44,14 @@ in
       settings = {
         theme = "dark";
         log.level = "info";
+
+        headers = {
+          default = {
+            X-Forwarded-User = "{{ .Username }}";
+            X-Forwarded-Groups = "{{ .Groups }}";
+            X-Forwarded-Email = "{{ .Email }}";
+          };
+        };
         storage.local.path = "/var/lib/authelia-main/db.sqlite3";
         access_control = {
           default_policy = "one_factor";
