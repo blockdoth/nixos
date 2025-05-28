@@ -19,9 +19,14 @@ in
     services.grafana = {
       enable = true;
       settings = {
+        "auth.basic" = {
+          enabled = false;
+        };
         auth = {
-          basic.enabled = false;
           disable_login_form = true;
+          anonymous = {
+            enabled = true;
+          };
         };
         analytics.reporting_enabled = false;
         server = {
