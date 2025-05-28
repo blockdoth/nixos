@@ -24,9 +24,9 @@ in
         };
         auth = {
           disable_login_form = true;
-          anonymous = {
-            enabled = true;
-          };
+        };
+        "auth.anonymous" = {
+          enabled = true;
         };
         analytics.reporting_enabled = false;
         server = {
