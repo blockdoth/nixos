@@ -22,7 +22,7 @@ in
           "wheel"
           "networkmanager"
           "audio"
-          "dialout" # For serial
+          "dialout" # For serialW
         ];
         openssh = {
           authorizedKeys = {

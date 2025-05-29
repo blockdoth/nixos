@@ -22,6 +22,7 @@
     common = {
       syncthing.enable = true;
       trackpad.enable = true;
+      docker.enable = true;
     };
     services = {
       # observability.gatus.enable = true;
