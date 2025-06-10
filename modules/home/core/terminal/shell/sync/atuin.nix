@@ -18,7 +18,7 @@ in
         sync_address = "https://atuin.insinuatis.com";
         sync.records = true;
         sync_frequency = "5m";
-        key_path = lib.mkIf (hostname != "laptop") config.sops.secrets.atuin-key.path;
+        key_path = config.sops.secrets.atuin-key.path;
       };
       flags = [
         "--disable-up-arrow"
