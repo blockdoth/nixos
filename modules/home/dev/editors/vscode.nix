@@ -43,6 +43,7 @@ in
           rust-analyzer.server.path = "rust-analyzer";
           vscode-pets.petSize = "medium";
           vscode-pets.throwBallWithMouse = true;
+          git.blame.editorDecoration.enabled = true;
 
         };
       };
