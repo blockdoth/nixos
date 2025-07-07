@@ -2,6 +2,8 @@
   pkgs,
   config,
   lib,
+  system,
+  inputs,
   ...
 }:
 let
@@ -13,30 +15,22 @@ let
     rev = "fba147660a1b374f00e50df59b525f7c7bb5a4e5";
     sha256 = "sha256-YfPDJHoyA0tj73rnDOqI65n0bAh8hSTPnXLDEkzQVpg=";
   };
+  shyfoxProfile = pkgs.runCommand "shyfox-profile" { } ''
+    mkdir -p $out/chrome
+    cp -r ${shyfox}/chrome/* $out/chrome
+    cp ${shyfox}/user.js $out/user.js
+  '';
+
 in
 {
   config = lib.mkIf module.enable {
     home.sessionVariables = {
-      BROWSER = "librewolf";
-    };
-
-    home.file = {
-      ".mozilla/firefox/default" = {
-        source = pkgs.runCommand "shyfox" { } ''
-          mkdir -p $out
-          mkdir -p $out/chrome
-          cp -r ${shyfox}/chrome/* $out/chrome
-          cp ${shyfox}/user.js $out/user.js
-        '';
-        recursive = true;
-      };
+      BROWSER = "firefox";
     };
 
     programs.firefox = {
       enable = true;
-
       # package = pkgs.librewolf; # Re-enable whenever mozilla goes rogue
-
       policies = {
         DisableTelemetry = true;
         DisableFirefoxStudies = true;
@@ -67,32 +61,26 @@ in
           SkipOnboarding = true;
         };
 
-        # ---- EXTENSIONS ----
-        # Check about:support for extension/add-on ID strings.
-        # Valid strings for installation_mode are "allowed", "blocked",
-        # "force_installed" and "normal_installed".
-        ExtensionSettings = {
-          "uBlock0@raymondhill.net" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-            installation_mode = "force_installed";
-          };
-        };
-
       };
       profiles.default = {
         isDefault = true;
+        extraConfig = builtins.readFile "${shyfoxProfile}/user.js";
+        userChrome = builtins.readFile "${shyfoxProfile}/chrome/userChrome.css";
+        userContent = builtins.readFile "${shyfoxProfile}/chrome/userContent.css";
 
-        # dependent on fixing the NUR
-        # extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        #   ublock-origin
-        #   sponsorblock
-        #   sidebery
-        #   userchrome-toggle
-        #   videospeed
-        #   return-youtube-dislikes
-        #   clearurls
-        #   i-dont-care-about-cookies
-        # ];
+        extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
+          bitwarden
+          clearurls
+          dark-mode-website-switcher # likely darkreader?
+          linkwarden
+          return-youtube-dislikes
+          sidebery
+          sponsorblock
+          ublock-origin
+          userchrome-toggle-extended
+          videospeed
+          i-dont-care-about-cookies
+        ];
       };
     };
   };
