@@ -15,6 +15,8 @@ let
     rev = "fba147660a1b374f00e50df59b525f7c7bb5a4e5";
     sha256 = "sha256-YfPDJHoyA0tj73rnDOqI65n0bAh8hSTPnXLDEkzQVpg=";
   };
+  sideberyConfig = builtins.fromJSON (builtins.readFile ./sidebery-config.json);
+
   defaultProfile = "default";
 in
 {
@@ -99,19 +101,30 @@ in
         # userChrome = builtins.readFile "${shyfoxProfile}/chrome/userChrome.css";
         # userContent = builtins.readFile "${shyfoxProfile}/chrome/userContent.css";
 
-        extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
-          bitwarden
-          clearurls
-          dark-mode-website-switcher # likely darkreader?
-          linkwarden
-          return-youtube-dislikes
-          sidebery
-          sponsorblock
-          ublock-origin
-          userchrome-toggle-extended
-          videospeed
-          i-dont-care-about-cookies
-        ];
+        extensions = {
+          packages = with inputs.firefox-addons.packages.${pkgs.system}; [
+            bitwarden
+            clearurls
+            dark-mode-website-switcher # likely darkreader?
+            linkwarden
+            return-youtube-dislikes
+            sidebery
+            sponsorblock
+            ublock-origin
+            userchrome-toggle-extended
+            videospeed
+            i-dont-care-about-cookies
+          ];
+        };
+        settings = {
+          "extensions.autoDisableScopes" = 0;
+          "{3c078156-979c-498b-8990-85f7987dd929}".settings = {
+            settings = sideberyConfig."settings";
+            sidebar = sideberyConfig."sidebar";
+            contextMenu = sideberyConfig."contextMenu";
+            keybindings = sideberyConfig."keybindings";
+          };
+        };
       };
     };
   };
