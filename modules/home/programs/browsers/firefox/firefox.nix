@@ -28,6 +28,7 @@ in
     home.file = {
       ".mozilla/firefox/${defaultProfile}" = {
         source = pkgs.runCommand "shyfox" { } ''
+          mkdir $out
           mkdir -p $out/chrome
           cp -r ${shyfox}/chrome/* $out/chrome
           cp ${shyfox}/user.js $out/user.js
