@@ -1345,11 +1345,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1751896843,
+        "lastModified": 1751897384,
         "narHash": "sha256-CtVnQMzTPnuHtsRG8+c1dCdgzAcmD27vsz9EHuUnaQo=",
         "owner": "blockdoth",
         "repo": "ShyFox",
-        "rev": "fb4f9afdf372ed35972c0baf3e2cc1553b2b1e4a",
+        "rev": "03bc90997a6835666f12509017b86e62705ff01c",
         "type": "github"
       },
       "original": {

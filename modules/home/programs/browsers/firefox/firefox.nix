@@ -17,6 +17,7 @@ in
   ];
 
   config = lib.mkIf module.enable {
+    # https://github.com/blockdoth/ShyFox
     programs.shyfox = {
       enable = true;
       sideberyConfigPath = ./sidebery-config.json;
