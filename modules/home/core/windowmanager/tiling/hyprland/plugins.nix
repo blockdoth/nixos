@@ -13,8 +13,8 @@ in
   config = lib.mkIf module.enable {
     wayland.windowManager.hyprland = {
       plugins = [
-        # plugins.hyprexpo
-        # plugins.hyprwinwrap
+        plugins.hyprexpo
+        plugins.hyprwinwrap
       ];
       settings = {
         plugins = {
