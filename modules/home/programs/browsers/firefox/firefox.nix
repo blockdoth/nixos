@@ -64,6 +64,30 @@ in
       };
       profiles.default = {
         isDefault = true;
+
+        search.engines = {
+          "Nix Packages" = {
+            urls = [
+              {
+                template = "https://search.nixos.org/packages";
+                params = [
+                  {
+                    name = "type";
+                    value = "packages";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = [ "@np" ];
+          };
+        };
+
         extraConfig = builtins.readFile "${shyfoxProfile}/user.js";
         userChrome = builtins.readFile "${shyfoxProfile}/chrome/userChrome.css";
         userContent = builtins.readFile "${shyfoxProfile}/chrome/userContent.css";
