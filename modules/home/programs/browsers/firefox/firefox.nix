@@ -16,7 +16,6 @@ let
     sha256 = "sha256-YfPDJHoyA0tj73rnDOqI65n0bAh8hSTPnXLDEkzQVpg=";
   };
   sideberyConfig = builtins.fromJSON (builtins.readFile ./sidebery-config.json);
-
   defaultProfile = "default";
 in
 {
