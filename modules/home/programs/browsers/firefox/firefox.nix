@@ -96,10 +96,9 @@ in
                 }
               ];
             };
-
             "YouTube" = {
               definedAliases = [ "@yt" ];
-              # icon = "https://www.youtube.com/s/desktop/1c1ef20c/img/favicon_144x144.png";
+              icon = "https://www.youtube.com/s/desktop/2253fa3d/img/logos/favicon.ico";
               urls = [
                 {
                   template = "https://www.youtube.com/results";
