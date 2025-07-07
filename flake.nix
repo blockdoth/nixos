@@ -17,7 +17,6 @@
     nvf.url = "github:notashelf/nvf";
     nix-minecraft.url = "github:InfiniDoge/nix-minecraft";
     ags.url = "github:Aylur/ags";
-    # activate-linux.url = "github:MrGlockenspiel/activate-linux";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     iss-piss-stream.url = "github:blockdoth/iss-piss-stream/fed5758fb0da0d59b97e47d9037c4a37b7d40c8d";
     tree-but-cooler.url = "github:blockdoth/tree-but-cooler";

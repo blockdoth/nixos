@@ -20,7 +20,7 @@
     ./style/fonts
     ./style/stylix.nix
     ./style/rice/cli.nix
-    ./style/rice/activate-linux.nix
+    ./style/rice/gui.nix
     ./style/rice/cava.nix
     ./style/rice/fastfetch.nix
 

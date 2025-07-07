@@ -70,9 +70,9 @@ in
           fonts.enable = mkEnableOption "fonts";
           theme.stylix.enable = mkEnableOption "theming";
           rice = {
-            activate-linux.enable = mkEnableOption "activate linux";
             fastfetch.enable = mkEnableOption "fastfetch";
             cli.enable = mkEnableOption "cli";
+            gui.enable = mkEnableOption "activate linux";
             cava.enable = mkEnableOption "cava";
           };
         };
@@ -120,7 +120,6 @@ in
           zenbrowser.enable = mkEnableOption "zenbrowser";
           chrome.enable = mkEnableOption "chrome";
         };
-        activate-linux.enable = mkEnableOption "activate linux";
         discord.enable = mkEnableOption "discord";
         spotify.enable = mkEnableOption "spotify";
         llms.enable = mkEnableOption "llms";
@@ -166,9 +165,9 @@ in
           fonts.enable = mkDefault true;
           theme.stylix.enable = mkDefault true;
           rice = {
-            activate-linux.enable = mkDefault (enableTheming && enableGui);
             fastfetch.enable = mkDefault enableTheming;
             cli.enable = mkDefault enableTheming;
+            gui.enable = mkDefault (enableTheming && enableGui);
             cava.enable = mkDefault enableTheming;
           };
         };
@@ -214,7 +213,6 @@ in
           firefox.enable = mkDefault enableGui;
           chrome.enable = mkDefault enableGui;
         };
-        activate-linux.enable = mkDefault enableGui;
         discord.enable = mkDefault (enableGui && !zenMode);
         spotify.enable = mkDefault enableGui;
         llms.enable = mkDefault enableGui;

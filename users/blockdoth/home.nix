@@ -36,7 +36,6 @@
     programs = {
       filebrowser.nautilus.enable = false;
       browsers.zenbrowser.enable = false;
-      activate-linux.enable = true;
       spotify.enable = true;
       llms.enable = false;
     };
