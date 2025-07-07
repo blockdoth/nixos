@@ -10,7 +10,7 @@ let
 in
 {
   config = lib.mkIf module.enable {
-    home.packages = [ inputs.activate-linux.packages.${pkgs.system}.activate-linux ];
+    home.packages = [ pkgs.activate-linux ];
 
     # systemd.user.services.activate-linux = {
     #   Unit = {
