@@ -22,7 +22,7 @@ in
     programs.shyfox = {
       enable = true;
       sideberyConfigPath = ./sidebery-config.json;
-      profile = "default";
+      profile = "test";
     };
   };
 }
