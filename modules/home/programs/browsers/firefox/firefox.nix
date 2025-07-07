@@ -75,6 +75,8 @@ in
 
         search.engines = {
           "Nix Packages" = {
+            definedAliases = [ "@nix" ];
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             urls = [
               {
                 template = "https://search.nixos.org/packages";
@@ -90,9 +92,32 @@ in
                 ];
               }
             ];
+          };
 
-            # icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = [ "@np" ];
+          "YouTube" = {
+            definedAliases = [ "@yt" ];
+            # icon = "https://www.youtube.com/s/desktop/1c1ef20c/img/favicon_144x144.png";
+            urls = [
+              {
+                template = "https://www.youtube.com/results";
+                params = [
+                  {
+                    name = "search_query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+          };
+
+          "ChatGPT" = {
+            definedAliases = [ "@gpt" ];
+            icon = "https://chat.openai.com/favicon.ico";
+            urls = [
+              {
+                template = "https://chat.openai.com/?q={searchTerms}";
+              }
+            ];
           };
         };
 
@@ -116,6 +141,7 @@ in
             i-dont-care-about-cookies
           ];
         };
+
         settings = {
           "extensions.autoDisableScopes" = 0;
           "{3c078156-979c-498b-8990-85f7987dd929}" = {
