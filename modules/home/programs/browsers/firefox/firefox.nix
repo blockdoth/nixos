@@ -15,17 +15,23 @@ let
     rev = "fba147660a1b374f00e50df59b525f7c7bb5a4e5";
     sha256 = "sha256-YfPDJHoyA0tj73rnDOqI65n0bAh8hSTPnXLDEkzQVpg=";
   };
-  shyfoxProfile = pkgs.runCommand "shyfox-profile" { } ''
-    mkdir -p $out/chrome
-    cp -r ${shyfox}/chrome/* $out/chrome
-    cp ${shyfox}/user.js $out/user.js
-  '';
-
+  defaultProfile = "default";
 in
 {
   config = lib.mkIf module.enable {
     home.sessionVariables = {
       BROWSER = "firefox";
+    };
+
+    home.file = {
+      ".mozilla/firefox/${defaultProfile}" = {
+        source = pkgs.runCommand "shyfox" { } ''
+          mkdir -p $out/chrome
+          cp -r ${shyfox}/chrome/* $out/chrome
+          cp ${shyfox}/user.js $out/user.js
+        '';
+        recursive = true;
+      };
     };
 
     programs.firefox = {
@@ -62,7 +68,7 @@ in
         };
 
       };
-      profiles.default = {
+      profiles.${defaultProfile} = {
         isDefault = true;
 
         search.engines = {
@@ -88,9 +94,10 @@ in
           };
         };
 
-        extraConfig = builtins.readFile "${shyfoxProfile}/user.js";
-        userChrome = builtins.readFile "${shyfoxProfile}/chrome/userChrome.css";
-        userContent = builtins.readFile "${shyfoxProfile}/chrome/userContent.css";
+        # doesnt work because the it doesnt read dependencies
+        # extraConfig = builtins.readFile "${shyfoxProfile}/user.js";
+        # userChrome = builtins.readFile "${shyfoxProfile}/chrome/userChrome.css";
+        # userContent = builtins.readFile "${shyfoxProfile}/chrome/userContent.css";
 
         extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
           bitwarden
