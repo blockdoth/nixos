@@ -9,7 +9,6 @@ let
   module = config.system-modules.core.nix-config;
 in
 {
-  imports = [ inputs.flake-programs-sqlite.nixosModules.programs-sqlite ];
   config = lib.mkIf module.enable {
     environment.systemPackages = [
       pkgs.nixfmt-tree

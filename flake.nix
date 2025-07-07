@@ -8,7 +8,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # maybe one day
-    # pog.url = "github:jpetrucciani/pog";
     linkwarden-pr.url = "github:jvanbruegge/nixpkgs/linkwarden"; # TODO remove when linkwarden gets merged
     sops-nix.url = "github:Mic92/sops-nix";
     stylix.url = "github:danth/stylix/d13ffb381c83b6139b9d67feff7addf18f8408fe";
@@ -16,7 +15,6 @@
 
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
     nvf.url = "github:notashelf/nvf";
-
     nix-minecraft.url = "github:InfiniDoge/nix-minecraft";
     ags.url = "github:Aylur/ags";
     activate-linux.url = "github:MrGlockenspiel/activate-linux";
@@ -24,11 +22,7 @@
     iss-piss-stream.url = "github:blockdoth/iss-piss-stream/fed5758fb0da0d59b97e47d9037c4a37b7d40c8d";
     tree-but-cooler.url = "github:blockdoth/tree-but-cooler";
     ghostty.url = "github:ghostty-org/ghostty";
-    flake-programs-sqlite = {
-      url = "github:wamserma/flake-programs-sqlite";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    #Prevents version mismatch TODO
+
     hyprland.url = "github:hyprwm/Hyprland/";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
