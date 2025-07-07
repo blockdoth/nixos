@@ -46,6 +46,9 @@ in
       # Block distracting domains in zenmode
       extraHosts = lib.mkIf zenmode.enable blockedHosts;
     };
+
+    services.resolved.enable = true;
+
     environment.persistence."/persist/backup" = lib.mkIf impermanence.enable {
       directories = [ "/etc/NetworkManager/system-connections" ];
     };
