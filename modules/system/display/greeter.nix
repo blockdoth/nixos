@@ -4,8 +4,8 @@
   pkgs,
   ...
 }:
+
 let
-  # tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
   module = config.system-modules.display.autologin;
 in
 {
@@ -14,21 +14,32 @@ in
       enable = true;
       settings = {
         default_session = {
-          command = "hyprland";
-          user = "blockdoth";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+          user = "greeter";
         };
       };
     };
 
-    # systemd.services.greetd.serviceConfig = {
-    #   Type = "idle";
-    #   StandardInput = "tty";
-    #   StandardOutput = "tty";
-    #   StandardError = "journal"; # Without this errors will spam on screen
-    #   # Without these bootlogs will spam on screen
-    #   TTYReset = true;
-    #   TTYVHangup = true;
-    #   TTYVTDisallocate = true;
-    # };
+    systemd.services.greetd = {
+      serviceConfig = {
+        Type = "idle";
+        StandardInput = "tty";
+        StandardOutput = "tty";
+        StandardError = "journal";
+        TTYReset = true;
+        TTYVHangup = true;
+        TTYVTDisallocate = true;
+      };
+
+      # This override is what makes it auto-login only ONCE at boot
+      # It uses systemd's `ExecStartPre` to temporarily override the session
+      # The override only lasts until the session ends (i.e., logout)
+      wantedBy = [ "multi-user.target" ];
+      preStart = ''
+        echo '[default_session]' > /run/greetd/config.toml
+        echo 'command = "hyprland"' >> /run/greetd/config.toml
+        echo 'user = "blockdoth"' >> /run/greetd/config.toml
+      '';
+    };
   };
 }
