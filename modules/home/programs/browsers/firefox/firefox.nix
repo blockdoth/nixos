@@ -73,51 +73,55 @@ in
       profiles.${defaultProfile} = {
         isDefault = true;
 
-        search.engines = {
-          "Nix Packages" = {
-            definedAliases = [ "@nix" ];
-            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            urls = [
-              {
-                template = "https://search.nixos.org/packages";
-                params = [
-                  {
-                    name = "type";
-                    value = "packages";
-                  }
-                  {
-                    name = "query";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-            ];
-          };
+        search = {
+          force = true;
+          engines = {
 
-          "YouTube" = {
-            definedAliases = [ "@yt" ];
-            # icon = "https://www.youtube.com/s/desktop/1c1ef20c/img/favicon_144x144.png";
-            urls = [
-              {
-                template = "https://www.youtube.com/results";
-                params = [
-                  {
-                    name = "search_query";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-            ];
-          };
+            "Nix Packages" = {
+              definedAliases = [ "@nix" ];
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              urls = [
+                {
+                  template = "https://search.nixos.org/packages";
+                  params = [
+                    {
+                      name = "type";
+                      value = "packages";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+            };
 
-          "ChatGPT" = {
-            definedAliases = [ "@gpt" ];
-            icon = "https://chat.openai.com/favicon.ico";
-            urls = [
-              {
-                template = "https://chat.openai.com/?q={searchTerms}";
-              }
-            ];
+            "YouTube" = {
+              definedAliases = [ "@yt" ];
+              # icon = "https://www.youtube.com/s/desktop/1c1ef20c/img/favicon_144x144.png";
+              urls = [
+                {
+                  template = "https://www.youtube.com/results";
+                  params = [
+                    {
+                      name = "search_query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+            };
+
+            "ChatGPT" = {
+              definedAliases = [ "@gpt" ];
+              icon = "https://chat.openai.com/favicon.ico";
+              urls = [
+                {
+                  template = "https://chat.openai.com/?q={searchTerms}";
+                }
+              ];
+            };
           };
         };
 
