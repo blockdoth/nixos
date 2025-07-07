@@ -118,11 +118,14 @@ in
         };
         settings = {
           "extensions.autoDisableScopes" = 0;
-          "{3c078156-979c-498b-8990-85f7987dd929}".settings = {
-            settings = sideberyConfig."settings";
-            sidebar = sideberyConfig."sidebar";
-            contextMenu = sideberyConfig."contextMenu";
-            keybindings = sideberyConfig."keybindings";
+          "{3c078156-979c-498b-8990-85f7987dd929}" = {
+            force = true;
+            settings = {
+              settings = sideberyConfig."settings";
+              sidebar = sideberyConfig."sidebar";
+              contextMenu = sideberyConfig."contextMenu";
+              keybindings = sideberyConfig."keybindings";
+            };
           };
         };
       };
