@@ -79,7 +79,7 @@ in
       };
 
       display = {
-        greeter.enable = mkEnableOption "greeter";
+        autologin.enable = mkEnableOption "autologin";
         wayland.enable = mkEnableOption "hyprland";
         x11.enable = mkEnableOption "x11";
       };
@@ -254,7 +254,7 @@ in
       };
 
       display = {
-        greeter.enable = mkDefault enableGui;
+        autologin.enable = mkDefault enableGui;
         wayland.enable = mkDefault enableGui;
         x11.enable = mkDefault enableGui;
       };
