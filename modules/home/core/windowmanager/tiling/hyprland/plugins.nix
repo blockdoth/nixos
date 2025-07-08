@@ -27,14 +27,14 @@ in
   config = lib.mkIf module.enable {
     wayland.windowManager.hyprland = {
       plugins = [
-        plugins.hyprexpo
-        plugins.hyprwinwrap
-        inputs.hyprtasking.packages.${pkgs.system}.hyprtasking
-        inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
+        # plugins.hyprexpo
+        # plugins.hyprwinwrap
+        # inputs.hyprtasking.packages.${pkgs.system}.hyprtasking
+        # inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
       ];
-      settings.exec-once = [
-        "${pkgs.writeShellScript "load-hyprland-plugins" loadPluginsCmd}"
-      ];
+      # settings.exec-once = [
+      #   "${pkgs.writeShellScript "load-hyprland-plugins" loadPluginsCmd}"
+      # ];
 
       settings.plugins = {
 
