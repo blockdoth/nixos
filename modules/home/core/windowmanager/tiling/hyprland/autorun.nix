@@ -15,7 +15,7 @@ in
         "waybar"
         "dunst"
         "hypridle"
-        "hyprlock --no-fade-in "
+        # "hyprlock --no-fade-in "
         "swww-daemon && swww img ../../../../../assets/wallpapers/waves.jpg"
         "pypr"
         "gammastep -b 1:1"
