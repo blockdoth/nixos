@@ -23,7 +23,6 @@ in
           "networkmanager"
           "audio"
           "dialout" # For serialW
-          "wireshark"
         ];
         openssh = {
           authorizedKeys = {

@@ -76,6 +76,7 @@ in
         printing.enable = mkEnableOption "printing";
         syncthing.enable = mkEnableOption "syncthing";
         trackpad.enable = mkEnableOption "trackpad";
+        wireshark.enable = mkEnableOption "wireshark";
       };
 
       display = {
@@ -251,6 +252,7 @@ in
         power.enable = mkDefault enableLaptop;
         trackpad.enable = mkDefault enableLaptop;
         gaming.enable = mkDefault enableGaming;
+        wireshark.enable = mkDefault true;
       };
 
       display = {

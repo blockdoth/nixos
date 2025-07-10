@@ -15,5 +15,6 @@
     ./printing.nix
     ./syncthing.nix
     ./trackpad.nix
+    ./wireshark.nix
   ];
 }
