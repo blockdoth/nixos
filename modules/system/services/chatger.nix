@@ -12,6 +12,19 @@ in
 {
   config = lib.mkIf module.enable {
 
+    systemd.services.chatger = {
+      description = "Chatger Service";
+      after = [ "network.target" ];
+      wantedBy = [ "multi-user.target" ];
+
+      serviceConfig = {
+        ExecStart = "/home/penger/sources/chatger";
+        WorkingDirectory = "/home/penger/sources";
+        Restart = "on-failure";
+        User = "penger";
+      };
+    };
+
     system-modules.services = {
       network.caddy.reverse-proxies = [
         {
