@@ -56,6 +56,11 @@ in
       enable = true;
       email = mailAddress;
 
+      package = pkgs.caddy.withPlugins {
+        plugins = [ "github.com/mholt/caddy-l4@v0.0.0-20250530154005-4d3c80e89c5f" ]; # pain the ass to get this fake version based on commit
+        hash = "sha256-O2shDuAA4OjUx44uOxMbd5iQUQVl6GUuFKqv+P/PXNM=";
+      };
+
       virtualHosts = {
         "${domain}".extraConfig = ''
           respond "Hello World"      
