@@ -18,7 +18,7 @@ in
       wantedBy = [ "multi-user.target" ];
 
       serviceConfig = {
-        ExecStart = "/home/penger/sources/chatger";
+        ExecStart = "/home/penger/sources/chatger/chatger";
         WorkingDirectory = "/home/penger/sources";
         Restart = "on-failure";
         User = "penger";

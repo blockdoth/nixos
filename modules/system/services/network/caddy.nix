@@ -46,7 +46,8 @@ in
         "${domain}".extraConfig = ''
           respond "Hello World"      
         '';
-      } // builtins.listToAttrs (map makeReverseProxy module.reverse-proxies);
+      }
+      // builtins.listToAttrs (map makeReverseProxy module.reverse-proxies);
     };
 
     networking.firewall = {
