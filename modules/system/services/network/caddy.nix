@@ -61,8 +61,8 @@ in
           respond "Hello World"      
         '';
       }
-      // builtins.listToAttrs (map makeReverseProxyHttps httpsProxies)
-      // builtins.listToAttrs (map makeReverseProxyTcp tcpProxies);
+      // builtins.listToAttrs (map makeReverseProxyTcp tcpProxies)
+      // builtins.listToAttrs (map makeReverseProxyHttps httpsProxies);
 
     };
 
