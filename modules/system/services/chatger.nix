@@ -22,6 +22,7 @@ in
         WorkingDirectory = "/home/penger/sources";
         Restart = "on-failure";
         User = "penger";
+        Group = "penger";
       };
     };
 
