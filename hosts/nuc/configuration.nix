@@ -55,9 +55,10 @@
         audiobookshelf.enable = true;
         jellyseerr.enable = true;
       };
+      chatger.enable = true;
       immich.enable = true;
       vaultwarden.enable = true;
-      linkwarden.enable = true;
+      linkwarden.enable = false;
       nextcloud.enable = false;
       microbin.enable = false;
       homepage.enable = true;

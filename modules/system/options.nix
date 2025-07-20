@@ -220,6 +220,7 @@ in
             description = "Group for media access";
           };
         };
+        chatger.enable = mkEnableOption "chatger";
         vaultwarden.enable = mkEnableOption "vaultwarden";
         filebrowser.enable = mkEnableOption "filebrowser";
         immich.enable = mkEnableOption "immich";
