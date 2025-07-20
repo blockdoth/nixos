@@ -103,6 +103,10 @@ in
                 types.submodule {
                   options = {
                     subdomain = mkOption { type = types.str; };
+                    type = mkOption {
+                      type = types.str;
+                      default = "https";
+                    };
                     port = mkOption {
                       type = types.int;
                     };

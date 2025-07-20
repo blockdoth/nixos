@@ -11,11 +11,11 @@ let
   certPath = "/var/lib/acme/${domain}/fullchain.pem";
   keyPath = "/var/lib/acme/${domain}/privkey.pem";
   mailAddress = "pepijn.pve@gmail.com";
-  makeReverseProxy = reverse-proxy: {
-    name = "${reverse-proxy.subdomain}.${domain}";
+  makeReverseProxyHttps = http-proxy: {
+    name = "${http-proxy.subdomain}.${domain}";
     value.extraConfig = ''
       ${
-        if reverse-proxy.require-auth then
+        if http-proxy.require-auth then
           ''
             forward_auth 127.0.0.1:${builtins.toString config.system-modules.services.auth.authelia.port} {
               uri /api/authz/forward-auth
@@ -25,11 +25,25 @@ let
         else
           ""
       }
-      reverse_proxy ${reverse-proxy.redirect-address}:${builtins.toString reverse-proxy.port} {
-        ${reverse-proxy.extra-config}
+      reverse_proxy ${http-proxy.redirect-address}:${builtins.toString http-proxy.port} {
+        ${http-proxy.extra-config}
       }
     '';
   };
+  makeReverseProxyTcp = tcp-proxy: {
+    name = "${tcp-proxy.subdomain}.${domain}";
+    value.extraConfig = ''
+      :${toString tcp-proxy.port} {
+        reverse_proxy ${tcp-proxy.redirect-address}:${builtins.toString tcp-proxy.port} {
+          transport tcp
+        }
+      }
+    '';
+  };
+  httpsProxies = lib.filter (p: p.type == "https") module.reverse-proxies;
+  tcpProxies = lib.filter (p: p.type == "tcp") module.reverse-proxies;
+  tcpPorts = map (p: p.port) tcpProxies;
+
 in
 {
   config = lib.mkIf module.enable {
@@ -47,14 +61,17 @@ in
           respond "Hello World"      
         '';
       }
-      // builtins.listToAttrs (map makeReverseProxy module.reverse-proxies);
+      // builtins.listToAttrs (map makeReverseProxyHttps httpsProxies)
+      // builtins.listToAttrs (map makeReverseProxyTcp tcpProxies);
+
     };
 
-    networking.firewall = {
-      allowedTCPPorts = [
+    networking.firewall.allowedTCPPorts = lib.unique (
+      [
         80
         443
-      ];
-    };
+      ]
+      ++ tcpPorts
+    );
   };
 }

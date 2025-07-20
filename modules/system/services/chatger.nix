@@ -30,6 +30,7 @@ in
       network.caddy.reverse-proxies = [
         {
           subdomain = "chatger";
+          type = "tcp";
           port = 4348;
         }
       ];
