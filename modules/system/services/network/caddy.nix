@@ -61,13 +61,13 @@ in
         hash = "sha256-O2shDuAA4OjUx44uOxMbd5iQUQVl6GUuFKqv+P/PXNM=";
       };
 
-      virtualHosts = {
-        "${domain}".extraConfig = ''
-          respond "Hello World"      
-        '';
-      }
-      // builtins.listToAttrs (map makeReverseProxyTcp tcpProxies)
-      // builtins.listToAttrs (map makeReverseProxyHttps httpsProxies);
+      # virtualHosts = {
+      #   "${domain}".extraConfig = ''
+      #     respond "Hello World"
+      #   '';
+      # }
+      # // builtins.listToAttrs (map makeReverseProxyTcp tcpProxies)
+      # // builtins.listToAttrs (map makeReverseProxyHttps httpsProxies);
 
     };
 
