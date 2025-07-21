@@ -17,7 +17,7 @@ let
       rev = "main";
       sha256 = "sha256-FMmvoesIiJ0hevMbADNQf8sVvxNTzzKhykCyk6vblX0=";
     };
-
+    patches = [ ./db_path.patch ];
     buildPhase = ''
       cc -o nob nob.c
       ./nob

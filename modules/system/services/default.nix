@@ -25,7 +25,7 @@
     ./scraping/iss-piss-stream.nix
     ./sync/atuin.nix
     ./sync/anki.nix
-    ./chatger.nix
+    ./chatger/chatger.nix
     ./vaultwarden.nix
     ./filebrowser.nix
     ./immich.nix
