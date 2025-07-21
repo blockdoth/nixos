@@ -35,6 +35,12 @@ in
     environment.systemPackages = with pkgs; [
       chatger
     ];
+    users.groups.chatger = { };
+
+    users.users.chatger = {
+      isSystemUser = true;
+      group = "chatger";
+    };
 
     systemd.services.chatger = {
       description = "Chatger Service";
@@ -47,8 +53,8 @@ in
         StateDirectory = "chatger";
         Environment = "CHATGER_DB_PATH=/var/lib/chatger/chatger.db";
         Restart = "on-failure";
-        DynamicUser = true;
         User = "chatger";
+        Group = "chatger";
       };
     };
 
