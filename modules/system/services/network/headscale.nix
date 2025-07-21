@@ -43,7 +43,7 @@ in
     };
 
     system-modules.services = {
-      network.caddy.reverse-proxies = [
+      network.reverse-proxy.proxies = [
         {
           subdomain = "headscale";
           port = config.services.headscale.port;

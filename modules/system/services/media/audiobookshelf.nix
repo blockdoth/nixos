@@ -18,7 +18,7 @@ in
     };
 
     system-modules.services = {
-      network.caddy.reverse-proxies = [
+      network.reverse-proxy.proxies = [
         {
           subdomain = "audiobookshelf";
           port = config.services.audiobookshelf.port;

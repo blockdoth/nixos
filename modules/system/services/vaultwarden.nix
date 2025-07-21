@@ -24,7 +24,7 @@ in
     };
 
     system-modules.services = {
-      network.caddy.reverse-proxies = [
+      network.reverse-proxy.proxies = [
         {
           subdomain = "vaultwarden";
           port = config.services.vaultwarden.config.ROCKET_PORT;

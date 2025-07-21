@@ -18,7 +18,7 @@ in
     #   port = 8889;
     # };
 
-    system-modules.services.network.caddy.reverse-proxies = [
+    system-modules.services.network.reverse-proxy.proxies = [
       {
         subdomain = "filebrowser";
         port = config.services.filebrowser.listenPort;

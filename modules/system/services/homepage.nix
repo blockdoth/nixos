@@ -70,7 +70,7 @@ in
     };
 
     system-modules.services = {
-      network.caddy.reverse-proxies = [
+      network.reverse-proxy.proxies = [
         {
           subdomain = "homepage";
           port = config.services.homepage-dashboard.listenPort;

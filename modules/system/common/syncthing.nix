@@ -94,12 +94,5 @@ in
 
     # Disables a default sync folder from being created
     systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true";
-
-    # TODO figure out what I want to put online
-    # services.caddy = {
-    #   virtualHosts."syncthing.local".extraConfig = ''
-    #     reverse_proxy 127.0.0.1:8384
-    #   '';
-    # };
   };
 }

@@ -32,7 +32,7 @@ in
     };
 
     system-modules.services = {
-      network.caddy.reverse-proxies = [
+      network.reverse-proxy.proxies = [
         {
           subdomain = "linkwarden";
           port = config.services.linkwarden.port;

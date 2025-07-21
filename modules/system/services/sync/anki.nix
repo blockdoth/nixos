@@ -25,7 +25,7 @@ in
     };
 
     system-modules.services = {
-      network.caddy.reverse-proxies = [
+      network.reverse-proxy.proxies = [
         {
           subdomain = "anki";
           port = config.services.anki-sync-server.port;

@@ -20,7 +20,7 @@ in
     };
 
     system-modules.services = {
-      network.caddy.reverse-proxies = [
+      network.reverse-proxy.proxies = [
         {
           subdomain = "jellyseerr";
           port = config.services.jellyseerr.port;

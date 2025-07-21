@@ -30,7 +30,7 @@ in
     users.users.caddy.extraGroups = [ "nextcloud" ];
 
     system-modules.services = {
-      network.caddy.reverse-proxies = [
+      network.reverse-proxy.proxies = [
         {
           subdomain = "nextcloud";
           port = config.services.nextcloud.port;

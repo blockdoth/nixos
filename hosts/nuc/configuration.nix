@@ -31,9 +31,11 @@
       network = {
         acme.enable = true;
         ddns.enable = true;
-        caddy.enable = true;
         headscale.enable = true;
         fail2ban.enable = true;
+        reverse-proxy = {
+          caddy.enable = true;
+        };
       };
       auth = {
         authelia.enable = true;

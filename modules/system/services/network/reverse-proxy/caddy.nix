@@ -6,7 +6,8 @@
   ...
 }:
 let
-  module = config.system-modules.services.network.caddy;
+  module = config.system-modules.services.network.reverse-proxy.caddy;
+  proxies = config.system-modules.services.network.reverse-proxy.proxies;
   domain = config.system-modules.services.network.domains.homelab;
   certPath = "/var/lib/acme/${domain}/fullchain.pem";
   keyPath = "/var/lib/acme/${domain}/privkey.pem";
@@ -40,8 +41,8 @@ let
       }
     '';
   };
-  httpsProxies = lib.filter (p: p.type == "https") module.reverse-proxies;
-  tcpProxies = lib.filter (p: p.type == "tcp") module.reverse-proxies;
+  httpsProxies = lib.filter (p: p.type == "https") proxies;
+  tcpProxies = lib.filter (p: p.type == "tcp") proxies;
   tcpPorts = map (p: p.port) tcpProxies;
 
 in
@@ -70,12 +71,10 @@ in
 
     };
 
-    networking.firewall.allowedTCPPorts = lib.unique (
-      [
-        80
-        443
-      ]
-      ++ tcpPorts
-    );
+    networking.firewall.allowedTCPPorts = [
+      80
+      443
+    ]
+    ++ tcpPorts;
   };
 }

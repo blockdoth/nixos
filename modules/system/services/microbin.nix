@@ -29,7 +29,7 @@ in
     };
 
     system-modules.services = {
-      network.caddy.reverse-proxies = [
+      network.reverse-proxy.proxies = [
         {
           subdomain = "microbin";
           port = config.services.microbin.settings.MICROBIN_PORT;

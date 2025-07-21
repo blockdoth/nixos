@@ -26,7 +26,7 @@ in
     ];
 
     system-modules.services = {
-      network.caddy.reverse-proxies = [
+      network.reverse-proxy.proxies = [
         {
           subdomain = "lidarr";
           port = 8686;

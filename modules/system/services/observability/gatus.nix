@@ -33,7 +33,7 @@ in
       };
     };
 
-    system-modules.services.network.caddy.reverse-proxies = [
+    system-modules.services.network.reverse-proxy.proxies = [
       {
         subdomain = "gatus";
         port = config.services.gatus.settings.web.port;

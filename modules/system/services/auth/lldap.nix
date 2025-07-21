@@ -69,7 +69,7 @@ in
     };
 
     system-modules.services = {
-      network.caddy.reverse-proxies = [
+      network.reverse-proxy.proxies = [
         {
           subdomain = "lldap";
           port = config.services.lldap.settings.http_port;

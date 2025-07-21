@@ -28,7 +28,7 @@ in
     };
 
     system-modules.services = {
-      network.caddy.reverse-proxies = [
+      network.reverse-proxy.proxies = [
         {
           subdomain = "factorio";
           port = config.services.factorio.port;

@@ -52,7 +52,7 @@ in
     systemd.services.transmission.serviceConfig.IOSchedulingPriority = 7;
 
     system-modules.services = {
-      network.caddy.reverse-proxies = [
+      network.reverse-proxy.proxies = [
         {
           subdomain = "transmission";
           port = config.services.transmission.settings.rpc-port;

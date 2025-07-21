@@ -96,9 +96,14 @@ in
           blocky.enable = mkEnableOption "blocky";
           headscale.enable = mkEnableOption "headscale";
           fail2ban.enable = mkEnableOption "fail2ban";
-          caddy = {
-            enable = mkEnableOption "caddy";
-            reverse-proxies = mkOption {
+          reverse-proxy = {
+            nginx = {
+              enable = mkEnableOption "nginx";
+            };
+            caddy = {
+              enable = mkEnableOption "caddy";
+            };
+            proxies = mkOption {
               type = types.listOf (
                 types.submodule {
                   options = {

@@ -34,7 +34,7 @@ in
     ];
 
     system-modules.services = {
-      network.caddy.reverse-proxies = [
+      network.reverse-proxy.proxies = [
         {
           subdomain = "sonarr";
           port = 8989;
