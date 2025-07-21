@@ -48,7 +48,6 @@ in
         Environment = "CHATGER_DB_PATH=/var/lib/chatger/chatger.db";
         Restart = "on-failure";
         User = "blockdoth";
-        Group = "blockdoth";
       };
     };
 
