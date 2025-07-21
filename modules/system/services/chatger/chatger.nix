@@ -43,6 +43,7 @@ in
 
       serviceConfig = {
         ExecStart = "${chatger}/bin/chatger";
+        WorkingDirectory = "${chatger}/bin";
         StateDirectory = "chatger";
         Environment = "CHATGER_DB_PATH=/var/lib/chatger/chatger.db";
         Restart = "on-failure";
