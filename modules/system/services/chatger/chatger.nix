@@ -23,7 +23,9 @@ let
     '';
 
     installPhase = ''
-      mkdir -p $out/bin
+      mkdir -p $out/bin/sql
+
+      cp -r ./sql $out/bin/sql
       cp ./chatger $out/bin/
     '';
   };
@@ -44,8 +46,8 @@ in
         StateDirectory = "chatger";
         Environment = "CHATGER_DB_PATH=/var/lib/chatger/chatger.db";
         Restart = "on-failure";
-        User = "penger";
-        Group = "penger";
+        User = "blockdoth";
+        Group = "blockdoth";
       };
     };
 
