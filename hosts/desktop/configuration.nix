@@ -24,6 +24,7 @@
     services = {
       # gameservers.factorio.enable = true;
       # observability.gatus.enable = true;
+      chatger.enable = true;
     };
   };
 
