@@ -55,6 +55,8 @@ in
         Restart = "on-failure";
         User = "chatger";
         Group = "chatger";
+        StandardOutput = "journal";
+        StandardError = "journal";
       };
     };
 
