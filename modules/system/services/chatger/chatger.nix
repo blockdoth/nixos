@@ -47,7 +47,8 @@ in
         StateDirectory = "chatger";
         Environment = "CHATGER_DB_PATH=/var/lib/chatger/chatger.db";
         Restart = "on-failure";
-        User = "blockdoth";
+        DynamicUser = true;
+        User = "chatger";
       };
     };
 
