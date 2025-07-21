@@ -24,7 +24,7 @@
     services = {
       # gameservers.factorio.enable = true;
       # observability.gatus.enable = true;
-      chatger.enable = true;
+      # chatger.enable = true;
       network.reverse-proxy.caddy.enable = true;
     };
   };
