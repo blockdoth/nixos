@@ -23,10 +23,10 @@ let
     '';
 
     installPhase = ''
-      mkdir -p $out/bin/sql
+      mkdir -p $out/bin
 
-      cp -r ./sql $out/bin/sql
-      cp ./chatger $out/bin/
+      cp -r ./sql $out/bin
+      cp ./chatger $out/bin
     '';
   };
 in
