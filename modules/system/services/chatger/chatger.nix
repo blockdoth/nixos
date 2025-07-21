@@ -21,10 +21,8 @@ let
       cc -o nob nob.c
       ./nob
     '';
-
     installPhase = ''
       mkdir -p $out/bin
-
       cp -r ./sql $out/bin
       cp ./chatger $out/bin
     '';
@@ -43,7 +41,7 @@ in
     };
 
     systemd.services.chatger = {
-      description = "Chatger Service";
+      description = "chatger";
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
 
