@@ -1,0 +1,37 @@
+diff --git a/chatger.c b/chatger.c
+index f1e6837..89c9402 100644
+--- a/chatger.c
++++ b/chatger.c
+@@ -683,23 +683,26 @@ int main(void) {
+         exit(EXIT_FAILURE);
+     }
+ 
+-    bool db_file_existed = access(DATABASE_FILE, F_OK) == 0;
+-    db = chtg_db_open(DATABASE_FILE);
++    const char* db_path = getenv("CHATGER_DB_PATH");
++    if (!db_path) db_path = DATABASE_FILE;
++
++    bool db_file_existed = access(db_path, F_OK) == 0;
++    db = chtg_db_open(db_path);
+     if (db == NULL) {
+         if(!db_file_existed){
+-            remove(DATABASE_FILE);
++            remove(db_path);
+         }
+         return 1;
+     }
+     if(!db_file_existed){
+         if ( !execute_sql_file(db, "sql/create.sql"  ) || 
+              !execute_sql_file(db, "sql/populate.sql") ){
+-            errorf("Failed to initialize database '%s'",DATABASE_FILE);
++            errorf("Failed to initialize database '%s'",db_path);
+             chtg_db_close(db);
+-            remove(DATABASE_FILE);
++            remove(db_path);
+             exit(EXIT_FAILURE);
+         }
+-        infof("Database '%s' has been created and initialized", DATABASE_FILE);
++        infof("Database '%s' has been created and initialized", db_path);
+     }
+ 
+ 
