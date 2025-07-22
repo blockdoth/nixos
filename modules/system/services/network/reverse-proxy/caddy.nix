@@ -66,8 +66,10 @@ in
       // builtins.listToAttrs (map makeReverseProxyHttps httpsProxies);
       # //;
       extraConfig = ''
-        layer4 {
-        ${builtins.concatStringsSep "\n\n" (map makeReverseProxyTcp tcpProxies)}
+        {
+          layer4 {
+            ${builtins.concatStringsSep "\n\n" (map makeReverseProxyTcp tcpProxies)}
+          }
         }
       '';
     };
