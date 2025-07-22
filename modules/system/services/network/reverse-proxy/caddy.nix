@@ -31,17 +31,16 @@ let
       }
     '';
   };
-  makeReverseProxyTcp = tcp-proxy: {
-    name = "${tcp-proxy.subdomain}.${domain}";
-    value.extraConfig = ''
+  makeReverseProxyTcp = tcp-proxy: ''
+    ${tcp-proxy.subdomain}.${domain} {
       route {
         tls
         proxy {
           upstream ${tcp-proxy.redirect-address}:${builtins.toString tcp-proxy.port}          
         }
       }
-    '';
-  };
+    }
+  '';
   httpsProxies = lib.filter (p: p.type == "https") proxies;
   tcpProxies = lib.filter (p: p.type == "tcp") proxies;
   tcpPorts = map (p: p.port) tcpProxies;
@@ -66,9 +65,11 @@ in
       }
       // builtins.listToAttrs (map makeReverseProxyHttps httpsProxies);
       # //;
-      settings = {
-        layer4 = builtins.listToAttrs (map makeReverseProxyTcp tcpProxies);
-      };
+      extraConfig = ''
+        layer4 {
+        ${builtins.concatStringsSep "\n\n" ((map makeReverseProxyTcp tcpProxies))}
+        }
+      '';
     };
 
     networking.firewall.allowedTCPPorts = [
