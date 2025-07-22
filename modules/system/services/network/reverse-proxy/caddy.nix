@@ -34,10 +34,7 @@ let
   makeReverseProxyTcp = tcp-proxy: ''
     @${tcp-proxy.subdomain} tls sni ${tcp-proxy.subdomain}.${domain}
     route @${tcp-proxy.subdomain} {
-      tls {
-        cert_file ${certPath}
-        key_file ${keyPath}        
-      }
+      tls ${certPath} ${keyPath}
       proxy ${tcp-proxy.redirect-address}:${builtins.toString tcp-proxy.port}
     }
   '';
