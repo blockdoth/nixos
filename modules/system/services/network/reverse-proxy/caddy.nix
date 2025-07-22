@@ -34,9 +34,10 @@ let
   makeReverseProxyTcp = tcp-proxy: {
     name = "${tcp-proxy.subdomain}.${domain}";
     value.extraConfig = ''
-      :${toString tcp-proxy.port} {
-        reverse_proxy ${tcp-proxy.redirect-address}:${builtins.toString tcp-proxy.port} {
-          transport tcp
+      route {
+        tls
+        proxy {
+          upstream ${tcp-proxy.redirect-address}:${builtins.toString tcp-proxy.port}          
         }
       }
     '';
@@ -63,9 +64,11 @@ in
           respond "Hello World"
         '';
       }
-      // builtins.listToAttrs (map makeReverseProxyTcp tcpProxies)
       // builtins.listToAttrs (map makeReverseProxyHttps httpsProxies);
-
+      # //;
+      settings = {
+        layer4 = builtins.listToAttrs (map makeReverseProxyTcp tcpProxies);
+      };
     };
 
     networking.firewall.allowedTCPPorts = [
