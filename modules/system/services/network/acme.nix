@@ -21,6 +21,7 @@ in
         credentialFiles = {
           "CF_DNS_API_TOKEN_FILE" = config.sops.secrets.acme-cloudflare-api-key.path;
         };
+        extraDomainNames = [ "*.${domain}" ];
       };
     };
   };

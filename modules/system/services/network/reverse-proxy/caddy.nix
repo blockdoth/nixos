@@ -32,15 +32,16 @@ let
     '';
   };
   makeReverseProxyTcp = tcp-proxy: ''
-    :443 {
-      @${tcp-proxy.subdomain} tls sni ${tcp-proxy.subdomain}.${domain}
-      route @${tcp-proxy.subdomain} {
-        tls
-        proxy {
-          upstream ${tcp-proxy.redirect-address}:${builtins.toString tcp-proxy.port}          
+        @${tcp-proxy.subdomain} tls sni ${tcp-proxy.subdomain}.${domain}
+        route @${tcp-proxy.subdomain} {
+          tls {
+    			  certificate_file ${certPath}
+    			  key_file ${keyPath}
+          }
+          proxy {
+            upstream ${tcp-proxy.redirect-address}:${builtins.toString tcp-proxy.port}          
+          }
         }
-      }
-    }
   '';
   httpsProxies = lib.filter (p: p.type == "https") proxies;
   tcpProxies = lib.filter (p: p.type == "tcp") proxies;
@@ -68,7 +69,9 @@ in
 
       globalConfig = ''
         layer4 {
-          ${builtins.concatStringsSep "\n\n" (map makeReverseProxyTcp tcpProxies)}
+          :443 {
+            ${builtins.concatStringsSep "\n\n" (map makeReverseProxyTcp tcpProxies)}
+          }
         }
       '';
     };
