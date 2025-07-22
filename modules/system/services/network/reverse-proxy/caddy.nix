@@ -32,7 +32,7 @@ let
     '';
   };
   makeReverseProxyTcp = tcp-proxy: ''
-    ${tcp-proxy.subdomain}.${domain} {
+    ${tcp-proxy.subdomain}.${domain}:443 {
       route {
         tls
         proxy {
@@ -67,7 +67,7 @@ in
       # //;
       extraConfig = ''
         layer4 {
-        ${builtins.concatStringsSep "\n\n" ((map makeReverseProxyTcp tcpProxies))}
+        ${builtins.concatStringsSep "\n\n" (map makeReverseProxyTcp tcpProxies)}
         }
       '';
     };
