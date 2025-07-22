@@ -32,7 +32,7 @@ let
     '';
   };
   makeReverseProxyTcp = tcp-proxy: ''
-    ${tcp-proxy.subdomain}.${domain} {
+    ${tcp-proxy.subdomain}.${domain}:443 {
       route {
         tls
         proxy {
@@ -65,11 +65,11 @@ in
       }
       // builtins.listToAttrs (map makeReverseProxyHttps httpsProxies);
       # //;
-      globalConfig = ''
-        layer4 {
-          ${builtins.concatStringsSep "\n\n" (map makeReverseProxyTcp tcpProxies)}
-        }
-      '';
+      # globalConfig = ''
+      #   layer4 {
+      #     ${builtins.concatStringsSep "\n\n" (map makeReverseProxyTcp tcpProxies)}
+      #   }
+      # '';
     };
 
     networking.firewall.allowedTCPPorts = [
