@@ -32,7 +32,7 @@ let
     '';
   };
   makeReverseProxyTcp = tcp-proxy: ''
-    ${tcp-proxy.subdomain}.${domain}:443 {
+    ${tcp-proxy.subdomain}.${domain} {
       route {
         tls
         proxy {
