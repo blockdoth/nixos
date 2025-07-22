@@ -34,10 +34,8 @@ let
   makeReverseProxyTcp = tcp-proxy: ''
     @${tcp-proxy.subdomain} tls sni ${tcp-proxy.subdomain}.${domain}
     route @${tcp-proxy.subdomain} {
-      tls ${certPath}${keyPath}
-      proxy {
-        upstream ${tcp-proxy.redirect-address}:${builtins.toString tcp-proxy.port}          
-      }
+      tls
+      proxy ${tcp-proxy.redirect-address}:${builtins.toString tcp-proxy.port}
     }
   '';
   httpsProxies = lib.filter (p: p.type == "https") proxies;
