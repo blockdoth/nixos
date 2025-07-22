@@ -10,7 +10,7 @@ let
   proxies = config.system-modules.services.network.reverse-proxy.proxies;
   domain = config.system-modules.services.network.domains.homelab;
   certPath = "/var/lib/acme/${domain}/fullchain.pem";
-  keyPath = "/var/lib/acme/${domain}/privkey.pem";
+  keyPath = "/var/lib/acme/${domain}/key.pem";
   mailAddress = "pepijn.pve@gmail.com";
   makeReverseProxyHttps = http-proxy: {
     name = "${http-proxy.subdomain}.${domain}";
