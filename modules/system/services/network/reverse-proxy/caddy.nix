@@ -33,12 +33,10 @@ let
   };
   makeReverseProxyTcp = tcp-proxy: ''
     :443 {
-      route {
-        @${tcp-proxy.subdomain} tls sni ${tcp-proxy.subdomain}.${domain}
-        route @${tcp-proxy.subdomain} {
-          tls
-          upstream ${tcp-proxy.redirect-address}:${builtins.toString tcp-proxy.port}          
-        }
+      @${tcp-proxy.subdomain} tls sni ${tcp-proxy.subdomain}.${domain}
+      route @${tcp-proxy.subdomain} {
+        tls
+        upstream ${tcp-proxy.redirect-address}:${builtins.toString tcp-proxy.port}          
       }
     }
   '';
