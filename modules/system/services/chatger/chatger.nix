@@ -74,7 +74,7 @@ in
 
         serviceConfig = {
           ExecStart = ''
-            ${pkgs.socat}/bin/socat \
+            ${pkgs.socat}/bin/socat -d -d -v\
               OPENSSL-LISTEN:${builtins.toString chatgerTLSPort},reuseaddr,fork,cert=/var/lib/acme/insinuatis.com/cert.pem,key=/var/lib/acme/insinuatis.com/key.pem,verify=0 \
               TCP:127.0.0.1:${builtins.toString chatgerInternalPort}
           '';
