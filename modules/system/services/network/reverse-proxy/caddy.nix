@@ -34,10 +34,14 @@ let
   makeReverseProxyTcp = tcp-proxy: ''
     @${tcp-proxy.subdomain} tls sni ${tcp-proxy.subdomain}.${domain}
     route @${tcp-proxy.subdomain} {
-      tls "${certPath}" "${keyPath}"
+      tls ${certPath} ${keyPath}
       proxy ${tcp-proxy.redirect-address}:${builtins.toString tcp-proxy.port}
     }
   '';
+  makeTcpCerts = tcp-proxy: {
+    name = "${tcp-proxy.subdomain}.${domain}";
+    value.extraConfig = "abort";
+  };
   httpsProxies = lib.filter (p: p.type == "https") proxies;
   tcpProxies = lib.filter (p: p.type == "tcp") proxies;
   tcpPorts = map (p: p.port) tcpProxies;
@@ -60,7 +64,8 @@ in
           respond "Hello World"
         '';
       }
-      // builtins.listToAttrs (map makeReverseProxyHttps httpsProxies);
+      // builtins.listToAttrs (map makeReverseProxyHttps httpsProxies)
+      // builtins.listToAttrs (map makeTcpCerts tcpProxies);
 
       globalConfig = ''
         layer4 {
