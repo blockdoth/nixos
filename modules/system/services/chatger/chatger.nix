@@ -8,6 +8,9 @@
 let
   module = config.system-modules.services.chatger;
   domain = config.system-modules.services.network.domains.homelab;
+  chatgerInternalPort = 4348;
+  chatgerTLSPort = 4349;
+  chatgerRawPort = 4348;
   chatger = pkgs.stdenv.mkDerivation {
     name = "chatger";
     src = pkgs.fetchFromGitHub {
@@ -16,7 +19,10 @@ let
       rev = "main";
       sha256 = "sha256-FMmvoesIiJ0hevMbADNQf8sVvxNTzzKhykCyk6vblX0=";
     };
-    patches = [ ./db_from_env.patch ];
+    patches = [
+      ./db_from_env.patch
+      ./port_from_env.patch
+    ];
     buildPhase = ''
       cc -o nob nob.c
       ./nob
@@ -40,30 +46,46 @@ in
       group = "chatger";
     };
 
-    systemd.services.chatger = {
-      description = "chatger";
-      after = [ "network.target" ];
-      wantedBy = [ "multi-user.target" ];
+    systemd.services = {
+      chatger = {
+        description = "chatger";
+        after = [ "network.target" ];
+        wantedBy = [ "multi-user.target" ];
 
-      serviceConfig = {
-        ExecStart = "${chatger}/bin/chatger";
-        WorkingDirectory = "${chatger}/bin";
-        StateDirectory = "chatger";
-        Environment = "CHATGER_DB_PATH=/var/lib/chatger/chatger.db";
-        Restart = "on-failure";
-        User = "chatger";
-        Group = "chatger";
+        serviceConfig = {
+          ExecStart = "${chatger}/bin/chatger";
+          WorkingDirectory = "${chatger}/bin";
+          StateDirectory = "chatger";
+          Environment = ''
+            CHATGER_DB_PATH=/var/lib/chatger/chatger.db
+            CHATGER_PORT=${builtins.toString chatgerInternalPort}
+          '';
+          Restart = "on-failure";
+          User = "chatger";
+          Group = "chatger";
+        };
+      };
+
+      socat-tls-terminator = {
+        description = "TLS Terminator for chatger.insinuatis.com";
+        wantedBy = [ "multi-user.target" ];
+        after = [ "network.target" ];
+        requires = [ "network.target" ];
+
+        serviceConfig = {
+          ExecStart = ''
+            ${pkgs.socat}/bin/socat \
+              OPENSSL-LISTEN:${builtins.toString chatgerTLSPort},reuseaddr,fork,cert=/var/lib/acme/insinuatis.com/cert.pem,key=/var/lib/acme/insinuatis.com/key.pem,verify=0 \
+              TCP:127.0.0.1:${builtins.toString chatgerInternalPort}
+          '';
+          Group = "acme";
+          Restart = "on-failure";
+        };
       };
     };
-
-    system-modules.services = {
-      network.reverse-proxy.proxies = [
-        {
-          subdomain = "chatger";
-          type = "tcp";
-          port = 4348;
-        }
-      ];
-    };
+    networking.firewall.allowedTCPPorts = [
+      chatgerTLSPort
+      chatgerRawPort
+    ];
   };
 }

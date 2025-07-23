@@ -1,0 +1,21 @@
+diff --git a/chatger.c b/chatger.c
+index f1e6837..823bf10 100644
+--- a/chatger.c
++++ b/chatger.c
+@@ -703,7 +703,15 @@ int main(void) {
+     }
+ 
+ 
+-    const int port_number = 4348;
++    const char *port_env = getenv("CHATGER_PORT");
++    int port_number = 4348;  // default port
++    if (port_env != NULL) {
++        port_number = atoi(port_env);
++        if (port_number <= 0 || port_number > 65535) {
++            error("Invalid port number in CHATGER_PORT environment variable");
++            exit(EXIT_FAILURE);
++        }
++    }
+ 
+     info("Creating socket");
+     int listen_file_descriptor = socket(AF_INET, SOCK_STREAM, 0);
