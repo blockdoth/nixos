@@ -56,10 +56,10 @@ in
           ExecStart = "${chatger}/bin/chatger";
           WorkingDirectory = "${chatger}/bin";
           StateDirectory = "chatger";
-          Environment = ''
-            CHATGER_DB_PATH=/var/lib/chatger/chatger.db
-            CHATGER_PORT=${builtins.toString chatgerInternalPort}
-          '';
+          Environment = [
+            "CHATGER_DB_PATH=/var/lib/chatger/chatger.db"
+            "CHATGER_PORT=${builtins.toString chatgerInternalPort}"
+          ];
           Restart = "on-failure";
           User = "chatger";
           Group = "chatger";
