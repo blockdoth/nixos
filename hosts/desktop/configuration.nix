@@ -20,7 +20,10 @@
       gui.enable = true;
       gaming.enable = true;
     };
-    common.syncthing.enable = true;
+    common = {
+      syncthing.enable = true;
+      bluetooth.enable = true;
+    };
     services = {
       # gameservers.factorio.enable = true;
       # observability.gatus.enable = true;
