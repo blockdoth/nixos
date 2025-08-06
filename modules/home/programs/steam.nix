@@ -12,6 +12,7 @@ in
   config = lib.mkIf module.enable {
     home.packages = with pkgs; [
       # steam
+      beyond-all-reason
     ];
     # home.persistence."/persist/home/${config.home.username}".directories = [
     #   {
