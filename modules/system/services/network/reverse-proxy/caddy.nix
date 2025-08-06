@@ -59,13 +59,14 @@ in
         plugins = [ "github.com/mholt/caddy-l4@v0.0.0-20250530154005-4d3c80e89c5f" ];
         hash = "sha256-O2shDuAA4OjUx44uOxMbd5iQUQVl6GUuFKqv+P/PXNM=";
       };
-      virtualHosts = {
-        "${domain}".extraConfig = ''
-          respond "Hello World"
-        '';
-      }
-      // builtins.listToAttrs (map makeReverseProxyHttps httpsProxies)
-      // builtins.listToAttrs (map makeTcpCerts tcpProxies);
+      virtualHosts =
+        {
+          "${domain}".extraConfig = ''
+            respond "Hello World"
+          '';
+        }
+        // builtins.listToAttrs (map makeReverseProxyHttps httpsProxies)
+        // builtins.listToAttrs (map makeTcpCerts tcpProxies);
 
       globalConfig = ''
         layer4 {
@@ -79,7 +80,6 @@ in
     networking.firewall.allowedTCPPorts = [
       80
       443
-    ]
-    ++ tcpPorts;
+    ] ++ tcpPorts;
   };
 }
