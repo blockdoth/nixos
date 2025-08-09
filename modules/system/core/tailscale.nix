@@ -23,8 +23,13 @@ in
     };
 
     networking.firewall = {
-      trustedInterfaces = [ config.services.tailscale.interfaceName ];
-      allowedUDPPorts = [ config.services.tailscale.port ];
+      trustedInterfaces = [
+        config.services.tailscale.interfaceName
+      ];
+      allowedUDPPorts = [
+        53
+        config.services.tailscale.port
+      ];
     };
 
     environment.persistence = lib.mkIf impermanence.enable {
