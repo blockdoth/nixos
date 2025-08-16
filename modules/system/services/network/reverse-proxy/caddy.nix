@@ -68,6 +68,7 @@ in
       // builtins.listToAttrs (map makeTcpCerts tcpProxies);
 
       globalConfig = ''
+        metrics
         layer4 {
           :443 {
             ${builtins.concatStringsSep "\n\n" (map makeReverseProxyTcp tcpProxies)}
