@@ -29,7 +29,8 @@ in
           enabled = true;
           header_name = "Remote-User";
           auto_sign_up = true;
-          role_attribute_path = "contains(groups[*], 'grafana') && 'Editor' || 'Viewer'";
+          skip_org_role_sync = false;
+          role_attribute_path = "contains(groups[*], 'grafana') && 'Admin' || 'Viewer'";
         };
         security = {
           admin_user = "admin";
