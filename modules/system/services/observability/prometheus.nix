@@ -41,6 +41,16 @@ in
             }
           ];
         }
+        {
+          job_name = "immich";
+          static_configs = [
+            {
+              targets = [
+                "127.0.0.1:2283"
+              ];
+            }
+          ];
+        }
       ];
     };
 
