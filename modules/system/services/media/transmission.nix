@@ -65,7 +65,7 @@ in
         }
       ];
 
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "Transmission";
           url = "https://transmission.${domain}";

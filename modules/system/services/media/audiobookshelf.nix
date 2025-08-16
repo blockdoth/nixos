@@ -25,7 +25,7 @@ in
           require-auth = true;
         }
       ];
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "Audiobookshelf";
           url = "https://audiobookshelf.${domain}";

@@ -35,7 +35,7 @@ in
         }
       ];
 
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "Factorio";
           url = "https://factorio.${domain}";

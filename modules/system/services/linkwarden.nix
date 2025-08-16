@@ -39,7 +39,7 @@ in
           require-auth = true;
         }
       ];
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "Linkwarden";
           url = "https://linkwarden.${domain}";

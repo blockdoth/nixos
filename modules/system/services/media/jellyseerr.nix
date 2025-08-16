@@ -27,7 +27,7 @@ in
           require-auth = true;
         }
       ];
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "Jellyseerr";
           url = "https://jellyseerr.${domain}";

@@ -33,7 +33,7 @@ in
           require-auth = true;
         }
       ];
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "Radarr";
           url = "https://radarr.${domain}";

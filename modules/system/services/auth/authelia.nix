@@ -9,7 +9,7 @@ let
   module = config.system-modules.services.auth.authelia;
   domain = config.system-modules.services.network.domains.homelab;
   lldap-config = config.system-modules.services.auth.lldap;
-  healthcheck-endpoints = config.system-modules.services.observability.gatus.endpoints;
+  healthcheck-endpoints = config.system-modules.services.observability.healthchecks.endpoints;
 in
 {
   config = lib.mkIf module.enable {
@@ -165,7 +165,7 @@ in
           port = module.port;
         }
       ];
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "Authelia";
           url = "https://auth.${domain}";

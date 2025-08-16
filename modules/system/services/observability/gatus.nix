@@ -29,7 +29,7 @@ in
           title = "My Gatus Dashboard";
           theme = "dark";
         };
-        endpoints = buildUrl config.system-modules.services.observability.gatus.endpoints;
+        endpoints = buildUrl config.system-modules.services.observability.healthchecks.endpoints;
       };
     };
 

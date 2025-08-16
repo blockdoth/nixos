@@ -166,34 +166,32 @@ in
           loki.enable = mkEnableOption "loki";
           prometheus.enable = mkEnableOption "prometheus";
           promtail.enable = mkEnableOption "promtail";
-          gatus = {
-            enable = mkEnableOption "gatus";
-            endpoints = mkOption {
-              type = types.listOf (
-                types.submodule {
-                  options = {
-                    name = mkOption { type = types.str; };
-                    url = mkOption { type = types.str; };
-                    endpoint = mkOption {
-                      type = types.str;
-                      default = "";
-                    };
-                    interval = mkOption {
-                      type = types.str;
-                      default = "30s";
-                    };
-                    conditions = mkOption {
-                      type = types.listOf types.str;
-                      default = [
-                        "[STATUS] == 200"
-                        "[RESPONSE_TIME] < 500"
-                      ];
-                    };
+          gatus.enable = mkEnableOption "gatus";
+          healthchecks.endpoints = mkOption {
+            type = types.listOf (
+              types.submodule {
+                options = {
+                  name = mkOption { type = types.str; };
+                  url = mkOption { type = types.str; };
+                  endpoint = mkOption {
+                    type = types.str;
+                    default = "";
                   };
-                }
-              );
-              default = [ ];
-            };
+                  interval = mkOption {
+                    type = types.str;
+                    default = "30s";
+                  };
+                  conditions = mkOption {
+                    type = types.listOf types.str;
+                    default = [
+                      "[STATUS] == 200"
+                      "[RESPONSE_TIME] < 500"
+                    ];
+                  };
+                };
+              }
+            );
+            default = [ ];
           };
         };
 

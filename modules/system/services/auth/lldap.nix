@@ -75,7 +75,7 @@ in
           port = config.services.lldap.settings.http_port;
         }
       ];
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "lldap";
           url = "https://lldap.${domain}";

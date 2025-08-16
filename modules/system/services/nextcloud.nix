@@ -36,7 +36,7 @@ in
           port = config.services.nextcloud.port;
         }
       ];
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "Nextcloud";
           url = "https://nextcloud.${domain}";

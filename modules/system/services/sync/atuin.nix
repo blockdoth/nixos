@@ -25,7 +25,7 @@ in
           port = config.services.atuin.port;
         }
       ];
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "Atuin";
           url = "https://atuin.${domain}";

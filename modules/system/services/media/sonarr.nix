@@ -41,7 +41,7 @@ in
           require-auth = true;
         }
       ];
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "Sonarr";
           url = "https://sonarr.${domain}";

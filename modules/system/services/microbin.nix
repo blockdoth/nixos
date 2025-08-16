@@ -35,7 +35,7 @@ in
           port = config.services.microbin.settings.MICROBIN_PORT;
         }
       ];
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "Microbin";
           url = "https://microbin.${domain}";

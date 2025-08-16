@@ -25,7 +25,7 @@ in
           port = config.services.immich.port;
         }
       ];
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "Immich";
           url = "https://immich.${domain}";

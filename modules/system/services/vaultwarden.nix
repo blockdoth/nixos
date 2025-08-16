@@ -30,7 +30,7 @@ in
           port = config.services.vaultwarden.config.ROCKET_PORT;
         }
       ];
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "Vaultwarden";
           url = "https://vaultwarden.${domain}";

@@ -31,7 +31,7 @@ in
           port = config.services.anki-sync-server.port;
         }
       ];
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "Anki";
           url = "https://anki.${domain}";

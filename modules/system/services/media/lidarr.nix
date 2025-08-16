@@ -34,7 +34,7 @@ in
         }
       ];
 
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "Lidarr";
           url = "https://lidarr.${domain}";

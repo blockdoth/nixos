@@ -78,7 +78,7 @@ in
           '';
         }
       ];
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "Grafana";
           url = "https://grafana.${domain}";

@@ -49,7 +49,7 @@ in
           port = config.services.headscale.port;
         }
       ];
-      observability.gatus.endpoints = [
+      observability.healthchecks.endpoints = [
         {
           name = "Headscale";
           url = "https://headscale.${domain}";
