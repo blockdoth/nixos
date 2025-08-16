@@ -23,6 +23,7 @@
     common = {
       syncthing.enable = true;
       bluetooth.enable = true;
+      docker.enable = true;
     };
     services = {
       # gameservers.factorio.enable = true;
