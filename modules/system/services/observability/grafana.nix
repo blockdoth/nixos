@@ -29,7 +29,7 @@ in
           enabled = true;
           header_name = "Remote-User";
           auto_sign_up = true;
-          role_attribute_path = "'Admin'";
+          role_attribute_path = "contains(groups[*], 'grafana') && 'Editor' || 'Viewer'";
         };
         security = {
           admin_user = "admin";
