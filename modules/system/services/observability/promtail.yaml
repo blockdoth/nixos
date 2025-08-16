@@ -22,45 +22,45 @@ scrape_configs:
       - timestamp:
           source: timestamp
           format: "2006-01-02 15:04:05"
-  - job_name: fail2ban
-    static_configs:
-      - targets:
-          - localhost
-        labels:
-          job: fail2ban
-          __path__: /var/log/fail2ban.log
-    pipeline_stages:
-      - multiline:
-          firstline: '\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}'
-      - regex:
-          expression: >-
-            ^(?s)(?P<time>\S+? \S+?)
-            (fail2ban\.)(?P<component>\S+)\s*
-            \[(?P<pid>\S+)\]:
-            (?P<priority>\S+)\s*
-            (?P<message>.*?)$
-      - timestamp:
-          source: time
-          format: '2006-01-02 15:04:05,000'
-      - labels:
-          component:
-          priority:
-      - output:
-          source: message
-      - match:
-          selector: '{job="fail2ban"} |~ "\\\\[\\\\S+\\\\] .*"'
-          stages:
-            - regex:
-                expression: '(\[(?P<jail>\S+)\] )?(?P<message>.*?)$'
-            - labels:
-                jail:
-            - output:
-                source: message
-      - regex:
-          expression: '.*?(?P<remote_addr>\d+\.\d+\.\d+\.\d+).*'
-      - geoip:
-          db: /GeoLite2-City.mmdb
-          source: remote_addr
-          db_type: city
-      - labeldrop:
-          - filename
+  # - job_name: fail2ban
+  #   static_configs:
+  #     - targets:
+  #         - localhost
+  #       labels:
+  #         job: fail2ban
+  #         __path__: /var/log/fail2ban.log
+  #   pipeline_stages:
+  #     - multiline:
+  #         firstline: '\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}'
+  #     - regex:
+  #         expression: >-
+  #           ^(?s)(?P<time>\S+? \S+?)
+  #           (fail2ban\.)(?P<component>\S+)\s*
+  #           \[(?P<pid>\S+)\]:
+  #           (?P<priority>\S+)\s*
+  #           (?P<message>.*?)$
+  #     - timestamp:
+  #         source: time
+  #         format: '2006-01-02 15:04:05,000'
+  #     - labels:
+  #         component:
+  #         priority:
+  #     - output:
+  #         source: message
+  #     - match:
+  #         selector: '{job="fail2ban"} |~ "\\\\[\\\\S+\\\\] .*"'
+  #         stages:
+  #           - regex:
+  #               expression: '(\[(?P<jail>\S+)\] )?(?P<message>.*?)$'
+  #           - labels:
+  #               jail:
+  #           - output:
+  #               source: message
+  #     - regex:
+  #         expression: '.*?(?P<remote_addr>\d+\.\d+\.\d+\.\d+).*'
+  #     - geoip:
+  #         db: /GeoLite2-City.mmdb
+  #         source: remote_addr
+  #         db_type: city
+  #     - labeldrop:
+  #         - filename
