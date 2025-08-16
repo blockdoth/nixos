@@ -96,7 +96,6 @@ in
           };
         };
 
-        # TODO make this stub actually functional
         identity_providers.oidc.clients = [
           {
             authorization_policy = "one_factor";

@@ -27,7 +27,7 @@ in
         };
         "auth.proxy" = {
           enabled = true;
-          header_name = "X-Forwarded-User";
+          header_name = "Remote-User";
           header_property = "username";
           auto_sign_up = true;
           role_attribute_path = "'Admin'";
@@ -73,8 +73,9 @@ in
           port = config.services.grafana.settings.server.http_port;
           require-auth = true;
           extra-config = ''
-            header_up X-Forwarded-User {http.auth.user}
-            header_up X-Forwarded-Groups {http.auth.groups}            
+            header_up X-Forwarded-User {http.auth.user.id}
+            header_up X-Forwarded-Groups {http.auth.user.groups}
+            header_up X-Forwarded-Email {http.auth.user.email}     
           '';
         }
       ];
