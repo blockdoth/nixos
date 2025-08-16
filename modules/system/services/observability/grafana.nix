@@ -71,11 +71,11 @@ in
           subdomain = "grafana";
           port = config.services.grafana.settings.server.http_port;
           require-auth = true;
-          # extra-config = ''
-          #   header_up X-Forwarded-User {http.auth.user.id}
-          #   header_up X-Forwarded-Groups {http.auth.user.groups}
-          #   header_up X-Forwarded-Email {http.auth.user.email}
-          # '';
+          extra-config = ''
+            header_up X-Forwarded-User {http.auth.user.id}
+            header_up X-Forwarded-Groups {http.auth.user.groups}
+            header_up X-Forwarded-Email {http.auth.user.email}     
+          '';
         }
       ];
       observability.healthchecks.endpoints = [
