@@ -25,11 +25,11 @@ in
           subdomain = "httpbin";
           port = config.services.go-httpbin.settings.PORT;
           require-auth = true;
-          # extra-config = ''
-          #   header_up X-Forwarded-User {http.auth.user.id}
-          #   header_up X-Forwarded-Groups {http.auth.user.groups}
-          #   header_up X-Forwarded-Email {http.auth.user.email}
-          # '';
+          extra-config = ''
+            header_up X-Forwarded-User {http.request.header.Remote-User}
+            header_up X-Forwarded-Groups {http.request.header.Remote-Groups}
+            header_up X-Forwarded-Email {http.request.header.Remote-Email}
+          '';
         }
       ];
       observability.healthchecks.endpoints = [
