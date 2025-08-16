@@ -28,7 +28,6 @@ in
         "auth.proxy" = {
           enabled = true;
           header_name = "Remote-User";
-          header_property = "username";
           auto_sign_up = true;
           role_attribute_path = "'Admin'";
         };
