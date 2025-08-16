@@ -34,5 +34,6 @@
     ./nextcloud.nix
     ./homepage.nix
     ./microbin.nix
+    ./httpbin.nix
   ];
 }

@@ -64,6 +64,7 @@
       nextcloud.enable = false;
       microbin.enable = false;
       homepage.enable = true;
+      httpbin.enable = true;
     };
   };
 

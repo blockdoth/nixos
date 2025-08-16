@@ -235,6 +235,7 @@ in
         nextcloud.enable = mkEnableOption "nextcloud";
         homepage.enable = mkEnableOption "homepage";
         microbin.enable = mkEnableOption "microbin";
+        httpbin.enable = mkEnableOption "httpbin";
       };
     };
   };

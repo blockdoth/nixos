@@ -22,6 +22,7 @@ in
           "wheel"
           "networkmanager"
           "audio"
+          "docker"
           "dialout" # For serialW
         ];
         openssh = {
