@@ -42,6 +42,8 @@ in
       nmap
       netcat-gnu
       openssl
+      cloc
+      wget
     ];
   };
 }
