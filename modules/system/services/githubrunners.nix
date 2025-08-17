@@ -24,7 +24,6 @@ in
       description = "GitHub Actions Runner User";
       home = "/var/lib/githubrunners";
       createHome = true;
-      shell = pkgs.bash;
     };
 
     services.github-runners = {
@@ -33,18 +32,25 @@ in
         name = "trusted runner 1";
         url = "https://github.com/blockdoth/chatger-tui";
         tokenFile = config.sops.secrets.githubrunner-trusted-1-token.path;
+        user = "githubrunners";
+        group = "githubrunners";
       };
       chatgertui-trusted-2 = {
         enable = true;
         name = "trusted runner 2";
         url = "https://github.com/blockdoth/chatger-tui";
         tokenFile = config.sops.secrets.githubrunner-trusted-2-token.path;
+        user = "githubrunners";
+        group = "githubrunners";
       };
       chatgertui-untrusted-1 = {
         enable = true;
         name = "untrusted runner 1";
         url = "https://github.com/blockdoth/chatger-tui";
         tokenFile = config.sops.secrets.githubrunner-untrusted-1-token.path;
+        ephemeral = true;
+        user = "githubrunners";
+        group = "githubrunners";
       };
     };
   };
