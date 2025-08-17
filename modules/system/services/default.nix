@@ -36,5 +36,6 @@
     ./homepage.nix
     ./microbin.nix
     ./httpbin.nix
+    ./githubrunners.nix
   ];
 }

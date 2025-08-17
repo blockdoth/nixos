@@ -237,6 +237,7 @@ in
         homepage.enable = mkEnableOption "homepage";
         microbin.enable = mkEnableOption "microbin";
         httpbin.enable = mkEnableOption "httpbin";
+        githubrunners.enable = mkEnableOption "github runners";
       };
     };
   };

@@ -27,8 +27,7 @@
       crosscompilation.enable = true;
     };
     services = {
-      # scraping.connectbox.enable = true;
-      network.reverse-proxy.caddy.enable = true;
+      githubrunners.enable = true;
     };
   };
 
