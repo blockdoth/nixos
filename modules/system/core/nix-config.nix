@@ -37,6 +37,10 @@ in
 
     nix = {
       package = pkgs.nixVersions.stable;
+      trustedUsers = [
+        "root"
+        "githubrunners"
+      ];
       settings = {
         cores = 11;
         experimental-features = [

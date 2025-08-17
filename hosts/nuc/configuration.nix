@@ -65,6 +65,7 @@
       microbin.enable = false;
       homepage.enable = true;
       httpbin.enable = true;
+      githubrunners.enable = true;
     };
   };
 
