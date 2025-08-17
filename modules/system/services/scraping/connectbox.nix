@@ -27,21 +27,21 @@ let
     requirements = builtins.readFile "${connectboxSrc}/resources/requirements/production.txt";
   };
 
-  # connectboxExporter = pkgs.stdenv.mkDerivation {
-  #   pname = "connectbox-exporter";
-  #   version = "0.0.1";
-  #   src = connectboxSrc;
+  connectboxExporter = pkgs.stdenv.mkDerivation {
+    pname = "connectbox-exporter";
+    version = "0.0.1";
+    src = connectboxSrc;
 
-  #   nativeBuildInputs = [ pythonEnv ];
+    nativeBuildInputs = [ pythonEnv ];
 
-  #   buildPhase = ''
-  #     ${pythonEnv.interpreter} setup.py build
-  #   '';
+    buildPhase = ''
+      ${pythonEnv.interpreter} setup.py build
+    '';
 
-  #   installPhase = ''
-  #     ${pythonEnv.interpreter} setup.py install --prefix=$out
-  #   '';
-  # };
+    installPhase = ''
+      ${pythonEnv.interpreter} setup.py install --prefix=$out
+    '';
+  };
 in
 {
   config = lib.mkIf module.enable {
