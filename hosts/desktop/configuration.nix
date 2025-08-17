@@ -24,6 +24,7 @@
       syncthing.enable = true;
       bluetooth.enable = true;
       docker.enable = true;
+      crosscompilation.enable = true;
     };
     services = {
       # scraping.connectbox.enable = true;
