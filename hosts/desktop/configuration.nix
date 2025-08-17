@@ -26,7 +26,7 @@
       docker.enable = true;
     };
     services = {
-      scraping.connectbox.enable = true;
+      # scraping.connectbox.enable = true;
       network.reverse-proxy.caddy.enable = true;
     };
   };

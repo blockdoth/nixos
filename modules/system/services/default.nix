@@ -25,7 +25,7 @@
     ./observability/loki.nix
     ./observability/gatus.nix
     ./scraping/iss-piss-stream.nix
-    ./scraping/connectbox.nix
+    ./scraping/connectbox/connectbox.nix
     ./sync/atuin.nix
     ./sync/anki.nix
     ./vaultwarden.nix
