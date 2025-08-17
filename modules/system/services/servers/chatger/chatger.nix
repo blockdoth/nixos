@@ -6,7 +6,7 @@
   ...
 }:
 let
-  module = config.system-modules.services.chatger;
+  module = config.system-modules.services.servers.chatger;
   domain = config.system-modules.services.network.domains.homelab;
   chatgerInternalPort = 4348;
   chatgerTLSPort = 4349;

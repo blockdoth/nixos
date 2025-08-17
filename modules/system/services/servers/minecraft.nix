@@ -6,7 +6,7 @@
   ...
 }:
 let
-  module = config.system-modules.services.gameservers.minecraft;
+  module = config.system-modules.services.servers.minecraft;
   domain = config.system-modules.services.domains.gameservers;
 in
 {

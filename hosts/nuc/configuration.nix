@@ -41,8 +41,9 @@
         authelia.enable = true;
         lldap.enable = true;
       };
-      gameservers = {
+      servers = {
         minecraft.enable = true;
+        chatger.enable = true;
       };
       observability = {
         gatus.enable = true;
@@ -57,7 +58,6 @@
         audiobookshelf.enable = true;
         jellyseerr.enable = true;
       };
-      chatger.enable = true;
       immich.enable = true;
       vaultwarden.enable = true;
       linkwarden.enable = false;

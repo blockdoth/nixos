@@ -7,8 +7,9 @@
 {
   imports = [
     ./media
-    ./gameservers/factorio.nix
-    ./gameservers/minecraft.nix
+    ./servers/factorio.nix
+    ./servers/minecraft.nix
+    ./servers/chatger/chatger.nix
     ./network/ddns/ddns.nix
     ./network/acme.nix
     ./network/blocky.nix
@@ -24,9 +25,9 @@
     ./observability/loki.nix
     ./observability/gatus.nix
     ./scraping/iss-piss-stream.nix
+    ./scraping/connectbox.nix
     ./sync/atuin.nix
     ./sync/anki.nix
-    ./chatger/chatger.nix
     ./vaultwarden.nix
     ./filebrowser.nix
     ./immich.nix

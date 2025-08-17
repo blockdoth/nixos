@@ -26,9 +26,7 @@
       docker.enable = true;
     };
     services = {
-      # gameservers.factorio.enable = true;
-      # observability.gatus.enable = true;
-      # chatger.enable = true;
+      scraping.connectbox.enable = true;
       network.reverse-proxy.caddy.enable = true;
     };
   };

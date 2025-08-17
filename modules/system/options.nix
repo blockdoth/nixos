@@ -86,9 +86,10 @@ in
       };
 
       services = {
-        gameservers = {
+        servers = {
           minecraft.enable = mkEnableOption "minecraft server";
           factorio.enable = mkEnableOption "factorio server";
+          chatger.enable = mkEnableOption "chatger";
         };
         network = {
           ddns.enable = mkEnableOption "ddns";
@@ -197,6 +198,7 @@ in
 
         scraping = {
           iss-piss-stream.enable = mkEnableOption "iss piss stream monitoring";
+          connectbox.enable = mkEnableOption "connect box prometheus exporter";
         };
 
         sync = {
@@ -227,7 +229,6 @@ in
             description = "Group for media access";
           };
         };
-        chatger.enable = mkEnableOption "chatger";
         vaultwarden.enable = mkEnableOption "vaultwarden";
         filebrowser.enable = mkEnableOption "filebrowser";
         immich.enable = mkEnableOption "immich";

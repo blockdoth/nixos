@@ -6,7 +6,7 @@
   ...
 }:
 let
-  module = config.system-modules.services.gameservers.factorio;
+  module = config.system-modules.services.servers.factorio;
   domain = config.system-modules.services.network.domains.gameservers;
 in
 {
