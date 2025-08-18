@@ -11,20 +11,18 @@ clients:
 scrape_configs:
   - job_name: "pisslog"
     static_configs:
-      - targets: 
+      - targets:
           - 127.0.0.1
         labels:
           job: "pisslog"
           __path__: "/var/log/pisslog.csv"
-      pipeline_stages:
-        - regex:
-            expression: '(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}), (?P<number>\d+)$'
-        - timestamp:
-            source: timestamp
-            format: "2006-01-02 15:04:05"
-        - metrics:
-            type: gauge
-            name: piss_percentage
-            value: number
-
-
+        pipeline_stages:
+          - regex:
+              expression: '(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}), (?P<number>\d+)$'
+          - timestamp:
+              source: timestamp
+              format: "2006-01-02 15:04:05"
+          - metrics:
+              type: gauge
+              name: piss_percentage
+              value: number
