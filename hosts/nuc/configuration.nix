@@ -47,6 +47,7 @@
       };
       observability = {
         gatus.enable = true;
+        metabase.enable = true;
       };
 
       sync = {

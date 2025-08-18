@@ -168,6 +168,7 @@ in
           prometheus.enable = mkEnableOption "prometheus";
           promtail.enable = mkEnableOption "promtail";
           gatus.enable = mkEnableOption "gatus";
+          metabase.enable = mkEnableOption "metabase";
           healthchecks.endpoints = mkOption {
             type = types.listOf (
               types.submodule {

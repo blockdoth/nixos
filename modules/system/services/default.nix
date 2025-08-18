@@ -24,6 +24,7 @@
     ./observability/promtail.nix
     ./observability/loki.nix
     ./observability/gatus.nix
+    ./observability/metabase.nix
     ./scraping/iss-piss-stream.nix
     ./scraping/connectbox/connectbox.nix
     ./sync/atuin.nix
