@@ -11,6 +11,10 @@ let
 in
 {
   config = lib.mkIf module.enable {
+    environment.systemPackages = [
+      pkgs.xz
+    ];
+
     sops.secrets = {
       githubrunner-1-token = { };
       githubrunner-2-token = { };

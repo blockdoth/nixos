@@ -27,7 +27,7 @@
       crosscompilation.enable = true;
     };
     services = {
-      githubrunners.enable = true;
+      # githubrunners.enable = true;
     };
   };
 
