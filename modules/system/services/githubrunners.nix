@@ -12,12 +12,11 @@ in
 {
   config = lib.mkIf module.enable {
     environment.systemPackages = [
-      pkgs.xz
+      pkgs.xz # For decompressing cache between runs
     ];
 
     sops.secrets = {
-      githubrunner-1-token = { };
-      githubrunner-2-token = { };
+      githubrunner-chatger-tui-token = { };
     };
 
     users.groups.githubrunners = { };
@@ -30,19 +29,11 @@ in
     };
 
     services.github-runners = {
-      chatgertui-runner-1 = {
+      chatgertui-runner = {
         enable = true;
-        name = "runner 1";
+        name = "chatger-tui runner";
         url = "https://github.com/blockdoth/chatger-tui";
-        tokenFile = config.sops.secrets.githubrunner-1-token.path;
-        user = "githubrunners";
-        group = "githubrunners";
-      };
-      chatgertui-runner-2 = {
-        enable = true;
-        name = "runner 2";
-        url = "https://github.com/blockdoth/chatger-tui";
-        tokenFile = config.sops.secrets.githubrunner-2-token.path;
+        tokenFile = config.sops.secrets.githubrunner-chatger-tui-token.path;
         user = "githubrunners";
         group = "githubrunners";
       };
