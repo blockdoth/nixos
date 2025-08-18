@@ -22,5 +22,8 @@ scrape_configs:
       - timestamp:
           source: timestamp
           format: "2006-01-02 15:04:05"
-      - output:
-          source: number
+      - metrics:
+          number:
+            type: gauge
+            value: '{{.number}}'
+
