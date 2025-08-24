@@ -44,6 +44,7 @@ in
       openssl
       cloc
       wget
+      lsof
     ];
   };
 }
