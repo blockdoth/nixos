@@ -149,6 +149,7 @@ in
       packages = with pkgs; [ devinit ];
       sessionVariables = {
         DIRENV_WARN_TIMEOUT = "100h";
+        DIRENV_LOG_FORMAT = ""; # disables direnv logs
       };
     };
     programs.direnv = {
