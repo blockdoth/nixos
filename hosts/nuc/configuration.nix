@@ -19,7 +19,7 @@
     };
 
     presets = {
-      mediaserver.enable = true;
+      mediaserver.enable = false;
       iss-piss-stream.enable = true;
     };
     common = {
@@ -47,7 +47,7 @@
       };
       observability = {
         gatus.enable = true;
-        metabase.enable = true;
+        metabase.enable = false;
       };
 
       sync = {
