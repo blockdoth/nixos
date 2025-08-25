@@ -56,8 +56,8 @@
       };
 
       media = {
-        audiobookshelf.enable = true;
-        jellyseerr.enable = true;
+        audiobookshelf.enable = false;
+        jellyseerr.enable = false;
       };
       immich.enable = true;
       vaultwarden.enable = true;
