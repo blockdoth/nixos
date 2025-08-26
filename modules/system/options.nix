@@ -90,6 +90,7 @@ in
           minecraft.enable = mkEnableOption "minecraft server";
           factorio.enable = mkEnableOption "factorio server";
           chatger.enable = mkEnableOption "chatger";
+          chatger-registry.enable = mkEnableOption "chatger-registry";
         };
         network = {
           ddns.enable = mkEnableOption "ddns";

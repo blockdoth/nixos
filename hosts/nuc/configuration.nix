@@ -44,6 +44,7 @@
       servers = {
         minecraft.enable = true;
         chatger.enable = true;
+        chatger-registry.enable = true;
       };
       observability = {
         gatus.enable = true;

@@ -8,7 +8,7 @@
 let
   module = config.system-modules.services.servers.chatger-registry;
   domain = config.system-modules.services.network.domains.homelab;
-  reggerPort = "8231";
+  reggerPort = 8231;
 in
 {
   config = lib.mkIf module.enable {
@@ -22,22 +22,20 @@ in
       group = "chatger";
     };
 
-    systemd.services = {
-      chatger = {
-        description = "chatger-registry";
-        after = [ "network.target" ];
-        wantedBy = [ "multi-user.target" ];
+    systemd.services.chatger-registry = {
+      description = "chatger-registry";
+      after = [ "network.target" ];
+      wantedBy = [ "multi-user.target" ];
 
-        serviceConfig = {
-          ExecStart = "regger serve -db /var/lib/chatger/chatger.db -p ${reggerPort}";
-          StateDirectory = "regger";
-          Restart = "on-failure";
-          User = "regger";
-          Group = "chatger";
-        };
+      serviceConfig = {
+        ExecStart = "regger serve -db /var/lib/chatger/chatger.db -p ${builtins.toString reggerPort}";
+        StateDirectory = "regger";
+        Restart = "on-failure";
+        User = "regger";
+        Group = "chatger";
       };
-
     };
+
     system-modules.services.network.reverse-proxy.proxies = [
       {
         subdomain = "chatger-registry";
