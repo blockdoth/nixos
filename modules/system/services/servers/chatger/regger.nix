@@ -1,0 +1,48 @@
+{
+  pkgs,
+  config,
+  lib,
+  inputs,
+  ...
+}:
+let
+  module = config.system-modules.services.servers.chatger-registry;
+  domain = config.system-modules.services.network.domains.homelab;
+  reggerPort = "8231";
+in
+{
+  config = lib.mkIf module.enable {
+    environment.systemPackages = with pkgs; [
+      inputs.iss-piss-stream.packages.${pkgs.system}.default
+    ];
+    users.groups.regger = { };
+
+    users.users.regger = {
+      isSystemUser = true;
+      group = "chatger";
+    };
+
+    systemd.services = {
+      chatger = {
+        description = "chatger-registry";
+        after = [ "network.target" ];
+        wantedBy = [ "multi-user.target" ];
+
+        serviceConfig = {
+          ExecStart = "regger serve -db /var/lib/chatger/chatger.db -p ${reggerPort}";
+          StateDirectory = "regger";
+          Restart = "on-failure";
+          User = "regger";
+          Group = "chatger";
+        };
+      };
+
+    };
+    system-modules.services.network.reverse-proxy.proxies = [
+      {
+        subdomain = "chatger-registry";
+        port = reggerPort;
+      }
+    ];
+  };
+}
