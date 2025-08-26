@@ -13,7 +13,7 @@ in
 {
   config = lib.mkIf module.enable {
     environment.systemPackages = with pkgs; [
-      inputs.iss-piss-stream.packages.${pkgs.system}.default
+      inputs.chatger-registry.packages.${pkgs.system}.default
     ];
     users.groups.regger = { };
 
