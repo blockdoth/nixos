@@ -43,6 +43,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     impermanence.url = "github:nix-community/impermanence";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     # my repos
     iss-piss-stream.url = "github:blockdoth/iss-piss-stream/fed5758fb0da0d59b97e47d9037c4a37b7d40c8d";
     tree-but-cooler.url = "github:blockdoth/tree-but-cooler";
@@ -71,6 +72,7 @@
           };
           modules = [
             ./hosts/${host}/configuration.nix
+            inputs.determinate.nixosModules.default
           ];
         };
 
