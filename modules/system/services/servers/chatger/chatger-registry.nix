@@ -30,6 +30,7 @@ in
 
       serviceConfig = {
         ExecStart = "${regger}/bin/regger serve -db /var/lib/chatger/chatger.db -p ${builtins.toString reggerPort}";
+        WorkingDirectory = "${regger}/bin";
         StateDirectory = "regger";
         Restart = "on-failure";
         User = "regger";
