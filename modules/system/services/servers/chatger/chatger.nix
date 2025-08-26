@@ -63,6 +63,7 @@ in
           Restart = "on-failure";
           User = "chatger";
           Group = "chatger";
+          UMask = "0002";
         };
       };
 
