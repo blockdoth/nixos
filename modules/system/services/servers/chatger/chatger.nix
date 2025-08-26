@@ -56,6 +56,7 @@ in
           ExecStart = "${chatger}/bin/chatger";
           WorkingDirectory = "${chatger}/bin";
           StateDirectory = "chatger";
+          StateDirectoryMode = "2775";
           Environment = [
             "CHATGER_DB_PATH=/var/lib/chatger/chatger.db"
             "CHATGER_PORT=${builtins.toString chatgerInternalPort}"
