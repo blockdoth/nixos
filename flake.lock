@@ -146,11 +146,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1756214253,
-        "narHash": "sha256-HM9xCtpNKCwEvajzn+2vk+WtBBGJWur3knZnWNqq4Z0=",
+        "lastModified": 1756215222,
+        "narHash": "sha256-/wHxPZGr33C20TEDru5cd2zh8DOJOsXxn7FvrM8XMKw=",
         "owner": "blockdoth",
         "repo": "chatger-registry",
-        "rev": "5fdeebf3d6ed456e14b93930f816199cdcfa8731",
+        "rev": "bba2d25ce01e86e6a1e66e758d0a8f17c49af88a",
         "type": "github"
       },
       "original": {
