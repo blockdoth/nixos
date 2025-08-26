@@ -9,11 +9,12 @@ let
   module = config.system-modules.services.servers.chatger-registry;
   domain = config.system-modules.services.network.domains.homelab;
   reggerPort = 8231;
+  regger = inputs.chatger-registry.packages.${pkgs.system}.default;
 in
 {
   config = lib.mkIf module.enable {
     environment.systemPackages = with pkgs; [
-      inputs.chatger-registry.packages.${pkgs.system}.default
+      regger
     ];
     users.groups.regger = { };
 
@@ -28,7 +29,7 @@ in
       wantedBy = [ "multi-user.target" ];
 
       serviceConfig = {
-        ExecStart = "regger serve -db /var/lib/chatger/chatger.db -p ${builtins.toString reggerPort}";
+        ExecStart = "${regger}/bin/regger serve -db /var/lib/chatger/chatger.db -p ${builtins.toString reggerPort}";
         StateDirectory = "regger";
         Restart = "on-failure";
         User = "regger";
