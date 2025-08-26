@@ -43,6 +43,11 @@ in
       {
         subdomain = "chatger-registry";
         port = reggerPort;
+        extra-config = ''
+          transport http {
+            versions 1.1
+          }
+        '';
       }
     ];
   };
