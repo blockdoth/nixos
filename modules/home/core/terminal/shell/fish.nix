@@ -34,6 +34,7 @@ in
           notes = "cd ~/documents/notes";
           note = "cd ~/documents/notes && micro \"$(date +%F)\"";
           getrepo = "git clone ";
+          code = "codium . 2>/dev/null";
         }
         (lib.mkIf (config.home.username != "penger") {
           # Graphical
