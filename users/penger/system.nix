@@ -20,6 +20,7 @@ in
         extraGroups = [
           "wheel"
           "networkmanager"
+          "chatger"
         ];
         hashedPasswordFile = config.sops.secrets.penger-password.path;
         openssh = {
