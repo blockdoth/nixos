@@ -11,9 +11,13 @@ let
 in
 {
   config = lib.mkIf module.enable {
+    environment.systemPackages = with pkgs; [
+      xz
+    ];
 
     sops.secrets = {
       githubrunner-chatger-tui-token = { };
+      githubrunner-cv-token = { };
     };
 
     users.groups.githubrunners = { };
@@ -33,7 +37,15 @@ in
         tokenFile = config.sops.secrets.githubrunner-chatger-tui-token.path;
         user = "githubrunners";
         group = "githubrunners";
-        extraPackages = [ pkgs.xz ];
+
+      };
+      cv-runner = {
+        enable = true;
+        name = "typist cv runner";
+        url = "https://github.com/blockdoth/cv";
+        tokenFile = config.sops.secrets.githubrunner-cv-token.path;
+        user = "githubrunners";
+        group = "githubrunners";
       };
     };
   };
