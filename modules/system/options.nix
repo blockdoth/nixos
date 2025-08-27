@@ -138,10 +138,6 @@ in
                       type = types.str;
                       default = config.system-modules.secrets.domains.homelab;
                     };
-                    type = mkOption {
-                      type = types.str;
-                      default = "https";
-                    };
                     port = mkOption {
                       type = types.int;
                     };

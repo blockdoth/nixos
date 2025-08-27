@@ -28,20 +28,9 @@ let
       }
     '';
   };
-  makeReverseProxyTcp = tcp-proxy: ''
-    @${tcp-proxy.subdomain} tls sni ${tcp-proxy.subdomain}.${tcp-proxy.domain}
-    route @${tcp-proxy.subdomain} {
-      tls 
-      proxy ${tcp-proxy.redirect-address}:${builtins.toString tcp-proxy.port}
-    }
-  '';
-  makeTcpCerts = tcp-proxy: {
-    name = "${tcp-proxy.subdomain}.${tcp-proxy.domain}";
-    value.extraConfig = "abort"; # Fake route to trick caddy into getting certs
-  };
 
   makeHelloWorld = domain: {
-    name = domain; # the key of the virtualHost
+    name = domain;
     value = {
       extraConfig = ''
         respond "Hello World"
@@ -49,9 +38,6 @@ let
     };
   };
 
-  httpsProxies = lib.filter (p: p.type == "https") proxies;
-  tcpProxies = lib.filter (p: p.type == "tcp") proxies;
-  tcpPorts = map (p: p.port) tcpProxies;
   domains = map (p: p.domain) proxies;
 in
 {
@@ -62,27 +48,16 @@ in
       enable = true;
       email = mailAddress;
 
-      package = pkgs.caddy.withPlugins {
-        # L4 tcp proxying package
-        plugins = [ "github.com/mholt/caddy-l4@v0.0.0-20250530154005-4d3c80e89c5f" ];
-        hash = "sha256-O2shDuAA4OjUx44uOxMbd5iQUQVl6GUuFKqv+P/PXNM=";
-      };
       virtualHosts =
         builtins.listToAttrs (map makeHelloWorld domains)
-        // builtins.listToAttrs (map makeReverseProxyHttps httpsProxies)
-        // builtins.listToAttrs (map makeTcpCerts tcpProxies);
+        // builtins.listToAttrs (map makeReverseProxyHttps proxies);
 
       globalConfig = ''
         metrics
-        layer4 {
-          :443 {
-            ${builtins.concatStringsSep "\n\n" (map makeReverseProxyTcp tcpProxies)}
-          }
-        }
       '';
     };
 
-    networking.firewall.allowedTCPPorts = tcpPorts ++ [
+    networking.firewall.allowedTCPPorts = [
       80
       443
     ];
