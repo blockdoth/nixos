@@ -41,9 +41,12 @@ let
   };
 
   makeHelloWorld = domain: {
-    "${domain}".extraConfig = ''
-      respond "Hello World"
-    '';
+    name = domain; # the key of the virtualHost
+    value = {
+      extraConfig = ''
+        respond "Hello World"
+      '';
+    };
   };
 
   httpsProxies = lib.filter (p: p.type == "https") proxies;
@@ -65,8 +68,8 @@ in
         hash = "sha256-O2shDuAA4OjUx44uOxMbd5iQUQVl6GUuFKqv+P/PXNM=";
       };
       virtualHosts =
-        # builtins.listToAttrs (map makeHelloWorld domains)
-        builtins.listToAttrs (map makeReverseProxyHttps httpsProxies)
+        builtins.listToAttrs (map makeHelloWorld domains)
+        // builtins.listToAttrs (map makeReverseProxyHttps httpsProxies)
         // builtins.listToAttrs (map makeTcpCerts tcpProxies);
 
       globalConfig = ''
