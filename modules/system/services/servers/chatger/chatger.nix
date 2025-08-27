@@ -8,9 +8,8 @@
 let
   module = config.system-modules.services.servers.chatger;
   domain = config.system-modules.secrets.domains.public;
-  chatgerInternalPort = 4348;
   chatgerTLSPort = 4349;
-  chatgerRawPort = 4348;
+  chatgerPort = 4348;
   chatger = pkgs.stdenv.mkDerivation {
     name = "chatger";
     src = pkgs.fetchFromGitHub {
@@ -58,7 +57,7 @@ in
           StateDirectoryMode = "2775";
           Environment = [
             "CHATGER_DB_PATH=/var/lib/chatger/chatger.db"
-            "CHATGER_PORT=${builtins.toString chatgerInternalPort}"
+            "CHATGER_PORT=${builtins.toString chatgerPort}"
           ];
           Restart = "on-failure";
           User = "chatger";
@@ -67,26 +66,34 @@ in
         };
       };
 
-      socat-tls-terminator = {
-        description = "TLS Terminator for chatger.insinuatis.com";
-        wantedBy = [ "multi-user.target" ];
-        after = [ "network.target" ];
-        requires = [ "network.target" ];
+      # socat-tls-terminator = {
+      #   description = "TLS Terminator for chatger.insinuatis.com";
+      #   wantedBy = [ "multi-user.target" ];
+      #   after = [ "network.target" ];
+      #   requires = [ "network.target" ];
 
-        serviceConfig = {
-          ExecStart = ''
-            ${pkgs.socat}/bin/socat -d -d -v\
-              OPENSSL-LISTEN:${builtins.toString chatgerTLSPort},reuseaddr,fork,cert=/var/lib/acme/insinuatis.com/cert.pem,key=/var/lib/acme/insinuatis.com/key.pem,verify=0 \
-              TCP:127.0.0.1:${builtins.toString chatgerInternalPort}
-          '';
-          Group = "acme";
-          Restart = "on-failure";
-        };
-      };
+      #   serviceConfig = {
+      #     ExecStart = ''
+      #       ${pkgs.socat}/bin/socat -d -d -v\
+      #         OPENSSL-LISTEN:${builtins.toString chatgerTLSPort},reuseaddr,fork,cert=/var/lib/acme/insinuatis.com/cert.pem,key=/var/lib/acme/insinuatis.com/key.pem,verify=0 \
+      #         TCP:127.0.0.1:${builtins.toString chatgerInternalPort}
+      #     '';
+      #     Group = "acme";
+      #     Restart = "on-failure";
+      #   };
+      # };
     };
-    networking.firewall.allowedTCPPorts = [
-      chatgerTLSPort
-      chatgerRawPort
+    # networking.firewall.allowedTCPPorts = [
+    #   chatgerTLSPort
+    #   chatgerRawPort
+    # ];
+
+    system-modules.services.network.reverse-proxy.proxies = [
+      {
+        domain = "${domain}";
+        subdomain = "chatger";
+        port = chatgerPort;
+      }
     ];
   };
 }

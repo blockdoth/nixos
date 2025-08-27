@@ -41,6 +41,7 @@ in
 
     system-modules.services.network.reverse-proxy.proxies = [
       {
+        domain = "${domain}";
         subdomain = "chatger-registry";
         port = reggerPort;
         extra-config = ''
