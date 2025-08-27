@@ -66,34 +66,26 @@ in
         };
       };
 
-      # socat-tls-terminator = {
-      #   description = "TLS Terminator for chatger.insinuatis.com";
-      #   wantedBy = [ "multi-user.target" ];
-      #   after = [ "network.target" ];
-      #   requires = [ "network.target" ];
+      socat-tls-terminator = {
+        description = "TLS Terminator for chatger.insinuatis.com";
+        wantedBy = [ "multi-user.target" ];
+        after = [ "network.target" ];
+        requires = [ "network.target" ];
 
-      #   serviceConfig = {
-      #     ExecStart = ''
-      #       ${pkgs.socat}/bin/socat -d -d -v\
-      #         OPENSSL-LISTEN:${builtins.toString chatgerTLSPort},reuseaddr,fork,cert=/var/lib/acme/insinuatis.com/cert.pem,key=/var/lib/acme/insinuatis.com/key.pem,verify=0 \
-      #         TCP:127.0.0.1:${builtins.toString chatgerInternalPort}
-      #     '';
-      #     Group = "acme";
-      #     Restart = "on-failure";
-      #   };
-      # };
+        serviceConfig = {
+          ExecStart = ''
+            ${pkgs.socat}/bin/socat -d -d -v\
+              OPENSSL-LISTEN:${builtins.toString chatgerTLSPort},reuseaddr,fork,cert=/var/lib/acme/insinuatis.com/cert.pem,key=/var/lib/acme/insinuatis.com/key.pem,verify=0 \
+              TCP:127.0.0.1:${builtins.toString chatgerPort}
+          '';
+          Group = "acme";
+          Restart = "on-failure";
+        };
+      };
     };
-    # networking.firewall.allowedTCPPorts = [
-    #   chatgerTLSPort
-    #   chatgerRawPort
-    # ];
-
-    system-modules.services.network.reverse-proxy.proxies = [
-      {
-        domain = "${domain}";
-        subdomain = "chatger";
-        port = chatgerPort;
-      }
+    networking.firewall.allowedTCPPorts = [
+      chatgerTLSPort
+      chatgerPort
     ];
   };
 }
