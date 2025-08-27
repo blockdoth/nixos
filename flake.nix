@@ -48,6 +48,7 @@
     iss-piss-stream.url = "github:blockdoth/iss-piss-stream/fed5758fb0da0d59b97e47d9037c4a37b7d40c8d";
     tree-but-cooler.url = "github:blockdoth/tree-but-cooler";
     chatger-registry.url = "github:blockdoth/chatger-registry";
+    nixos-domains.url = "git+ssh://git@github.com/blockdoth/nixos-domains";
   };
 
   outputs =

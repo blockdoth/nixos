@@ -29,6 +29,11 @@
 
     services = {
       network = {
+        domains = {
+          homelab = inputs.nixos-domains.homelab;
+          public = inputs.nixos-domains.public;
+        };
+
         acme.enable = true;
         ddns.enable = true;
         headscale.enable = true;

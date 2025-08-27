@@ -110,6 +110,7 @@ in
                 types.submodule {
                   options = {
                     subdomain = mkOption { type = types.str; };
+
                     type = mkOption {
                       type = types.str;
                       default = "https";
@@ -136,15 +137,11 @@ in
             };
           };
           domains = {
-            iss-piss-stream = mkOption {
-              type = types.str;
-              default = "localhost";
-            };
             homelab = mkOption {
               type = types.str;
               default = "localhost";
             };
-            gameservers = mkOption {
+            public = mkOption {
               type = types.str;
               default = "localhost";
             };
@@ -275,14 +272,6 @@ in
       };
 
       services = {
-        network = {
-          domains = {
-            iss-piss-stream = "insinuatis.com";
-            homelab = "insinuatis.com";
-            gameservers = "insinuatis.com";
-          };
-        };
-
         observability = {
           grafana.enable = mkDefault enablePissStream;
           loki.enable = mkDefault enablePissStream;

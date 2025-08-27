@@ -7,7 +7,7 @@
 }:
 let
   module = config.system-modules.services.servers.factorio;
-  domain = config.system-modules.services.network.domains.gameservers;
+  domain = config.system-modules.services.network.domains.public;
 in
 {
   config = lib.mkIf module.enable {

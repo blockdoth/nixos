@@ -1183,6 +1183,21 @@
         "type": "github"
       }
     },
+    "nixos-domains": {
+      "locked": {
+        "lastModified": 1756288054,
+        "narHash": "sha256-+/gfKvMz32uRVRR1YGWuhdyXHfASU1S4NMq4PMnmUqE=",
+        "ref": "refs/heads/main",
+        "rev": "7cb7fac49bd37ddee14e479373a75ae900174ca5",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@github.com/blockdoth/nixos-domains"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/blockdoth/nixos-domains"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1754214453,
@@ -1645,6 +1660,7 @@
         "linkwarden-pr": "linkwarden-pr",
         "nix-minecraft": "nix-minecraft",
         "nixneovimplugins": "nixneovimplugins",
+        "nixos-domains": "nixos-domains",
         "nixpkgs": "nixpkgs_13",
         "nvf": "nvf",
         "shyfox": "shyfox",

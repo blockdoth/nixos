@@ -7,7 +7,7 @@
 }:
 let
   module = config.system-modules.services.servers.chatger;
-  domain = config.system-modules.services.network.domains.homelab;
+  domain = config.system-modules.services.network.domains.public;
   chatgerInternalPort = 4348;
   chatgerTLSPort = 4349;
   chatgerRawPort = 4348;
@@ -29,8 +29,7 @@ let
     '';
     installPhase = ''
       mkdir -p $out/bin
-      cp -r ./sql $out/bin
-      cp ./chatger $out/bin
+      cp -r ./sql chatger $out/bin
     '';
   };
 in
