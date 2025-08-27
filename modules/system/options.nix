@@ -14,6 +14,7 @@ let
   enableUserPenger = config.system-modules.users.penger.enable;
   enableUserBlockdoth = config.system-modules.users.blockdoth.enable;
   zenMode = config.system-modules.zenmode.enable;
+  secrets = inputs.nixos-secrets;
   inherit (lib)
     mkIf
     mkEnableOption
@@ -39,8 +40,29 @@ in
         gaming.enable = mkEnableOption "gaming";
         laptop.enable = mkEnableOption "laptop specific config";
         mediaserver.enable = mkEnableOption "mediaserver";
-        iss-piss-stream.enable = mkEnableOption "enalbes piss stream observability";
+        iss-piss-stream.enable = mkEnableOption "piss stream observability";
         zenmode.enable = mkEnableOption "zenmode";
+      };
+
+      secrets = {
+        domains = {
+          homelab = mkOption {
+            type = types.str;
+            default = "127.0.0.1";
+          };
+          public = mkOption {
+            type = types.str;
+            default = "127.0.0.1";
+          };
+          personal = mkOption {
+            type = types.str;
+            default = "127.0.0.1";
+          };
+        };
+        mails = {
+          uni = mkOption { type = types.str; };
+          personal = mkOption { type = types.str; };
+        };
       };
 
       users = {
@@ -110,7 +132,10 @@ in
                 types.submodule {
                   options = {
                     subdomain = mkOption { type = types.str; };
-
+                    domain = mkOption {
+                      type = types.str;
+                      default = config.system-modules.secrets.domains.homelab;
+                    };
                     type = mkOption {
                       type = types.str;
                       default = "https";
@@ -134,16 +159,6 @@ in
                 }
               );
               default = [ ];
-            };
-          };
-          domains = {
-            homelab = mkOption {
-              type = types.str;
-              default = "localhost";
-            };
-            public = mkOption {
-              type = types.str;
-              default = "localhost";
             };
           };
         };
@@ -242,6 +257,17 @@ in
   };
   config = {
     system-modules = {
+      secrets = {
+        domains = {
+          homelab = secrets.domains.homelab;
+          public = secrets.domains.public;
+          personal = secrets.domains.personal;
+        };
+        mails = {
+          uni = secrets.mails.uni;
+          personal = secrets.mails.personal;
+        };
+      };
       core = {
         grub.enable = mkDefault true;
         env.enable = mkDefault true;

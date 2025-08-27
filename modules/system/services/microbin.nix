@@ -7,7 +7,7 @@
 }:
 let
   module = config.system-modules.services.microbin;
-  domain = config.system-modules.services.network.domains.homelab;
+  domain = config.system-modules.secrets.domains.homelab;
   impermanence = config.system-modules.core.impermanence;
 in
 {

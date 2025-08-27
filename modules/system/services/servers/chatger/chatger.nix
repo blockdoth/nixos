@@ -7,7 +7,7 @@
 }:
 let
   module = config.system-modules.services.servers.chatger;
-  domain = config.system-modules.services.network.domains.public;
+  domain = config.system-modules.secrets.domains.public;
   chatgerInternalPort = 4348;
   chatgerTLSPort = 4349;
   chatgerRawPort = 4348;

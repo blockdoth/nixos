@@ -6,7 +6,7 @@
 }:
 let
   module = config.system-modules.services.observability.gatus;
-  domain = config.system-modules.services.network.domains.homelab;
+  domain = config.system-modules.secrets.domains.homelab;
   buildUrl = map (
     ep:
     ep

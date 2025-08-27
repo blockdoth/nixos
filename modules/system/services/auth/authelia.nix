@@ -7,7 +7,7 @@
 }:
 let
   module = config.system-modules.services.auth.authelia;
-  domain = config.system-modules.services.network.domains.homelab;
+  domain = config.system-modules.secrets.domains.homelab;
   lldap-config = config.system-modules.services.auth.lldap;
   healthcheck-endpoints = config.system-modules.services.observability.healthchecks.endpoints;
 in

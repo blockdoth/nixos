@@ -7,7 +7,8 @@
 }:
 let
   module = config.system-modules.services.network.acme;
-  domain = config.system-modules.services.network.domains.homelab;
+  domain = config.system-modules.secrets.domains.homelab;
+  mail = config.system-modules.secrets.mails.personal;
 in
 {
   config = lib.mkIf module.enable {
@@ -17,7 +18,7 @@ in
       acceptTerms = true;
       certs.${domain} = {
         dnsProvider = "cloudflare";
-        email = "pepijn.pve@gmail.com";
+        email = "${mail}";
         credentialFiles = {
           "CF_DNS_API_TOKEN_FILE" = config.sops.secrets.acme-cloudflare-api-key.path;
         };

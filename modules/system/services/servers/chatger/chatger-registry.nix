@@ -7,7 +7,7 @@
 }:
 let
   module = config.system-modules.services.servers.chatger-registry;
-  domain = config.system-modules.services.network.domains.homelab;
+  domain = config.system-modules.secrets.domains.homelab;
   reggerPort = 8231;
   regger = inputs.chatger-registry.packages.${pkgs.system}.default;
 in

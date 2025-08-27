@@ -29,12 +29,7 @@
 
     services = {
       network = {
-        domains = {
-          homelab = inputs.nixos-domains.homelab;
-          public = inputs.nixos-domains.public;
-        };
-
-        acme.enable = true;
+        acme.enable = false;
         ddns.enable = true;
         headscale.enable = true;
         fail2ban.enable = true;

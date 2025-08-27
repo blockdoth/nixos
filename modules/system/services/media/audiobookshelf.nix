@@ -7,7 +7,7 @@
 }:
 let
   module = config.system-modules.services.media.audiobookshelf;
-  domain = config.system-modules.services.network.domains.homelab;
+  domain = config.system-modules.secrets.domains.homelab;
 in
 {
   config = lib.mkIf module.enable {

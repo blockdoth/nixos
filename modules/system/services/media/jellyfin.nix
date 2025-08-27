@@ -6,7 +6,7 @@
   ...
 }:
 let
-  domain = config.system-modules.services.network.domains.homelab;
+  domain = config.system-modules.secrets.domains.homelab;
   cfg = config.system-modules.services.media;
   module = cfg.jellyfin;
   mediaDir = cfg.mediaDir;
