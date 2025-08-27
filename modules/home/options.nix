@@ -15,11 +15,13 @@ let
   enableStackingWM = enableGnome;
   enableTilingWM = enableHyprland;
   enableGui = enableStackingWM || enableTilingWM;
+  secrets = inputs.nixos-secrets;
   inherit (lib)
     mkIf
     mkEnableOption
     mkDefault
     mkOption
+    types
     ;
 in
 {
@@ -41,6 +43,13 @@ in
         theming.enable = mkEnableOption "theming";
         zenmode.enable = mkEnableOption "zen mode";
       };
+      secrets = {
+        mails = {
+          uni = mkOption { type = types.str; };
+          personal = mkOption { type = types.str; };
+        };
+      };
+
       core = {
         impermanence.enable = mkEnableOption "impermanence";
         windowmanager = {
@@ -137,6 +146,12 @@ in
     programs.home-manager.enable = true;
 
     modules = {
+      secrets = {
+        mails = {
+          uni = secrets.mails.uni;
+          personal = secrets.mails.personal;
+        };
+      };
       core = {
         windowmanager = {
           stacking = {
