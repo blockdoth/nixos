@@ -13,7 +13,7 @@ in
     users = {
       mutableUsers = false;
       users.deploy = {
-        isSystemUser = true;
+        isNormalUser = true;
         shell = pkgs.bashInteractive;
         extraGroups = [ ];
         openssh.authorizedKeys.keys = [
