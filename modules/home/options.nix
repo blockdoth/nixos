@@ -80,8 +80,8 @@ in
           theme.stylix.enable = mkEnableOption "theming";
           rice = {
             fastfetch.enable = mkEnableOption "fastfetch";
-            cli.enable = mkEnableOption "cli";
-            gui.enable = mkEnableOption "activate linux";
+            cli.enable = mkEnableOption "cli rice";
+            gui.enable = mkEnableOption "gui rice";
             cava.enable = mkEnableOption "cava";
           };
         };
