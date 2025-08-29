@@ -16,6 +16,7 @@ in
         isNormalUser = true;
         shell = pkgs.bashInteractive;
         extraGroups = [ ];
+        hashedPasswordFile = config.sops.secrets.penger-password.path;
         openssh.authorizedKeys.keys = [
           (builtins.readFile ../../hosts/desktop/id_ed25519.pub)
           (builtins.readFile ../../hosts/laptop/id_ed25519.pub)
