@@ -130,12 +130,12 @@
           hostname = "nuc";
           profiles.system = {
             user = "deploy";
-            ssh_user = "deploy";
+            sshUser = "deploy";
             path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.nuc;
           };
           profiles.penger = {
             user = "penger";
-            ssh_user = "penger";
+            sshUser = "penger";
             path = deployPkgs.deploy-rs.lib.activate.home-manager self.homeConfigurations.nuc-penger;
           };
         };
