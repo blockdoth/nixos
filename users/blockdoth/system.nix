@@ -30,7 +30,7 @@ in
             keys = [
               (builtins.readFile ../../hosts/desktop/id_ed25519.pub)
               (builtins.readFile ../../hosts/laptop/id_ed25519.pub)
-              (builtins.readFile ../../hosts/phone/id_ed25519.pub)
+              (builtins.readFile ../../hosts/phone-oneplus/id_ed25519.pub)
             ];
           };
         };

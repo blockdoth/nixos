@@ -15,6 +15,7 @@ let
   enableUserBlockdoth = config.system-modules.users.blockdoth.enable;
   zenMode = config.system-modules.zenmode.enable;
   secrets = inputs.nixos-secrets;
+  enableDefaults = config.system-modules.presets.defaults.enable;
   inherit (lib)
     mkIf
     mkEnableOption
@@ -36,6 +37,7 @@ in
   options = {
     system-modules = {
       presets = {
+        defaults.enable = mkEnableOption "core configuration";
         gui.enable = mkEnableOption "graphical interface";
         gaming.enable = mkEnableOption "gaming";
         laptop.enable = mkEnableOption "laptop specific config";
@@ -257,6 +259,7 @@ in
   };
   config = {
     system-modules = {
+      presets.defaults.enable = mkDefault true;
       secrets = {
         domains = {
           homelab = secrets.domains.homelab;
@@ -269,15 +272,15 @@ in
         };
       };
       core = {
-        grub.enable = mkDefault true;
-        env.enable = mkDefault true;
-        networking.enable = mkDefault true;
-        localization.enable = mkDefault true;
-        nix-config.enable = mkDefault true;
-        secrets.enable = mkDefault true;
-        ssh.enable = mkDefault true;
+        grub.enable = mkDefault enableDefaults;
+        env.enable = mkDefault enableDefaults;
+        networking.enable = mkDefault enableDefaults;
+        localization.enable = mkDefault enableDefaults;
+        nix-config.enable = mkDefault enableDefaults;
+        secrets.enable = mkDefault enableDefaults;
+        ssh.enable = mkDefault enableDefaults;
         tailscale = {
-          enable = mkDefault true;
+          enable = mkDefault enableDefaults;
           exit-node = mkDefault false;
         };
       };
@@ -288,7 +291,6 @@ in
         power.enable = mkDefault enableLaptop;
         trackpad.enable = mkDefault enableLaptop;
         gaming.enable = mkDefault enableGaming;
-        wireshark.enable = mkDefault true;
       };
 
       display = {

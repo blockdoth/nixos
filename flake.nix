@@ -44,11 +44,14 @@
     };
     impermanence.url = "github:nix-community/impermanence";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+    nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
+
     # my repos
     iss-piss-stream.url = "github:blockdoth/iss-piss-stream/fed5758fb0da0d59b97e47d9037c4a37b7d40c8d";
     tree-but-cooler.url = "github:blockdoth/tree-but-cooler";
     chatger-registry.url = "github:blockdoth/chatger-registry";
     nixos-secrets.url = "git+ssh://git@github.com/blockdoth/nixos-secrets";
+
   };
 
   outputs =
@@ -101,6 +104,11 @@
         desktop-blockdoth = mkHome "blockdoth" "desktop";
         laptop-blockdoth = mkHome "blockdoth" "laptop";
         nuc-penger = mkHome "penger" "nuc";
+      };
+
+      nixOnDroidConfigurations.default = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+        pkgs = import nixpkgs { system = "aarch64-linux"; };
+        modules = [ host/phone-redmi/configuration.nix ];
       };
 
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
