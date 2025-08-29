@@ -45,6 +45,7 @@ in
       cloc
       wget
       lsof
+      deploy-rs
     ];
   };
 }
