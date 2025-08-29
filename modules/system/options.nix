@@ -32,7 +32,6 @@ in
     ./services
     ../../users/blockdoth/system.nix
     ../../users/penger/system.nix
-    ../../users/deploy/system.nix
   ];
 
   options = {
@@ -71,7 +70,6 @@ in
       users = {
         blockdoth.enable = mkEnableOption "user blockdoth";
         penger.enable = mkEnableOption "user penger";
-        deploy.enable = mkEnableOption "user penger";
       };
 
       core = {

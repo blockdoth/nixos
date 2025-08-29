@@ -129,8 +129,9 @@
         nuc = {
           hostname = "nuc";
           profiles.system = {
-            user = "deploy";
-            sshUser = "deploy";
+            user = "penger";
+            sshUser = "penger";
+            interactiveSudo = true;
             path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.nuc;
           };
           profiles.penger = {
