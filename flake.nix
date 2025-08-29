@@ -45,7 +45,7 @@
     impermanence.url = "github:nix-community/impermanence";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
-
+    deploy-rs.url = "github:serokell/deploy-rs";
     # my repos
     iss-piss-stream.url = "github:blockdoth/iss-piss-stream/fed5758fb0da0d59b97e47d9037c4a37b7d40c8d";
     tree-but-cooler.url = "github:blockdoth/tree-but-cooler";
@@ -66,6 +66,18 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+      };
+      deployPkgs = import nixpkgs {
+        inherit system;
+        overlays = [
+          inputs.deploy-rs.overlay
+          (self: super: {
+            deploy-rs = {
+              inherit (pkgs) deploy-rs;
+              lib = super.deploy-rs.lib;
+            };
+          })
+        ];
       };
 
       mkSystem =
@@ -111,6 +123,16 @@
         modules = [ host/phone-redmi/configuration.nix ];
       };
 
+      deploy.nodes.nuc = {
+        hostname = "nuc";
+        profiles.system = {
+          user = "penger";
+          path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.nuc-penger;
+        };
+      };
+      checks = builtins.mapAttrs (
+        system: deployLib: deployLib.deployChecks self.deploy
+      ) inputs.deploy-rs.lib;
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
     };
 }
