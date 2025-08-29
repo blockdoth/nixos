@@ -72,7 +72,7 @@
       deployPkgs = import nixpkgs {
         inherit system;
         overlays = [
-          deploy-rs.overlay
+          deploy-rs.overlays.default
           (self: super: {
             deploy-rs = {
               inherit (pkgs) deploy-rs;
@@ -125,19 +125,21 @@
         modules = [ host/phone-redmi/configuration.nix ];
       };
 
-      deploy.nodes.nuc = {
-        hostname = "nuc";
-        profiles.system = {
-          user = "root";
-          path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.nuc;
-        };
-        profiles.penger = {
-          user = "penger"; # user-level deployment
-          path = deployPkgs.deploy-rs.lib.activate.home-manager self.homeConfigurations.nuc-penger;
+      deploy.nodes = {
+        nuc = {
+          hostname = "nuc";
+          profiles.system = {
+            user = "deploy";
+            path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.nuc;
+          };
+          profiles.penger = {
+            user = "penger";
+            path = deployPkgs.deploy-rs.lib.activate.home-manager self.homeConfigurations.nuc-penger;
+          };
         };
       };
 
-      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+      checks = { };
 
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
     };

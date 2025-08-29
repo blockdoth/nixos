@@ -9,8 +9,10 @@ let
 in
 {
   config = lib.mkIf module.enable {
-    security.sudo.wheelNeedsPassword = false;
+
     sops.secrets.blockdoth-password.neededForUsers = true;
+    security.sudo.wheelNeedsPassword = false;
+    programs.fish.enable = true;
 
     users = {
       mutableUsers = false;
@@ -25,18 +27,12 @@ in
           "docker"
           "dialout" # For serialW
         ];
-        openssh = {
-          authorizedKeys = {
-            keys = [
-              (builtins.readFile ../../hosts/desktop/id_ed25519.pub)
-              (builtins.readFile ../../hosts/laptop/id_ed25519.pub)
-              (builtins.readFile ../../hosts/phone-oneplus/id_ed25519.pub)
-            ];
-          };
-        };
+        openssh.authorizedKeys.keys = [
+          (builtins.readFile ../../hosts/nuc/id_ed25519.pub)
+          (builtins.readFile ../../hosts/laptop/id_ed25519.pub)
+          (builtins.readFile ../../hosts/phone-oneplus/id_ed25519.pub)
+        ];
       };
     };
-    # Needed for system level config of shell
-    programs.fish.enable = true;
   };
 }
