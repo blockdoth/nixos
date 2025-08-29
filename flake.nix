@@ -42,6 +42,7 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    activate-linux.url = "github:MrGlockenspiel/activate-linux";
     impermanence.url = "github:nix-community/impermanence";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";

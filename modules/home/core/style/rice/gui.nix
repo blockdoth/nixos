@@ -11,7 +11,7 @@ in
 {
   config = lib.mkIf module.enable {
     home.packages = [
-      pkgs.activate-linux
+      inputs.activate-linux
     ];
   };
 }
