@@ -29,7 +29,7 @@
 
     services = {
       network = {
-        acme.enable = false;
+        acme.enable = true;
         ddns.enable = true;
         headscale.enable = true;
         fail2ban.enable = true;

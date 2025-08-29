@@ -8,6 +8,7 @@ let
   module = config.system-modules.display.x11;
 in
 {
+
   config = lib.mkIf module.enable {
     services = {
       xserver = {

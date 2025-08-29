@@ -128,8 +128,10 @@
       deploy.nodes = {
         nuc = {
           hostname = "nuc";
+          profilesOrder = [ "system" ];
+          fastConnection = true;
           profiles.system = {
-            user = "penger";
+            user = "root";
             sshUser = "penger";
             interactiveSudo = true;
             path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.nuc;
