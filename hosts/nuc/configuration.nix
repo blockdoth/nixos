@@ -13,6 +13,7 @@
 
   system-modules = {
     users.penger.enable = true;
+    users.deploy.enable = true;
     core = {
       networking.hostname = "nuc";
       tailscale.exit-node = true;
