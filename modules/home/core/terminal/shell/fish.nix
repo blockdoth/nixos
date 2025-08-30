@@ -35,7 +35,7 @@ in
           note = "cd ~/documents/notes && micro \"$(date +%F)\"";
           getrepo = "git clone ";
           code = "codium . 2>/dev/null";
-          cat = "bat";
+          cat = "bat -P";
           ls = "eza";
         }
         (lib.mkIf (config.home.username != "penger") {
