@@ -46,6 +46,10 @@ in
       wget
       lsof
       deploy-rs
+      bat
+      eza
+      dust
+      hyperfine
     ];
   };
 }
