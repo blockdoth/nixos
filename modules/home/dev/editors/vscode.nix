@@ -49,6 +49,7 @@ in
           nix.enableLanguageServer = true;
           nix.serverPath = "nixd";
           haskell.manageHLS = "PATH";
+          workbench.startupEditor = "none";
         };
       };
     };
