@@ -3,6 +3,7 @@
   lib,
   pkgs,
   inputs,
+  hostname,
   ...
 }:
 let
@@ -134,7 +135,7 @@ in
         llms.enable = mkEnableOption "llms";
         whatsapp.enable = mkEnableOption "whatsapp";
         signal.enable = mkEnableOption "signal";
-        steam.enable = mkEnableOption "steam";
+        games.enable = mkEnableOption "games";
         minecraft.enable = mkEnableOption "minecraft";
         anki.enable = mkEnableOption "anki";
       };
@@ -233,7 +234,7 @@ in
         llms.enable = mkDefault enableGui;
         whatsapp.enable = mkDefault (enableGui && !zenMode);
         signal.enable = mkDefault (enableGui && !zenMode);
-        steam.enable = mkDefault (enableGui && !zenMode);
+        games.enable = mkDefault (if hostname == "desktop" then true else false);
         anki.enable = mkDefault enableGui;
       };
     };

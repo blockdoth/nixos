@@ -6,7 +6,7 @@
   ...
 }:
 let
-  module = config.modules.programs.steam;
+  module = config.modules.programs.games;
 in
 {
   config = lib.mkIf module.enable {
