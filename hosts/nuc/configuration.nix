@@ -20,6 +20,7 @@
 
     presets = {
       mediaserver.enable = false;
+
       iss-piss-stream.enable = true;
     };
     common = {
@@ -33,9 +34,7 @@
         ddns.enable = true;
         headscale.enable = true;
         fail2ban.enable = true;
-        reverse-proxy = {
-          caddy.enable = true;
-        };
+        reverse-proxy.caddy.enable = true;
       };
       auth = {
         authelia.enable = true;
@@ -58,11 +57,10 @@
 
       media = {
         audiobookshelf.enable = false;
-        jellyseerr.enable = false;
       };
       immich.enable = true;
       vaultwarden.enable = true;
-      linkwarden.enable = false;
+      linkwarden.enable = true;
       nextcloud.enable = false;
       microbin.enable = false;
       homepage.enable = true;
