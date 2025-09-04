@@ -23,7 +23,7 @@
     common = {
       syncthing.enable = true;
       bluetooth.enable = true;
-      docker.enable = true;
+      docker.enable = false;
       crosscompilation.enable = true;
     };
     services = {

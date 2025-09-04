@@ -6,10 +6,13 @@ in
 
   config = lib.mkIf module.enable {
     virtualisation = {
-      docker.enable = true;
-      docker.rootless = {
+      docker = {
         enable = true;
-        setSocketVariable = true;
+        enableOnBoot = false;
+        rootless = {
+          enable = true;
+          setSocketVariable = true;
+        };
       };
     };
   };
