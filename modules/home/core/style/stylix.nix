@@ -11,7 +11,7 @@ let
 in
 {
   imports = [
-    inputs.stylix.homeManagerModules.stylix
+    inputs.stylix.homeModules.stylix
   ];
 
   config = lib.mkIf module.enable {
@@ -26,11 +26,15 @@ in
       image = ../../../../assets/wallpapers/castle.png;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
       polarity = "dark";
-      # icons = {
-      #   enable = true;
-      # };
+      icons = {
+        enable = true;
+        package = pkgs.papirus-icon-theme;
+        dark = "Papirus-Dark";
+      };
 
       cursor = {
+        package = pkgs.vanilla-dmz;
+        name = "Vanilla-DMZ";
         size = 15;
       };
 
@@ -83,6 +87,7 @@ in
         waybar.enable = false;
         spicetify.enable = false;
         hyprlock.enable = false;
+        micro.enable = false;
         hyprpaper.enable = lib.mkForce false;
         mako.enable = lib.mkForce false;
       };

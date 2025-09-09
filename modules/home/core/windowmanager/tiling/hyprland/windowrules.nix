@@ -23,7 +23,7 @@ in
         "opacity 0.85, class:^(VSCodium|codium)"
         "opacity 0.80, class:^(vesktop)"
         "opacity 0.85, class:^(jetbrains)"
-        "opacity 0.80, class:^(org.gnome.Nautilus)"
+        "opacity 0.80, class:^(org.gnome.Nautilus|thunar)"
         "opacity 0.9, class:^(com.rtosta.zapzap)"
         "opacity 0.7, class:^(Signal|signal)"
         "opacity 0.9, class:^(anki)"
