@@ -13,7 +13,6 @@ in
           enable = true;
           setSocketVariable = true;
         };
-        enableOnBoot = false;
       };
     };
   };
