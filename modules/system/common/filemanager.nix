@@ -16,7 +16,6 @@ in
         plugins = with pkgs.xfce; [
           thunar-archive-plugin
           thunar-media-tags-plugin
-          # thunar-shares-plugin
           thunar-volman
         ];
       };

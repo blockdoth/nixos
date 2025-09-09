@@ -17,5 +17,6 @@
     ./trackpad.nix
     ./wireshark.nix
     ./filemanager.nix
+    ./stylix.nix
   ];
 }
