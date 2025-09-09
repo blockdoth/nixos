@@ -102,7 +102,6 @@ in
         trackpad.enable = mkEnableOption "trackpad";
         wireshark.enable = mkEnableOption "wireshark";
         filemanager.enable = mkEnableOption "filemanager";
-        stylix.enable = mkEnableOption "stylix";
       };
 
       display = {
