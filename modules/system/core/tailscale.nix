@@ -7,6 +7,7 @@
 let
   module = config.system-modules.core.tailscale;
   impermanence = config.system-modules.core.impermanence;
+  enableGui = config.system-modules.presets.gui.enable;
 in
 {
   config = lib.mkIf module.enable {
@@ -20,6 +21,10 @@ in
       enable = true;
       authKeyFile = config.sops.secrets.tailscale-auth-key.path;
       useRoutingFeatures = if module.exit-node then "server" else "client";
+    };
+
+    systemd.services.tailscaled-autoconnect = {
+      wantedBy = lib.mkForce (if enableGui then [ "graphical.target" ] else [ "multi-user.target" ]);
     };
 
     networking.firewall = {
