@@ -34,7 +34,7 @@
       nvf.enable = false;
     };
     programs = {
-      filebrowser.nautilus.enable = false;
+      filebrowser.nautilus.enable = true;
       browsers.zenbrowser.enable = false;
       spotify.enable = true;
       llms.enable = false;
