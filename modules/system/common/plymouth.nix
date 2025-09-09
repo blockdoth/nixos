@@ -12,11 +12,11 @@ in
     #disabled boot animations because it breaks booting
     boot.plymouth = {
       enable = true;
-      theme = lib.mkForce "rings"; # Prevent conflict with stylix
-      themePackages = with pkgs; [
-        # By default we would install all themes
-        (adi1090x-plymouth-themes.override { selected_themes = [ "rings" ]; })
-      ];
+      # theme = lib.mkForce "rings"; # Prevent conflict with stylix
+      # themePackages = with pkgs; [
+      #   # By default we would install all themes
+      #   (adi1090x-plymouth-themes.override { selected_themes = [ "rings" ]; })
+      # ];
     };
   };
 }
