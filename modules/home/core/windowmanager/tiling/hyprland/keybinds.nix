@@ -81,7 +81,7 @@ in
         "SUPER,C,exec,hyprpicker -a"
         "SUPER,D,exec, pypr toggle signal"
         "SUPER,E,exec,wallpaperchanger"
-        "SUPER,F,exec,nautilus"
+        "SUPER,F,exec,thunar"
         "SUPER,G,exec,ghostty -e \"fish -C fastfetch\""
         "SUPER,H, togglespecialworkspace, magic"
         "SUPER,H, movetoworkspace, +0"
