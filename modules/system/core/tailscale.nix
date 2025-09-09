@@ -24,7 +24,7 @@ in
     };
 
     systemd.services.tailscaled-autoconnect = {
-      wantedBy = lib.mkForce (if enableGui then [ "graphical.target" ] else [ "multi-user.target" ]);
+      wantedBy = lib.mkForce (if enableGui then [ "default.target" ] else [ "multi-user.target" ]);
     };
 
     networking.firewall = {
