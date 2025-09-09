@@ -24,6 +24,7 @@
       trackpad.enable = true;
       docker.enable = true;
     };
+    display.x11.enable = false;
     services = {
       # observability.gatus.enable = true;
       # auth = {
