@@ -84,8 +84,8 @@ in
 
     # Delay syncthing to after boot, to speed up boot
     systemd.services.syncthing-init = {
-      wantedBy = lib.mkForce (if enableGui then [ "graphical.target" ] else [ "multi-user.target" ]);
-      after = lib.mkForce ([ "syncthing.service" ] ++ lib.optionals enableGui [ "graphical.target" ]);
+      wantedBy = lib.mkForce (if enableGui then [ "default.target" ] else [ "multi-user.target" ]);
+      after = lib.mkForce ([ "syncthing.service" ] ++ lib.optionals enableGui [ "default.target" ]);
     };
 
     networking.firewall = {
