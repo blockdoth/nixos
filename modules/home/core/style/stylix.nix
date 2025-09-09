@@ -26,6 +26,9 @@ in
       image = ../../../../assets/wallpapers/castle.png;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
       polarity = "dark";
+      # icons = {
+      #   enable = true;
+      # };
 
       cursor = {
         size = 15;
