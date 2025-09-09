@@ -18,6 +18,10 @@ in
       enable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
       polarity = "dark";
+      icons = {
+        package = pkgs.papirus-icon-theme;
+        # name = "Papirus-Dark";
+      };
     };
   };
 }

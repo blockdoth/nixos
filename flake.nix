@@ -10,8 +10,8 @@
     # maybe one day
     linkwarden-pr.url = "github:jvanbruegge/nixpkgs/linkwarden"; # TODO remove when linkwarden gets merged
     sops-nix.url = "github:Mic92/sops-nix";
-    stylix.url = "github:danth/stylix/d13ffb381c83b6139b9d67feff7addf18f8408fe";
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix"; # Remove commit once its not broken anymore
+    stylix.url = "github:danth/stylix";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
     nvf.url = "github:notashelf/nvf";
