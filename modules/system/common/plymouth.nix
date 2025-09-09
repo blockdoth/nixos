@@ -11,7 +11,7 @@ in
   config = lib.mkIf module.enable {
     #disabled boot animations because it breaks booting
     boot.plymouth = {
-      enable = false;
+      enable = true;
       theme = lib.mkForce "rings"; # Prevent conflict with stylix
       themePackages = with pkgs; [
         # By default we would install all themes
