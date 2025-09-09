@@ -7,7 +7,7 @@
 }:
 let
   module = config.system-modules.common.syncthing;
-  domain = config.system-modules.services.domains.homelab;
+  enableGui = config.system-modules.presets.gui.enable;
 in
 {
   # TODO move to core
@@ -82,6 +82,11 @@ in
           };
         };
       };
+    };
+
+    systemd.services.syncthing-init = {
+      wantedBy = lib.mkForce (if enableGui then [ "graphical.target" ] else [ "multi-user.target" ]);
+      after = lib.mkForce ([ "syncthing.service" ] ++ lib.optionals enableGui [ "graphical.target" ]);
     };
 
     networking.firewall = {

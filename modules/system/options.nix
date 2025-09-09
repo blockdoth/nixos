@@ -6,7 +6,7 @@
   ...
 }:
 let
-  enableGui = config.system-modules.presets.gui.enable || enableLaptop;
+  enableGui = config.system-modules.presets.gui.enable;
   enableGaming = config.system-modules.presets.gaming.enable;
   enableLaptop = config.system-modules.presets.laptop.enable;
   enableMediaServer = config.system-modules.presets.mediaserver.enable;
