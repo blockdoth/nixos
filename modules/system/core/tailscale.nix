@@ -26,9 +26,8 @@ in
     systemd.services.tailscaled-autoconnect = {
       after = [
         "multi-user.target"
-        "tailscaled.service"
       ];
-      wantedBy = lib.mkForce (if enableGui then [ "default.target" ] else [ "multi-user.target" ]);
+      # wantedBy = lib.mkForce (if enableGui then [ "default.target" ] else [ "multi-user.target" ]);
     };
 
     networking.firewall = {
