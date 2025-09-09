@@ -23,6 +23,7 @@
       syncthing.enable = true;
       trackpad.enable = true;
       docker.enable = true;
+      filemanager.enable = true;
     };
     display.x11.enable = false;
     services = {

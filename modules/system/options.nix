@@ -101,6 +101,7 @@ in
         syncthing.enable = mkEnableOption "syncthing";
         trackpad.enable = mkEnableOption "trackpad";
         wireshark.enable = mkEnableOption "wireshark";
+        filemanager.enable = mkEnableOption "filemanager";
       };
 
       display = {

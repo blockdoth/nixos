@@ -16,5 +16,6 @@
     ./syncthing.nix
     ./trackpad.nix
     ./wireshark.nix
+    ./filemanager.nix
   ];
 }

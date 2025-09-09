@@ -35,6 +35,7 @@
     };
     programs = {
       filebrowser.nautilus.enable = true;
+      filebrowser.thunar.enable = true;
       browsers.zenbrowser.enable = false;
       spotify.enable = true;
       llms.enable = false;
