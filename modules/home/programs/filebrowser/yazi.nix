@@ -12,7 +12,7 @@ in
     programs.yazi = {
       enable = true;
       settings.yazi = ''
-        [manager]
+        [mgr]
         show_hidden = true
       '';
     };
