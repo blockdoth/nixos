@@ -14,11 +14,6 @@ in
       # steam
       beyond-all-reason
     ];
-    # home.persistence."/persist/home/${config.home.username}".directories = [
-    #   {
-    #     directory = ".local/share/Steam";
-    #     method = "symlink";
-    #   }
-    # ];
+
   };
 }
