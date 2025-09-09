@@ -24,7 +24,7 @@
       trackpad.enable = true;
       docker.enable = true;
       filemanager.enable = true;
-      # stylix.enable = true;
+      plymouth.enable = true;
     };
     display.x11.enable = false;
     services = {

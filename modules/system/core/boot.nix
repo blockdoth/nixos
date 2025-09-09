@@ -17,7 +17,8 @@ in
           enable = false;
           editor = false;
         };
-        timeout = 10;
+        timeout = 0; # boot menu will only how up if any key is pressed
+
         efi = {
           canTouchEfiVariables = true;
           efiSysMountPoint = "/boot";
@@ -35,6 +36,7 @@ in
       kernelParams = [
         "quiet"
         "loglevel=3"
+        "splash"
         "udev.log_priority=3"
         "vt.global_cursor_default=0"
         "rd.systemd.show_status=false"
@@ -42,16 +44,6 @@ in
       consoleLogLevel = 0;
       # https://github.com/NixOS/nixpkgs/pull/108294
       initrd.verbose = false;
-
-      #disabled boot animations because it breaks booting
-      # plymouth = {
-      #   enable = false;
-      #   theme = lib.mkForce "rings"; # Prevent conflict with stylix
-      #   themePackages = with pkgs; [
-      #     # By default we would install all themes
-      #     (adi1090x-plymouth-themes.override { selected_themes = [ "rings" ]; })
-      #   ];
-      # };
     };
   };
 }
