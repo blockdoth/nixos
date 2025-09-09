@@ -44,6 +44,20 @@ in
       consoleLogLevel = 0;
       # https://github.com/NixOS/nixpkgs/pull/108294
       initrd.verbose = false;
+
+      blacklistedKernelModules = [
+        "joydev"
+        "tiny_power_button"
+        "mousedev"
+        "edac_core"
+        "edac_mce_amd"
+        "mac_hid"
+        "efi_pstore"
+        "dmi_sysfs"
+        "wmi_bmof"
+        "ee1004"
+
+      ];
     };
   };
 }
