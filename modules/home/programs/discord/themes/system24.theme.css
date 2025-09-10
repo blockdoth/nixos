@@ -83,7 +83,7 @@ body {
 
 /* color options */
 :root {
-  --colors: on; /* off: discord default colors, on: midnight custom colors */
+  --colors: off; /* off: discord default colors, on: midnight custom colors */
 
 	--dark: #3c3836;
 	--accent-dark: #504945;
