@@ -23,6 +23,7 @@ in
         "openLinksWithElectron": false
       }
     '';
+    # doest make the file for some reason and I dont know why
     home.file.".config/vesktop/themes/system24.theme.css".source = ./themes/system24.theme.css;
 
   };
