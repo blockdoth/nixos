@@ -11,7 +11,6 @@ in
   config = lib.mkIf module.enable {
     home.packages = with pkgs; [ vesktop ];
 
-    # Vesktop settings
     home.file.".config/vesktop/settings.json".text = ''
       {
         "minimizeToTray": "on",
@@ -24,6 +23,6 @@ in
         "openLinksWithElectron": false
       }
     '';
-    # home.file.".config/vesktop/themese/system24".source = ./themes/systemd24.theme.css;
+    home.file.".config/vesktop/themese/system24".source = ./themes/system24.theme.css;
   };
 }
