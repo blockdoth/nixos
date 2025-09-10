@@ -53,13 +53,14 @@ in
           noise = 1.17e-2;
           contrast = 1.3;
           brightness = 1;
-          popups = false;
+          popups = true;
           xray = false;
         };
         misc = {
           session_lock_xray = true;
           disable_hyprland_logo = true;
           disable_splash_rendering = true;
+          enable_anr_dialog = false;
         };
       };
     };
