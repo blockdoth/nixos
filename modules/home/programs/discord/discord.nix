@@ -23,7 +23,7 @@ in
         "openLinksWithElectron": false
       }
     '';
-    home.file."balls".source = ./themes/system24.theme.css;
+    home.file.".config/vesktop/themes/system24.theme.css".source = ./themes/system24.theme.css;
 
   };
 }
