@@ -55,6 +55,7 @@ in
           brightness = 1;
           popups = false;
           xray = false;
+          session_lock_xray = true;
         };
       };
     };
