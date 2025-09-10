@@ -23,6 +23,6 @@ in
         "openLinksWithElectron": false
       }
     '';
-    home.file.".config/vesktop/themes/system24".source = ./themes/system24.theme.css;
+    home.file.".config/vesktop/themes/system24.theme.css".source = ./themes/system24.theme.css;
   };
 }
