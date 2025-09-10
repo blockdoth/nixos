@@ -23,9 +23,7 @@ in
         "openLinksWithElectron": false
       }
     '';
-    home.file.".config/vesktop/themes/system24.theme.css" = {
-      text = "./themes/system24.theme.css";
-      recursive = true;
-    };
+    home.file.".config/vesktop/themes/system24.theme.css".source = ./themes/system24.theme.css;
+
   };
 }
