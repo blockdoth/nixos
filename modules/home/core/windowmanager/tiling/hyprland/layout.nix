@@ -55,7 +55,11 @@ in
           brightness = 1;
           popups = false;
           xray = false;
+        };
+        misc = {
           session_lock_xray = true;
+          disable_hyprland_logo = true;
+          disable_splash_rendering = true;
         };
       };
     };
