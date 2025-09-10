@@ -108,7 +108,7 @@ body {
     --bg-1: var(--medium-dark); /* dark buttons when clicked */
     --bg-2: var(--dark); /* dark buttons */
     --bg-3: var(--dark); /* spacing, secondary elements */
-    --bg-4: var(--dark); /* main background color */
+    --bg-4: var(--accent-dark); /* main background color */
     --hover: var(--darker); /* channels and buttons when hovered */
     --active: var(--accent-dark); /* channels and buttons when clicked or selected */
     --active-2: var(--dark); /* extra state for transparent buttons */
