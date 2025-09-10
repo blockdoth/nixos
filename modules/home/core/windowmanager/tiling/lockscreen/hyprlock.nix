@@ -14,17 +14,17 @@ in
 
       settings = {
         general = {
-          no_fade_in = false;
           hide_cursor = true;
           ignore_empty_input = true;
           grace = 0;
           disable_loading_bar = true;
+          fail_timeout = 500;
         };
 
         background = [
           {
+            path = "screenshot";
             color = "rgba(0, 0, 0, 0)";
-            path = "screenshot"; # ${../../../../../assets/wallpapers/basicblue.png}"
             blur_passes = 2;
             contrast = 0.8916;
             brightness = 0.8172;
