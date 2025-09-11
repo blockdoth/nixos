@@ -50,6 +50,7 @@ in
       eza
       dust
       hyperfine
+      onefetch
     ];
   };
 }
