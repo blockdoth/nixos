@@ -18,5 +18,6 @@
     ./wireshark.nix
     ./filemanager.nix
     ./plymouth.nix
+    ./udev.nix
   ];
 }

@@ -26,6 +26,7 @@
       filemanager.enable = true;
       plymouth.enable = true;
       wireshark.enable = true;
+      udev.enable = true;
     };
     display.x11.enable = false;
     services = {

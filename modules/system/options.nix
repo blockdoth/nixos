@@ -103,6 +103,7 @@ in
         wireshark.enable = mkEnableOption "wireshark";
         filemanager.enable = mkEnableOption "filemanager";
         plymouth.enable = mkEnableOption "plymouth";
+        udev.enable = mkEnableOption "plymouth";
       };
 
       display = {
