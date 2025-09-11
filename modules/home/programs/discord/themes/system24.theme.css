@@ -108,7 +108,7 @@ body {
     --bg-1: var(--medium-dark); /* dark buttons when clicked */
     --bg-2: var(--dark); /* dark buttons */
     --bg-3: var(--dark); /* spacing, secondary elements */
-    --bg-4: var(--accent-dark); /* main background color */
+    --bg-4: var(--dark); /* main background color */
     --hover: var(--darker); /* channels and buttons when hovered */
     --active: var(--accent-dark); /* channels and buttons when clicked or selected */
     --active-2: var(--dark); /* extra state for transparent buttons */
@@ -119,10 +119,10 @@ body {
     --accent-2: var(--medium); /* small accent elements */
     --accent-3: var(--medium); /* accent buttons */
     --accent-4: var(--blue); /* accent buttons when hovered */
-    --accent-5: var(--blue); /* accent buttons when clicked */
+    --accent-5: var(--bright); /* accent buttons when clicked */
     --accent-new: var(--red); /* stuff that's normally red like mute/deafen buttons */
     --mention: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 90%) 40%, transparent); /* background of messages that mention you */
-    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 95%) 40%, transparent); /* background of messages that mention you when hovered */
+    --mentions-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 95%) 40%, transparent); /* background of messages that mention you when hovered */
     --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); /* background of messages that reply to you */
     --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
 
