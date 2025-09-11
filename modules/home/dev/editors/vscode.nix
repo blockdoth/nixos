@@ -20,7 +20,6 @@ in
       profiles.default = {
         extensions = with pkgs.vscode-extensions; [
           jnoortheen.nix-ide
-          llvm-vs-code-extensions.vscode-clangd
           mkhl.direnv
         ];
         userSettings = {
@@ -39,7 +38,6 @@ in
           workbench.secondarySideBar.showLabels = false;
           window.customTitleBarVisibility = "never";
           # clangd.arguments= ["--compile-commands-dir=/home/blockdoth/Documents/repos/c-web-server"];
-          clangd.path = "/home/blockdoth/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd";
           jupyter.notebookFileRoot = "\${fileDirname}";
           jupyter.askForKernelRestart = "false";
           rust-analyzer.server.path = "rust-analyzer";
