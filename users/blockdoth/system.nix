@@ -30,6 +30,7 @@ in
         openssh.authorizedKeys.keys = [
           (builtins.readFile ../../hosts/nuc/id_ed25519.pub)
           (builtins.readFile ../../hosts/laptop/id_ed25519.pub)
+          (builtins.readFile ../../hosts/desktop/id_ed25519.pub)
           (builtins.readFile ../../hosts/phone-oneplus/id_ed25519.pub)
         ];
       };
