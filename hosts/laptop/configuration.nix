@@ -30,12 +30,7 @@
     };
     display.x11.enable = false;
     services = {
-      # observability.gatus.enable = true;
-      # auth = {
-      #   authelia.enable = true;
-      #   lldap.enable = true;
-      # };
-      # homepage.enable = true;
+      network.pihole.enable = true;
     };
   };
 

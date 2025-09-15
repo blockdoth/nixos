@@ -17,6 +17,7 @@
     ./network/reverse-proxy/caddy.nix
     ./network/reverse-proxy/nginx.nix
     ./network/headscale.nix
+    ./network/pihole.nix
     ./network/fail2ban.nix
     ./auth/authelia.nix
     ./auth/lldap.nix

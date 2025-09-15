@@ -125,6 +125,7 @@ in
           blocky.enable = mkEnableOption "blocky";
           headscale.enable = mkEnableOption "headscale";
           fail2ban.enable = mkEnableOption "fail2ban";
+          pihole.enable = mkEnableOption "pihole";
           reverse-proxy = {
             nginx = {
               enable = mkEnableOption "nginx";
