@@ -30,6 +30,7 @@ in
       powerline-fonts
       powerline-symbols
       dejavu_fonts
+      noto-fonts
       nerd-fonts.fira-code
       nerd-fonts.droid-sans-mono
       nerd-fonts.jetbrains-mono
