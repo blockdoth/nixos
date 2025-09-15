@@ -12,7 +12,6 @@ in
   config = lib.mkIf module.enable {
     programs.rofi = {
       enable = true;
-      package = pkgs.rofi-wayland;
       xoffset = 0;
       yoffset = -20;
       extraConfig = {

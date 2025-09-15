@@ -223,7 +223,6 @@ in
         };
         discord.enable = mkDefault (enableGui && !zenMode);
         spotify.enable = mkDefault enableGui;
-        llms.enable = mkDefault enableGui;
         whatsapp.enable = mkDefault (enableGui && !zenMode);
         signal.enable = mkDefault (enableGui && !zenMode);
         games.enable = mkDefault (if hostname == "desktop" then true else false);
