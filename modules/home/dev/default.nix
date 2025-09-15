@@ -6,11 +6,11 @@
 }:
 {
   imports = [
-    ./direnv.nix
-    ./editors/jetbrains.nix
-    ./editors/vscode.nix
-    ./editors/micro.nix
-    ./editors/neovim/neovim.nix
-    ./editors/neovim/nvf.nix
+    ./direnv/direnv.nix
+    ./jetbrains.nix
+    ./vscode.nix
+    ./micro.nix
+    ./neovim/neovim.nix
+    ./neovim/nvf.nix
   ];
 }

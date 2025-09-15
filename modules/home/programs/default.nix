@@ -15,5 +15,6 @@
     ./signal.nix
     ./steam.nix
     ./minecraft.nix
+    ./mpd.nix
   ];
 }

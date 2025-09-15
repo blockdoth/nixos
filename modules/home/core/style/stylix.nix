@@ -7,7 +7,7 @@
   ...
 }:
 let
-  module = config.modules.core.style.theme.stylix;
+  module = config.modules.core.style.stylix;
 in
 {
   imports = [
@@ -15,11 +15,6 @@ in
   ];
 
   config = lib.mkIf module.enable {
-
-    home.sessionVariables = {
-      XCURSOR_SIZE = config.stylix.cursor.size;
-      HYPRCURSOR_SIZE = config.stylix.cursor.size;
-    };
 
     stylix = {
       enable = true;
@@ -91,6 +86,11 @@ in
         hyprpaper.enable = lib.mkForce false;
         mako.enable = lib.mkForce false;
       };
+    };
+
+    home.sessionVariables = {
+      XCURSOR_SIZE = config.stylix.cursor.size;
+      HYPRCURSOR_SIZE = config.stylix.cursor.size;
     };
   };
 }

@@ -23,18 +23,7 @@
       dev.enable = true;
       theming.enable = true;
       programs.enable = true;
-      # zenmode.enable = true;
-    };
-
-    # overrides
-    programs.minecraft.enable = false;
-    dev.editors = {
-      vscode.enable = true;
-      micro.enable = true;
-    };
-    programs = {
-      browsers.zenbrowser.enable = false;
-      spotify.enable = true;
+      gaming.enable = (if hostname == "desktop" then true else false);
     };
   };
 }
