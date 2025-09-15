@@ -6,7 +6,7 @@
 }:
 let
   module = config.modules.core.windowmanager.tiling.wallpaper.swww;
-  wallpaperBasePath = "${../../../../../../assets/wallpapers}";
+  wallpaperBasePath = "${../../../../assets/wallpapers}";
   wallpaperchanger = pkgs.writeShellScriptBin "wallpaperchanger" ''
 
     while true; do

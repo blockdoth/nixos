@@ -2,20 +2,18 @@
 {
   imports = [
 
-    ./windowmanager/stacking/gnome
-
-    ./windowmanager/tiling/hyprland
-    ./windowmanager/tiling/idle/hypridle.nix
-    ./windowmanager/tiling/launcher/rofi.nix
-    ./windowmanager/tiling/lockscreen/hyprlock.nix
-    ./windowmanager/tiling/logout/wlogout.nix
-    ./windowmanager/tiling/media/mpd.nix
-    ./windowmanager/tiling/nightmode/gammastep.nix
-    ./windowmanager/tiling/notifications/dunst.nix
-    ./windowmanager/tiling/taskbar/waybar.nix
-    ./windowmanager/tiling/wallpaper/hyprpaper.nix
-    ./windowmanager/tiling/wallpaper/swww.nix
-    ./windowmanager/tiling/scratchpads/pyprland.nix
+    ./hyprland
+    ./idle/hypridle.nix
+    ./launcher/rofi.nix
+    ./lockscreen/hyprlock.nix
+    ./logout/wlogout.nix
+    ./media/mpd.nix
+    ./nightmode/gammastep.nix
+    ./notifications/dunst.nix
+    ./taskbar/waybar.nix
+    ./wallpaper/hyprpaper.nix
+    ./wallpaper/swww.nix
+    ./scratchpads/pyprland.nix
 
     ./style/fonts
     ./style/stylix.nix

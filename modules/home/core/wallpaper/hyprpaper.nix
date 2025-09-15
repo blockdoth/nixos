@@ -6,7 +6,7 @@
 }:
 let
   module = config.modules.core.windowmanager.tiling.wallpaper.hyprpaper;
-  wallpaperBasePath = "../../../../../../assets/wallpapers";
+  wallpaperBasePath = "../../../../assets/wallpapers";
 in
 {
   config = lib.mkIf module.enable {
