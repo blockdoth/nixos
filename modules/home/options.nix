@@ -208,13 +208,6 @@ in
         };
       };
       dev = {
-        editors = {
-          micro.enable = mkDefault true;
-          jetbrains.enable = mkDefault (enableDev && enableGui && !zenMode);
-          vscode.enable = mkDefault (enableDev && enableGui && !zenMode);
-          neovim.enable = mkDefault false;
-          nvf.enable = mkDefault false;
-        };
         env = {
           direnv.enable = mkDefault enableDev;
         };
@@ -222,7 +215,6 @@ in
       programs = {
         filebrowser = {
           yazi.enable = mkDefault true;
-          nautilus.enable = mkDefault false;
         };
         browsers = {
           zenbrowser.enable = mkDefault enableGui;

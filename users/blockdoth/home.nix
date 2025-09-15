@@ -29,15 +29,12 @@
     # overrides
     programs.minecraft.enable = false;
     dev.editors = {
-      jetbrains.enable = false;
-      neovim.enable = false;
-      nvf.enable = false;
+      vscode.enable = true;
+      micro.enable = true;
     };
     programs = {
-      filebrowser.nautilus.enable = true;
       browsers.zenbrowser.enable = false;
       spotify.enable = true;
-      llms.enable = false;
     };
   };
 }
