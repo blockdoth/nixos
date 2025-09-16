@@ -51,6 +51,7 @@ in
       dust
       hyperfine
       onefetch
+      unixtools.netstat
     ];
   };
 }
