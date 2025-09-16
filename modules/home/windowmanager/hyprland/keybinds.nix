@@ -178,6 +178,11 @@ in
         ",XF86Calculator,exec,firefox -new-tab https://www.desmos.com/calculator"
         # ",,exec,kill hyprlock && hyprlock"
       ];
+
+      gestures = [
+        "3, horizontal, workspace"
+        "2, pinchout, fullscreen"
+      ];
     };
   };
 }
