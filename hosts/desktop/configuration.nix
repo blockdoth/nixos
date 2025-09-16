@@ -27,7 +27,7 @@
       crosscompilation.enable = true;
     };
     services = {
-      network.pihole.enable = true;
+      # network.pihole.enable = true;
     };
   };
 
