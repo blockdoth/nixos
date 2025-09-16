@@ -75,6 +75,8 @@ in
           pay-respects.enable = mkEnableOption "pay-respects";
           fzf.enable = mkEnableOption "fzf";
           zellij.enable = mkEnableOption "zellij";
+          command-not-found.enable = mkEnableOption "command-not-found";
+          nix-index.enable = mkEnableOption "command-not-found";
         };
 
         impermanence.enable = mkEnableOption "impermanence";
@@ -156,6 +158,8 @@ in
           zoxide.enable = mkDefault true;
           pay-respects.enable = mkDefault true;
           zellij.enable = mkDefault true;
+          # command-not-found.enable = mkDefault true;
+          nix-index.enable = mkDefault true;
           # television.enable = mkDefault true;
           fzf.enable = mkDefault true;
         };

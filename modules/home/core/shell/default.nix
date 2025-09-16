@@ -11,5 +11,7 @@
     ./zoxide.nix
     ./sync/atuin.nix
     ./zellij.nix
+    ./command-not-found.nix
+    ./nix-index.nix
   ];
 }
