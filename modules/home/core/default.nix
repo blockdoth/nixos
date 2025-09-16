@@ -17,6 +17,6 @@
     ./mimes.nix
     ./utils/gui.nix
     # ./impermanence.nix
-    ./utils/gui.nix
+    ./utils/cli.nix
   ];
 }
