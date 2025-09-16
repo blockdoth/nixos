@@ -25,6 +25,7 @@
       bluetooth.enable = true;
       docker.enable = false;
       crosscompilation.enable = true;
+      filemanager.enable = true;
     };
     services = {
       # network.pihole.enable = true;
