@@ -71,6 +71,8 @@ in
           sync.atuin.enable = mkEnableOption "atuin shell sync";
           fish.enable = mkEnableOption "fish shell";
           zoxide.enable = mkEnableOption "zoxide navigation";
+          television.enable = mkEnableOption "television";
+          pay-respects.enable = mkEnableOption "pay-respects";
         };
 
         impermanence.enable = mkEnableOption "impermanence";
@@ -150,6 +152,8 @@ in
           sync.atuin.enable = mkDefault true;
           fish.enable = mkDefault true;
           zoxide.enable = mkDefault true;
+          pay-respects.enable = mkDefault true;
+          television.enable = mkDefault true;
         };
 
         style = {
