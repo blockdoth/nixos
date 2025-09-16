@@ -52,7 +52,7 @@
     tree-but-cooler.url = "github:blockdoth/tree-but-cooler";
     chatger-registry.url = "github:blockdoth/chatger-registry";
     nixos-secrets.url = "git+ssh://git@github.com/blockdoth/nixos-secrets";
-
+    zjstatus.url = "github:dj95/zjstatus";
   };
 
   outputs =

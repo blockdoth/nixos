@@ -86,7 +86,7 @@ in
         hyprpaper.enable = lib.mkForce false;
         mako.enable = lib.mkForce false;
         fzf.enable = lib.mkForce false;
-        # zellij.enable = lib.mkForce false;
+        zellij.enable = lib.mkForce false;
       };
     };
 
