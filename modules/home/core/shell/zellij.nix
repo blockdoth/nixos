@@ -15,6 +15,7 @@ in
       settings = {
         simplified_ui = true;
         pane_frames = false;
+        show_startup_tips = false;
       };
     };
   };
