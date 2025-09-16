@@ -179,7 +179,7 @@ in
         # ",,exec,kill hyprlock && hyprlock"
       ];
 
-      gestures = [
+      gesture = [
         "3, horizontal, workspace"
         "2, pinchout, fullscreen"
       ];
