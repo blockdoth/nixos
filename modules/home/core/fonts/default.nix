@@ -24,6 +24,7 @@ in
       (mkFontDerivation ./local/xkcd-script.ttf "xkcd Script" "truetype")
       (mkFontDerivation ./local/Comic-Sans-MS.ttf "Comic Sans MS" "truetype")
       (mkFontDerivation ./local/xkcd.otf "xkcd" "opentype")
+      (mkFontDerivation ./local/NotoSans-Regular.ttf "Noto Sans" "truetype")
       font-manager
       jetbrains-mono
       font-awesome
