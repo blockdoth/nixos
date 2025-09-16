@@ -12,7 +12,7 @@ in
   config = lib.mkIf module.enable {
     programs.pay-respects = {
       enable = true;
-      enableFishIntegration = true;
+      # enableFishIntegration = true;
     };
   };
 }
