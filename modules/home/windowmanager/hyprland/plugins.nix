@@ -46,14 +46,14 @@ in
           border_size = 4;
           exit_on_hovered = false;
 
-          gestures = {
-            enabled = true;
-            move_fingers = 3;
-            move_distance = 300;
-            open_fingers = 4;
-            open_distance = 300;
-            open_positive = true;
-          };
+          # gestures = {
+          #   enabled = true;
+          #   move_fingers = 3;
+          #   move_distance = 300;
+          #   open_fingers = 4;
+          #   open_distance = 300;
+          #   open_positive = true;
+          # };
 
           grid = {
             rows = 3;
