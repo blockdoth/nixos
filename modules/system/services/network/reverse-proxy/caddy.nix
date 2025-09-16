@@ -42,6 +42,11 @@ let
 in
 {
   config = lib.mkIf module.enable {
+
+    environment.systemPackages = with pkgs; [
+      goaccess # For logs
+    ];
+
     users.users.caddy.extraGroups = [ "acme" ];
 
     services.caddy = {

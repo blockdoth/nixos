@@ -19,13 +19,11 @@ in
 
     services.pihole-ftl = {
       enable = true;
-
     };
 
     services.pihole-web = {
       enable = true;
-
+      hostName = "pihole.${domain}";
     };
-
   };
 }
