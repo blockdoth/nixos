@@ -15,9 +15,8 @@
     ./secrets.nix
     ./home-structure.nix
     ./mimes.nix
-    ./utils-gui.nix
+    ./utils/gui.nix
     # ./impermanence.nix
-    ./utils-gui.nix
-    ./git.nix
+    ./utils/gui.nix
   ];
 }

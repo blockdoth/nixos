@@ -5,7 +5,7 @@
   ...
 }:
 let
-  module = config.modules.core.git;
+  module = config.modules.programs.git;
   mail = config.modules.core.secrets.mails.personal;
 in
 {

@@ -75,7 +75,6 @@ in
 
         impermanence.enable = mkEnableOption "impermanence";
         fonts.enable = mkEnableOption "fonts";
-        git.enable = mkEnableOption "git";
         utils = {
           cli.enable = mkEnableOption "various cli utilities";
           gui.enable = mkEnableOption "various gui utilities";
@@ -112,6 +111,7 @@ in
         minecraft.enable = mkEnableOption "minecraft";
         anki.enable = mkEnableOption "anki";
         mpd.enable = mkEnableOption "media deamon"; # TODO look at this again
+        git.enable = mkEnableOption "git";
       };
 
       windowmanager = {
@@ -169,7 +169,6 @@ in
           cli.enable = mkDefault true;
           gui.enable = mkDefault enableGui;
         };
-        git.enable = mkDefault true;
         secrets.enable = mkDefault true;
         home-structure.enable = mkDefault true;
         mimes.enable = mkDefault true;
@@ -189,6 +188,7 @@ in
           firefox.enable = mkDefault enableGui;
           chrome.enable = mkDefault enableGui;
         };
+        git.enable = mkDefault true;
         discord.enable = mkDefault enableGui;
         spotify.enable = mkDefault enableGui;
         whatsapp.enable = mkDefault enableGui;
