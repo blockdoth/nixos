@@ -22,7 +22,7 @@ in
         "[workspace 1 silent] firefox"
         "[workspace 2 silent] codium"
         "[workspace 3 silent] vesktop"
-        "activate-linux"
+        "activate-linux -f 'Noto Sans'"
         "hyprctl setcursor 15" # Fixes cursor sizes being different between apps
       ];
     };
