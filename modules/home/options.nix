@@ -74,6 +74,7 @@ in
           television.enable = mkEnableOption "television";
           pay-respects.enable = mkEnableOption "pay-respects";
           fzf.enable = mkEnableOption "fzf";
+          zellij.enable = mkEnableOption "zellij";
         };
 
         impermanence.enable = mkEnableOption "impermanence";
@@ -154,7 +155,8 @@ in
           fish.enable = mkDefault true;
           zoxide.enable = mkDefault true;
           pay-respects.enable = mkDefault true;
-          television.enable = mkDefault true;
+          zellij.enable = mkDefault true;
+          # television.enable = mkDefault true;
           fzf.enable = mkDefault true;
         };
 

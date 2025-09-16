@@ -10,5 +10,6 @@
     ./television.nix
     ./zoxide.nix
     ./sync/atuin.nix
+    ./zellij.nix
   ];
 }
