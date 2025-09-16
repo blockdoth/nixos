@@ -17,9 +17,15 @@ in
       pihole-ftl
     ];
 
-    # services.pihole = {
-    #   enable = true;
+    services.pihole-ftl = {
+      enable = true;
 
-    # };
+    };
+
+    services.pihole-web = {
+      enable = true;
+
+    };
+
   };
 }
