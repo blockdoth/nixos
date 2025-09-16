@@ -12,6 +12,10 @@ in
       enable = true;
       # enableFishIntegration = true;
       exitShellOnExit = false;
+      settings = {
+        simplified_ui = true;
+        pane_frames = false;
+      };
     };
   };
 }

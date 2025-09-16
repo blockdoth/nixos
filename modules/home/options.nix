@@ -157,8 +157,8 @@ in
           fish.enable = mkDefault true;
           zoxide.enable = mkDefault true;
           fzf.enable = mkDefault true;
-          nix-index.enable = mkDefault true;
           zellij.enable = mkDefault true;
+          # nix-index.enable = mkDefault true;
           # command-not-found.enable = mkDefault true;
           # pay-respects.enable = mkDefault true;
           # television.enable = mkDefault true;
