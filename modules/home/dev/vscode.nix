@@ -8,7 +8,7 @@ let
   module = config.modules.dev.vscode;
 in
 {
-  config = lib.mkIf module.enable {
+  config = lib.mkIf true {
     home.packages = with pkgs; [
       vscodium
       nixd
