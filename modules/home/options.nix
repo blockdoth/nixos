@@ -153,8 +153,8 @@ in
           sync.atuin.enable = mkDefault true;
           fish.enable = mkDefault true;
           zoxide.enable = mkDefault true;
-          pay-respects.enable = mkDefault true;
-          television.enable = mkDefault true;
+          # pay-respects.enable = mkDefault true;
+          # television.enable = mkDefault true;
           fzf.enable = mkDefault true;
         };
 
