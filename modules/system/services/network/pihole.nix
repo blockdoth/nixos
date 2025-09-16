@@ -18,6 +18,13 @@ in
       pihole-ftl
     ];
 
+    services.resolved.enable = lib.mkForce false;
+
+    networking.nameservers = [
+      "127.0.0.1"
+      "1.1.1.1"
+    ];
+
     services.pihole-ftl = {
       enable = true;
     };
@@ -33,6 +40,7 @@ in
         {
           subdomain = "pihole";
           port = port;
+          require-auth = true;
         }
       ];
       # TODO
