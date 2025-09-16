@@ -113,6 +113,7 @@ in
         anki.enable = mkEnableOption "anki";
         mpd.enable = mkEnableOption "media deamon"; # TODO look at this again
       };
+
       windowmanager = {
         hyprland.enable = mkEnableOption "Hyprland DE";
         launcher.rofi.enable = mkEnableOption "Rofi launcher";
@@ -177,6 +178,7 @@ in
       dev = {
         direnv.enable = mkDefault enableDev;
         micro.enable = mkDefault true;
+        vscode.enable = mkDefault true;
       };
 
       programs = {
