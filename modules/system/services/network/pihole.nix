@@ -11,6 +11,12 @@ let
 in
 {
   config = lib.mkIf module.enable {
+    environment.systemPackages = with pkgs; [
+      pihole-web
+      pihole
+      pihole-ftl
+    ];
+
     # services.pihole = {
     #   enable = true;
 

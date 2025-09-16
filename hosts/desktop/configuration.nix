@@ -27,7 +27,7 @@
       crosscompilation.enable = true;
     };
     services = {
-      # githubrunners.enable = true;
+      network.pihole.enable = true;
     };
   };
 
