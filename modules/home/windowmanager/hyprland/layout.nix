@@ -28,9 +28,9 @@ in
         # "col.inactive_border" = "rgba(6A9FB5aa)";
         # apply_sens_to_raw = 1;
         layout = "dwindle";
-        snap = {
-          enabled = true;
-        };
+        # snap = {
+        #   enabled = true;
+        # };
       };
 
       dwindle = {
