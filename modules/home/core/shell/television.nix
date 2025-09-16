@@ -12,7 +12,7 @@ in
   config = lib.mkIf module.enable {
     programs.television = {
       enable = true;
-      # enableFishIntegration = true;
+      enableFishIntegration = false;
     };
   };
 }
