@@ -73,6 +73,7 @@ in
           zoxide.enable = mkEnableOption "zoxide navigation";
           television.enable = mkEnableOption "television";
           pay-respects.enable = mkEnableOption "pay-respects";
+          fzf.enable = mkEnableOption "fzf";
         };
 
         impermanence.enable = mkEnableOption "impermanence";
@@ -154,6 +155,7 @@ in
           zoxide.enable = mkDefault true;
           pay-respects.enable = mkDefault true;
           television.enable = mkDefault true;
+          fzf.enable = mkDefault true;
         };
 
         style = {

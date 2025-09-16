@@ -4,13 +4,8 @@
 
     ./fonts
     ./style
+    ./shell
 
-    ./shell/prompt/starship.nix
-    ./shell/fish.nix
-    ./shell/pay-respects.nix
-    ./shell/television.nix
-    ./shell/zoxide.nix
-    ./shell/sync/atuin.nix
     ./terminal/alacritty.nix
     ./terminal/ghostty/ghostty.nix
 
