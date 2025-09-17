@@ -181,7 +181,7 @@ in
 
       gesture = [
         "3, horizontal, workspace"
-        "2, pinchout, fullscreen"
+        "2, pinchin, fullscreen"
       ];
     };
   };
