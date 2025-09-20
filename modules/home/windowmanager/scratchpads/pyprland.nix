@@ -44,7 +44,14 @@ in
       hide_delay = 0.5
       command = "signal-desktop"
       class = "Signal"
-      size = "80% 80%"   
+      size = "80% 80%"
+
+      [scratchpads.obsidian]
+      animation = "fromBottom"
+      hide_delay = 0.5
+      command = "xdg-open obsidian://open?vault=notes"
+      class = "obsidian"
+      size = "80% 80%"          
     '';
   };
 }

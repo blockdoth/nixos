@@ -11,7 +11,7 @@ in
 {
   config = lib.mkIf module.enable {
     wayland.windowManager.hyprland.settings = {
-      "$scratchpad" = "class:^(scratchpad|spotify|Spotify|com.rtosta.zapzap|Signal|signal)";
+      "$scratchpad" = "class:^(scratchpad|spotify|Spotify|com.rtosta.zapzap|Signal|signal|obsidian)";
       "$pip" = "title:^(Picture-in-Picture)";
       "$popup" = "class:^(org.pulseaudio.pavucontrol|.blueman-manager-wrapped|Matplotlib)";
 
@@ -28,6 +28,7 @@ in
         "opacity 0.9, class:^(com.rtosta.zapzap)"
         "opacity 0.7, class:^(Signal|signal)"
         "opacity 0.9, class:^(anki)"
+        "opacity 0.9, class:^(obsidian)"
 
         # "noblur,class:^(ghostty)$"
         #pip
