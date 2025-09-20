@@ -24,6 +24,7 @@ in
       XDG_MUSIC_DIR = "$HOME/music";
       XDG_PICTURES_DIR = "$HOME/pictures";
       XDG_VIDEOS_DIR = "$HOME/videos";
+      GTK_USE_PORTAL = "1";
     };
 
     systemd.user.services.setup-home-dir = {
