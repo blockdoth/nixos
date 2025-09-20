@@ -31,6 +31,7 @@ in
           "x-scheme-handler/spotify" = [ "spotify.desktop" ];
           "x-scheme-handler/http" = [ "firefox.desktop" ];
           "x-scheme-handler/https" = [ "firefox.desktop" ];
+          "inode/directory" = [ "thunar.desktop" ];
         };
       };
       desktopEntries = {
