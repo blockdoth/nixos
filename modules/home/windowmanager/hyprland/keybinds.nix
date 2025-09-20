@@ -77,7 +77,7 @@ in
 
       bind = [
         "SUPER,A,exec, pypr toggle term"
-        "SUPER,B,exec,firefox"
+        "SUPER,B,exec, pypr toggle obsidian"
         "SUPER,C,exec,hyprpicker -a"
         "SUPER,D,exec, pypr toggle signal"
         "SUPER,E,exec,wallpaperchanger"
