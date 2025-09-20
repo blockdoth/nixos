@@ -16,6 +16,7 @@
     ./steam.nix
     ./minecraft.nix
     ./mpd.nix
+    ./obsidian.nix
     ./git.nix
   ];
 }

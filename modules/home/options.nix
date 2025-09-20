@@ -118,6 +118,7 @@ in
         anki.enable = mkEnableOption "anki";
         mpd.enable = mkEnableOption "media deamon"; # TODO look at this again
         git.enable = mkEnableOption "git";
+        obsidian.enable = mkEnableOption "obsidian";
       };
 
       windowmanager = {
@@ -204,6 +205,7 @@ in
         discord.enable = mkDefault enableGui;
         spotify.enable = mkDefault enableGui;
         whatsapp.enable = mkDefault enableGui;
+        obsidian.enable = mkDefault enableGui;
         signal.enable = mkDefault enableGui;
         anki.enable = mkDefault enableGui;
         games.enable = mkDefault enableGaming;
