@@ -12,7 +12,6 @@ in
   config = lib.mkIf (waylandEnabled || x11Enabled) {
     xdg.portal = {
       enable = true;
-      wlr.enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal
         xdg-desktop-portal-gtk
