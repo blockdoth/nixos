@@ -2,6 +2,7 @@
   config,
   lib,
   inputs,
+  pkgs,
   ...
 }:
 let
@@ -14,6 +15,7 @@ in
     programs.hyprland = {
       enable = true;
       xwayland.enable = true;
+      portalPackage = pkgs.xdg-desktop-portal-gtk;
     };
   };
 }

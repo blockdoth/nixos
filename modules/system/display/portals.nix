@@ -17,7 +17,7 @@ in
       ];
       config.common.default = [
         "gtk"
-        "hyprland"
+        # "hyprland"
       ];
     };
   };
