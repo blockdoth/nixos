@@ -49,7 +49,7 @@ in
       [scratchpads.obsidian]
       animation = "fromBottom"
       hide_delay = 0.5
-      command = "xdg-open obsidian://open?vault=notes"
+      command = "obsidian"
       class = "obsidian"
       size = "80% 80%"          
     '';

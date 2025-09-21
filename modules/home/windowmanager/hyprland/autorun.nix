@@ -15,7 +15,6 @@ in
         "waybar"
         "dunst"
         "hypridle"
-        "obsidian"
         # "hyprlock --no-fade-in "
         "swww-daemon && swww img ../../../../../assets/wallpapers/waves.jpg"
         "pypr"
