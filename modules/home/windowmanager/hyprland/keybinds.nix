@@ -77,10 +77,10 @@ in
 
       bind = [
         "SUPER,A,exec, pypr toggle term"
-        "SUPER,B,exec, pypr toggle obsidian"
+        "SUPER,B,exec, firefox"
         "SUPER,C,exec,hyprpicker -a"
         "SUPER,D,exec, pypr toggle signal"
-        "SUPER,E,exec,wallpaperchanger"
+        "SUPER,E,exec, pypr toggle obsidian"
         "SUPER,F,exec,thunar"
         "SUPER,G,exec,ghostty -e \"fish -C fastfetch\""
         "SUPER,H, togglespecialworkspace, magic"
