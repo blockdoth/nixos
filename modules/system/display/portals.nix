@@ -14,10 +14,10 @@ in
       enable = true;
       wlr.enable = true;
       extraPortals = with pkgs; [
-        # xdg-desktop-portal-gtk
+        xdg-desktop-portal-gtk
       ];
       config.common.default = [
-        # "gtk"
+        "gtk"
         "hyprland"
       ];
     };
