@@ -296,7 +296,7 @@ in
       display = {
         autologin.enable = mkDefault enableGui;
         wayland.enable = mkDefault enableGui;
-        x11.enable = mkDefault enableGui;
+        x11.enable = mkDefault false;
       };
 
       services = {
