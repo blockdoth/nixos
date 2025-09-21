@@ -2062,11 +2062,11 @@
         "nixpkgs": "nixpkgs_19"
       },
       "locked": {
-        "lastModified": 1751900703,
-        "narHash": "sha256-akuiMtZruuppKo4bX1yGpQfoofa+3U4tpjbXzDs7jzQ=",
+        "lastModified": 1758445537,
+        "narHash": "sha256-TKN4mYI5rIgDfhRUQ8UkG3qYYUqD9H+o5nyrqa45Zh4=",
         "owner": "blockdoth",
         "repo": "ShyFox",
-        "rev": "df08c7f81f67c8b6f2c8ae03242db775b88b4d3e",
+        "rev": "2fd608770a659afe989d29ce56784456b0d20c3a",
         "type": "github"
       },
       "original": {
