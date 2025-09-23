@@ -11,9 +11,10 @@ let
 in
 {
   config = lib.mkIf module.enable {
-    environment.systemPackages = [
-      pkgs.nixfmt-tree
-      pkgs.cachix
+    environment.systemPackages = with pkgs; [
+      nixfmt-tree
+      cachix
+      nix-output-monitor
       (pkgs.writeShellApplication {
         name = "rebuild";
         text = builtins.readFile ./rebuild.sh;
