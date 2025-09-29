@@ -47,6 +47,11 @@ in
         })
       ];
       functions = {
+        nix-shell = ''
+          function nix-shell
+            command nix-shell $argv --command fish
+          end
+        '';
         mcd = ''
           function mcd
             mkdir -p -- "$argv[1]"; and cd -- "$argv[1]"
