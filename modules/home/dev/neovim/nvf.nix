@@ -37,20 +37,19 @@ in
         enableLuaLoader = true;
 
         lsp = {
+          enable = true;
           lightbulb.enable = true;
           formatOnSave = true;
           trouble.enable = true;
-          # lspSignature.enable = true;
           lspkind.enable = true;
         };
         languages = {
-          enableLSP = true;
           enableFormat = true;
           enableTreesitter = true;
 
           clang = {
             enable = true;
-            lsp.enable = true;
+            lsp.enable = false;
           };
 
           nix.enable = true;
