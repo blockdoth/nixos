@@ -61,11 +61,20 @@ in
           html.enable = true;
           go.enable = true;
           python.enable = true;
-          haskell.enable = true;
-          java.enable = true;
+          haskell = {
+            enable = true;
+            lsp.enable = false;
+          };
+          java = {
+            enable = true;
+            lsp.enable = false;
+          };
+          kotlin = {
+            enable = true;
+            lsp.enable = false;
+          };
           lua.enable = true;
           markdown.enable = true;
-          kotlin.enable = true;
           sql.enable = true;
           yaml.enable = true;
           typst.enable = true;
