@@ -9,6 +9,8 @@ let
   module = config.modules.dev.nvf;
 in
 {
+  # Inspiration
+  # https://github.com/jsw08/niksos/blob/master/home/programs/neovim.nix
   imports = [
     inputs.nvf.homeManagerModules.default
   ];
@@ -31,30 +33,30 @@ in
           transparent = true;
         };
 
-        options = {
-          # signcolumn = "no";
-        };
-        # debugger = {
-        #   nvim-dap = {
-        #     enable = true;
-        #     ui.enable = true;
-        #   };
-        # };
         spellcheck.enable = true;
+        enableLuaLoader = true;
 
         lsp = {
           lightbulb.enable = true;
           formatOnSave = true;
+          trouble.enable = true;
+          # lspSignature.enable = true;
+          lspkind.enable = true;
         };
         languages = {
           enableLSP = true;
           enableFormat = true;
           enableTreesitter = true;
+
+          clang = {
+            enable = true;
+            lsp.enable = true;
+          };
+
           nix.enable = true;
           ts.enable = true;
           rust.enable = true;
           bash.enable = true;
-          clang.enable = true;
           css.enable = true;
           html.enable = true;
           go.enable = true;
@@ -66,6 +68,7 @@ in
           kotlin.enable = true;
           sql.enable = true;
           yaml.enable = true;
+          typst.enable = true;
         };
 
         binds = {
@@ -85,6 +88,7 @@ in
           nvim-scrollbar.enable = true;
           indent-blankline.enable = true;
           cellular-automaton.enable = true;
+          highlight-undo.enable = true;
         };
 
         git = {
@@ -112,6 +116,7 @@ in
           noice.enable = false;
           colorizer.enable = true;
         };
+
         filetree.neo-tree = {
           enable = true;
           setupOpts = {
@@ -121,10 +126,22 @@ in
             open_on_setup = true;
           };
         };
-        autocomplete.blink-cmp = {
-          enable = true;
-
+        autocomplete = {
+          enableSharedCmpSources = true;
+          blink-cmp = {
+            enable = true;
+          };
         };
+        autopairs.nvim-autopairs.enable = true;
+        dashboard.alpha.enable = true;
+        mini = {
+          surround.enable = true;
+          icons.enable = true;
+        };
+        formatter.conform-nvim.enable = true;
+        tabline.nvimBufferline.enable = true;
+        telescope.enable = true;
+        statusline.lualine.enable = true;
 
         keymaps = [
           # {
@@ -136,12 +153,6 @@ in
           # }
         ];
 
-        dashboard.alpha.enable = true;
-        mini.icons.enable = true;
-        formatter.conform-nvim.enable = true;
-        tabline.nvimBufferline.enable = true;
-        telescope.enable = true;
-        statusline.lualine.enable = true;
       };
     };
   };

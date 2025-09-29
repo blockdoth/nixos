@@ -25,5 +25,6 @@
       programs.enable = true;
       gaming.enable = (if hostname == "desktop" then true else false);
     };
+    dev.nvf.enable = true;
   };
 }

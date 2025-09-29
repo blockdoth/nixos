@@ -87,6 +87,7 @@ in
         mako.enable = lib.mkForce false;
         fzf.enable = lib.mkForce false;
         zellij.enable = lib.mkForce false;
+        nvf.enable = false;
       };
     };
 

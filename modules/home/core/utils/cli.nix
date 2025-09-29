@@ -52,6 +52,7 @@ in
       hyperfine
       onefetch
       unixtools.netstat
+      wl-clipboard
     ];
   };
 }
