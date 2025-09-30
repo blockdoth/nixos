@@ -15,12 +15,12 @@ treefmt
 
 git reset > /dev/null 
 if [ "$TYPE" = "system" ]; then
-  git add ./hosts/* ./modules/system/* ./assets/* ./users/* ./flake.nix ./flake.lock ./.gitignore ./.sops.yaml ./secrets.yaml ./readme.md
+  git add ./rebuild.sh ./hosts/* ./modules/system/* ./assets/* ./users/* ./flake.nix ./flake.lock ./.gitignore ./.sops.yaml ./secrets.yaml ./readme.md
   git --no-pager diff -U0 --staged .
   nh os switch --hostname "$HOSTNAME" . > /dev/null 
   COMMIT_MESSAGE=$(nixos-rebuild list-generations | sed -n '2p' | awk -v host="$HOSTNAME" -v user="$USERNAME" '{printf "[%s@%s] (%s %s) System Generation %s\n", host, user, $3, substr($4, 0, 5), $1}')
 elif [ "$TYPE" = "home" ]; then
-  git add ./modules/home/* ./assets/* ./users/* ./flake.nix ./flake.lock ./.gitignore ./.sops.yaml ./secrets.yaml ./readme.md
+  git add ./rebuild.sh ./modules/home/* ./assets/* ./users/* ./flake.nix ./flake.lock ./.gitignore ./.sops.yaml ./secrets.yaml ./readme.md
   git --no-pager diff -U0 --staged .
   nh home switch --configuration "$HOSTNAME-$USERNAME" .
   home-manager generations > gen.txt

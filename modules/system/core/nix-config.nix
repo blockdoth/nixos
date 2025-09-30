@@ -17,12 +17,12 @@ in
       nix-output-monitor
       (pkgs.writeShellApplication {
         name = "rebuild";
-        text = builtins.readFile ./rebuild.sh;
+        text = builtins.readFile ../../../rebuild.sh;
       })
     ];
 
     # skips slow cache rebuilds
-    documentation.man.generateCaches = false;
+    documentation.man.generateCaches = lib.mkForce false;
 
     nixpkgs.config.allowUnfree = true;
     programs = {
