@@ -52,25 +52,6 @@ in
             command nix-shell $argv --command fish
           end
         '';
-        mcd = ''
-          function mcd
-            mkdir -p -- "$argv[1]"; and cd -- "$argv[1]"
-          end
-        '';
-        getrep = ''
-          getrepu blockdoth $argv[1]
-        '';
-        getrepu = ''
-          function getrepu
-            set USER "$argv[1]"
-            set REPO "$argv[2]"
-            if test -d "$REPO"
-              echo "Repository $REPO already exists"
-            else
-              git clone "https://github.com/$USER/$REPO.git" && cd "$REPO"
-            end
-          end
-        '';
       };
     };
   };
