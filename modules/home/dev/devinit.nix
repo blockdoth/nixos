@@ -34,13 +34,15 @@ let
     do
       case $opt in    
         "rust")
-          cp -r ${templates}/templates/rust/* .
+          cp -r ${templates}/templates/rust .
+          chmod -R u+w .
           echo "$SEPERATOR"
           echo "Created a rust nix shell template"
           break
           ;;           
         "default")
-          cp -r ${templates}/templates/default/* .
+          cp -r ${templates}/templates/default .
+          chmod -R u+w .
           echo "$SEPERATOR"
           echo "Created an default nix shell template"
           break
