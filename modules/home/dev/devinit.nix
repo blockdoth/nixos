@@ -65,6 +65,8 @@ let
       esac
     done
 
+    echo "use flake" > .envrc
+
     git init
     git add .gitignore
     git add .
