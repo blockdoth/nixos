@@ -13,5 +13,6 @@
     ./micro.nix
     ./neovim/neovim.nix
     ./neovim/nvf.nix
+    ./ctf/ctf.nix
   ];
 }

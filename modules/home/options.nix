@@ -97,6 +97,7 @@ in
         nvf.enable = mkEnableOption "nvf";
         direnv.enable = mkEnableOption "auto setup environment";
         devinit.enable = mkEnableOption "template shells";
+        ctf.enable = mkEnableOption "ctf tools";
       };
       programs = {
         filebrowser = {
