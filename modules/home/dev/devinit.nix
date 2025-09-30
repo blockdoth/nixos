@@ -71,6 +71,7 @@ let
     git add .gitignore
     git add .
     direnv allow
+    git add .
   '';
 in
 {
