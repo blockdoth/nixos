@@ -34,7 +34,7 @@ let
     do
       case $opt in    
         "rust")
-          cp ${templates}/rust/* .
+          cp ${templates}/templates/rust/* .
           echo "$SEPERATOR"
           echo "Created a rust nix shell template"
           break
