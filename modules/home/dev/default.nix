@@ -6,7 +6,8 @@
 }:
 {
   imports = [
-    ./direnv/direnv.nix
+    ./direnv.nix
+    ./devinit.nix
     ./jetbrains.nix
     ./vscode.nix
     ./micro.nix

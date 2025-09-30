@@ -96,6 +96,7 @@ in
         neovim.enable = mkEnableOption "neovim";
         nvf.enable = mkEnableOption "nvf";
         direnv.enable = mkEnableOption "auto setup environment";
+        devinit.enable = mkEnableOption "template shells";
       };
       programs = {
         filebrowser = {
@@ -189,6 +190,7 @@ in
 
       dev = {
         direnv.enable = mkDefault enableDev;
+        devinit.enable = mkDefault enableDev;
         micro.enable = mkDefault true;
         vscode.enable = mkDefault true;
       };
