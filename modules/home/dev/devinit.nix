@@ -34,13 +34,13 @@ let
     do
       case $opt in    
         "rust")
-          cp ${templates}/templates/rust/* .
+          cp -r ${templates}/templates/rust/* .
           echo "$SEPERATOR"
           echo "Created a rust nix shell template"
           break
           ;;           
         "default")
-          echo "$DEFAULT_ENV" > "flake.nix"
+          cp -r ${templates}/templates/default/* .
           echo "$SEPERATOR"
           echo "Created an default nix shell template"
           break
