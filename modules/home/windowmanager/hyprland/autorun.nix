@@ -19,9 +19,9 @@ in
         "swww-daemon && swww img ../../../../../assets/wallpapers/waves.jpg"
         "pypr"
         "gammastep -b 1:1"
-        "[workspace 1 silent] firefox"
-        "[workspace 2 silent] codium"
-        "[workspace 3 silent] vesktop"
+        "[workspace 1 silent] vesktop"
+        "[workspace 2 silent] firefox"
+        "[workspace 3 silent] codium"
         "activate-linux -f 'Noto Sans'"
         "hyprctl setcursor 15" # Fixes cursor sizes being different between apps
       ];

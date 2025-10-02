@@ -47,9 +47,9 @@ in
         "center,                    $scratchpad"
         "opacity 0.8,               $scratchpad"
 
-        "workspace 1,   class:(firefox)"
-        "workspace 2,   class:(VSCodium)"
-        "workspace 3,   class:(vesktop)"
+        "workspace 1,   class:(vesktop)"
+        "workspace 2,   class:(firefox)"
+        # "workspace 3,   class:(VSCodium)"
 
         # prevent popups from having a weird border in vscode
         "noblur,        class:^()$,title:^()$"
