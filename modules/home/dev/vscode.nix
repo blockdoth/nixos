@@ -49,6 +49,7 @@ in
           haskell.manageHLS = "PATH";
           workbench.startupEditor = "none";
           platformio-ide.useBuiltinPIOCore = false;
+          editor.autoIndentOnPaste = true;
         };
       };
     };

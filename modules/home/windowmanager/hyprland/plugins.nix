@@ -30,7 +30,6 @@ in
         plugins.hyprexpo
         plugins.hyprwinwrap
         # inputs.hyprtasking.packages.${pkgs.system}.hyprtasking
-        # inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
       ];
       # settings.exec-once = [
       #   "${pkgs.writeShellScript "load-hyprland-plugins" loadPluginsCmd}"
