@@ -50,6 +50,9 @@ in
           workbench.startupEditor = "none";
           platformio-ide.useBuiltinPIOCore = false;
           editor.autoIndentOnPaste = true;
+          files.associations = {
+            "*.ispc" = "c";
+          };
         };
       };
     };
