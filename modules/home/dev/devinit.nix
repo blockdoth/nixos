@@ -27,6 +27,7 @@ let
     options=(
       "rust" 
       "default" 
+      "activateflake" 
       "clean"
       "exit"
       )
@@ -47,6 +48,13 @@ let
           echo "Created an default nix shell template"
           break
           ;;  
+        "activateflake")
+          echo "use flake" > .envrc
+          direnv allow
+          echo "$SEPERATOR"
+          echo "Activated flake"
+          exit
+          ;;             
         "clean")
           rm ./.direnv -r
           rm ./.envrc 
