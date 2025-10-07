@@ -14,6 +14,11 @@ in
       ghidra
       burpsuite
       hashcat
+      exiftool
+      pngtools
+      zsteg
+      wireshark
+      qrrs # QR codes
     ];
   };
 }
