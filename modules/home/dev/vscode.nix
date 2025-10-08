@@ -53,6 +53,11 @@ in
           files.associations = {
             "*.ispc" = "c";
           };
+          security.workspace.trust = {
+            enabled = false;
+            startupPrompt = "never";
+            baneer = "never";
+          };
         };
       };
     };
