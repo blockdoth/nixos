@@ -92,6 +92,7 @@ in
       dev = {
         jetbrains.enable = mkEnableOption "jetbrains IDE's";
         vscode.enable = mkEnableOption "vscode IDE";
+        zed.enable = mkEnableOption "zed";
         micro.enable = mkEnableOption "mini editor";
         neovim.enable = mkEnableOption "neovim";
         nvf.enable = mkEnableOption "nvf";
@@ -194,6 +195,7 @@ in
         devinit.enable = mkDefault enableDev;
         micro.enable = mkDefault true;
         vscode.enable = mkDefault true;
+        zed.enable = mkDefault true;
       };
 
       programs = {

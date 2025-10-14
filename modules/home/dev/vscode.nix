@@ -9,10 +9,6 @@ let
 in
 {
   config = lib.mkIf module.enable {
-    home.packages = with pkgs; [
-      vscodium
-      nixd
-    ];
 
     programs.vscode = {
       enable = true;

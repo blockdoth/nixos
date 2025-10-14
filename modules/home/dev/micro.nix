@@ -10,7 +10,6 @@ in
 {
 
   config = lib.mkIf module.enable {
-    home.packages = with pkgs; [ micro ];
 
     programs.micro = {
       enable = true;
