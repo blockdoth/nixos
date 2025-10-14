@@ -15,6 +15,7 @@ in
       nixfmt-tree
       cachix
       nix-output-monitor
+      nixd
       (pkgs.writeShellApplication {
         name = "rebuild";
         text = builtins.readFile ../../../rebuild.sh;
