@@ -99,16 +99,14 @@ in
         };
         lsp = {
           nixd = {
-            settings = {
-            };
+
           };
           rust-analyzer = {
-            binary = {
-              ignore_system_version = false;
-            };
-            initialization_options = {
-              check.command = "clippy";
-            };
+            binary.ignore_system_version = false;
+            initialization_options.check.command = "clippy";
+          };
+          clangd = {
+            binary.ignore_system_version = true;
           };
         };
       };
