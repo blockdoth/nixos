@@ -88,6 +88,7 @@ in
         fzf.enable = lib.mkForce false;
         zellij.enable = lib.mkForce false;
         nvf.enable = false;
+        zed.enable = false;
       };
     };
 
