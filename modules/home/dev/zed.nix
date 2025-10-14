@@ -51,7 +51,7 @@ in
         };
         tabs = {
           file_icons = true;
-          show_diagnostics = "error";
+          show_diagnostics = "errors";
           git_status = true;
         };
         disable_ai = true;
