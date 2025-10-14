@@ -105,10 +105,11 @@ in
         "make"
         "latex"
         "csv"
+        "sql"
+        "vscode-icons"
         "cargotom"
         "zed-html-snippets"
         "rust-snippets-for-zed"
-        "zed-vscode-icons-theme"
         "gruvbox-crisp-themes"
         "git-firefly"
       ];
