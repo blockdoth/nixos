@@ -25,7 +25,11 @@ in
           show = "auto";
 
         };
-        autosave = "on_focus_change";
+        autosave = {
+          after_delay = {
+            milliseconds = 500;
+          };
+        };
         telemetry = {
           diagnostics = false;
           metrics = false;
