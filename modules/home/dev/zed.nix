@@ -13,6 +13,9 @@ in
     programs.zed-editor = {
       enable = true;
       installRemoteServer = true;
+      themes = {
+
+      };
       userKeymaps = [
         {
           context = "Editor";
@@ -107,6 +110,7 @@ in
         "rust-snippets-for-zed"
         "zed-vscode-icons-theme"
         "gruvbox-crisp-themes"
+        "git-firefly"
       ];
     };
   };
