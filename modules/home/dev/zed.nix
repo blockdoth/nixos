@@ -28,6 +28,10 @@ in
           selections_menu = false;
           agent_review = false;
         };
+        tab_bar = {
+          show = true;
+          show_nav_history_buttons = false;
+        };
         minimap = {
           show = "auto";
 
