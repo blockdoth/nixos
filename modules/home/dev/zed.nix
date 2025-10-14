@@ -33,23 +33,12 @@ in
           show = true;
           show_nav_history_buttons = false;
         };
-        collaboration_panel = {
-          button = false;
-        };
-        minimap = {
-          show = "auto";
-        };
-        search = {
-          button = false;
-        };
-        autosave = {
-          after_delay = {
-            milliseconds = 500;
-          };
-        };
-        buffer_font_features = {
-          calt = false;
-        };
+        collaboration_panel.button = false;
+        notification_panel.button = false;
+        search.button = false;
+        minimap.show = "auto";
+        autosave.after_delay.milliseconds = 500;
+        buffer_font_features.calt = false;
         telemetry = {
           diagnostics = false;
           metrics = false;
@@ -62,24 +51,36 @@ in
         };
         tabs = {
           file_icons = true;
+          show_diagnostics = true;
+          git_status = true;
         };
         disable_ai = true;
+        auto_signature_help = true;
         languages = {
           Nix = {
             language_servers = [
               "nixd"
               "!nil"
             ];
-            formatter = {
-              external = {
-                command = "treefmt";
-              };
-            };
+            formatter.external.command = "treefmt";
+            format_on_save = "on";
+          };
+          Rust = {
+            formatter = "language_server";
+            format_on_save = "on";
           };
         };
         lsp = {
           nixd = {
             settings = {
+            };
+          };
+          rust-analyzer = {
+            binary = {
+              ignore_system_version = false;
+            };
+            initialization_options = {
+              check.command = "clippy";
             };
           };
         };
