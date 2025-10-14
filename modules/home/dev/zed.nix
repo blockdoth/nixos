@@ -47,6 +47,10 @@ in
         disable_ai = true;
         languages = {
           Nix = {
+            language_servers = [
+              "nixd"
+              "!nil"
+            ];
             formatter = {
               external = {
                 command = "treefmt";
