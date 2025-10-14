@@ -80,6 +80,22 @@ in
             formatter = "language_server";
             format_on_save = "on";
           };
+          Python = {
+            language_servers = [
+              "ty"
+              "!basedpyright"
+            ];
+            format_on_save = "on";
+          };
+          SQL = {
+            formatter.external = {
+              command = "sql-formatter";
+              arguments = [
+                "--language"
+                "postgresql"
+              ];
+            };
+          };
         };
         lsp = {
           nixd = {
@@ -105,6 +121,7 @@ in
         "make"
         "latex"
         "csv"
+        "xml"
         "sql"
         "vscode-icons"
         "cargotom"
