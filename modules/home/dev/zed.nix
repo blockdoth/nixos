@@ -28,7 +28,7 @@ in
         title_bar = {
           show_sign_in = false;
           show_user_picture = false;
-          show_on_boarding_banner = false;
+          show_onboarding_banner = false;
           show_project_items = false;
           show_branch_name = false;
           show_menus = false;
@@ -57,8 +57,8 @@ in
         load_direnv = "shell_hook";
         icon_theme = {
           mode = "light";
-          dark = "VSCode Icons (Dark)";
-          light = "VSCode Icons (Light)";
+          dark = "VSCode Icons";
+          light = "VSCode Icons Light";
         };
         tabs = {
           file_icons = true;
