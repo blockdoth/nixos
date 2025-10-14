@@ -56,7 +56,7 @@ in
         };
         load_direnv = "shell_hook";
         icon_theme = {
-          mode = "system";
+          mode = "light";
           dark = "VSCode Icons (Dark)";
           light = "VSCode Icons (Light)";
         };
