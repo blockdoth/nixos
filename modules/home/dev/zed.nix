@@ -22,6 +22,12 @@ in
           show_branch_name = false;
           show_menus = true;
         };
+        toolbar = {
+          breadcrumbs = false;
+          quick_actions = false;
+          selections_menu = false;
+          agent_review = false;
+        };
         minimap = {
           show = "auto";
 
