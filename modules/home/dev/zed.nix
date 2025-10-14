@@ -32,9 +32,14 @@ in
           show = true;
           show_nav_history_buttons = false;
         };
+        collaboration_panel = {
+          button = false;
+        };
         minimap = {
           show = "auto";
-
+        };
+        search = {
+          button = false;
         };
         autosave = {
           after_delay = {
