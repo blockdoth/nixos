@@ -13,6 +13,14 @@ in
     programs.zed-editor = {
       enable = true;
       installRemoteServer = true;
+      userKeymaps = [
+        {
+          context = "Editor";
+          bindings = {
+            ctrl-d = "editor::DuplicateLineUp";
+          };
+        }
+      ];
       userSettings = {
         title_bar = {
           show_sign_in = false;
