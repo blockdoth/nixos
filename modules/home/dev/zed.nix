@@ -20,7 +20,7 @@ in
           show_on_boarding_banner = false;
           show_project_items = false;
           show_branch_name = false;
-          show_menus = false;
+          show_menus = true;
         };
         toolbar = {
           breadcrumbs = false;
@@ -51,7 +51,7 @@ in
         };
         tabs = {
           file_icons = true;
-          show_diagnostics = true;
+          show_diagnostics = "error";
           git_status = true;
         };
         disable_ai = true;
