@@ -16,9 +16,12 @@ in
       hashcat
       exiftool
       pngtools
-      zsteg
+      zsteg # stenography
       wireshark
       qrrs # QR codes
+      scalpel
+      binwalk
+      stegseek
     ];
   };
 }
