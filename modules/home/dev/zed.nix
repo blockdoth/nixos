@@ -20,13 +20,14 @@ in
           show_on_boarding_banner = false;
           show_project_items = false;
           show_branch_name = false;
-          show_menus = true;
+          show_menus = false;
         };
         toolbar = {
           breadcrumbs = false;
           quick_actions = false;
           selections_menu = false;
           agent_review = false;
+          code_actions = false;
         };
         tab_bar = {
           show = true;
@@ -45,6 +46,9 @@ in
           after_delay = {
             milliseconds = 500;
           };
+        };
+        buffer_font_features = {
+          calt = false;
         };
         telemetry = {
           diagnostics = false;
