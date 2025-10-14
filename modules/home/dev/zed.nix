@@ -20,7 +20,7 @@ in
           show_on_boarding_banner = false;
           show_project_items = false;
           show_branch_name = false;
-          show_menus = true;
+          show_menus = false;
         };
         toolbar = {
           breadcrumbs = false;
@@ -46,8 +46,8 @@ in
         load_direnv = "shell_hook";
         icon_theme = {
           mode = "system";
-          dark = "VSCode Icons";
-          light = "VSCode Icons Light";
+          dark = "VSCode Icons (Dark)";
+          light = "VSCode Icons (Light)";
         };
         tabs = {
           file_icons = true;
@@ -98,6 +98,7 @@ in
         "zed-html-snippets"
         "rust-snippets-for-zed"
         "zed-vscode-icons-theme"
+        "gruvbox-crisp-themes"
       ];
     };
   };
