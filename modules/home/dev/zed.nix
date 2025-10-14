@@ -57,8 +57,8 @@ in
         load_direnv = "shell_hook";
         icon_theme = {
           mode = "light";
-          dark = "VSCode Icons";
-          light = "VSCode Icons Light";
+          dark = "VSCode Icons (Dark)";
+          light = "VSCode Icons (Light)";
         };
         tabs = {
           file_icons = true;
