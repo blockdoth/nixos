@@ -36,7 +36,9 @@ in
         };
         load_direnv = "shell_hook";
       };
-      extensions = [ ];
+      extensions = [
+
+      ];
     };
   };
 }
