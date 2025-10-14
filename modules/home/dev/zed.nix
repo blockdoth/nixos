@@ -45,6 +45,21 @@ in
           file_icons = true;
         };
         disable_ai = true;
+        languages = {
+          Nix = {
+            formatter = {
+              external = {
+                command = "treefmt";
+              };
+            };
+          };
+        };
+        lsp = {
+          nixd = {
+            settings = {
+            };
+          };
+        };
       };
       extensions = [
         "html"
