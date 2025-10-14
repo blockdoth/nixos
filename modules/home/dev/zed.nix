@@ -35,9 +35,28 @@ in
           metrics = false;
         };
         load_direnv = "shell_hook";
+        icon_theme = {
+          mode = "system";
+          dark = "VSCode Icons";
+          light = "VSCode Icons Light";
+        };
+        tabs = {
+          file_icons = true;
+        };
       };
       extensions = [
-
+        "html"
+        "toml"
+        "dockerfile"
+        "elixir"
+        "nix"
+        "make"
+        "latex"
+        "csv"
+        "cargotom"
+        "zed-html-snippets"
+        "rust-snippets-for-zed"
+        "zed-vscode-icons-theme"
       ];
     };
   };
