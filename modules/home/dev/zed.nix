@@ -51,6 +51,7 @@ in
         gutter = {
           folds = false;
           min_line_number_digits = 3;
+          breakpoints = false;
         };
         search.button = false;
         minimap.show = "auto";
