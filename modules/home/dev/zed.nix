@@ -62,6 +62,9 @@ in
           diagnostics = false;
           metrics = false;
         };
+        terminal = {
+          cursor_shape = "bar";
+        };
         load_direnv = "shell_hook";
         icon_theme = {
           mode = "dark";
