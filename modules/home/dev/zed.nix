@@ -43,6 +43,7 @@ in
         tab_bar = {
           show = true;
           show_nav_history_buttons = false;
+          show_tab_bar_buttons = false;
         };
         collaboration_panel.button = false;
         notification_panel.button = false;
