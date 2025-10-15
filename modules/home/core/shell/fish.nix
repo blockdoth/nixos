@@ -10,8 +10,15 @@ let
 in
 {
   config = lib.mkIf module.enable {
+
     programs.fish = {
       enable = true;
+      plugins = with pkgs.fishPlugins; [
+        {
+          name = "bass";
+          src = bass.src;
+        }
+      ];
       interactiveShellInit = ''
               direnv hook fish | source
           		set fish_greeting 
