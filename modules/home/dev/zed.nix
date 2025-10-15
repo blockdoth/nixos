@@ -48,7 +48,10 @@ in
         notification_panel.button = false;
         git_panel.button = false;
         outline_panel.button = false;
-
+        gutter = {
+          folds = false;
+          min_line_number_digits = 3;
+        };
         search.button = false;
         minimap.show = "auto";
         autosave.after_delay.milliseconds = 500;
