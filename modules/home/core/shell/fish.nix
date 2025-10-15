@@ -10,13 +10,16 @@ let
 in
 {
   config = lib.mkIf module.enable {
-
     programs.fish = {
       enable = true;
       plugins = with pkgs.fishPlugins; [
         {
           name = "bass";
           src = bass.src;
+        }
+        {
+          name = "done";
+          src = done.src;
         }
       ];
       interactiveShellInit = ''
