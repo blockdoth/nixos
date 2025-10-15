@@ -46,6 +46,9 @@ in
         };
         collaboration_panel.button = false;
         notification_panel.button = false;
+        git_panel.button = false;
+        outline_panel.button = false;
+
         search.button = false;
         minimap.show = "auto";
         autosave.after_delay.milliseconds = 500;
