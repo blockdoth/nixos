@@ -17,10 +17,6 @@ in
           name = "bass";
           src = bass.src;
         }
-        {
-          name = "done";
-          src = done.src;
-        }
       ];
       interactiveShellInit = ''
               direnv hook fish | source
