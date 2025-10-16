@@ -35,7 +35,6 @@ in
         };
         project_panel = {
           folder_icons = false;
-          hide_root = true;
         };
         toolbar = {
           breadcrumbs = false;
@@ -66,6 +65,9 @@ in
         telemetry = {
           diagnostics = false;
           metrics = false;
+        };
+        diagnostics = {
+          button = false;
         };
         terminal = {
           cursor_shape = "bar";
