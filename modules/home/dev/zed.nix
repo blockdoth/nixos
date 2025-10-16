@@ -65,6 +65,9 @@ in
         };
         terminal = {
           cursor_shape = "bar";
+          toolbar = {
+            breadcrumbs = false;
+          };
         };
         load_direnv = "shell_hook";
         icon_theme = {
