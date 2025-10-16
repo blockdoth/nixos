@@ -53,6 +53,7 @@ in
           folds = false;
           min_line_number_digits = 3;
           breakpoints = false;
+          runnables = false;
         };
         search.button = false;
         minimap.show = "auto";
