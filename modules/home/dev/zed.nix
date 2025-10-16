@@ -33,6 +33,10 @@ in
           show_branch_name = false;
           show_menus = false;
         };
+        project_panel = {
+          folder_icons = false;
+          hide_root = true;
+        };
         toolbar = {
           breadcrumbs = false;
           quick_actions = false;
@@ -68,6 +72,9 @@ in
           toolbar = {
             breadcrumbs = false;
           };
+        };
+        debugger = {
+          button = false;
         };
         load_direnv = "shell_hook";
         icon_theme = {
