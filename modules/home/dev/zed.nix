@@ -35,6 +35,7 @@ in
         };
         project_panel = {
           folder_icons = false;
+          hide_root = false;
         };
         toolbar = {
           breadcrumbs = false;
