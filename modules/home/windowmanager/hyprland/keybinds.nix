@@ -110,7 +110,7 @@ in
         "SUPER,W,exec, pypr toggle whatsapp"
         "SUPER SHIFT,W,exec, wlogout-script"
         "SUPER,X,exec,pypr attach"
-        "SUPER,Y,exec,codium ~/nixos"
+        "SUPER,Y,exec,zeditor ~/nixos"
         "SUPER,Z, exec, pypr zoom "
         "SUPER SHIFT,Z, exec, pypr zoom ++0.6"
         "SUPER SHIFT, S, exec, grimblast --notify --freeze copysave area"

@@ -45,7 +45,7 @@ in
           notes = "cd ~/documents/notes";
           note = "cd ~/documents/notes && micro \"$(date +%F)\"";
           getrepo = "git clone ";
-          code = "codium . 2>/dev/null";
+          code = "zeditor .";
           bat = "bat -p";
           ls = "eza";
           vw = "notes && cat tos | wl-copy";
