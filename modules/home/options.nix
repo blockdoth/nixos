@@ -1,9 +1,7 @@
 {
   config,
   lib,
-  pkgs,
   inputs,
-  hostname,
   ...
 }:
 let
@@ -18,7 +16,6 @@ let
   enableGui = enableStackingWM || enableTilingWM;
   secrets = inputs.nixos-secrets;
   inherit (lib)
-    mkIf
     mkEnableOption
     mkDefault
     mkOption

@@ -89,7 +89,7 @@ in
 {
   config = lib.mkIf module.enable {
     #import scripts
-    home.packages = with pkgs; [
+    home.packages = [
       waybar-mediaplayer-info
       waybar-mediaplayer-inputswitcher
       waybar-mediaplayer-playpause

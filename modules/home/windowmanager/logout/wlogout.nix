@@ -11,11 +11,10 @@ let
   border-radius = "10";
   border-radius-active = "10";
   wlogout-script = pkgs.writeShellScriptBin "wlogout-script" (builtins.readFile ./wlogout.sh);
-  colors = config.lib.stylix.colors;
 in
 {
   config = lib.mkIf module.enable {
-    home.packages = with pkgs; [ wlogout-script ];
+    home.packages = [ wlogout-script ];
     programs.wlogout = {
       enable = true;
       layout = [

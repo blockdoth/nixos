@@ -1,14 +1,11 @@
 {
-  pkgs,
   config,
   lib,
-  system,
   inputs,
   ...
 }:
 let
   module = config.modules.programs.browsers.firefox;
-  defaultProfile = "default";
 in
 {
   imports = [

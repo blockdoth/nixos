@@ -1,5 +1,4 @@
 {
-  pkgs,
   config,
   lib,
   inputs,
@@ -7,12 +6,11 @@
 }:
 let
   module = config.modules.core.terminal.ghostty;
-  stylix = config.lib.stylix;
   toStr = var: builtins.toString var;
 in
 {
   config = lib.mkIf module.enable {
-    home.packages = with pkgs; [ inputs.ghostty.packages.x86_64-linux.default ];
+    home.packages = [ inputs.ghostty.packages.x86_64-linux.default ];
 
     xdg.configFile."ghostty/config".text = ''
       window-decoration = false
