@@ -5,13 +5,12 @@
   ...
 }:
 let
-  module = config.modules.core.secrets;
   keysFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
 in
 {
   imports = [ inputs.sops-nix.homeManagerModules.sops ];
 
-  config = lib.mkIf module.enable {
+  config = {
     sops = {
       defaultSopsFile = ../../../secrets.yaml;
       defaultSopsFormat = "yaml";

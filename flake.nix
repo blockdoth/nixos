@@ -16,7 +16,6 @@
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
     nvf.url = "github:notashelf/nvf";
     nix-minecraft.url = "github:InfiniDoge/nix-minecraft";
-    ags.url = "github:Aylur/ags";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     shyfox.url = "github:blockdoth/ShyFox";

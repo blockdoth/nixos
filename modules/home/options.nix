@@ -51,6 +51,7 @@ in
             uni = mkOption { type = types.str; };
             personal = mkOption { type = types.str; };
           };
+          name = mkOption { type = types.str; };
         };
         style = {
           stylix.enable = mkEnableOption "theming";
@@ -152,6 +153,7 @@ in
             uni = secrets.mails.uni;
             personal = secrets.mails.personal;
           };
+          name = secrets.name;
         };
 
         shell = {

@@ -7,6 +7,7 @@
 }:
 let
   module = config.modules.core.shell.fish;
+  secrets = config.modules.core.secrets;
 in
 {
   config = lib.mkIf module.enable {
@@ -24,7 +25,7 @@ in
         		'';
 
       shellAbbrs = {
-        "shell" = "nix shell nixpkgs#{}";
+        "shell" = "nix shell nixpkgs#{";
       };
       shellAliases = lib.mkMerge [
         {
@@ -48,6 +49,8 @@ in
           bat = "bat -p";
           ls = "eza";
           vw = "notes && cat tos | wl-copy";
+          systui = "sudo systemctl-tui";
+          gituni = "git config user.name \"${secrets.name}\" && git config user.email \"${secrets.mails.uni}\"";
         }
         (lib.mkIf (config.home.username != "penger") {
           # Graphical
