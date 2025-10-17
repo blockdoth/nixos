@@ -7,7 +7,6 @@
 }:
 let
   module = config.system-modules.services.servers.minecraft;
-  domain = config.system-modules.services.domains.public;
 in
 {
   imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];

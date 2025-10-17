@@ -1,15 +1,12 @@
 {
-  pkgs,
   config,
   lib,
-  inputs,
   ...
 }:
 let
   domain = config.system-modules.secrets.domains.homelab;
   cfg = config.system-modules.services.media;
   module = cfg.jellyfin;
-  mediaDir = cfg.mediaDir;
   mediaGroup = cfg.group;
 in
 {

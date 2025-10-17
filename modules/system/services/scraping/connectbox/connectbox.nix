@@ -2,15 +2,13 @@
   pkgs,
   config,
   lib,
-  inputs,
-  system,
   ...
 }:
 # NOT WORKING BECAUSE FUCK PYTHON
 
 let
   module = config.system-modules.services.scraping.connectbox;
-  connectboxExporter = pkgs.python3Packages.buildPythonApplication rec {
+  connectboxExporter = pkgs.python3Packages.buildPythonApplication {
     pname = "connectboxExporter";
     version = "1.0.0";
     src = pkgs.fetchFromGitHub {
@@ -22,9 +20,9 @@ let
   };
 in
 {
-  # config = lib.mkIf module.enable {
-  #   environment.systemPackages = with pkgs; [
-  #     connectboxExporter
-  #   ];
-  # };
+  config = lib.mkIf module.enable {
+    environment.systemPackages = [
+      connectboxExporter
+    ];
+  };
 }

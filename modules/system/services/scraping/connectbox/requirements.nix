@@ -2,14 +2,11 @@
 # See https://github.com/nix-community/pip2nix
 
 {
-  pkgs,
   fetchurl,
-  fetchgit,
-  fetchhg,
 }:
 
 self: super: {
-  "certifi" = super.buildPythonPackage rec {
+  "certifi" = super.buildPythonPackage {
     pname = "certifi";
     version = "2025.8.3";
     src = fetchurl {
@@ -23,7 +20,7 @@ self: super: {
     nativeBuildInputs = [ ];
     propagatedBuildInputs = [ ];
   };
-  "charset-normalizer" = super.buildPythonPackage rec {
+  "charset-normalizer" = super.buildPythonPackage {
     pname = "charset-normalizer";
     version = "3.4.3";
     src = fetchurl {
@@ -37,7 +34,7 @@ self: super: {
     nativeBuildInputs = [ ];
     propagatedBuildInputs = [ ];
   };
-  "click" = super.buildPythonPackage rec {
+  "click" = super.buildPythonPackage {
     pname = "click";
     version = "7.1.2";
     src = fetchurl {
@@ -51,7 +48,7 @@ self: super: {
     nativeBuildInputs = [ ];
     propagatedBuildInputs = [ ];
   };
-  "compal" = super.buildPythonPackage rec {
+  "compal" = super.buildPythonPackage {
     pname = "compal";
     version = "0.3.1";
     src = fetchurl {
@@ -68,7 +65,7 @@ self: super: {
       self."requests"
     ];
   };
-  "deepmerge" = super.buildPythonPackage rec {
+  "deepmerge" = super.buildPythonPackage {
     pname = "deepmerge";
     version = "0.2.1";
     src = fetchurl {
@@ -82,7 +79,7 @@ self: super: {
     nativeBuildInputs = [ ];
     propagatedBuildInputs = [ ];
   };
-  "idna" = super.buildPythonPackage rec {
+  "idna" = super.buildPythonPackage {
     pname = "idna";
     version = "3.10";
     src = fetchurl {
@@ -96,7 +93,7 @@ self: super: {
     nativeBuildInputs = [ ];
     propagatedBuildInputs = [ ];
   };
-  "lxml" = super.buildPythonPackage rec {
+  "lxml" = super.buildPythonPackage {
     pname = "lxml";
     version = "6.0.0";
     src = fetchurl {
@@ -110,7 +107,7 @@ self: super: {
     nativeBuildInputs = [ ];
     propagatedBuildInputs = [ ];
   };
-  "prometheus-client" = super.buildPythonPackage rec {
+  "prometheus-client" = super.buildPythonPackage {
     pname = "prometheus-client";
     version = "0.9.0";
     src = fetchurl {
@@ -124,7 +121,7 @@ self: super: {
     nativeBuildInputs = [ ];
     propagatedBuildInputs = [ ];
   };
-  "requests" = super.buildPythonPackage rec {
+  "requests" = super.buildPythonPackage {
     pname = "requests";
     version = "2.32.4";
     src = fetchurl {
@@ -143,7 +140,7 @@ self: super: {
       self."urllib3"
     ];
   };
-  "ruamel.yaml" = super.buildPythonPackage rec {
+  "ruamel.yaml" = super.buildPythonPackage {
     pname = "ruamel.yaml";
     version = "0.16.13";
     src = fetchurl {
@@ -159,7 +156,7 @@ self: super: {
       self."ruamel.yaml.clib"
     ];
   };
-  "ruamel.yaml.clib" = super.buildPythonPackage rec {
+  "ruamel.yaml.clib" = super.buildPythonPackage {
     pname = "ruamel.yaml.clib";
     version = "0.2.12";
     src = fetchurl {
@@ -173,7 +170,7 @@ self: super: {
     nativeBuildInputs = [ ];
     propagatedBuildInputs = [ ];
   };
-  "urllib3" = super.buildPythonPackage rec {
+  "urllib3" = super.buildPythonPackage {
     pname = "urllib3";
     version = "2.5.0";
     src = fetchurl {

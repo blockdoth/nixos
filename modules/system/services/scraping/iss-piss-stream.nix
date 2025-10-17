@@ -7,11 +7,10 @@
 }:
 let
   module = config.system-modules.services.scraping.iss-piss-stream;
-  domain = config.system-modules.secrets.domains.homelab;
 in
 {
   config = lib.mkIf module.enable {
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = [
       inputs.iss-piss-stream.packages.${pkgs.system}.default
     ];
 

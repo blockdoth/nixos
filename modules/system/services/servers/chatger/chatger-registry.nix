@@ -13,7 +13,7 @@ let
 in
 {
   config = lib.mkIf module.enable {
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = [
       regger
     ];
     users.groups.regger = { };

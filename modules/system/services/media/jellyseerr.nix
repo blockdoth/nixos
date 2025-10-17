@@ -1,16 +1,12 @@
 {
-  pkgs,
   config,
   lib,
-  inputs,
   ...
 }:
 let
   domain = config.system-modules.secrets.domains.homelab;
   cfg = config.system-modules.services.media;
   module = cfg.jellyseerr;
-  mediaDir = cfg.mediaDir;
-  mediaGroup = cfg.group;
 in
 {
   config = lib.mkIf module.enable {

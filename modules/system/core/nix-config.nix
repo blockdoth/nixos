@@ -2,8 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
-  system,
   ...
 }:
 let
@@ -32,7 +30,7 @@ in
       };
       nix-ld = {
         enable = true;
-        libraries = with pkgs; [
+        libraries = [
           # I will know what to put here when it becomes a problem
         ];
       };

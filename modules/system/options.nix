@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   inputs,
   ...
 }:
@@ -14,10 +13,8 @@ let
   enablePissStream = config.system-modules.presets.iss-piss-stream.enable;
   enableUserPenger = config.system-modules.users.penger.enable;
   enableUserBlockdoth = config.system-modules.users.blockdoth.enable;
-  zenMode = config.system-modules.zenmode.enable;
   secrets = inputs.nixos-secrets;
   inherit (lib)
-    mkIf
     mkEnableOption
     mkDefault
     mkOption

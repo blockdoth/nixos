@@ -1,12 +1,10 @@
 {
   config,
   lib,
-  inputs,
   ...
 }:
 let
   module = config.system-modules.services.observability.gatus;
-  domain = config.system-modules.secrets.domains.homelab;
   buildUrl = map (
     ep:
     ep

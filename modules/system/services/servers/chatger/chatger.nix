@@ -2,12 +2,10 @@
   pkgs,
   config,
   lib,
-  inputs,
   ...
 }:
 let
   module = config.system-modules.services.servers.chatger;
-  domain = config.system-modules.secrets.domains.public;
   chatgerTLSPort = 4349;
   chatgerPort = 4348;
   chatger = pkgs.stdenv.mkDerivation {
@@ -34,7 +32,7 @@ let
 in
 {
   config = lib.mkIf module.enable {
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = [
       chatger
     ];
     users.groups.chatger = { };

@@ -1,14 +1,11 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
-  domain = config.system-modules.services.domains.homelab;
   module = config.system-modules.presets.mediaserver;
   cfg = config.system-modules.services.media;
-  enableMediaServer = cfg.enable;
   mediaDir = cfg.mediaDir;
   mediaGroup = cfg.group;
 in
