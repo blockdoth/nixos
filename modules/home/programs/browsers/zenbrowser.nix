@@ -6,7 +6,7 @@
   ...
 }:
 let
-  module = config.modules.programs.browsers.zenbrowser;
+  module = config.modules.programs.browsers.zen;
 in
 {
   config = lib.mkIf module.enable {

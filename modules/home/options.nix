@@ -105,7 +105,7 @@ in
         };
         browsers = {
           firefox.enable = mkEnableOption "firefox";
-          zenbrowser.enable = mkEnableOption "zenbrowser";
+          zen.enable = mkEnableOption "zenbrowser";
           chrome.enable = mkEnableOption "chrome";
         };
         discord.enable = mkEnableOption "discord";
