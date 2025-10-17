@@ -27,7 +27,7 @@
     };
     dev = {
       ctf.enable = (if hostname == "laptop" then true else false);
-      nvf.enable = true;
+      # nvf.enable = true;
     };
   };
 }
