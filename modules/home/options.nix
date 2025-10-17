@@ -54,7 +54,6 @@ in
         };
         style = {
           stylix.enable = mkEnableOption "theming";
-          fastfetch.enable = mkEnableOption "fastfetch";
           rice = {
             cli.enable = mkEnableOption "cli rice";
             gui.enable = mkEnableOption "gui rice";

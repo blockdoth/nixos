@@ -57,10 +57,6 @@ in
 
         terminal.shell = {
           program = "fish";
-          args = [
-            "-C"
-            "fastfetch"
-          ];
         };
       };
     };

@@ -22,6 +22,10 @@ in
               direnv hook fish | source
           		set fish_greeting 
         		'';
+
+      shellAbbrs = {
+        "nix shell" = "nix shell nixpkgs#{}";
+      };
       shellAliases = lib.mkMerge [
         {
           cls = "clear";
@@ -43,6 +47,7 @@ in
           code = "codium . 2>/dev/null";
           bat = "bat -p";
           ls = "eza";
+          vw = "notes && cat tos | wl-copy";
         }
         (lib.mkIf (config.home.username != "penger") {
           # Graphical
