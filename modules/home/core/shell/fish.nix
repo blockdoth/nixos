@@ -24,7 +24,7 @@ in
         		'';
 
       shellAbbrs = {
-        "nix shell" = "nix shell nixpkgs#{}";
+        "shell" = "nix shell nixpkgs#{}";
       };
       shellAliases = lib.mkMerge [
         {
