@@ -43,8 +43,10 @@ in
         enable = true;
         wifi.scanRandMacAddress = false;
       };
-      interfaces.eno1.wakeOnLan.enable = module.wakeOnLan;
-
+      interfaces = {
+        eno1.wakeOnLan.enable = module.wakeOnLan;
+        enp7s0.wakeOnLan.enable = module.wakeOnLan;
+      };
       # Block distracting domains in zenmode
       extraHosts = lib.mkIf zenmode.enable blockedHosts;
     };
