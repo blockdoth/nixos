@@ -2,7 +2,6 @@
 
 let
   module = config.system-modules.common.nfs;
-  hostname = config.system-modules.core.networking.hostname;
 in
 {
   # NFS client mounts
@@ -26,7 +25,7 @@ in
     services.nfs = lib.mkIf module.server.enable {
       server = {
         enable = true;
-        exports = [ ]; # TODO
+        exports = module.server.exports; # TODO
       };
     };
   };

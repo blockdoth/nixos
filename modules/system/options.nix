@@ -120,7 +120,10 @@ in
               }
             );
           };
-          server.enable = mkEnableOption "nfs server";
+          server = {
+            enable = mkEnableOption "nfs server";
+            exports = types.listOf (types.str);
+          };
         };
       };
 
