@@ -22,6 +22,7 @@
     };
 
     presets = {
+      server.enable = true;
       mediaserver.enable = false;
       iss-piss-stream.enable = true;
     };
