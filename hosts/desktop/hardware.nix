@@ -4,6 +4,7 @@
 {
   config,
   lib,
+  pkgs,
   modulesPath,
   ...
 }:
@@ -11,18 +12,32 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [
-    "ahci"
-    "xhci_pci"
-    "ehci_pci"
-    "nvme"
-    "usbhid"
-    "usb_storage"
-    "sd_mod"
-  ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot = {
+    initrd = {
+      kernelModules = [ ];
+      availableKernelModules = [
+        "ahci"
+        "xhci_pci"
+        "ehci_pci"
+        "nvme"
+        "usbhid"
+        "usb_storage"
+        "sd_mod"
+      ];
+    };
+    kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [ ];
+    kernelPackages = pkgs.linuxPackages_latest;
+
+    # Patch to enable wake on lan for the alx driver
+    # https://www.reddit.com/r/NixOS/comments/1iqip55/enabling_wakeonlan_on_alx_network_cards/
+    kernelPatches = [
+      # {
+      #   name = "patch";
+      #   patch = ./patches/alx-wol_v6.13.patch;
+      # }
+    ];
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/6b656143-2414-458a-863c-2ff19b96b69c";
