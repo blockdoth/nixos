@@ -54,6 +54,7 @@ in
       wl-clipboard
       wakeonlan
       nfs-utils
+      ethtool
     ];
   };
 }
