@@ -9,6 +9,7 @@ let
   enableGui = config.system-modules.presets.gui.enable;
   enableGaming = config.system-modules.presets.gaming.enable;
   enableLaptop = config.system-modules.presets.laptop.enable;
+  enableServer = config.system-modules.presets.server.enable;
   enableMediaServer = config.system-modules.presets.mediaserver.enable;
   enablePissStream = config.system-modules.presets.iss-piss-stream.enable;
   enableUserPenger = config.system-modules.users.penger.enable;
@@ -41,6 +42,7 @@ in
         gui.enable = mkEnableOption "graphical interface";
         gaming.enable = mkEnableOption "gaming";
         laptop.enable = mkEnableOption "laptop specific config";
+        server.enable = mkEnableOption "server specific config";
         mediaserver.enable = mkEnableOption "mediaserver";
         iss-piss-stream.enable = mkEnableOption "piss stream observability";
         zenmode.enable = mkEnableOption "zenmode";
@@ -78,6 +80,7 @@ in
         networking = {
           enable = mkEnableOption "networking config";
           hostname = mkOption { type = types.str; };
+          wakeOnLan = mkEnableOption "wake on lan";
         };
         impermanence.enable = mkEnableOption "impermanence";
         localization.enable = mkEnableOption "localization settings";
@@ -96,14 +99,16 @@ in
         crosscompilation.enable = mkEnableOption "cross-compilation";
         docker.enable = mkEnableOption "docker";
         gaming.enable = mkEnableOption "gaming";
-        power.enable = mkEnableOption "power";
+        powerprofile = mkOption {
+          type = types.str;
+        };
         printing.enable = mkEnableOption "printing";
         syncthing.enable = mkEnableOption "syncthing";
         trackpad.enable = mkEnableOption "trackpad";
         wireshark.enable = mkEnableOption "wireshark";
         filemanager.enable = mkEnableOption "filemanager";
         plymouth.enable = mkEnableOption "plymouth";
-        udev.enable = mkEnableOption "plymouth";
+        udev.enable = mkEnableOption "udev";
       };
 
       display = {
@@ -288,9 +293,15 @@ in
       common = {
         audio.enable = mkDefault enableGui;
         bluetooth.enable = mkDefault enableLaptop;
-        power.enable = mkDefault enableLaptop;
         trackpad.enable = mkDefault enableLaptop;
         gaming.enable = mkDefault enableGaming;
+        powerprofile =
+          if enableLaptop then
+            "laptop"
+          else if enableServer then
+            "server"
+          else
+            null;
       };
 
       display = {

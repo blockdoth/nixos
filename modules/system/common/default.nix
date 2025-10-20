@@ -11,7 +11,8 @@
     ./crosscompilation.nix
     ./docker.nix
     ./gaming.nix
-    ./power.nix
+    ./powerprofiles/laptop.nix
+    ./powerprofiles/server.nix
     ./printing.nix
     ./syncthing.nix
     ./trackpad.nix

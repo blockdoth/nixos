@@ -15,7 +15,10 @@
   system-modules = {
     users.blockdoth.enable = true;
     core.impermanence.enable = false;
-    core.networking.hostname = "desktop";
+    core.networking = {
+      hostname = "desktop";
+      wakeOnLan = true;
+    };
     presets = {
       gui.enable = true;
       gaming.enable = true;

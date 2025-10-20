@@ -14,7 +14,10 @@
   system-modules = {
     users.penger.enable = true;
     core = {
-      networking.hostname = "nuc";
+      networking = {
+        hostname = "nuc";
+        wakeOnLan = true;
+      };
       tailscale.exit-node = true;
     };
 

@@ -56,7 +56,6 @@ in
         "dmi_sysfs"
         "wmi_bmof"
         "ee1004"
-
       ];
     };
   };
