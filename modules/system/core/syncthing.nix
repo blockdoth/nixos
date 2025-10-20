@@ -6,7 +6,7 @@
   ...
 }:
 let
-  module = config.system-modules.common.syncthing;
+  module = config.system-modules.core.syncthing;
   enableGui = config.system-modules.presets.gui.enable;
 in
 {

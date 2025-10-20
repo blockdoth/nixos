@@ -16,7 +16,6 @@ let
   enableUserBlockdoth = config.system-modules.users.blockdoth.enable;
   zenMode = config.system-modules.zenmode.enable;
   secrets = inputs.nixos-secrets;
-  enableDefaults = config.system-modules.presets.defaults.enable;
   inherit (lib)
     mkIf
     mkEnableOption
@@ -91,6 +90,7 @@ in
           enable = mkEnableOption "tailscale";
           exit-node = mkEnableOption "can serve as exitnode";
         };
+        syncthing.enable = mkEnableOption "syncthing";
       };
 
       common = {
@@ -103,12 +103,12 @@ in
           type = types.str;
         };
         printing.enable = mkEnableOption "printing";
-        syncthing.enable = mkEnableOption "syncthing";
         trackpad.enable = mkEnableOption "trackpad";
         wireshark.enable = mkEnableOption "wireshark";
         filemanager.enable = mkEnableOption "filemanager";
         plymouth.enable = mkEnableOption "plymouth";
         udev.enable = mkEnableOption "udev";
+        nfs.enable = mkEnableOption "nfs";
       };
 
       display = {
@@ -264,7 +264,6 @@ in
   };
   config = {
     system-modules = {
-      presets.defaults.enable = mkDefault true;
       secrets = {
         domains = {
           homelab = secrets.domains.homelab;
@@ -277,17 +276,18 @@ in
         };
       };
       core = {
-        grub.enable = mkDefault enableDefaults;
-        env.enable = mkDefault enableDefaults;
-        networking.enable = mkDefault enableDefaults;
-        localization.enable = mkDefault enableDefaults;
-        nix-config.enable = mkDefault enableDefaults;
-        secrets.enable = mkDefault enableDefaults;
-        ssh.enable = mkDefault enableDefaults;
+        grub.enable = mkDefault true;
+        env.enable = mkDefault true;
+        networking.enable = mkDefault true;
+        localization.enable = mkDefault true;
+        nix-config.enable = mkDefault true;
+        secrets.enable = mkDefault true;
+        ssh.enable = mkDefault true;
         tailscale = {
-          enable = mkDefault enableDefaults;
+          enable = mkDefault true;
           exit-node = mkDefault false;
         };
+        syncthing.enable = mkDefault true;
       };
 
       common = {
@@ -301,7 +301,7 @@ in
           else if enableServer then
             "server"
           else
-            null;
+            "nvt";
       };
 
       display = {

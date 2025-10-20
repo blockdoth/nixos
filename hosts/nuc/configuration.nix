@@ -23,12 +23,11 @@
 
     presets = {
       mediaserver.enable = false;
-
       iss-piss-stream.enable = true;
     };
     common = {
-      syncthing.enable = true;
       docker.enable = true;
+      nfs.enable = true;
     };
 
     services = {

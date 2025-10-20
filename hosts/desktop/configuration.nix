@@ -24,7 +24,6 @@
       gaming.enable = true;
     };
     common = {
-      syncthing.enable = true;
       bluetooth.enable = true;
       docker.enable = false;
       crosscompilation.enable = true;

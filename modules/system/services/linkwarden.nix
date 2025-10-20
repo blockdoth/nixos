@@ -27,7 +27,7 @@ in
       host = "127.0.0.1";
       enableRegistration = false;
       openFirewall = false;
-      secretFiles = config.sops.secrets.linkwarden-secrets.path;
+      environmentFile = config.sops.secrets.linkwarden-secrets.path;
 
     };
 

@@ -1,7 +1,4 @@
 {
-  config,
-  lib,
-  pkgs,
   ...
 }:
 {
@@ -14,11 +11,11 @@
     ./powerprofiles/laptop.nix
     ./powerprofiles/server.nix
     ./printing.nix
-    ./syncthing.nix
     ./trackpad.nix
     ./wireshark.nix
     ./filemanager.nix
     ./plymouth.nix
     ./udev.nix
+    ./nfs.nix
   ];
 }

@@ -20,7 +20,6 @@
       # zenmode.enable = true;
     };
     common = {
-      syncthing.enable = true;
       trackpad.enable = true;
       docker.enable = true;
       filemanager.enable = true;
