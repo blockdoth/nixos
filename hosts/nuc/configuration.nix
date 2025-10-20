@@ -27,7 +27,7 @@
     };
     common = {
       docker.enable = true;
-      nfs.enable = true;
+      nfs.enable = false; # todo
     };
 
     services = {

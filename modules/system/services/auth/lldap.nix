@@ -59,7 +59,6 @@ in
         ldap_base_dn = "dc=example,dc=com";
         ldap_user_dn = "uid=admin,ou=people,dc=example,dc=com";
         key_file = ""; # Silence warning
-        force_ldap_user_pass_reset = "always";
       };
       environment = {
         LLDAP_JWT_SECRET_FILE = lldap-config.shared-jwt;

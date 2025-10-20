@@ -108,7 +108,20 @@ in
         filemanager.enable = mkEnableOption "filemanager";
         plymouth.enable = mkEnableOption "plymouth";
         udev.enable = mkEnableOption "udev";
-        nfs.enable = mkEnableOption "nfs";
+        nfs = {
+          client = {
+            enable = mkEnableOption "nfs client";
+            mounts = types.listOf (
+              types.submodule {
+                options = {
+                  address = mkOption { type = types.str; };
+                  name = mkOption { type = types.str; };
+                };
+              }
+            );
+          };
+          server.enable = mkEnableOption "nfs server";
+        };
       };
 
       display = {
