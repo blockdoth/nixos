@@ -53,6 +53,7 @@ in
       onefetch
       unixtools.netstat
       wl-clipboard
+      wakeonlan
     ];
   };
 }
