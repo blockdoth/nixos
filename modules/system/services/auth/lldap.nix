@@ -65,7 +65,7 @@ in
         LLDAP_LDAP_USER_PASS_FILE = lldap-config.shared-password;
         LLDAP_KEY_SEED_FILE = config.sops.secrets.lldap-keyseed.path;
       };
-
+      silenceForceUserPassResetWarning = true;
     };
 
     system-modules.services = {
