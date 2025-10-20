@@ -19,7 +19,6 @@ in
       tty-clock
       lolcat
       figlet
-      mesa-demos
     ];
   };
 }

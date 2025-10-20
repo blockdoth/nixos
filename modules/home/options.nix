@@ -194,8 +194,8 @@ in
         direnv.enable = mkDefault enableDev;
         devinit.enable = mkDefault enableDev;
         micro.enable = mkDefault true;
-        vscode.enable = mkDefault true;
-        zed.enable = mkDefault true;
+        vscode.enable = mkDefault (enableGui && enableDev);
+        zed.enable = mkDefault (enableGui && enableDev);
       };
 
       programs = {

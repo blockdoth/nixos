@@ -28,7 +28,6 @@ in
       entr
       tmux
       comma
-      rclip
       systemctl-tui
       nix-tree
       gdu

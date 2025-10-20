@@ -10,8 +10,9 @@ let
 in
 {
   config = lib.mkIf module.enable {
-    home.packages = [
+    home.packages = with pkgs; [
       inputs.activate-linux.packages.${pkgs.system}.activate-linux
+      mesa-demos
     ];
   };
 }
