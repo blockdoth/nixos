@@ -53,6 +53,7 @@ in
       unixtools.netstat
       wl-clipboard
       wakeonlan
+      nfs-utils
     ];
   };
 }
