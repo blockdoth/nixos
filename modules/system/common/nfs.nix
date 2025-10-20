@@ -1,7 +1,12 @@
-{ config, lib, ... }:
-
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   module = config.system-modules.common.nfs;
+  hostname = config.system-modules.core.networking.hostname;
 in
 {
   # NFS client mounts

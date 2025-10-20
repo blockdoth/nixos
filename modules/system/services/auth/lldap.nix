@@ -66,6 +66,7 @@ in
         LLDAP_KEY_SEED_FILE = config.sops.secrets.lldap-keyseed.path;
       };
       silenceForceUserPassResetWarning = true;
+      # force_ldap_user_pass_reset = "always";
     };
 
     system-modules.services = {
