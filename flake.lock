@@ -2005,11 +2005,11 @@
         "nixpkgs": "nixpkgs_18"
       },
       "locked": {
-        "lastModified": 1758445537,
-        "narHash": "sha256-TKN4mYI5rIgDfhRUQ8UkG3qYYUqD9H+o5nyrqa45Zh4=",
+        "lastModified": 1761062150,
+        "narHash": "sha256-BAmUxoPRnbWX3dMLUQXKX1yPoo2f8XmhKEN45AEQx0k=",
         "owner": "blockdoth",
         "repo": "ShyFox",
-        "rev": "2fd608770a659afe989d29ce56784456b0d20c3a",
+        "rev": "34ff50ad70ee8d6e556a52aec28dcc23cfaae4a5",
         "type": "github"
       },
       "original": {
