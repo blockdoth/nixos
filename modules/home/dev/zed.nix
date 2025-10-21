@@ -22,6 +22,12 @@ in
             ctrl-d = "editor::DuplicateLineUp";
           };
         }
+        {
+          context = "Workspace";
+          bindings = {
+            ctrl-t = "workspace::ToggleBottomDock";
+          };
+        }
       ];
       userSettings = {
         title_bar = {
@@ -70,6 +76,7 @@ in
           button = false;
         };
         terminal = {
+          button = false;
           cursor_shape = "bar";
           toolbar = {
             breadcrumbs = false;
