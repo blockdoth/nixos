@@ -39,6 +39,7 @@ in
           show_menus = false;
         };
         project_panel = {
+          button = false;
           folder_icons = false;
           hide_root = false;
         };
