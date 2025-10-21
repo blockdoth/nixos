@@ -50,6 +50,8 @@ in
           vw = "notes && cat tos | wl-copy";
           systui = "sudo systemctl-tui";
           gituni = "git config user.name \"${secrets.name}\" && git config user.email \"${secrets.mails.uni}\"";
+          wifilist = "nmcli device wifi list";
+          hotspot = " nmcli device wifi connect \"government-bird-drone-213\" --ask";
         }
         (lib.mkIf (config.home.username != "penger") {
           # Graphical
