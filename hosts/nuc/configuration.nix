@@ -7,7 +7,6 @@
     ./hardware.nix
   ];
 
-  programs.dconf.enable = true;
   system-modules = {
     users.penger.enable = true;
     core = {
