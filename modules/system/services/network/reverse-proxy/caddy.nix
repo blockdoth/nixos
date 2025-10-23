@@ -9,7 +9,11 @@ let
   proxies = config.system-modules.services.network.reverse-proxy.proxies;
   mailAddress = config.system-modules.secrets.mails.personal;
   makeReverseProxyHttps = http-proxy: {
-    name = "${http-proxy.subdomain}.${http-proxy.domain}";
+    name =
+      if http-proxy.subdomain != null then
+        "${http-proxy.subdomain}.${http-proxy.domain}"
+      else
+        http-proxy.domain;
     value.extraConfig = ''
       ${
         if http-proxy.require-auth then
