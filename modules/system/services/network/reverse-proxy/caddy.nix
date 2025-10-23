@@ -10,7 +10,7 @@ let
   mailAddress = config.system-modules.secrets.mails.personal;
   makeReverseProxyHttps = http-proxy: {
     name =
-      if http-proxy.subdomain != null then
+      if http-proxy.subdomain != "" then
         "${http-proxy.subdomain}.${http-proxy.domain}"
       else
         http-proxy.domain;

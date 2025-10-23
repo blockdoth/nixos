@@ -165,7 +165,10 @@ in
               type = types.listOf (
                 types.submodule {
                   options = {
-                    subdomain = mkOption { type = types.str; };
+                    subdomain = mkOption {
+                      type = types.str;
+                      default = "";
+                    };
                     domain = mkOption {
                       type = types.str;
                       default = config.system-modules.secrets.domains.homelab;
