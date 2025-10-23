@@ -32,7 +32,6 @@ in
         {
           domain = "${domain}";
           port = 6769;
-          require-auth = true;
         }
       ];
     };
