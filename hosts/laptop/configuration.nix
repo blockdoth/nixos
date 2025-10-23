@@ -25,7 +25,7 @@
     };
     display.x11.enable = false;
     services = {
-      servers.mowie.enable = true;
+      # servers.mowie.enable = true;
     };
   };
 

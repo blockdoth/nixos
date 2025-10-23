@@ -43,6 +43,7 @@
         minecraft.enable = true;
         chatger.enable = true;
         chatger-registry.enable = true;
+        servers.mowie.enable = true;
       };
       observability = {
         gatus.enable = true;
