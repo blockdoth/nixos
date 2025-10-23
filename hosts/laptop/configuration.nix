@@ -24,9 +24,9 @@
       udev.enable = true;
     };
     display.x11.enable = false;
-    # services = {
-    #   network.pihole.enable = true;
-    # };
+    services = {
+      servers.mowie.enable = true;
+    };
   };
 
   system.stateVersion = "24.05"; # Did you read the comment?

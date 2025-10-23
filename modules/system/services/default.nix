@@ -5,6 +5,7 @@
   imports = [
     ./media
     ./servers/factorio.nix
+    ./servers/mowie.nix
     ./servers/minecraft.nix
     ./servers/chatger/chatger.nix
     ./servers/chatger/chatger-registry.nix

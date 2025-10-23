@@ -52,6 +52,7 @@
     chatger-registry.url = "github:blockdoth/chatger-registry";
     nixos-secrets.url = "git+ssh://git@github.com/blockdoth/nixos-secrets";
     zjstatus.url = "github:dj95/zjstatus";
+    mowie.url = "git+ssh://git@gitlab.tudelft.nl/cor/robotics_minor/robotics_minor_2025/team_3_mowie/mowie.git";
   };
 
   outputs =

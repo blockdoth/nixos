@@ -58,6 +58,10 @@ in
             type = types.str;
             default = "127.0.0.1";
           };
+          mowie = mkOption {
+            type = types.str;
+            default = "127.0.0.1";
+          };
         };
         mails = {
           uni = mkOption { type = types.str; };
@@ -136,6 +140,7 @@ in
           factorio.enable = mkEnableOption "factorio server";
           chatger.enable = mkEnableOption "chatger";
           chatger-registry.enable = mkEnableOption "chatger-registry";
+          mowie.enable = mkEnableOption "mowie";
         };
         network = {
           ddns.enable = mkEnableOption "ddns";
@@ -282,6 +287,7 @@ in
           homelab = secrets.domains.homelab;
           public = secrets.domains.public;
           personal = secrets.domains.personal;
+          mowie = secrets.domains.mowie;
         };
         mails = {
           uni = secrets.mails.uni;
