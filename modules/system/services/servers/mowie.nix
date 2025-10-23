@@ -6,7 +6,7 @@
   ...
 }:
 let
-  module = config.system-modules.services.scraping.iss-piss-stream;
+  module = config.system-modules.services.servers.mowie;
   domain = config.system-modules.secrets.domains.mowie;
 in
 {
@@ -16,12 +16,12 @@ in
     ];
 
     systemd.services = {
-      iss-piss-stream = {
+      mowie = {
         description = "Runs mowie server";
         wantedBy = [ "multi-user.target" ];
         after = [ "network.target" ];
         serviceConfig = {
-          ExecStart = "mowie-web";
+          ExecStart = "${inputs.mowie.packages.${pkgs.system}.mowie-web}/bin/mowie-web";
           Restart = "on-failure";
         };
       };
