@@ -17,7 +17,7 @@ in
 
     systemd.services = {
       mowie = {
-        description = "Runs mowie server";
+        description = "Mowie server";
         wantedBy = [ "multi-user.target" ];
         after = [ "network.target" ];
         serviceConfig = {
@@ -31,7 +31,7 @@ in
       network.reverse-proxy.proxies = [
         {
           domain = "${domain}";
-          port = config.services.homepage-dashboard.listenPort;
+          port = 6769;
           require-auth = true;
         }
       ];

@@ -14,6 +14,7 @@ let
         "${http-proxy.subdomain}.${http-proxy.domain}"
       else
         http-proxy.domain;
+
     value.extraConfig = ''
       ${
         if http-proxy.require-auth then
