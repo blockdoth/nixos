@@ -55,6 +55,7 @@ in
       wakeonlan
       nfs-utils
       ethtool
+      grex
     ];
   };
 }
