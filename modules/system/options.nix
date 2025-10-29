@@ -9,10 +9,12 @@ let
   enableGaming = config.system-modules.presets.gaming.enable;
   enableLaptop = config.system-modules.presets.laptop.enable;
   enableServer = config.system-modules.presets.server.enable;
+  enableDefaults = config.system-modules.presets.defaults.enable;
   enableMediaServer = config.system-modules.presets.mediaserver.enable;
   enablePissStream = config.system-modules.presets.iss-piss-stream.enable;
   enableUserPenger = config.system-modules.users.penger.enable;
   enableUserBlockdoth = config.system-modules.users.blockdoth.enable;
+  enableUserMowie = config.system-modules.users.mowie.enable;
   secrets = inputs.nixos-secrets;
   inherit (lib)
     mkEnableOption
@@ -29,6 +31,7 @@ in
     ./services
     ../../users/blockdoth/system.nix
     ../../users/penger/system.nix
+    ../../users/mowie/system.nix
   ];
 
   options = {
@@ -72,6 +75,7 @@ in
       users = {
         blockdoth.enable = mkEnableOption "user blockdoth";
         penger.enable = mkEnableOption "user penger";
+        mowie.enable = mkEnableOption "user penger";
       };
 
       core = {
@@ -294,19 +298,22 @@ in
           personal = secrets.mails.personal;
         };
       };
+
+      presets.defaults.enable = mkDefault true;
+
       core = {
-        grub.enable = mkDefault true;
-        env.enable = mkDefault true;
-        networking.enable = mkDefault true;
-        localization.enable = mkDefault true;
-        nix-config.enable = mkDefault true;
-        secrets.enable = mkDefault true;
-        ssh.enable = mkDefault true;
+        grub.enable = mkDefault enableDefaults;
+        env.enable = mkDefault enableDefaults;
+        networking.enable = mkDefault enableDefaults;
+        localization.enable = mkDefault enableDefaults;
+        nix-config.enable = mkDefault enableDefaults;
+        secrets.enable = mkDefault enableDefaults;
+        ssh.enable = mkDefault enableDefaults;
         tailscale = {
-          enable = mkDefault true;
+          enable = mkDefault enableDefaults;
           exit-node = mkDefault false;
         };
-        syncthing.enable = mkDefault true;
+        syncthing.enable = mkDefault enableDefaults;
       };
 
       common = {
@@ -355,7 +362,7 @@ in
     # Prevent me from fucking myself over again
     assertions = [
       {
-        assertion = enableUserPenger || enableUserBlockdoth;
+        assertion = enableUserPenger || enableUserBlockdoth || enableUserMowie;
         message = "At least one user must be enabled";
       }
       {
