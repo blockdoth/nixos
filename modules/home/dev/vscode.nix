@@ -54,6 +54,9 @@ in
             startupPrompt = "never";
             baneer = "never";
           };
+          "[svelte]" = {
+            editor.defaultFormatter = "svelte.svelte-vscode";
+          };
         };
       };
     };

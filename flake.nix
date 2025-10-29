@@ -113,6 +113,7 @@
         laptop = mkSystem "laptop";
         desktop = mkSystem "desktop";
         nuc = mkSystem "nuc";
+        rpi = mkSystem "rpi";
       };
 
       homeConfigurations = {

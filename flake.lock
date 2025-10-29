@@ -1193,15 +1193,16 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1761214073,
-        "narHash": "sha256-RavOe+CRo4cmMx/Ye96qOtDb3P+9bitpTuudOUOD9Zk=",
-        "ref": "refs/heads/main",
-        "rev": "d6bf6c5332c52e512913462fdbdb8f4f77881424",
-        "revCount": 17,
+        "lastModified": 1761221110,
+        "narHash": "sha256-SFGarukNGZZzjonDVvF4zXA/NfJ4eDNv+n0sM5RtXzc=",
+        "ref": "dev",
+        "rev": "0d6befecb11449c687970fa98162ffcbe803c91d",
+        "revCount": 18,
         "type": "git",
         "url": "ssh://git@gitlab.tudelft.nl/cor/robotics_minor/robotics_minor_2025/team_3_mowie/mowie.git"
       },
       "original": {
+        "ref": "dev",
         "type": "git",
         "url": "ssh://git@gitlab.tudelft.nl/cor/robotics_minor/robotics_minor_2025/team_3_mowie/mowie.git"
       }

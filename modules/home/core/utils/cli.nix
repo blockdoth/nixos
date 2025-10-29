@@ -56,6 +56,7 @@ in
       nfs-utils
       ethtool
       grex
+      caligula
     ];
   };
 }
