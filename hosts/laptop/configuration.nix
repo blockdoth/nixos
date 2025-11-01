@@ -28,6 +28,13 @@
       # servers.mowie.enable = true;
     };
   };
+  nix.sshServe = {
+    enable = true;
+    trusted = true;
+    keys = [
+      (builtins.readFile ../desktop/id_ed25519.pub)
+    ];
+  };
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }
