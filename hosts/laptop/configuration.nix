@@ -31,6 +31,7 @@
   nix.sshServe = {
     enable = true;
     trusted = true;
+    write = true;
     keys = [
       (builtins.readFile ../desktop/id_ed25519.pub)
     ];
