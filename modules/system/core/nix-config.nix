@@ -38,7 +38,7 @@ in
 
     nix = {
       settings = {
-        cores = 11;
+        cores = 8;
         experimental-features = [
           "nix-command"
           "flakes"
