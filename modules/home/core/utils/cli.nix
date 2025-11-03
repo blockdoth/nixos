@@ -12,6 +12,7 @@ in
 {
   config = lib.mkIf module.enable {
     home.packages = with pkgs; [
+      git
       jq
       fd
       unzip

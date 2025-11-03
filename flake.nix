@@ -120,6 +120,7 @@
         desktop-blockdoth = mkHome "blockdoth" "desktop";
         laptop-blockdoth = mkHome "blockdoth" "laptop";
         nuc-penger = mkHome "penger" "nuc";
+        mowie-rpi = mkHome "mowie" "rpi";
       };
 
       nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {

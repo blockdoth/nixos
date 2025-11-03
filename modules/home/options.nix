@@ -13,6 +13,8 @@ let
   enableGaming = config.modules.presets.gaming.enable;
   enableStackingWM = enableGnome;
   enableTilingWM = enableHyprland;
+  enableDefaults = config.modules.presets.defaults.enable;
+  enableExtern = config.modules.presets.extern.enable;
   enableGui = enableStackingWM || enableTilingWM;
   secrets = inputs.nixos-secrets;
   inherit (lib)
@@ -34,6 +36,8 @@ in
 
     modules = {
       presets = {
+        defaults.enable = mkEnableOption "core configuration";
+        extern.enable = mkEnableOption "default config for pc's I dont own";
         hyprland.enable = mkEnableOption "Hyprland";
         gnome.enable = mkEnableOption "Gnome";
         dev.enable = mkEnableOption "dev env and tools";
@@ -144,6 +148,7 @@ in
     programs.home-manager.enable = true;
 
     modules = {
+      presets.defaults.enable = mkDefault true;
       core = {
         secrets = {
           mails = {
@@ -154,16 +159,11 @@ in
         };
 
         shell = {
-          prompt.starship.enable = mkDefault true;
-          sync.atuin.enable = mkDefault true;
-          fish.enable = mkDefault true;
-          zoxide.enable = mkDefault true;
-          fzf.enable = mkDefault true;
-          zellij.enable = mkDefault true;
-          television.enable = mkDefault true;
-          # pay-respects.enable = mkDefault true;
-          # nix-index.enable = mkDefault true;
-          # command-not-found.enable = mkDefault true;
+          prompt.starship.enable = mkDefault (enableDefaults || enableExtern);
+          sync.atuin.enable = mkDefault enableDefaults;
+          fish.enable = mkDefault (enableDefaults || enableExtern);
+          zoxide.enable = mkDefault (enableDefaults || enableExtern);
+          fzf.enable = mkDefault (enableDefaults || enableExtern);
         };
 
         style = {
@@ -178,33 +178,31 @@ in
           alacritty.enable = mkDefault enableGui;
         };
 
-        fonts.enable = mkDefault true;
+        fonts.enable = mkDefault enableDefaults;
         utils = {
-          cli.enable = mkDefault true;
+          cli.enable = mkDefault (enableDefaults || enableExtern);
           gui.enable = mkDefault enableGui;
         };
-        secrets.enable = mkDefault true;
-        home-structure.enable = mkDefault true;
-        mimes.enable = mkDefault true;
+        secrets.enable = mkDefault enableDefaults;
+        home-structure.enable = mkDefault enableDefaults;
+        mimes.enable = mkDefault enableDefaults;
       };
 
       dev = {
+        micro.enable = mkDefault ((enableDefaults || enableExtern));
         direnv.enable = mkDefault enableDev;
         devinit.enable = mkDefault enableDev;
-        micro.enable = mkDefault true;
         vscode.enable = mkDefault (enableGui && enableDev);
         zed.enable = mkDefault (enableGui && enableDev);
       };
 
       programs = {
-        filebrowser = {
-          yazi.enable = mkDefault true;
-        };
+        filebrowser.yazi.enable = mkDefault (enableDefaults || enableExtern);
+        git.enable = mkDefault enableDefaults;
         browsers = {
           firefox.enable = mkDefault enableGui;
           chrome.enable = mkDefault enableGui;
         };
-        git.enable = mkDefault true;
         discord.enable = mkDefault enableGui;
         spotify.enable = mkDefault enableGui;
         whatsapp.enable = mkDefault enableGui;

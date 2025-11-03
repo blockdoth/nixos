@@ -18,6 +18,7 @@ in
       tty-clock
       lolcat
       figlet
+      hollywood
     ];
   };
 }

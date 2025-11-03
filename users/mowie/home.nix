@@ -14,7 +14,8 @@
 
   modules = {
     presets = {
-
+      extern.enable = true;
+      dev.enable = true;
     };
   };
 }
