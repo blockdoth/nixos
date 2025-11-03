@@ -65,18 +65,20 @@
       ...
     }@inputs:
     let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
+      mkPkgs =
+        system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+
       deployPkgs = import nixpkgs {
-        inherit system;
+        system = "x86_64-linux";
         overlays = [
           deploy-rs.overlays.default
           (self: super: {
             deploy-rs = {
-              inherit (pkgs) deploy-rs;
+              inherit (mkPkgs "x86_64-linux") deploy-rs;
               lib = super.deploy-rs.lib;
             };
           })
@@ -84,8 +86,9 @@
       };
 
       mkSystem =
-        host:
+        host: system:
         nixpkgs.lib.nixosSystem {
+          inherit system;
           specialArgs = {
             inherit inputs;
           };
@@ -96,9 +99,9 @@
         };
 
       mkHome =
-        user: host:
+        user: host: system:
         home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+          pkgs = mkPkgs system;
           extraSpecialArgs = {
             hostname = host;
             inherit inputs;
@@ -110,17 +113,17 @@
     in
     {
       nixosConfigurations = {
-        laptop = mkSystem "laptop";
-        desktop = mkSystem "desktop";
-        nuc = mkSystem "nuc";
-        rpi = mkSystem "rpi";
+        laptop = mkSystem "laptop" "x86_64-linux";
+        desktop = mkSystem "desktop" "x86_64-linux";
+        nuc = mkSystem "nuc" "x86_64-linux";
+        rpi = mkSystem "rpi" "aarch64-linux";
       };
 
       homeConfigurations = {
-        blockdoth-desktop = mkHome "blockdoth" "desktop";
-        blockdoth-laptop = mkHome "blockdoth" "laptop";
-        penger-nuc = mkHome "penger" "nuc";
-        mowie-rpi = mkHome "mowie" "rpi";
+        blockdoth-desktop = mkHome "blockdoth" "desktop" "x86_64-linux";
+        blockdoth-laptop = mkHome "blockdoth" "laptop" "x86_64-linux";
+        penger-nuc = mkHome "penger" "nuc" "x86_64-linux";
+        mowie-rpi = mkHome "mowie" "rpi" "aarch64-linux";
       };
 
       nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
@@ -146,9 +149,5 @@
           };
         };
       };
-
-      checks = { };
-
-      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
     };
 }
