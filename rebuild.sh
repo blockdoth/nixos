@@ -22,7 +22,7 @@ if [ "$TYPE" = "system" ]; then
 elif [ "$TYPE" = "home" ]; then
   git add ./rebuild.sh ./modules/home/* ./assets/* ./users/* ./flake.nix ./flake.lock ./.gitignore ./.sops.yaml ./secrets.yaml ./readme.md
   git --no-pager diff -U0 --staged .
-  nh home switch --configuration "$HOSTNAME-$USERNAME" .
+  nh home switch --configuration "$USERNAME-$HOSTNAME" .
   home-manager generations > gen.txt
   COMMIT_MESSAGE=$(head -n 1 gen.txt | awk -v host="$HOSTNAME" -v user="$USERNAME" '{printf "[%s@%s] (%s %s) Home Generation %s\n",host, user,  $1,$2, $5}')
   rm gen.txt
