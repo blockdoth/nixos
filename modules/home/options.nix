@@ -148,7 +148,7 @@ in
     programs.home-manager.enable = true;
 
     modules = {
-      presets.defaults.enable = mkDefault true;
+      presets.defaults.enable = mkDefault (true && !enableExtern);
       core = lib.mkIf (!enableExtern) {
         secrets = {
           mails = {
