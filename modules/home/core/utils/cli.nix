@@ -58,6 +58,7 @@ in
       ethtool
       grex
       caligula
+      nh
     ];
   };
 }

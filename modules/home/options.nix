@@ -189,7 +189,7 @@ in
       };
 
       dev = {
-        micro.enable = mkDefault ((enableDefaults || enableExtern));
+        micro.enable = mkDefault (enableDefaults || enableExtern);
         direnv.enable = mkDefault enableDev;
         devinit.enable = mkDefault enableDev;
         vscode.enable = mkDefault (enableGui && enableDev);

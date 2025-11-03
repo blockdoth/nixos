@@ -15,6 +15,7 @@
   modules = {
     presets = {
       extern.enable = true;
+      theming.enable = true;
       dev.enable = true;
     };
   };
