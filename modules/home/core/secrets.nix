@@ -1,12 +1,16 @@
 {
   config,
   inputs,
+  lib,
   ...
 }:
+let
+  module = config.modules.core.secrets;
+in
 {
   imports = [ inputs.sops-nix.homeManagerModules.sops ];
 
-  config = {
+  config = lib.mkIf module.enable {
     sops = {
       defaultSopsFile = ../../../secrets.yaml;
       defaultSopsFormat = "yaml";
