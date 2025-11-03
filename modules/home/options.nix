@@ -149,7 +149,7 @@ in
 
     modules = {
       presets.defaults.enable = mkDefault true;
-      core = {
+      core = lib.mkIf (!enableExtern) {
         secrets = {
           mails = {
             uni = secrets.mails.uni;
