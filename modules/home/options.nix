@@ -149,8 +149,9 @@ in
 
     modules = {
       presets.defaults.enable = mkDefault (true && !enableExtern);
-      core = lib.mkIf (!enableExtern) {
-        secrets = {
+      core = {
+        secrets = lib.mkIf (!enableExtern) {
+          enable = mkDefault enableDefaults;
           mails = {
             uni = secrets.mails.uni;
             personal = secrets.mails.personal;
@@ -183,7 +184,6 @@ in
           cli.enable = mkDefault (enableDefaults || enableExtern);
           gui.enable = mkDefault enableGui;
         };
-        secrets.enable = mkDefault enableDefaults;
         home-structure.enable = mkDefault enableDefaults;
         mimes.enable = mkDefault enableDefaults;
       };
