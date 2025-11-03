@@ -7,6 +7,7 @@
 let
   module = config.modules.core.shell.fish;
   secrets = config.modules.core.secrets;
+  extern = config.modules.presets.extern;
 in
 {
   config = lib.mkIf module.enable {
@@ -49,7 +50,6 @@ in
           ls = "eza";
           vw = "notes && cat tos | wl-copy";
           systui = "sudo systemctl-tui";
-          gituni = "git config user.name \"${secrets.name}\" && git config user.email \"${secrets.mails.uni}\"";
           wifilist = "nmcli device wifi list";
           hotspot = " nmcli device wifi connect \"government-bird-drone-213\" --ask";
         }
@@ -59,6 +59,10 @@ in
           lock = "kill hyprlock && hyprlock";
           print = "firefox -new-tab https://printportal.tudelft.nl:9443/end-user/ui/dashboard";
           rickroll = "firefox -new-tab 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'";
+        })
+        (lib.mkIf (!extern.enable) {
+          # Dont want to leak secrets
+          gituni = "git config user.name \"${secrets.name}\" && git config user.email \"${secrets.mails.uni}\"";
         })
       ];
       functions = {
