@@ -6,7 +6,7 @@
   ...
 }:
 let
-  module = config.system-modules.core.nix-config;
+  module = config.system-modules.core.secrets;
 in
 {
   imports = [
