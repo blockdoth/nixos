@@ -44,7 +44,7 @@ in
           nix.serverPath = "nixd";
           haskell.manageHLS = "PATH";
           workbench.startupEditor = "none";
-          platformio-ide.useBuiltinPIOCore = false;
+          platformio-ide.useBuiltinPIOCore = true;
           editor.autoIndentOnPaste = true;
           files.associations = {
             "*.ispc" = "c";
