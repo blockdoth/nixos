@@ -19,6 +19,7 @@ in
       waypipe # display forwarding
       qdirstat
       rclip # technically cli only, but need gui to be usefull
+      mpv
     ];
   };
 
