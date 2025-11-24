@@ -21,7 +21,11 @@
       programs.enable = true;
       gaming.enable = (if hostname == "desktop" then true else false);
     };
-    programs.browsers.zen.enable = true;
+    programs = {
+      browsers.zen.enable = true;
+      blender.enable = true;
+      gimp.enable = true;
+    };
     dev = {
       ctf.enable = (if hostname == "laptop" then true else false);
       # nvf.enable = true;
