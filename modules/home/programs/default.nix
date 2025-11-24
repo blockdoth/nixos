@@ -17,6 +17,8 @@
     ./minecraft.nix
     ./mpd.nix
     ./obsidian.nix
+    ./gimp.nix
+    ./blender.nix
     ./git.nix
   ];
 }

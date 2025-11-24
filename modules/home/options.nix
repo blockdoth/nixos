@@ -123,6 +123,8 @@ in
         mpd.enable = mkEnableOption "media deamon"; # TODO look at this again
         git.enable = mkEnableOption "git";
         obsidian.enable = mkEnableOption "obsidian";
+        blender.enable = mkEnableOption "blender";
+        gimp.enable = mkEnableOption "gimp";
       };
 
       windowmanager = {
