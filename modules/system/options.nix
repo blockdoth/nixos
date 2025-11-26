@@ -94,6 +94,7 @@ in
         tailscale = {
           enable = mkEnableOption "tailscale";
           exit-node = mkEnableOption "can serve as exitnode";
+          shared = mkEnableOption "shared";
         };
         syncthing.enable = mkEnableOption "syncthing";
       };
@@ -281,6 +282,7 @@ in
         microbin.enable = mkEnableOption "microbin";
         httpbin.enable = mkEnableOption "httpbin";
         githubrunners.enable = mkEnableOption "github runners";
+        attic.enable = mkEnableOption "attic cache";
       };
     };
   };

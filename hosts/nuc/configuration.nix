@@ -60,7 +60,7 @@
       };
       immich.enable = true;
       vaultwarden.enable = true;
-      linkwarden.enable = true;
+      # linkwarden.enable = true;
       nextcloud.enable = false;
       microbin.enable = false;
       homepage.enable = true;

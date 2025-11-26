@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # maybe one day
-    linkwarden-pr.url = "github:jvanbruegge/nixpkgs/linkwarden"; # TODO remove when linkwarden gets merged
+    # linkwarden-pr.url = "github:jvanbruegge/nixpkgs/linkwarden"; # TODO remove when linkwarden gets merged
     sops-nix.url = "github:Mic92/sops-nix";
     stylix.url = "github:danth/stylix";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
@@ -52,7 +52,7 @@
     chatger-registry.url = "github:blockdoth/chatger-registry";
     nixos-secrets.url = "git+ssh://git@github.com/blockdoth/nixos-secrets";
     zjstatus.url = "github:dj95/zjstatus";
-    mowie.url = "git+ssh://git@gitlab.tudelft.nl/cor/robotics_minor/robotics_minor_2025/team_3_mowie/mowie.git?ref=dev";
+    # mowie.url = "git+ssh://git@gitlab.tudelft.nl/cor/robotics_minor/robotics_minor_2025/team_3_mowie/mowie.git?ref=dev";
   };
 
   outputs =

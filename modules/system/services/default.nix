@@ -14,7 +14,7 @@
     ./network/blocky.nix
     ./network/reverse-proxy/caddy.nix
     ./network/reverse-proxy/nginx.nix
-    ./network/headscale.nix
+    ./network/headscale/headscale.nix
     ./network/pihole.nix
     ./network/fail2ban.nix
     ./auth/authelia.nix
@@ -38,5 +38,6 @@
     ./microbin.nix
     ./httpbin.nix
     ./githubrunners.nix
+    ./attic.nix
   ];
 }

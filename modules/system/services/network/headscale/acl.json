@@ -1,0 +1,28 @@
+{
+  "ACLs": [
+    {
+      "Action": "accept",
+      "Users": ["group:internal"],
+      "Ports": ["tag:internal:*"]
+    },
+    {
+      "Action": "accept",
+      "Users": ["group:internal"],
+      "Ports": ["tag:shared:*"]
+    },
+    {
+      "Action": "accept",
+      "Users": ["group:external"],
+      "Ports": ["tag:shared:*"] 
+    }
+  ],
+  "Groups": {
+    "group:internal": ["tag:internal"],
+    "group:external": ["tag:external"]
+  },
+  "TagOwners": {
+    "tag:internal": ["user:admin@example.com"],
+    "tag:shared": ["user:admin@example.com"],
+    "tag:external": ["user:admin@example.com"]
+  }
+}

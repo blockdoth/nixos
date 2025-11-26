@@ -37,6 +37,7 @@ in
         # region_id = 999;
         # stun_listen_addr = "0.0.0.0:3478";
         # };
+        # policy.path = "./acl.json";
       };
     };
 

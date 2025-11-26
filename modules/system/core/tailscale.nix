@@ -21,6 +21,17 @@ in
       enable = true;
       authKeyFile = config.sops.secrets.tailscale-auth-key.path;
       useRoutingFeatures = if module.exit-node then "server" else "client";
+      # extraSetFlags = [
+      #   (if module.shared then "--advertise-tags=tag:shared" else "--advertise-tags=tag:internal")
+      # ]
+      # ++ (
+      #   if module.exit-node then
+      #     [
+      #       "--advertise-exit-node"
+      #     ]
+      #   else
+      #     [ ]
+      # );
     };
 
     systemd.services.tailscaled-autoconnect = {
