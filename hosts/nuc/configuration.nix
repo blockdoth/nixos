@@ -60,12 +60,13 @@
       };
       immich.enable = true;
       vaultwarden.enable = true;
-      # linkwarden.enable = true;
+      linkwarden.enable = false;
       nextcloud.enable = false;
       microbin.enable = false;
       homepage.enable = true;
       httpbin.enable = true;
       githubrunners.enable = true;
+      attic.enable = true;
     };
   };
 
