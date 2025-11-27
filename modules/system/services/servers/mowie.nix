@@ -11,29 +11,29 @@ let
 in
 {
   config = lib.mkIf module.enable {
-    environment.systemPackages = [
-      inputs.mowie.packages.${pkgs.system}.mowie-web
-    ];
-
-    systemd.services = {
-      mowie = {
-        description = "Mowie server";
-        wantedBy = [ "multi-user.target" ];
-        after = [ "network.target" ];
-        serviceConfig = {
-          ExecStart = "${inputs.mowie.packages.${pkgs.system}.mowie-web}/bin/mowie-web";
-          Restart = "on-failure";
-        };
-      };
-    };
-
-    system-modules.services = {
-      network.reverse-proxy.proxies = [
-        {
-          domain = "${domain}";
-          port = 6769;
-        }
-      ];
-    };
+    #     environment.systemPackages = [
+    #       inputs.mowie.packages.${pkgs.system}.mowie-web
+    #     ];
+    #
+    #     systemd.services = {
+    #       mowie = {
+    #         description = "Mowie server";
+    #         wantedBy = [ "multi-user.target" ];
+    #         after = [ "network.target" ];
+    #         serviceConfig = {
+    #           ExecStart = "${inputs.mowie.packages.${pkgs.system}.mowie-web}/bin/mowie-web";
+    #           Restart = "on-failure";
+    #         };
+    #       };
+    #     };
+    #
+    #     system-modules.services = {
+    #       network.reverse-proxy.proxies = [
+    #         {
+    #           domain = "${domain}";
+    #           port = 6769;
+    #         }
+    #       ];
+    #     };
   };
 }
