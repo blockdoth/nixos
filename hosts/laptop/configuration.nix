@@ -24,10 +24,6 @@
       udev.enable = true;
     };
     display.x11.enable = false;
-    programs = {
-      blender.enable = true;
-      gimp.enable = true;
-    };
     services = {
       # servers.mowie.enable = true;
     };
