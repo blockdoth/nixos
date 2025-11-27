@@ -18,8 +18,6 @@ in
       environmentFile = config.sops.secrets.attic-env.path;
       settings = {
         listen = "127.0.0.1:7543";
-        jwt = { };
-
       };
     };
 
