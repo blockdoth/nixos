@@ -59,6 +59,7 @@ in
       grex
       caligula
       nh
+      attic-client
     ];
   };
 }
