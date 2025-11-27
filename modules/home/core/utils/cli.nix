@@ -60,6 +60,7 @@ in
       caligula
       nh
       attic-client
+      cachix
     ];
   };
 }
