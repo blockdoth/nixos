@@ -326,6 +326,7 @@ in
         bluetooth.enable = mkDefault enableLaptop;
         trackpad.enable = mkDefault enableLaptop;
         gaming.enable = mkDefault enableGaming;
+        crosscompilation.enable = mkDefault true;
         powerprofile =
           if enableLaptop then
             "laptop"
