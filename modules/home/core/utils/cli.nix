@@ -61,6 +61,8 @@ in
       nh
       attic-client
       cachix
+      dblab
+      broot
     ];
   };
 }
