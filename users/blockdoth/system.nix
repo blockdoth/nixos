@@ -26,6 +26,8 @@ in
           "audio"
           "docker"
           "dialout" # For serialW
+          "adbusers" # android shell
+          "kvm"
         ];
         openssh.authorizedKeys.keys = [
           (builtins.readFile ../../hosts/nuc/id_ed25519.pub)

@@ -32,10 +32,6 @@
   };
 
   programs.adb.enable = true;
-  users.users.blockdoth.extraGroups = [
-    "adbusers"
-    "kvm"
-  ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }
