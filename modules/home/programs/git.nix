@@ -12,16 +12,18 @@ in
   config = lib.mkIf module.enable {
     home.packages = with pkgs; [
       lazygit
-      gitAndTools.git-lfs
+      git-lfs
     ];
 
     programs = {
       git = {
         enable = true;
-        userName = "blockdoth";
-        userEmail = "${mail}";
         lfs.enable = true;
-        extraConfig = {
+        settings = {
+          user = {
+            name = "blockdoth";
+            email = "${mail}";
+          };
           init.defaultBranch = "main";
           push.autoSetupRemote = "true";
           pull.rebase = "true";
