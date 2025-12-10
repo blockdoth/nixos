@@ -20,7 +20,6 @@ in
         ];
       };
       xfconf.enable = true;
-      file-roller.enable = true;
       dconf.enable = true;
     };
     services = {
