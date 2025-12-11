@@ -80,7 +80,7 @@ in
             ];
           };
           "phone" = {
-            path = "~/phone";
+            path = "~/share";
             devices = [
               "laptop"
               "desktop"
