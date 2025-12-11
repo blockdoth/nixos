@@ -41,6 +41,9 @@ in
           "desktop" = {
             id = "AVQCDW7-5V6CHQF-XSNYXSP-5MOO62T-VX5N5RJ-GPMREGK-IQ6YSKA-IPI4UQ6";
           };
+          "phone" = {
+            id = "T7OIBFT-YRPMXDU-RMEWFF3-S2KB5XW-CHH4ENT-RLN3SHQ-MCHKWFB-WYLY6AE";
+          };
         };
 
         folders = {
@@ -74,6 +77,15 @@ in
               "laptop"
               "desktop"
               "nuc"
+            ];
+          };
+          "phone" = {
+            path = "~/phone";
+            devices = [
+              "laptop"
+              "desktop"
+              "nuc"
+              "phone"
             ];
           };
         };
