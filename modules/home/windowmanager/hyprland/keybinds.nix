@@ -6,69 +6,9 @@
 }:
 let
   module = config.modules.windowmanager.hyprland;
-  screen2gif = pkgs.writeShellScriptBin "screen2gif" ''
-    TMP_FILE_UNOPTIMIZED="/home/blockdoth/Videos/recording_unoptimized.gif"
-    TMP_PALETTE_FILE="/home/blockdoth/Videos/palette.png"
-    TMP_FILE="/home/blockdoth/Videos/recording.gif"
-    TMP_MP4_FILE="/home/blockdoth/Videos/recording.mp4"
-    APP_NAME="GIF recorder"
-
-    is_recorder_running() {
-      pgrep -x wf-recorder >/dev/null
-    }
-
-    convert_to_gif() {
-      ffmpeg -i "$TMP_MP4_FILE" -filter_complex "[0:v] palettegen" "$TMP_PALETTE_FILE"
-      ffmpeg -i "$TMP_MP4_FILE" -i "$TMP_PALETTE_FILE" -filter_complex "[0:v] fps=10, [new];[new][1:v] paletteuse" "$TMP_FILE_UNOPTIMIZED"
-      if [ -f "$TMP_PALETTE_FILE" ]; then
-        rm "$TMP_PALETTE_FILE"
-      fi
-      if [ -f "$TMP_MP4_FILE" ]; then
-        rm "$TMP_MP4_FILE"
-      fi
-    }
-
-    notify() {
-      notify-send -a "$APP_NAME" "$1"
-    }
-
-    optimize_gif() {
-      gifsicle -O3 --lossy=100 -i "$TMP_FILE_UNOPTIMIZED" -o "$TMP_FILE"
-      if [ -f "$TMP_FILE_UNOPTIMIZED" ]; then
-        rm "$TMP_FILE_UNOPTIMIZED"
-      fi
-    }
-
-    if is_recorder_running; then
-      kill $(pgrep -x wf-recorder)
-    else
-      GEOMETRY=$(slurp)
-      if [[ ! -z "$GEOMETRY" ]]; then
-        if [ -f "$TMP_FILE" ]; then
-          rm "$TMP_FILE"
-        fi
-        notify "Started capturing GIF to clipboard."
-        timeout 30 wf-recorder -g "$GEOMETRY" -f "$TMP_MP4_FILE"
-        if [ $? -eq 124 ]; then
-          notify "Post-processing started. GIF capturing timed out."
-        else
-          notify "Post-processing started. GIF was stopped."
-        fi
-        convert_to_gif
-        wl-copy -t image/png < $TMP_FILE
-        notify "GIF capture completed. GIF saved to clipboard and $TMP_FILE"
-      fi
-    fi
-  '';
 in
 {
   config = lib.mkIf module.enable {
-    home.packages = with pkgs; [
-      screen2gif
-      slurp
-      gifsicle
-    ];
-
     wayland.windowManager.hyprland.settings = {
       binds = {
         allow_workspace_cycles = "yes";
@@ -81,16 +21,12 @@ in
         "SUPER,D,exec, pypr toggle signal"
         "SUPER,E,exec, pypr toggle obsidian"
         "SUPER,F,exec,thunar"
-        "SUPER,G,exec,ghostty -e \"fish -C fastfetch\""
+        "SUPER,G,exec,ghostty"
         "SUPER,H, togglespecialworkspace, magic"
         "SUPER,H, movetoworkspace, +0"
         "SUPER,H, togglespecialworkspace, magic"
         "SUPER,H, movetoworkspace, special:magic"
         "SUPER,H, togglespecialworkspace, magic"
-        # "SUPER,I,exec,alacritty msg config window.opacity=0.5"
-        # "SUPER,H,movefocus,l"
-        # "SUPER,K,exec,slurp | xargs -I {} wf-recorder -g {} -f ~/Videos/recording_$(date +\"%Y-%m-%d_%H-%M-%S\").mp4"
-        # "SUPER,J,exec,killall -s SIGINT wf-recorder"
 
         "SUPER,L,exec,pidof hyprlock | hyprlock"
         "SUPER SHIFT,L,exec,systemctl suspend"
@@ -101,14 +37,14 @@ in
         "SUPER,P,pin,"
         "SUPER,Q,killactive"
         "SUPER,R,exec,rofi -show drun -show-icons"
-        "SUPER SHIFT,R,exec,firefox -new-tab 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'"
+        "SUPER SHIFT,R,exec,zen -new-tab 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'"
         "SUPER,S,exec, pypr toggle spotify"
         "SUPER,T,exec,alacritty"
-        "SUPER,U,exec,"
+        # "SUPER,U,exec,"
         "SUPER,V,togglefloating"
         "SUPER,W,exec, pypr toggle whatsapp"
         "SUPER SHIFT,W,exec, wlogout-script"
-        "SUPER,X,exec,pypr attach"
+        # "SUPER,X,exec,pypr attach"
         "SUPER,Y,exec,zeditor ~/nixos"
         "SUPER,Z, exec, pypr zoom "
         "SUPER SHIFT,Z, exec, pypr zoom ++0.6"
@@ -127,10 +63,6 @@ in
         "SUPER,7,workspace,7"
         "SUPER,8,workspace,8"
         ################################## Move ###########################################
-        "SUPER SHIFT, H, movewindow, l"
-        "SUPER SHIFT, L, movewindow, r"
-        "SUPER SHIFT, K, movewindow, u"
-        "SUPER SHIFT, J, movewindow, d"
         "SUPER SHIFT, left, movewindow, l"
         "SUPER SHIFT, right, movewindow, r"
         "SUPER SHIFT, up, movewindow, u"
@@ -140,7 +72,7 @@ in
         "SUPER, right, movefocus, r"
         "SUPER, up, movefocus, u"
         "SUPER, down, movefocus, d"
-        # Move active window to a workspace with mainMod + ctrl + [0-9] #
+
         "SUPER SHIFT, 1, movetoworkspacesilent, 1"
         "SUPER SHIFT, 2, movetoworkspacesilent, 2"
         "SUPER SHIFT, 3, movetoworkspacesilent, 3"
@@ -150,6 +82,15 @@ in
         "SUPER SHIFT, 7, movetoworkspacesilent, 7"
         "SUPER SHIFT, 8, movetoworkspacesilent, 8"
 
+        "SUPER, 1, movetoworkspace, 1"
+        "SUPER, 2, movetoworkspace, 2"
+        "SUPER, 3, movetoworkspace, 3"
+        "SUPER, 4, movetoworkspace, 4"
+        "SUPER, 5, movetoworkspace, 5"
+        "SUPER, 6, movetoworkspace, 6"
+        "SUPER, 7, movetoworkspace, 7"
+        "SUPER, 8, movetoworkspace, 8"
+
         "SUPER,Tab,workspace,previous"
       ];
 
@@ -158,6 +99,8 @@ in
         "SUPER      ,mouse:272  ,movewindow"
         "SUPER SHIFT,mouse:272  ,resizewindow"
         "SUPER      ,mouse:273  ,resizewindow"
+        "SUPER CTRL,mouse:272  ,togglefloating"
+
       ];
 
       bindle = [

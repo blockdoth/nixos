@@ -38,7 +38,6 @@ in
 
     wayland.windowManager.hyprland = {
       enable = true;
-      package = pkgs.hyprland; # hyprlandFlake or pkgs.hyprland
       xwayland.enable = true;
 
       settings = {
