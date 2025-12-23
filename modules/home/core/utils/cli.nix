@@ -63,6 +63,7 @@ in
       cachix
       dblab
       broot
+      udiskie
     ];
   };
 }

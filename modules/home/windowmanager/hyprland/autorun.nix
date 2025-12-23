@@ -10,6 +10,7 @@ in
   config = lib.mkIf module.enable {
     wayland.windowManager.hyprland.settings = {
       exec-once = [
+        "udiskie"
         "waybar"
         "dunst"
         "hypridle"
