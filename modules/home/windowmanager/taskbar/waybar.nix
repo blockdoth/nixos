@@ -189,12 +189,13 @@ in
               "3" = [ ];
               "4" = [ ];
               "5" = [ ];
+              "6" = [ ];
             };
           };
           "hyprland/window" = {
             "format" = "{}";
             "rewrite" = {
-              "(.*) — Mozilla Firefox" =
+              "(.*) — Zen Browser" =
                 " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'>󰈹</span>  $1";
               ".*Discord.*" =
                 " <span font='${toStr icon-size}pt' rise='${toStr (v-offset * -0.1)}pt'></span>  Discord";
