@@ -16,7 +16,7 @@ in
 
       bind = [
         "SUPER,A,exec, pypr toggle term"
-        "SUPER,B,exec, firefox"
+        "SUPER,B,exec, zen"
         "SUPER,C,exec,hyprpicker -a"
         "SUPER,D,exec, pypr toggle signal"
         "SUPER,E,exec, pypr toggle obsidian"
@@ -117,7 +117,7 @@ in
         ",XF86AudioRaiseVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ +5%"
         ",XF86AudioLowerVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ -5%"
         ",XF86AudioMute,exec,pactl set-sink-mute @DEFAULT_SINK@ toggle"
-        ",XF86Calculator,exec,firefox -new-tab https://www.desmos.com/calculator"
+        ",XF86Calculator,exec,zen -new-tab https://www.desmos.com/calculator"
         # ",,exec,kill hyprlock && hyprlock"
       ];
 
