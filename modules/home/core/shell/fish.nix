@@ -57,8 +57,8 @@ in
           # Graphical
           config = "conf && codium .";
           lock = "kill hyprlock && hyprlock";
-          print = "firefox -new-tab https://printportal.tudelft.nl:9443/end-user/ui/dashboard";
-          rickroll = "firefox -new-tab 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'";
+          print = "zen -new-tab https://printportal.tudelft.nl:9443/end-user/ui/dashboard";
+          rickroll = "zen -new-tab 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'";
         })
         (lib.mkIf (!extern.enable) {
           # Dont want to leak secrets
