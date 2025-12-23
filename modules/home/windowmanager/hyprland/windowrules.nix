@@ -15,7 +15,7 @@ in
 
       windowrulev2 = [
         #transparency
-        "opacity 0.85, class:^(firefox)"
+        "opacity 0.85, class:^(firefox|zen-beta)"
         "opacity 1.00, title:^(.*YouTube.*)"
         "opacity 0.75, class:^(spotify|Spotify)"
         "opacity 0.85, class:^(VSCodium|codium)"
@@ -47,7 +47,7 @@ in
         "opacity 0.8,               $scratchpad"
 
         "workspace 1,   class:(vesktop)"
-        "workspace 2,   class:(firefox)"
+        "workspace 2,   class:(firefox|zen-beta)"
         # "workspace 3,   class:(VSCodium)"
 
         # prevent popups from having a weird border in vscode
