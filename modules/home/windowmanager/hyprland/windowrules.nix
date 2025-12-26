@@ -10,7 +10,7 @@ in
   config = lib.mkIf module.enable {
     wayland.windowManager.hyprland.settings = {
       "$scratchpad" =
-        "match:class ^(scratchpad|spotify|Spotify|com.rtosta.zapzap|Signal|signal|obsidian)";
+        "match:class ^(scratchpad.alacritty|spotify|Spotify|com.rtosta.zapzap|Signal|signal|obsidian)";
       "$pip" = "match:title ^(Picture-in-Picture)";
       "$popup" = "match:class ^(org.pulseaudio.pavucontrol|.blueman-manager-wrapped|Matplotlib)";
 
@@ -52,7 +52,7 @@ in
         # "workspace 3,   match:class (VSCodium)"
 
         # prevent popups from having a weird border in vscode
-        "no_blur on,         match:class ^()$, match:title ^()$"
+        "no_blur on,    match:class ^()$, match:title ^()$"
         # make discord not steal focus
         "no_initial_focus on, match:class (vesktop)"
       ];

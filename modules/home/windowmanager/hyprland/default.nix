@@ -48,6 +48,13 @@ in
         debug = {
           disable_logs = false;
         };
+        misc = {
+          session_lock_xray = true;
+          disable_hyprland_logo = true;
+          disable_splash_rendering = true;
+          enable_anr_dialog = false;
+          disable_watchdog_warning = true;
+        };
       };
     };
   };
