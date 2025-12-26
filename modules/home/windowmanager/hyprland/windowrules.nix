@@ -11,13 +11,13 @@ in
     wayland.windowManager.hyprland.settings = {
       "$scratchpad" =
         "match:class ^(scratchpad|spotify|Spotify|com.rtosta.zapzap|Signal|signal|obsidian)";
-      "$pip" = "match:title:^(Picture-in-Picture)";
+      "$pip" = "match:title ^(Picture-in-Picture)";
       "$popup" = "match:class ^(org.pulseaudio.pavucontrol|.blueman-manager-wrapped|Matplotlib)";
 
       windowrule = [
         #transparency
         "opacity 0.85, match:class ^(firefox|zen-beta)"
-        "opacity 1.00, match:title:^(.*YouTube.*)"
+        "opacity 1.00, match:title ^(.*YouTube.*)"
         "opacity 0.75, match:class ^(spotify|Spotify)"
         "opacity 0.85, match:class ^(VSCodium|codium)"
         "opacity 0.9, match:class ^(dev.zed.Zed)"
