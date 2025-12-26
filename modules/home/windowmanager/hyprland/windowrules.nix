@@ -14,7 +14,7 @@ in
       "$pip" = "title:^(Picture-in-Picture)";
       "$popup" = "match:class ^(org.pulseaudio.pavucontrol|.blueman-manager-wrapped|Matplotlib)";
 
-      windowrulev2 = [
+      windowrule = [
         #transparency
         "opacity 0.85, match:class ^(firefox|zen-beta)"
         "opacity 1.00, title:^(.*YouTube.*)"
@@ -32,19 +32,19 @@ in
 
         # "noblur,match:class ^(ghostty)$"
         #pip
-        "float,           $pip"
-        "pin,             $pip"
-        "keepaspectratio, $pip"
-        "opaque,          $pip"
+        "float on,           $pip"
+        "pin on,             $pip"
+        "keepaspectratio on, $pip"
+        "opaque on,          $pip"
         "size 40% 40%,    $pip"
         #popups
-        "float,         $popup"
-        "pin,           $popup"
+        "float on,         $popup"
+        "pin on,           $popup"
         "size 40% 40%,  $popup"
         # Scratchpads
-        "float,                     $scratchpad"
+        "float on,                     $scratchpad"
         "workspace special silent,  $scratchpad"
-        "center,                    $scratchpad"
+        "center on,                    $scratchpad"
         "opacity 0.8,               $scratchpad"
 
         "workspace 1,   match:class (vesktop)"
@@ -52,9 +52,9 @@ in
         # "workspace 3,   match:class (VSCodium)"
 
         # prevent popups from having a weird border in vscode
-        "noblur,        match:class ^()$,title:^()$"
+        "noblur on,        match:class ^()$,title:^()$"
         # make discord not steal focus
-        "noinitialfocus, match:class (vesktop)"
+        "noinitialfocus on, match:class (vesktop)"
       ];
 
       layerrule = [
