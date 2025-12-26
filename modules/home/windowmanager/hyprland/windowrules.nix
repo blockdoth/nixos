@@ -47,6 +47,10 @@ in
         "center on,                 $scratchpad"
         "opacity 0.8,               $scratchpad"
 
+        #BAR
+        "float on,                  match:class Beyond-All-Reason"
+        "fullscreen on,             match:class spring"
+
         "workspace 1,   match:class (vesktop)"
         "workspace 2,   match:class (firefox|zen-beta)"
         # "workspace 3,   match:class (VSCodium)"
