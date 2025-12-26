@@ -49,6 +49,7 @@ in
 
         #BAR
         "float on,                  match:class Beyond-All-Reason"
+        "center on,                  match:class Beyond-All-Reason"
         "fullscreen on,             match:class spring"
 
         "workspace 1,   match:class (vesktop)"
