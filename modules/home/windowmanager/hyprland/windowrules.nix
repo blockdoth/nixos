@@ -36,7 +36,7 @@ in
         "pin on,                $pip"
         "keep_aspect_ratio on,  $pip"
         "opaque on,             $pip"
-        "size 40% 22.5%,          $pip"
+        "size 800 450,          $pip"
         #popups
         "float on,              $popup"
         "pin on,                $popup"
