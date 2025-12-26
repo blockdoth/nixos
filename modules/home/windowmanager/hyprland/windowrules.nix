@@ -60,7 +60,7 @@ in
       layerrule = [
         "blur on, match:class logout_dialog"
         "blur on, match:class waybar"
-        "blur on, match:layer ^activate notification$"
+        "blur on, match:class ^activate notification$"
       ];
     };
   };
