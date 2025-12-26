@@ -11,13 +11,13 @@ in
     wayland.windowManager.hyprland.settings = {
       "$scratchpad" =
         "match:class ^(scratchpad|spotify|Spotify|com.rtosta.zapzap|Signal|signal|obsidian)";
-      "$pip" = "title:^(Picture-in-Picture)";
+      "$pip" = "match:title:^(Picture-in-Picture)";
       "$popup" = "match:class ^(org.pulseaudio.pavucontrol|.blueman-manager-wrapped|Matplotlib)";
 
       windowrule = [
         #transparency
         "opacity 0.85, match:class ^(firefox|zen-beta)"
-        "opacity 1.00, title:^(.*YouTube.*)"
+        "opacity 1.00, match:title:^(.*YouTube.*)"
         "opacity 0.75, match:class ^(spotify|Spotify)"
         "opacity 0.85, match:class ^(VSCodium|codium)"
         "opacity 0.9, match:class ^(dev.zed.Zed)"
@@ -32,19 +32,19 @@ in
 
         # "noblur,match:class ^(ghostty)$"
         #pip
-        "float on,           $pip"
-        "pin on,             $pip"
-        "keepaspectratio on, $pip"
-        "opaque on,          $pip"
-        "size 40% 40%,    $pip"
+        "float on,              $pip"
+        "pin on,                $pip"
+        "keep_aspect_ratio on,  $pip"
+        "opaque on,             $pip"
+        "size 40% 40%,          $pip"
         #popups
-        "float on,         $popup"
-        "pin on,           $popup"
-        "size 40% 40%,  $popup"
+        "float on,              $popup"
+        "pin on,                $popup"
+        "size 40% 40%,          $popup"
         # Scratchpads
-        "float on,                     $scratchpad"
+        "float on,                  $scratchpad"
         "workspace special silent,  $scratchpad"
-        "center on,                    $scratchpad"
+        "center on,                 $scratchpad"
         "opacity 0.8,               $scratchpad"
 
         "workspace 1,   match:class (vesktop)"
@@ -52,7 +52,7 @@ in
         # "workspace 3,   match:class (VSCodium)"
 
         # prevent popups from having a weird border in vscode
-        "noblur on,        match:class ^()$,title:^()$"
+        "noblur on,         match:class ^()$,title:^()$"
         # make discord not steal focus
         "noinitialfocus on, match:class (vesktop)"
       ];
