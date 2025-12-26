@@ -49,8 +49,9 @@ in
 
         #BAR
         "float on,                  match:class Beyond-All-Reason"
-        "center on,                  match:class Beyond-All-Reason"
+        "center on,                 match:class Beyond-All-Reason"
         "fullscreen on,             match:class spring"
+        "suppress_event maximize,   match:class spring"
 
         "workspace 1,   match:class (vesktop)"
         "workspace 2,   match:class (firefox|zen-beta)"
