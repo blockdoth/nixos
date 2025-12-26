@@ -9,27 +9,28 @@ in
 {
   config = lib.mkIf module.enable {
     wayland.windowManager.hyprland.settings = {
-      "$scratchpad" = "class:^(scratchpad|spotify|Spotify|com.rtosta.zapzap|Signal|signal|obsidian)";
+      "$scratchpad" =
+        "match:class ^(scratchpad|spotify|Spotify|com.rtosta.zapzap|Signal|signal|obsidian)";
       "$pip" = "title:^(Picture-in-Picture)";
-      "$popup" = "class:^(org.pulseaudio.pavucontrol|.blueman-manager-wrapped|Matplotlib)";
+      "$popup" = "match:class ^(org.pulseaudio.pavucontrol|.blueman-manager-wrapped|Matplotlib)";
 
       windowrulev2 = [
         #transparency
-        "opacity 0.85, class:^(firefox|zen-beta)"
+        "opacity 0.85, match:class ^(firefox|zen-beta)"
         "opacity 1.00, title:^(.*YouTube.*)"
-        "opacity 0.75, class:^(spotify|Spotify)"
-        "opacity 0.85, class:^(VSCodium|codium)"
-        "opacity 0.9, class:^(dev.zed.Zed)"
-        "opacity 0.85, class:^(vesktop)"
-        "opacity 0.85, class:^(jetbrains)"
-        "opacity 0.80, class:^(org.gnome.Nautilus)"
-        "opacity 0.80, class:^(thunar)"
-        "opacity 0.9, class:^(com.rtosta.zapzap)"
-        "opacity 0.7, class:^(Signal|signal)"
-        "opacity 0.9, class:^(anki)"
-        "opacity 0.9, class:^(obsidian)"
+        "opacity 0.75, match:class ^(spotify|Spotify)"
+        "opacity 0.85, match:class ^(VSCodium|codium)"
+        "opacity 0.9, match:class ^(dev.zed.Zed)"
+        "opacity 0.85, match:class ^(vesktop)"
+        "opacity 0.85, match:class ^(jetbrains)"
+        "opacity 0.80, match:class ^(org.gnome.Nautilus)"
+        "opacity 0.80, match:class ^(thunar)"
+        "opacity 0.9, match:class ^(com.rtosta.zapzap)"
+        "opacity 0.7, match:class ^(Signal|signal)"
+        "opacity 0.9, match:class ^(anki)"
+        "opacity 0.9, match:class ^(obsidian)"
 
-        # "noblur,class:^(ghostty)$"
+        # "noblur,match:class ^(ghostty)$"
         #pip
         "float,           $pip"
         "pin,             $pip"
@@ -46,14 +47,14 @@ in
         "center,                    $scratchpad"
         "opacity 0.8,               $scratchpad"
 
-        "workspace 1,   class:(vesktop)"
-        "workspace 2,   class:(firefox|zen-beta)"
-        # "workspace 3,   class:(VSCodium)"
+        "workspace 1,   match:class (vesktop)"
+        "workspace 2,   match:class (firefox|zen-beta)"
+        # "workspace 3,   match:class (VSCodium)"
 
         # prevent popups from having a weird border in vscode
-        "noblur,        class:^()$,title:^()$"
+        "noblur,        match:class ^()$,title:^()$"
         # make discord not steal focus
-        "noinitialfocus, class:(vesktop)"
+        "noinitialfocus, match:class (vesktop)"
       ];
 
       layerrule = [
