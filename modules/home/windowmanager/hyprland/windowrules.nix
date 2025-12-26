@@ -57,8 +57,8 @@ in
       ];
 
       layerrule = [
-        "blur, logout_dialog, on"
-        "blur, waybar, on"
+        "blur on, logout_dialog"
+        "blur on, waybar"
       ];
     };
   };
