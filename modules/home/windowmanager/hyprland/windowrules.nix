@@ -56,10 +56,10 @@ in
         "noinitialfocus, class:(vesktop)"
       ];
 
-      # layerrule = [
-      #   "blur, logout_dialog"
-      #   "blur, waybar"
-      # ];
+      layerrule = [
+        "blur, logout_dialog, on"
+        "blur, waybar, on"
+      ];
     };
   };
 }
