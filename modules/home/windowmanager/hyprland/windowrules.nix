@@ -52,9 +52,9 @@ in
         # "workspace 3,   match:class (VSCodium)"
 
         # prevent popups from having a weird border in vscode
-        "no_blur on,         match:class ^()$,title:^()$"
+        "no_blur on,         match:class:^()$, match:title:^()$"
         # make discord not steal focus
-        "no_initia_focus on, match:class (vesktop)"
+        "no_initial_focus on, match:class (vesktop)"
       ];
 
       layerrule = [
