@@ -25,11 +25,11 @@ in
           "image/webp" = [ "qimgv.desktop" ];
           "image/gif" = [ "qimgv.desktop" ];
           "video/mp4" = [ "vlc.desktop" ];
-          "default-web-browser" = [ "zen.desktop" ];
+          "default-web-browser" = [ "zen-beta.desktop" ];
           "x-scheme-handler/discord" = [ "vesktop.desktop" ];
           "x-scheme-handler/spotify" = [ "spotify.desktop" ];
-          "x-scheme-handler/http" = [ "zen.desktop" ];
-          "x-scheme-handler/https" = [ "zen.desktop" ];
+          "x-scheme-handler/http" = [ "zen-beta.desktop" ];
+          "x-scheme-handler/https" = [ "zen-beta.desktop" ];
           # "inode/directory" = [ "thunar.desktop" ];
         };
       };
