@@ -11,7 +11,7 @@ in
     wayland.windowManager.hyprland.settings = {
       monitor = [
         "DP-2,2560x1440@143.972Hz,0x0,1"
-        "DP-1,1920x1200@99.94Hz,2560x-310,1,transform,3"
+        "DP-1,1920x1200@99.94Hz,2560x-310,2,transform,3"
         "eDP-1,preferred,0x0,1"
       ];
 
