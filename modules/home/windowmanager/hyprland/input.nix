@@ -20,8 +20,8 @@ in
 
       cursor = {
         # no_hardware_cursor = true;
-        persistent_warps = true;
-        # no_warps = true;
+        # persistent_warps = true;
+        no_warps = true;
       };
 
     };

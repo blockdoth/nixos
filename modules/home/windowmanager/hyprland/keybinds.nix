@@ -11,9 +11,6 @@ in
   config = lib.mkIf module.enable {
 
     wayland.windowManager.hyprland.settings = {
-      binds = {
-        allow_workspace_cycles = "yes";
-      };
 
       bind = [
         "SUPER,A,exec, pypr toggle term"
@@ -84,13 +81,13 @@ in
         "SUPER SHIFT,6,movetoworkspacesilent,6"
         "SUPER SHIFT,7,movetoworkspacesilent,7"
 
-        "HYPER,1,workspace,11"
-        "HYPER,2,workspace,12"
-        "HYPER,3,workspace,13"
-        "HYPER,4,workspace,14"
-        "HYPER,5,workspace,15"
-        "HYPER,6,workspace,16"
-        "HYPER,7,workspace,17"
+        "SUPER HYPER,1,workspace,11"
+        "SUPER HYPER,2,workspace,12"
+        "SUPER HYPER,3,workspace,13"
+        "SUPER HYPER,4,workspace,14"
+        "SUPER HYPER,5,workspace,15"
+        "SUPER HYPER,6,workspace,16"
+        "SUPER HYPER,7,workspace,17"
 
         "SUPER HYPER,1,movetoworkspacesilent,11"
         "SUPER HYPER,2,movetoworkspacesilent,12"
