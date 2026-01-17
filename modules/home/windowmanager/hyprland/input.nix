@@ -11,7 +11,7 @@ in
     wayland.windowManager.hyprland.settings = {
       input = {
         kb_layout = "us";
-        kb_options = "caps:none";
+        kb_options = "caps:hyper";
         touchpad = {
           natural_scroll = true;
         };
@@ -20,6 +20,8 @@ in
 
       cursor = {
         # no_hardware_cursor = true;
+        persistent_warps = true;
+        # no_warps = true;
       };
 
     };

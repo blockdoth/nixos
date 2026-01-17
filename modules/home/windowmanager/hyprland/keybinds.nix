@@ -10,12 +10,6 @@ in
 {
   config = lib.mkIf module.enable {
 
-    home.keyboard = {
-      enable = true;
-      layout = "us";
-      options = [ "caps:hyper" ];
-    };
-
     wayland.windowManager.hyprland.settings = {
       binds = {
         allow_workspace_cycles = "yes";
