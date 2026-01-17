@@ -11,7 +11,7 @@ in
     wayland.windowManager.hyprland.settings = {
       input = {
         kb_layout = "us";
-        kb_options = "caps:alt_modifier";
+        kb_options = "caps:alt";
         touchpad = {
           natural_scroll = true;
         };
