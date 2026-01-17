@@ -9,6 +9,13 @@ let
 in
 {
   config = lib.mkIf module.enable {
+
+    home.keyboard = {
+      enable = true;
+      layout = "us";
+      options = [ "caps:hyper" ];
+    };
+
     wayland.windowManager.hyprland.settings = {
       binds = {
         allow_workspace_cycles = "yes";
@@ -83,21 +90,21 @@ in
         "SUPER SHIFT,6,movetoworkspacesilent,6"
         "SUPER SHIFT,7,movetoworkspacesilent,7"
 
-        "SUPER ALT,1,workspace,11"
-        "SUPER ALT,2,workspace,12"
-        "SUPER ALT,3,workspace,13"
-        "SUPER ALT,4,workspace,14"
-        "SUPER ALT,5,workspace,15"
-        "SUPER ALT,6,workspace,16"
-        "SUPER ALT,7,workspace,17"
+        "HYPER,1,workspace,11"
+        "HYPER,2,workspace,12"
+        "HYPER,3,workspace,13"
+        "HYPER,4,workspace,14"
+        "HYPER,5,workspace,15"
+        "HYPER,6,workspace,16"
+        "HYPER,7,workspace,17"
 
-        "SUPER ALT SHIFT,1,movetoworkspacesilent,11"
-        "SUPER ALT SHIFT,2,movetoworkspacesilent,12"
-        "SUPER ALT SHIFT,3,movetoworkspacesilent,13"
-        "SUPER ALT SHIFT,4,movetoworkspacesilent,14"
-        "SUPER ALT SHIFT,5,movetoworkspacesilent,15"
-        "SUPER ALT SHIFT,6,movetoworkspacesilent,16"
-        "SUPER ALT SHIFT,7,movetoworkspacesilent,17"
+        "SUPER HYPER,1,movetoworkspacesilent,11"
+        "SUPER HYPER,2,movetoworkspacesilent,12"
+        "SUPER HYPER,3,movetoworkspacesilent,13"
+        "SUPER HYPER,4,movetoworkspacesilent,14"
+        "SUPER HYPER,5,movetoworkspacesilent,15"
+        "SUPER HYPER,6,movetoworkspacesilent,16"
+        "SUPER HYPER,7,movetoworkspacesilent,17"
 
         "SUPER,Tab,workspace,previous"
       ];
