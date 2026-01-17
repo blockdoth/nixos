@@ -11,7 +11,7 @@ in
     wayland.windowManager.hyprland.settings = {
       monitor = [
         "DP-2,2560x1440@143.972Hz,0x0,1"
-        "DP-1,1920x1200@99.94Hz,2560x-310,0.9,transform,3"
+        "DP-1,1920x1200@99.94Hz,2560x-310,0.91,transform,3"
         "eDP-1,preferred,0x0,1"
       ];
 
@@ -21,12 +21,16 @@ in
         "3, monitor:DP-2"
         "4, monitor:DP-2"
         "5, monitor:DP-2"
+        "6, monitor:DP-2"
+        "7, monitor:DP-2"
 
-        "6, monitor:DP-1"
-        "7, monitor:DP-1"
-        "8, monitor:DP-1"
-        "9, monitor:DP-1"
-        "10, monitor:DP-1"
+        "11, monitor:DP-1"
+        "12, monitor:DP-1"
+        "13, monitor:DP-1"
+        "14, monitor:DP-1"
+        "15, monitor:DP-1"
+        "16, monitor:DP-1"
+        "17, monitor:DP-1"
       ];
 
       xwayland = {
