@@ -87,13 +87,13 @@ in
         "SUPER ALT,6,workspace,16"
         "SUPER ALT,7,workspace,17"
 
-        "SUPER ALT,1,movetoworkspacesilent,11"
-        "SUPER ALT,2,movetoworkspacesilent,12"
-        "SUPER ALT,3,movetoworkspacesilent,13"
-        "SUPER ALT,4,movetoworkspacesilent,14"
-        "SUPER ALT,5,movetoworkspacesilent,15"
-        "SUPER ALT,6,movetoworkspacesilent,16"
-        "SUPER ALT,7,movetoworkspacesilent,17"
+        "SUPER SHIFT ALT,1,movetoworkspacesilent,11"
+        "SUPER SHIFT ALT,2,movetoworkspacesilent,12"
+        "SUPER SHIFT ALT,3,movetoworkspacesilent,13"
+        "SUPER SHIFT ALT,4,movetoworkspacesilent,14"
+        "SUPER SHIFT ALT,5,movetoworkspacesilent,15"
+        "SUPER SHIFT ALT,6,movetoworkspacesilent,16"
+        "SUPER SHIFT ALT,7,movetoworkspacesilent,17"
 
         "SUPER,Tab,workspace,previous"
       ];
