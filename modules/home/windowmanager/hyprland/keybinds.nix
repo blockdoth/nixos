@@ -9,9 +9,7 @@ let
 in
 {
   config = lib.mkIf module.enable {
-
     wayland.windowManager.hyprland.settings = {
-
       bind = [
         "SUPER,A,exec, pypr toggle term"
         "SUPER,B,exec, zen"
@@ -81,21 +79,21 @@ in
         "SUPER SHIFT,6,movetoworkspacesilent,6"
         "SUPER SHIFT,7,movetoworkspacesilent,7"
 
-        "SUPER HYPER,1,workspace,11"
-        "SUPER HYPER,2,workspace,12"
-        "SUPER HYPER,3,workspace,13"
-        "SUPER HYPER,4,workspace,14"
-        "SUPER HYPER,5,workspace,15"
-        "SUPER HYPER,6,workspace,16"
-        "SUPER HYPER,7,workspace,17"
+        "SUPER ALT,1,workspace,11"
+        "SUPER ALT,2,workspace,12"
+        "SUPER ALT,3,workspace,13"
+        "SUPER ALT,4,workspace,14"
+        "SUPER ALT,5,workspace,15"
+        "SUPER ALT,6,workspace,16"
+        "SUPER ALT,7,workspace,17"
 
-        "SUPER HYPER,1,movetoworkspacesilent,11"
-        "SUPER HYPER,2,movetoworkspacesilent,12"
-        "SUPER HYPER,3,movetoworkspacesilent,13"
-        "SUPER HYPER,4,movetoworkspacesilent,14"
-        "SUPER HYPER,5,movetoworkspacesilent,15"
-        "SUPER HYPER,6,movetoworkspacesilent,16"
-        "SUPER HYPER,7,movetoworkspacesilent,17"
+        "SUPER ALT,1,movetoworkspacesilent,11"
+        "SUPER ALT,2,movetoworkspacesilent,12"
+        "SUPER ALT,3,movetoworkspacesilent,13"
+        "SUPER ALT,4,movetoworkspacesilent,14"
+        "SUPER ALT,5,movetoworkspacesilent,15"
+        "SUPER ALT,6,movetoworkspacesilent,16"
+        "SUPER ALT,7,movetoworkspacesilent,17"
 
         "SUPER,Tab,workspace,previous"
       ];
