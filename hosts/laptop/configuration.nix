@@ -1,4 +1,5 @@
 {
+  pkgs,
   ...
 }:
 {
@@ -36,6 +37,16 @@
       (builtins.readFile ../desktop/id_ed25519.pub)
     ];
   };
+
+  hardware.enableRedistributableFirmware = true;
+
+  environment.systemPackages = with pkgs; [
+    mesa
+    libGL
+    libdrm
+    wayland
+    egl-wayland
+  ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }
