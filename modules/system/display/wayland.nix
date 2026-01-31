@@ -14,6 +14,11 @@ in
     programs.hyprland = {
       enable = true;
       xwayland.enable = true;
+      settings = {
+        env = [
+          "WLR_NO_HARDWARE_CURSORS,1"
+        ];
+      };
     };
   };
 }
