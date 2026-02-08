@@ -35,6 +35,7 @@ in
         in
         formatted;
     };
+    systemd.user.sessionVariables = config.home.sessionVariables;
 
     systemd.user.services.setup-home-dir = {
       Unit = {
