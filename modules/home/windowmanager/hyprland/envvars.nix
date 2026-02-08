@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  hostname,
   ...
 }:
 let
@@ -18,6 +19,13 @@ in
       XDG_CURRENT_DESKTOP = "Hyprland";
       XDG_SESSION_TYPE = "wayland";
       XDG_SESSION_DESKTOP = "Hyprland";
+      XDG_SCREENSHOTS_DIR =
+        if hostname == "laptop" then
+          "$HOME/pictures/screenshots/laptop"
+        else if hostname == "desktop" then
+          "$HOME/pictures/screenshots/desktop"
+        else
+          "$HOME/pictures/screenshots";
     };
   };
 }

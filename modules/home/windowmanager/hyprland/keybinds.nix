@@ -44,7 +44,7 @@ in
         "SUPER,Y,exec,zeditor ~/nixos"
         "SUPER,Z, exec, pypr zoom "
         "SUPER SHIFT,Z, exec, pypr zoom ++0.6"
-        "SUPER SHIFT, S, exec, grimblast --notify --freeze copysave area $XDG_SCREENSHOTS_DIR"
+        "SUPER SHIFT, S, exec, grimblast --notify --freeze copysave area"
         ", PRINT, exec, grimblast --notify copysave screen"
 
         ################################## Move ###########################################
