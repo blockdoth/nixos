@@ -10,23 +10,17 @@ let
 in
 {
   config = lib.mkIf module.enable {
-    systemd.user.sessionVariables = {
-      XDG_SCREENSHOTS_DIR =
-        if hostname == "laptop" then
-          "$HOME/pictures/screenshots/laptop"
-        else if hostname == "desktop" then
-          "$HOME/pictures/screenshots/desktop"
-        else
-          "$HOME/pictures/screenshots";
-      XDG_DESKTOP_DIR = "$HOME/desktop";
-      XDG_DOCUMENTS_DIR = "$HOME/documents";
-      XDG_DOWNLOAD_DIR = "$HOME/downloads";
-      XDG_MUSIC_DIR = "$HOME/music";
-      XDG_PICTURES_DIR = "$HOME/pictures";
-      XDG_VIDEOS_DIR = "$HOME/videos";
-      GTK_USE_PORTAL = "1";
-    };
     home = {
+      sessionVariables = {
+        XDG_SCREENSHOTS_DIR = "$HOME/pictures/screenshots";
+        XDG_DESKTOP_DIR = "$HOME/desktop";
+        XDG_DOCUMENTS_DIR = "$HOME/documents";
+        XDG_DOWNLOAD_DIR = "$HOME/downloads";
+        XDG_MUSIC_DIR = "$HOME/music";
+        XDG_PICTURES_DIR = "$HOME/pictures";
+        XDG_VIDEOS_DIR = "$HOME/videos";
+        GTK_USE_PORTAL = "1";
+      };
       file.".current-home-packages".text =
         let
           packages = builtins.map (p: "${p.name}") config.home.packages;
