@@ -68,7 +68,7 @@ in
       functions = {
         nix-shell = ''
           function nix-shell
-            command nix-shell $argv --command fish
+            command nix-shell $argv --command "exec fish"
           end
         '';
       };
