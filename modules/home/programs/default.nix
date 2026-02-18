@@ -13,6 +13,7 @@
     ./spotify.nix
     ./whatsapp.nix
     ./signal.nix
+    ./inkscape.nix
     ./steam.nix
     ./minecraft.nix
     ./mpd.nix

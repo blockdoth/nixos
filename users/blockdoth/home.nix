@@ -25,6 +25,7 @@
       browsers.zen.enable = true;
       blender.enable = true;
       gimp.enable = true;
+      inkscape.enable = true;
     };
     dev = {
       ctf.enable = (if hostname == "laptop" then true else false);

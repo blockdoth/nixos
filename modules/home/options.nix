@@ -113,6 +113,7 @@ in
           chrome.enable = mkEnableOption "chrome";
         };
         discord.enable = mkEnableOption "discord";
+        inkscape.enable = mkEnableOption "inkscape";
         spotify.enable = mkEnableOption "spotify";
         llms.enable = mkEnableOption "llms";
         whatsapp.enable = mkEnableOption "whatsapp";
