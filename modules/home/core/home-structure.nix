@@ -57,6 +57,9 @@ in
           else
             mkdir -p "$HOME/pictures/screenshots"
           fi
+          ln -s documents Documents
+          ln -s downloads Downloads
+          ln -s pictures Pictures
 
           find "$HOME" -maxdepth 1 -type d -name '[A-Z]*' -exec basename {} \; > "$HOME/.hidden"
         '';
