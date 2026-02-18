@@ -48,7 +48,7 @@ in
           code = "zeditor .";
           bat = "bat -p";
           ls = "eza";
-          vw = "notes && cat tos | wl-copy";
+          vw = "pushd ~/documents/notes && cat tos | wl-copy && popd";
           systui = "sudo systemctl-tui";
           wifilist = "nmcli device wifi list";
           hotspot = " nmcli device wifi connect \"government-bird-drone-213\" --ask";
