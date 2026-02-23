@@ -140,6 +140,11 @@ in
           clangd = {
             binary.ignore_system_version = true;
           };
+          haskell = {
+            binary = {
+              path_lookup = true;
+            };
+          };
         };
       };
       extensions = [
