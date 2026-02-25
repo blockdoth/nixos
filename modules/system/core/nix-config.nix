@@ -52,14 +52,14 @@ in
         warn-dirty = false;
         log-lines = 50;
         substituters = [
-          "https://hyprland.cachix.org"
           "https://install.determinate.systems"
-          "https://ros.cachix.org"
+          "https://hyprland.cachix.org"
+          # "https://ros.cachix.org"
         ];
         trusted-public-keys = [
-          "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
           "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
-          "ros.cachix.org-1:dSyZxI8geDCJrwgvCOHDoAfOm5sV1wCPjBkKL+38Rvo="
+          "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+          # "ros.cachix.org-1:dSyZxI8geDCJrwgvCOHDoAfOm5sV1wCPjBkKL+38Rvo="
         ];
       };
       gc = {
