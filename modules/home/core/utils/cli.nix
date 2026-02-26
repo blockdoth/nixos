@@ -64,6 +64,7 @@ in
       dblab
       broot
       udiskie
+      dua
     ];
   };
 }
