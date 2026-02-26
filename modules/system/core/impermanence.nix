@@ -13,7 +13,12 @@ in
     inputs.impermanence.nixosModules.impermanence
   ];
 
-  config = lib.mkIf module.enable {
+  config = {
+    environment.persistence."/persist/system".directories = [
+      "/var/lib/nixos"
+    ];
+  }
+  // lib.mkIf module.enable {
     fileSystems."/persist".neededForBoot = true;
     environment.persistence."/persist/system" = {
       hideMounts = true;
