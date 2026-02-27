@@ -7,7 +7,16 @@
 let
   module = config.modules.core.fonts;
   mkFontDerivation =
-    fontPath: name: type:
+    name: fontPath:
+    let
+      type =
+        if lib.hasSuffix ".ttf" fontPath then
+          "truetype"
+        else if lib.hasSuffix ".otf" fontPath then
+          "opentype"
+        else
+          throw "Unsupported font format: ${fontPath}";
+    in
     pkgs.stdenvNoCC.mkDerivation {
       pname = name;
       version = "1.0";
@@ -19,12 +28,11 @@ let
 in
 {
   config = lib.mkIf module.enable {
-    fonts.fontconfig.enable = true;
     home.packages = with pkgs; [
-      (mkFontDerivation ./local/xkcd-script.ttf "xkcd Script" "truetype")
-      (mkFontDerivation ./local/Comic-Sans-MS.ttf "Comic Sans MS" "truetype")
-      (mkFontDerivation ./local/xkcd.otf "xkcd" "opentype")
-      (mkFontDerivation ./local/NotoSans-Regular.ttf "Noto Sans" "truetype")
+      (mkFontDerivation "xkcd" ./local/xkcd.otf)
+      (mkFontDerivation "Comic Sans MS" ./local/Comic-Sans-MS.ttf)
+      (mkFontDerivation "Noto Sans" ./local/NotoSans-Regular.ttf)
+      (mkFontDerivation "xkcd Script" ./local/xkcd-script.ttf)
       font-manager
       jetbrains-mono
       font-awesome
@@ -37,5 +45,6 @@ in
       nerd-fonts.jetbrains-mono
       newcomputermodern
     ];
+    fonts.fontconfig.enable = true;
   };
 }
