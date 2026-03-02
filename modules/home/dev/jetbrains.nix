@@ -14,11 +14,11 @@ in
 {
   config = lib.mkIf module.enable {
     home.packages = with pkgs; [
-      jetbrains.clion
-      jetbrains.webstorm
-      jetbrains.pycharm-professional
+      # jetbrains.clion
+      # jetbrains.webstorm
+      # jetbrains.pycharm-professional
       jetbrains.idea-ultimate
-      jetbrains.rust-rover
+      # jetbrains.rust-rover
     ];
 
     home.file = {
