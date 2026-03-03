@@ -44,6 +44,11 @@ in
       # https://github.com/NixOS/nixpkgs/pull/108294
       initrd.verbose = false;
 
+      # For jetbrains profiler
+      kernel.sysctl = {
+        "kernel.perf_event_paranoid" = 1;
+        "kernel.kptr_restrict" = 0;
+      };
       blacklistedKernelModules = [
         "joydev"
         "tiny_power_button"
