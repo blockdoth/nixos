@@ -1,41 +1,24 @@
 { config, lib, ... }:
 let
   module = config.system-modules.core.networking;
-  zenmode = config.system-modules.presets.zenmode;
-  hostname = module.hostname;
+  impermanence = config.system-modules.core.impermanence;
 
   blockedDomains = [
-    "facebook.com"
-    "www.facebook.com"
     "instagram.com"
-    "www.instagram.com"
     "twitter.com"
-    "www.twitter.com"
     "tiktok.com"
-    "www.tiktok.com"
+    "x.com"
     "reddit.com"
-    "www.reddit.com"
     "linkedin.com"
-    "www.linkedin.com"
     "youtube.com"
-    "www.youtube.com"
     "whatsapp.com"
-    "www.whatsapp.com"
-    "messenger.com"
-    "www.messenger.com"
-    "telegram.org"
-    "www.telegram.org"
     "discord.com"
-    "www.discord.com"
   ];
-
-  blockedHosts = lib.concatStringsSep "\n" (map (domain: "0.0.0.0 ${domain}") blockedDomains);
-  impermanence = config.system-modules.core.impermanence;
 in
 {
   config = lib.mkIf module.enable {
     networking = {
-      hostName = hostname;
+      hostName = module.hostname;
       firewall = {
         enable = true;
       };
@@ -46,8 +29,6 @@ in
       interfaces = lib.mkIf module.wakeOnLan {
         enp7s0.wakeOnLan.enable = true;
       };
-      # Block distracting domains in zenmode
-      extraHosts = lib.mkIf zenmode.enable blockedHosts;
     };
 
     services.resolved.enable = true;
@@ -55,5 +36,38 @@ in
     environment.persistence."/persist/backup" = lib.mkIf impermanence.enable {
       directories = [ "/etc/NetworkManager/system-connections" ];
     };
+
+    services.dnsmasq = lib.mkIf module.blocking.enable {
+      enable = true;
+
+      settings = {
+        listen-address = "127.0.0.1";
+
+        address = map (d: "/${d}/0.0.0.0") blockedDomains;
+      };
+    };
+
+    # firewall rules restricting DNS for clausum
+    networking.firewall.extraCommands = lib.mkIf module.blocking.enable ''
+      UID=$(id -u ${module.blocking.user})
+
+      # allow user to query local dnsmasq
+      iptables -A OUTPUT -m owner --uid-owner $UID -p udp --dport 53 -d 127.0.0.1 -j ACCEPT
+      iptables -A OUTPUT -m owner --uid-owner $UID -p tcp --dport 53 -d 127.0.0.1 -j ACCEPT
+
+      # block all other DNS
+      iptables -A OUTPUT -m owner --uid-owner $UID -p udp --dport 53 -j REJECT
+      iptables -A OUTPUT -m owner --uid-owner $UID -p tcp --dport 53 -j REJECT
+    '';
+
+    networking.firewall.extraStopCommands = lib.mkIf module.blocking.enable ''
+      UID=$(id -u ${module.blocking.user})
+
+      iptables -D OUTPUT -m owner --uid-owner $UID -p udp --dport 53 -d 127.0.0.1 -j ACCEPT || true
+      iptables -D OUTPUT -m owner --uid-owner $UID -p tcp --dport 53 -d 127.0.0.1 -j ACCEPT || true
+      iptables -D OUTPUT -m owner --uid-owner $UID -p udp --dport 53 -j REJECT || true
+      iptables -D OUTPUT -m owner --uid-owner $UID -p tcp --dport 53 -j REJECT || true
+    '';
+
   };
 }

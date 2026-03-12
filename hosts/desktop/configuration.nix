@@ -9,11 +9,18 @@
   ];
 
   system-modules = {
-    users.blockdoth.enable = true;
+    users = {
+      blockdoth.enable = true;
+      clausum.enable = true;
+    };
     core.impermanence.enable = false;
     core.networking = {
       hostname = "desktop";
       wakeOnLan = true;
+      blocking = {
+        enable = true;
+        user = "clausum";
+      };
     };
     presets = {
       gui.enable = true;

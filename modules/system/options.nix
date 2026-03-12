@@ -76,6 +76,7 @@ in
         blockdoth.enable = mkEnableOption "user blockdoth";
         penger.enable = mkEnableOption "user penger";
         mowie.enable = mkEnableOption "user penger";
+        clausum.enable = mkEnableOption "user clausum";
       };
 
       core = {
@@ -85,6 +86,10 @@ in
           enable = mkEnableOption "networking config";
           hostname = mkOption { type = types.str; };
           wakeOnLan = mkEnableOption "wake on lan";
+          blocking = {
+            enable = mkEnableOption "per user domain blocking";
+            user = mkOption { type = types.str; };
+          };
         };
         impermanence.enable = mkEnableOption "impermanence";
         localization.enable = mkEnableOption "localization settings";
