@@ -43,7 +43,7 @@
         minecraft.enable = true;
         chatger.enable = true;
         chatger-registry.enable = true;
-        mowie.enable = true;
+        mowie.enable = false;
       };
       observability = {
         gatus.enable = true;
@@ -64,9 +64,9 @@
       nextcloud.enable = false;
       microbin.enable = false;
       homepage.enable = true;
-      httpbin.enable = true;
+      httpbin.enable = false;
       githubrunners.enable = true;
-      attic.enable = true;
+      attic.enable = false;
     };
   };
 
