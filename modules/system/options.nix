@@ -30,6 +30,7 @@ in
     ./display
     ./services
     ../../users/blockdoth/system.nix
+    ../../users/clausum/system.nix
     ../../users/penger/system.nix
     ../../users/mowie/system.nix
   ];
