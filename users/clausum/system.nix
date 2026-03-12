@@ -5,7 +5,7 @@
   ...
 }:
 let
-  module = config.system-modules.users.blockdoth;
+  module = config.system-modules.users.clausum;
 in
 {
   config = lib.mkIf module.enable {
@@ -16,24 +16,13 @@ in
 
     users = {
       mutableUsers = false;
-      users.blockdoth = {
+      users.clausum = {
         isNormalUser = true;
         shell = pkgs.fish;
         hashedPasswordFile = config.sops.secrets.blockdoth-password.path;
         extraGroups = [
           "networkmanager"
           "audio"
-          "docker"
-          "dialout" # For serialW
-          "adbusers" # android shell
-          "kvm"
-        ];
-        openssh.authorizedKeys.keys = [
-          (builtins.readFile ../../hosts/nuc/id_ed25519.pub)
-          (builtins.readFile ../../hosts/laptop/id_ed25519.pub)
-          (builtins.readFile ../../hosts/desktop/id_ed25519.pub)
-          (builtins.readFile ../../hosts/phone-oneplus/id_ed25519.pub)
-          (builtins.readFile ../../hosts/phone-pixel/id_ed25519.pub)
         ];
       };
     };
