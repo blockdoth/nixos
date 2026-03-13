@@ -9,12 +9,14 @@
   ];
 
   system-modules = {
-    users.blockdoth.enable = true;
+    users = {
+      blockdoth.enable = true;
+      clausum.enable = true;
+    };
     core.networking.hostname = "laptop";
     presets = {
       gui.enable = true;
       laptop.enable = true;
-      # zenmode.enable = true;
     };
     common = {
       trackpad.enable = true;
