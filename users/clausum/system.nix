@@ -23,6 +23,7 @@ in
         extraGroups = [
           "networkmanager"
           "audio"
+          "wheel"
         ];
       };
     };
