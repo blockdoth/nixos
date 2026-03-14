@@ -104,7 +104,7 @@
           pkgs = mkPkgs system;
           extraSpecialArgs = {
             hostname = host;
-            inherit inputs;
+            inherit inputs user;
           };
           modules = [
             users/${user}/home.nix

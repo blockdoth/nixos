@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  user,
   ...
 }:
 let
@@ -11,7 +12,7 @@ in
   config = lib.mkIf module.enable {
     home.packages = with pkgs; [ pyprland ];
 
-    home.file."/home/blockdoth/.config/hypr/pyprland.toml".text = ''
+    home.file."/home/${user}/.config/hypr/pyprland.toml".text = ''
       [pyprland]
       plugins = [
        "magnify",
