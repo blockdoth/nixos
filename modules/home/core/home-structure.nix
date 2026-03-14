@@ -61,7 +61,6 @@ in
           ln -s downloads Downloads
           ln -s pictures Pictures
 
-          ls -1 . | rg "^[A-Z][A-z]+" | awk '{print $1}'
         '';
       };
     };
