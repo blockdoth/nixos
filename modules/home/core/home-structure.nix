@@ -61,7 +61,7 @@ in
           ln -s downloads Downloads
           ln -s pictures Pictures
 
-          find "$HOME" -maxdepth 1 -type d -name '[A-Z]*' -exec basename {} \; > "$HOME/.hidden"
+          ls -1 . | rg "^[A-Z][A-z]+" | awk '{print $1}'
         '';
       };
     };
