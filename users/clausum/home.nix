@@ -19,6 +19,6 @@
       hyprland.enable = true;
       theming.enable = true;
     };
-    programs.firefox.enable = true;
+    programs.browsers.chrome.enable = true;
   };
 }
