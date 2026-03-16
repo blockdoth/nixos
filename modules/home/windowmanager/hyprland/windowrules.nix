@@ -16,7 +16,7 @@ in
 
       windowrule = [
         #transparency
-        "opacity 0.85, match:class ^(firefox|zen-beta)"
+        "opacity 0.85, match:class ^(firefox|zen-twilight)"
         "opacity 1.00, match:title ^(.*YouTube.*)"
         "opacity 0.75, match:class ^(spotify|Spotify)"
         "opacity 0.85, match:class ^(VSCodium|codium)"
@@ -53,7 +53,7 @@ in
         "fullscreen on,             match:class spring"
 
         "workspace 1,   match:class (vesktop)"
-        "workspace 2,   match:class (firefox|zen-beta)"
+        "workspace 2,   match:class (firefox|zen-twilight)"
         # "workspace 3,   match:class (VSCodium)"
 
         # prevent popups from having a weird border in vscode
