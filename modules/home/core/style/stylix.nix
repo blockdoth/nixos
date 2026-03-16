@@ -89,7 +89,7 @@ in
         zellij.enable = lib.mkForce false;
         nvf.enable = false;
         # zed.enable = false;
-        zen-browser.profileNames = [ "default" ];
+        zen-browser.enable = lib.mkForce false;
       };
     };
 
