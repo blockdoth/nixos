@@ -17,6 +17,7 @@
     presets = {
       gui.enable = true;
       laptop.enable = true;
+      gaming.enable = true;
     };
     common = {
       trackpad.enable = true;
