@@ -19,7 +19,7 @@
       dev.enable = true;
       theming.enable = true;
       programs.enable = true;
-      gaming.enable = (if hostname == "desktop" then true else false);
+      gaming.enable = true;
     };
     programs = {
       browsers.zen.enable = true;
