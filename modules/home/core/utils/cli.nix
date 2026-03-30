@@ -65,6 +65,7 @@ in
       broot
       udiskie
       dua
+      pandoc
     ];
   };
 }
