@@ -19,7 +19,7 @@ in
         "splashColor": "#${config.lib.stylix.colors.base02}",
         "splashBackground":  "#${config.lib.stylix.colors.base01}",
         "enableMenu": false,
-        "tray": true,
+        "tray": false,
         "openLinksWithElectron": false
       }
     '';
