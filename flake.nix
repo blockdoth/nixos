@@ -127,6 +127,7 @@
       homeConfigurations = {
         blockdoth-desktop = mkHome "blockdoth" "desktop" "x86_64-linux";
         clausum-desktop = mkHome "clausum" "desktop" "x86_64-linux";
+        clausum-laptop = mkHome "clausum" "laptop" "x86_64-linux";
         blockdoth-laptop = mkHome "blockdoth" "laptop" "x86_64-linux";
         penger-nuc = mkHome "penger" "nuc" "x86_64-linux";
         mowie-rpi = mkHome "mowie" "rpi" "aarch64-linux";
