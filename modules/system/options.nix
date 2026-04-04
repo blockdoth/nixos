@@ -353,7 +353,7 @@ in
           grafana.enable = mkDefault enablePissStream;
           loki.enable = mkDefault enablePissStream;
           prometheus.enable = mkDefault enablePissStream;
-          promtail.enable = mkDefault enablePissStream;
+          promtail.enable = mkDefault false;
         };
         scraping = {
           iss-piss-stream.enable = mkDefault enablePissStream;

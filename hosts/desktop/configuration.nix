@@ -17,10 +17,10 @@
     core.networking = {
       hostname = "desktop";
       wakeOnLan = true;
-      blocking = {
-        enable = true;
-        user = "clausum";
-      };
+      # blocking = {
+      #   enable = true;
+      #   user = "clausum";
+      # };
     };
     presets = {
       gui.enable = true;
