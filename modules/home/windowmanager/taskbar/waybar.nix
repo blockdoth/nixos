@@ -7,7 +7,7 @@
 }:
 let
   module = config.modules.windowmanager.taskbar.waybar;
-  toStr = var: builtins.toString var;
+  toStr = var: toString var;
   mediaplayer-state-file = "$HOME/.local/state/waybar/mediaplayer-inputswitcher.state";
 
   # TODO move scripts somewhere else

@@ -30,7 +30,7 @@ in
     };
     home.file.".config/rofi/theme.rasi".text = ''
       * {
-         font: "${config.stylix.fonts.monospace.name} ${builtins.toString config.stylix.fonts.sizes.desktop}";
+         font: "${config.stylix.fonts.monospace.name} ${toString config.stylix.fonts.sizes.desktop}";
          foreground: #${colors.base07};
          background-color: transparent;
          active-background: #${colors.base03}CC;

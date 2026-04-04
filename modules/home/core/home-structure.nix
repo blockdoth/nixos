@@ -2,7 +2,6 @@
   pkgs,
   config,
   lib,
-  hostname,
   ...
 }:
 let
@@ -23,7 +22,7 @@ in
       };
       file.".current-home-packages".text =
         let
-          packages = builtins.map (p: "${p.name}") config.home.packages;
+          packages = map (p: "${p.name}") config.home.packages;
           sortedUnique = builtins.sort builtins.lessThan (pkgs.lib.lists.unique packages);
           formatted = pkgs.lib.strings.concatLines sortedUnique;
         in

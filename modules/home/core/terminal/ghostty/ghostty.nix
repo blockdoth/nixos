@@ -6,7 +6,7 @@
 }:
 let
   module = config.modules.core.terminal.ghostty;
-  toStr = var: builtins.toString var;
+  toStr = var: toString var;
 in
 {
   config = lib.mkIf module.enable {
