@@ -55,7 +55,7 @@ in
           ];
         };
         server = {
-          address = "127.0.0.1:${builtins.toString module.port}";
+          address = "127.0.0.1:${toString module.port}";
           # Necessary for Caddy integration
           # See https://www.authelia.com/integration/proxies/caddy/#implementation
           endpoints.authz.forward-auth.implementation = "ForwardAuth";
@@ -63,7 +63,7 @@ in
 
         authentication_backend.ldap = {
           implementation = "lldap";
-          address = "ldap://127.0.0.1:${builtins.toString config.services.lldap.settings.ldap_port}";
+          address = "ldap://127.0.0.1:${toString config.services.lldap.settings.ldap_port}";
           base_dn = "dc=example,dc=com";
           additional_users_dn = "ou=people";
           user = "uid=admin,ou=people,dc=example,dc=com";

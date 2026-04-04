@@ -29,7 +29,7 @@ in
       wantedBy = [ "multi-user.target" ];
 
       serviceConfig = {
-        ExecStart = "${regger}/bin/regger serve -db /var/lib/chatger/chatger.db -p ${builtins.toString reggerPort}";
+        ExecStart = "${regger}/bin/regger serve -db /var/lib/chatger/chatger.db -p ${toString reggerPort}";
         WorkingDirectory = "${regger}/bin";
         StateDirectory = "regger";
         Restart = "on-failure";

@@ -1,13 +1,13 @@
 {
-  pkgs,
-  config,
-  lib,
-  inputs,
+  # pkgs,
+  # config,
+  # lib,
+  # inputs,
   ...
 }:
 let
-  module = config.system-modules.services.linkwarden;
-  domain = config.system-modules.secrets.domains.homelab;
+  # module = config.system-modules.services.linkwarden;
+  # domain = config.system-modules.secrets.domains.homelab;
 in
 {
   # Imports the module options from a unmerged nixpkgs pr

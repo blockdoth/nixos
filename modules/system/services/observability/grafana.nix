@@ -52,7 +52,7 @@ in
             type = "prometheus";
             access = "proxy";
             editable = false;
-            url = "http://127.0.0.1:${builtins.toString config.services.prometheus.port}";
+            url = "http://127.0.0.1:${toString config.services.prometheus.port}";
           }
           {
             name = "Loki";

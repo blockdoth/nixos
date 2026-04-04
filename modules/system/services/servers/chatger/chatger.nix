@@ -55,7 +55,7 @@ in
           StateDirectoryMode = "2775";
           Environment = [
             "CHATGER_DB_PATH=/var/lib/chatger/chatger.db"
-            "CHATGER_PORT=${builtins.toString chatgerPort}"
+            "CHATGER_PORT=${toString chatgerPort}"
           ];
           Restart = "on-failure";
           User = "chatger";
@@ -73,8 +73,8 @@ in
         serviceConfig = {
           ExecStart = ''
             ${pkgs.socat}/bin/socat -d -d -v\
-              OPENSSL-LISTEN:${builtins.toString chatgerTLSPort},reuseaddr,fork,cert=/var/lib/acme/insinuatis.com/cert.pem,key=/var/lib/acme/insinuatis.com/key.pem,verify=0 \
-              TCP:127.0.0.1:${builtins.toString chatgerPort}
+              OPENSSL-LISTEN:${toString chatgerTLSPort},reuseaddr,fork,cert=/var/lib/acme/insinuatis.com/cert.pem,key=/var/lib/acme/insinuatis.com/key.pem,verify=0 \
+              TCP:127.0.0.1:${toString chatgerPort}
           '';
           Group = "acme";
           Restart = "on-failure";

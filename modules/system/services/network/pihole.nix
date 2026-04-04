@@ -38,7 +38,7 @@ in
     services.pihole-web = {
       enable = true;
       hostName = "pihole.${domain}";
-      ports = [ "${builtins.toString port}" ];
+      ports = [ "${toString port}" ];
     };
 
     system-modules.services = {
