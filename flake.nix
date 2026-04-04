@@ -130,7 +130,7 @@
           profiles.penger = {
             user = "penger";
             sshUser = "penger";
-            path = deployPkgs.deploy-rs.lib.activate.home-manager self.homeConfigurations.nuc-penger;
+            path = deployPkgs.deploy-rs.lib.activate.home-manager self.homeConfigurations.penger-nuc;
           };
         };
       };

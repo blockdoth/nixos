@@ -30,6 +30,7 @@ in
         }
       ];
       userSettings = {
+        double_click_in_multibuffer = "open";
         title_bar = {
           show_sign_in = false;
           show_user_picture = false;
@@ -40,7 +41,7 @@ in
         };
         project_panel = {
           button = false;
-          folder_icons = false;
+          folder_icons = true;
           file_icons = true;
           hide_root = false;
           bold_folder_labels = true;
