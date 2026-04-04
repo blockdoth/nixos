@@ -14,10 +14,10 @@ in
 
     services.dunst = {
       enable = true;
-      iconTheme = {
-        name = "Moka";
-        package = pkgs.moka-icon-theme;
-      };
+      # iconTheme = {
+      #   name = "Moka";
+      #   package = pkgs.moka-icon-theme;
+      # };
       settings = {
         global = {
           origin = "top-right";

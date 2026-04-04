@@ -5,7 +5,7 @@
   ...
 }:
 let
-  module = config.modules.windowmanager.wallpaper.swww;
+  module = config.modules.windowmanager.wallpaper.awww;
   wallpaperBasePath = "${../../../../assets/wallpapers}";
   wallpaperchanger = pkgs.writeShellScriptBin "wallpaperchanger" ''
 
@@ -15,8 +15,8 @@ let
 
         # Check if a selection was made
         if [ -n "$SELECTED" ]; then
-            # Set the selected wallpaper using swww
-            swww img --transition-fps 144 --transition-type grow --transition-duration 2 --invert-y --transition-pos 0,0 "${wallpaperBasePath}/$SELECTED"
+            # Set the selected wallpaper using awww
+            awww img --transition-fps 144 --transition-type grow --transition-duration 2 --invert-y --transition-pos 0,0 "${wallpaperBasePath}/$SELECTED"
             break
         else
             # Exit the loop if no selection is made (e.g., user closes wofi or presses ESC)
@@ -28,7 +28,7 @@ in
 {
   config = lib.mkIf module.enable {
     home.packages = with pkgs; [
-      swww
+      awww
       wallpaperchanger
     ];
   };

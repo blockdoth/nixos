@@ -136,7 +136,7 @@ in
         taskbar.waybar.enable = mkEnableOption "decent taskbar";
         wallpaper = {
           hyprpaper.enable = mkEnableOption "Hyprland based wallpaper util";
-          swww.enable = mkEnableOption "Sway based wallpaper util";
+          awww.enable = mkEnableOption "Sway based wallpaper util";
         };
         scratchpads.pyprland.enable = mkEnableOption "Hyprland scratchpads";
         idle.hypridle.enable = mkEnableOption "Hyprland based idle monitor";
@@ -222,7 +222,7 @@ in
         logout.wlogout.enable = mkDefault enableTilingWM;
         taskbar.waybar.enable = mkDefault enableTilingWM;
         wallpaper = {
-          swww.enable = mkDefault enableTilingWM;
+          awww.enable = mkDefault enableTilingWM;
         };
         scratchpads.pyprland.enable = mkDefault enableHyprland;
         idle.hypridle.enable = mkDefault enableTilingWM;

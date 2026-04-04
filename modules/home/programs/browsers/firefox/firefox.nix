@@ -10,7 +10,6 @@ in
 {
   imports = [
     inputs.shyfox.homeManagerModules.shyfox
-
   ];
 
   config = lib.mkIf module.enable {

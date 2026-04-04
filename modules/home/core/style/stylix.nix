@@ -15,7 +15,7 @@ in
   ];
 
   config = lib.mkIf module.enable {
-
+    gtk.gtk4.theme = config.gtk.theme;
     stylix = {
       enable = true;
       image = ../../../../assets/wallpapers/castle.png;

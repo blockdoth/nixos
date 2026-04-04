@@ -7,7 +7,7 @@
 }:
 let
   module = config.modules.windowmanager.hyprland;
-  plugins = inputs.hyprland-plugins.packages.${pkgs.system};
+  # plugins = inputs.hyprland-plugins.packages.${pkgs.system};
   # pluginPaths = {
   #   hyprexpo = "${plugins.hyprexpo}/lib/libhyprexpo.so";
   #   hyprwinwrap = "${plugins.hyprwinwrap}/lib/libhyprwinwrap.so";
@@ -27,8 +27,8 @@ in
   config = lib.mkIf module.enable {
     wayland.windowManager.hyprland = {
       plugins = [
-        plugins.hyprexpo
-        plugins.hyprwinwrap
+        # plugins.hyprexpo
+        # plugins.hyprwinwrap
         # inputs.hyprtasking.packages.${pkgs.system}.hyprtasking
       ];
       # settings.exec-once = [
@@ -36,9 +36,9 @@ in
       # ];
 
       settings = {
-        exec-once = [
-          "hyprctl plugin load '$HYPR_PLUGIN_DIR/lib/libhyprexpo.so'"
-        ];
+        # exec-once = [
+        #   "hyprctl plugin load '$HYPR_PLUGIN_DIR/lib/libhyprexpo.so'"
+        # ];
         # plugins = {
         #   hyprtasking = {
         #     layout = "grid";

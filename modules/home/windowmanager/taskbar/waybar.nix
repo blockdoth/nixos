@@ -101,7 +101,7 @@ in
 
       systemd = {
         enable = false;
-        target = "graphical-session.target";
+        targets = [ "graphical-session.target" ];
       };
       settings = {
         mainBar = {

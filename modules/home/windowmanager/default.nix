@@ -11,7 +11,7 @@
     ./notifications/dunst.nix
     ./taskbar/waybar.nix
     ./wallpaper/hyprpaper.nix
-    ./wallpaper/swww.nix
+    ./wallpaper/awww.nix
     ./scratchpads/pyprland.nix
   ];
 }

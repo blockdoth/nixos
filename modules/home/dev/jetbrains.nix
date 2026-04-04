@@ -26,6 +26,5 @@ in
       ".config/JetBrains/PyCharm2024.1/pycharm64.vmoptions".text = vmOptions;
       ".config/JetBrains/CLion2024.1/clion64.vmoptions".text = vmOptions;
     };
-
   };
 }

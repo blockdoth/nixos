@@ -15,7 +15,7 @@ in
         "dunst"
         "hypridle"
         # "hyprlock --no-fade-in "
-        "swww-daemon && swww img ../../../../../assets/wallpapers/waves.jpg"
+        "awww-daemon && awww img ../../../../../assets/wallpapers/waves.jpg"
         "pypr"
         "gammastep -b 1:1"
         "[workspace 1 silent] vesktop"

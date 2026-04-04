@@ -12,8 +12,8 @@ in
     home.packages = with pkgs; [
       qimgv
       vlc
-      xorg.xeyes # To detect if wayland vs xwayland
-      xorg.xev # Check keybinds
+      xeyes # To detect if wayland vs xwayland
+      xev # Check keybinds
       gparted # partitioning
       zathura # pdf viewer
       waypipe # display forwarding

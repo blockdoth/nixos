@@ -19,10 +19,15 @@ in
       git = {
         enable = true;
         lfs.enable = true;
+        signing = {
+          signByDefault = true;
+          format = "ssh";
+        };
         settings = {
           user = {
             name = "blockdoth";
             email = "${mail}";
+            signingkey = "~/.ssh/id_ed25519";
           };
           init.defaultBranch = "main";
           push.autoSetupRemote = "true";

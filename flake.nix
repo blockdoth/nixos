@@ -7,8 +7,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # maybe one day
-    # linkwarden-pr.url = "github:jvanbruegge/nixpkgs/linkwarden"; # TODO remove when linkwarden gets merged
     sops-nix.url = "github:Mic92/sops-nix";
     stylix.url = "github:danth/stylix";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
@@ -30,18 +28,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland/";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hyprtasking = {
-      url = "github:raybbian/hyprtasking";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hypr-dynamic-cursors = {
-      url = "github:VirtCode/hypr-dynamic-cursors";
-      inputs.hyprland.follows = "hyprland";
-    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,14 +35,12 @@
     activate-linux.url = "github:MrGlockenspiel/activate-linux";
     impermanence.url = "github:nix-community/impermanence";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
-    nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
     deploy-rs.url = "github:serokell/deploy-rs";
     # my repos
     iss-piss-stream.url = "github:blockdoth/iss-piss-stream/fed5758fb0da0d59b97e47d9037c4a37b7d40c8d";
     tree-but-cooler.url = "github:blockdoth/tree-but-cooler";
     chatger-registry.url = "github:blockdoth/chatger-registry";
     nixos-secrets.url = "git+ssh://git@github.com/blockdoth/nixos-secrets";
-    zjstatus.url = "github:dj95/zjstatus";
     # mowie.url = "git+ssh://git@gitlab.tudelft.nl/cor/robotics_minor/robotics_minor_2025/team_3_mowie/mowie.git?ref=dev";
   };
 
@@ -65,7 +49,6 @@
       self,
       nixpkgs,
       home-manager,
-      nix-on-droid,
       deploy-rs,
       ...
     }@inputs:
@@ -131,11 +114,6 @@
         blockdoth-laptop = mkHome "blockdoth" "laptop" "x86_64-linux";
         penger-nuc = mkHome "penger" "nuc" "x86_64-linux";
         mowie-rpi = mkHome "mowie" "rpi" "aarch64-linux";
-      };
-
-      nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-        pkgs = import nixpkgs { system = "aarch64-linux"; };
-        modules = [ host/phone-redmi/configuration.nix ];
       };
 
       deploy.nodes = {
