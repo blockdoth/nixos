@@ -41,7 +41,9 @@ in
         project_panel = {
           button = false;
           folder_icons = false;
+          file_icons = true;
           hide_root = false;
+          bold_folder_labels = true;
         };
         toolbar = {
           breadcrumbs = false;
@@ -62,8 +64,8 @@ in
         gutter = {
           folds = false;
           min_line_number_digits = 3;
-          breakpoints = false;
-          runnables = false;
+          breakpoints = true;
+          runnables = true;
         };
         search.button = false;
         minimap.show = "auto";
@@ -87,11 +89,7 @@ in
           button = false;
         };
         load_direnv = "shell_hook";
-        icon_theme = {
-          mode = "light";
-          dark = "VSCode Icons (Dark)";
-          light = "VSCode Icons (Light)";
-        };
+        icon_theme = "VSCode Icons for Zed (Dark)";
         tabs = {
           file_icons = true;
           show_diagnostics = "errors";
