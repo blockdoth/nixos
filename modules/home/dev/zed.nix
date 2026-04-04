@@ -12,9 +12,6 @@ in
     programs.zed-editor = {
       enable = true;
       installRemoteServer = true;
-      themes = {
-
-      };
       userKeymaps = [
         {
           context = "Editor";
@@ -30,6 +27,24 @@ in
         }
       ];
       userSettings = {
+        theme_overrides = {
+          "Base16 Gruvbox dark, medium" = {
+            syntax = {
+              property = {
+                color = "#d5c4a1";
+              };
+              attribute = {
+                color = "#83a598";
+              };
+              constant = {
+                color = "#d5c4a1";
+              };
+              variable.special = {
+                color = "#fb4934";
+              };
+            };
+          };
+        };
         semantic_tokens = "combined";
         double_click_in_multibuffer = "open";
         title_bar = {
