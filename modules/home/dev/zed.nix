@@ -30,6 +30,7 @@ in
         }
       ];
       userSettings = {
+        semantic_tokens = "combined";
         double_click_in_multibuffer = "open";
         title_bar = {
           show_sign_in = false;
@@ -142,6 +143,13 @@ in
           haskell = {
             binary = {
               path_lookup = true;
+            };
+          };
+          hls = {
+            initialization_options = {
+              haskell = {
+                formattingProvider = "ormolu";
+              };
             };
           };
         };
