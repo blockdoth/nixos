@@ -34,7 +34,7 @@
     };
     services = {
       # network.pihole.enable = true;
-      attic.enable = true;
+      # attic.enable = true;
     };
   };
 

@@ -63,8 +63,8 @@
       linkwarden.enable = false;
       nextcloud.enable = false;
       microbin.enable = false;
-      homepage.enable = true;
-      httpbin.enable = false;
+      homepage.enable = false;
+      httpbin.enable = true;
       githubrunners.enable = true;
       attic.enable = false;
     };

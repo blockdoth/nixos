@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -21,8 +22,10 @@ in
     ];
 
     # skips slow cache rebuilds
-    documentation.man.generateCaches = lib.mkForce false;
-
+    documentation.man = {
+      enable = false;
+      cache.enable = lib.mkForce false;
+    };
     nixpkgs.config.allowUnfree = true;
     programs = {
       nh = {
@@ -37,6 +40,7 @@ in
     };
 
     nix = {
+      registry.nixpkgs.flake = inputs.nixpkgs;
       settings = {
         cores = 8;
         experimental-features = [
