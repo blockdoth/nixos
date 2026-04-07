@@ -35,6 +35,7 @@ in
           admin_user = "admin";
           admin_password = "admin";
           # admin_password = "$__file{${config.sops.secrets.grafana-password.path}}";
+          secret_key = "SW2YcwTIb9zpOOhoPsMm"; # Hardcoded because no encryption needed
           disable_brute_force_login_protection = true;
           disable_initial_admin_creation = false;
         };

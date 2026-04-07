@@ -55,9 +55,9 @@
     };
   };
 
-  hardware.udev.extraRules = ''
-    SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE="0777", GROUP="dialout"
-  '';
+  # hardware.udev.extraRules = ''
+  #   SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE="0777", GROUP="dialout"
+  # '';
 
   systemd.services.btattach = {
     before = [ "bluetooth.service" ];
