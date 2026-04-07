@@ -67,6 +67,7 @@ in
       dua
       pandoc
       xxd
+      tcpdump
     ];
   };
 }
