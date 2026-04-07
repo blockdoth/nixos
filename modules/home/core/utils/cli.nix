@@ -66,6 +66,7 @@ in
       udiskie
       dua
       pandoc
+      xxd
     ];
   };
 }
