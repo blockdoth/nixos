@@ -17,7 +17,7 @@ in
           ignore_empty_input = true;
           grace = 0;
           disable_loading_bar = true;
-          fail_timeout = 500;
+          fail_timeout = 0;
         };
 
         background = [
@@ -50,13 +50,14 @@ in
             position = "0, -200";
             halign = "center";
             valign = "center";
+            monitors = "DP-1";
           }
         ];
 
         label = [
           # TIME
           {
-            text = "cmd[update:10] echo \"$(date +\"%H:%M\")\"";
+            text = "$TIME";
             # color = "#cdd6f4";
             color = "rgba(255, 255, 255, 0.6)";
             font_size = 350;
@@ -64,19 +65,8 @@ in
             position = "0, -200";
             halign = "center";
             valign = "top";
+            monitors = "DP-1";
           }
-
-          # # USER
-          # {
-          #   text = "cmd[update:1000] echo \"$USER\"";
-          #   # color = "#cdd6f4";
-          #   color = "rgba(255, 255, 255, 0.6)";
-          #   font_size = 18;
-          #   font_family = "JetBrains Mono Nerd Font Mono";
-          #   position = "0, -120";
-          #   halign = "center";
-          #   valign = "center";
-          # }
         ];
       };
     };

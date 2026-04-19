@@ -5,5 +5,5 @@ if pidof wlogout >/dev/null; then
     exit 0
 fi
 
-wlogout -b 5
+wlogout -b 5 -P 2
 
