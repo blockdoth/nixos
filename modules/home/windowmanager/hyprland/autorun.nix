@@ -14,12 +14,11 @@ in
         "waybar"
         "dunst"
         "hypridle"
-        # "hyprlock --no-fade-in "
         "awww-daemon && awww img ../../../../../assets/wallpapers/waves.jpg"
         "pypr"
         "gammastep -b 1:1"
         "[workspace 1 silent] vesktop"
-        "[workspace 2 silent] zen"
+        "[workspace 2 silent] zen-twilight"
         "[workspace 3 silent] codium"
         "activate-linux -f 'Noto Sans'"
         "hyprctl setcursor 15" # Fixes cursor sizes being different between apps

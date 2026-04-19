@@ -15,8 +15,6 @@ in
         general = {
           hide_cursor = true;
           ignore_empty_input = true;
-          grace = 0;
-          disable_loading_bar = true;
           fail_timeout = 0;
         };
 
@@ -50,7 +48,7 @@ in
             position = "0, -200";
             halign = "center";
             valign = "center";
-            monitors = "DP-1";
+            monitor = "DP-1";
           }
         ];
 
@@ -65,7 +63,7 @@ in
             position = "0, -200";
             halign = "center";
             valign = "top";
-            monitors = "DP-1";
+            monitor = "DP-1";
           }
         ];
       };
