@@ -10,9 +10,14 @@ in
 {
   # NFS client mounts
   config = lib.mkIf module.enable {
-    services.ollama = {
-      enable = true;
-      package = pkgs.ollama-vulkan;
+    services = {
+      ollama = {
+        enable = true;
+        package = pkgs.ollama-vulkan;
+      };
+      open-webui = {
+        enable = true;
+      };
     };
   };
 }
