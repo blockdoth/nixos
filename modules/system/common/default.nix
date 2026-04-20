@@ -17,5 +17,6 @@
     ./plymouth.nix
     ./udev.nix
     ./nfs.nix
+    ./llms.nix
   ];
 }

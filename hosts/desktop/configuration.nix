@@ -31,6 +31,7 @@
       docker.enable = false;
       crosscompilation.enable = true;
       filemanager.enable = true;
+      llms.enable = true;
     };
     services = {
       # network.pihole.enable = true;

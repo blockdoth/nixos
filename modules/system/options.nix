@@ -120,6 +120,7 @@ in
         filemanager.enable = mkEnableOption "filemanager";
         plymouth.enable = mkEnableOption "plymouth";
         udev.enable = mkEnableOption "udev";
+        llms.enable = mkEnableOption "llms";
         nfs = {
           client = {
             enable = mkEnableOption "nfs client";
