@@ -32,6 +32,7 @@
       crosscompilation.enable = true;
       filemanager.enable = true;
       llms.enable = true;
+      printing.enable = true;
     };
     services = {
       # network.pihole.enable = true;
