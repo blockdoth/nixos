@@ -25,6 +25,7 @@
       plymouth.enable = true;
       wireshark.enable = true;
       udev.enable = true;
+      llms.enable = true;
     };
     display.x11.enable = false;
     services = {

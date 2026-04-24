@@ -24,7 +24,7 @@ in
     # skips slow cache rebuilds
     documentation.man = {
       enable = false;
-      cache.enable = lib.mkForce false;
+      # cache.enable = lib.mkForce false;
     };
     nixpkgs.config.allowUnfree = true;
     programs = {
