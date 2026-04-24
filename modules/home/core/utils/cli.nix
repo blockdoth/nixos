@@ -68,6 +68,7 @@ in
       pandoc
       xxd
       tcpdump
+      inetutils
     ];
   };
 }
