@@ -2,18 +2,7 @@
 let
   module = config.system-modules.core.networking;
   impermanence = config.system-modules.core.impermanence;
-
-  blockedDomains = [
-    "instagram.com"
-    "twitter.com"
-    "tiktok.com"
-    "x.com"
-    "reddit.com"
-    "linkedin.com"
-    "youtube.com"
-    "whatsapp.com"
-    "discord.com"
-  ];
+  zen = config.system-modules.presets.zenmode;
 in
 {
   config = lib.mkIf module.enable {
@@ -37,37 +26,25 @@ in
       directories = [ "/etc/NetworkManager/system-connections" ];
     };
 
-    services.dnsmasq = lib.mkIf module.blocking.enable {
-      enable = true;
+    networking.hosts = lib.mkIf zen.enable {
+      "127.0.0.1" = [
 
-      settings = {
-        listen-address = "127.0.0.1";
+        "youtube.com"
+        "www.youtube.com"
+        "m.youtube.com"
+        "youtu.be"
 
-        address = map (d: "/${d}/0.0.0.0") blockedDomains;
-      };
+        "reddit.com"
+        "www.reddit.com"
+        "old.reddit.com"
+        "new.reddit.com"
+
+        "twitter.com"
+        "www.twitter.com"
+        "x.com"
+        "www.x.com"
+      ];
     };
-
-    # firewall rules restricting DNS for clausum
-    networking.firewall.extraCommands = lib.mkIf module.blocking.enable ''
-      UID=$(id -u ${module.blocking.user})
-
-      # allow user to query local dnsmasq
-      iptables -A OUTPUT -m owner --uid-owner $UID -p udp --dport 53 -d 127.0.0.1 -j ACCEPT
-      iptables -A OUTPUT -m owner --uid-owner $UID -p tcp --dport 53 -d 127.0.0.1 -j ACCEPT
-
-      # block all other DNS
-      iptables -A OUTPUT -m owner --uid-owner $UID -p udp --dport 53 -j REJECT
-      iptables -A OUTPUT -m owner --uid-owner $UID -p tcp --dport 53 -j REJECT
-    '';
-
-    networking.firewall.extraStopCommands = lib.mkIf module.blocking.enable ''
-      UID=$(id -u ${module.blocking.user})
-
-      iptables -D OUTPUT -m owner --uid-owner $UID -p udp --dport 53 -d 127.0.0.1 -j ACCEPT || true
-      iptables -D OUTPUT -m owner --uid-owner $UID -p tcp --dport 53 -d 127.0.0.1 -j ACCEPT || true
-      iptables -D OUTPUT -m owner --uid-owner $UID -p udp --dport 53 -j REJECT || true
-      iptables -D OUTPUT -m owner --uid-owner $UID -p tcp --dport 53 -j REJECT || true
-    '';
 
   };
 }

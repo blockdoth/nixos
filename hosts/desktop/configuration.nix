@@ -25,6 +25,7 @@
     presets = {
       gui.enable = true;
       gaming.enable = true;
+      zenmode.enable = true;
     };
     common = {
       bluetooth.enable = true;
