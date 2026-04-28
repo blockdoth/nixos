@@ -11,7 +11,7 @@ in
     wayland.windowManager.hyprland.settings = {
       bind = [
         "SUPER,A,exec, pypr toggle term"
-        "SUPER,B,exec, zen"
+        "SUPER,B,exec, zen-twilight"
         "SUPER,C,exec,hyprpicker -a"
         "SUPER,D,exec, pypr toggle signal"
         "SUPER,E,exec, pypr toggle obsidian"
