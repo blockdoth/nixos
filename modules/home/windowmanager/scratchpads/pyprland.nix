@@ -12,7 +12,7 @@ in
   config = lib.mkIf module.enable {
     home.packages = with pkgs; [ pyprland ];
 
-    home.file."/home/${user}/.config/hypr/pyprland.toml".text = ''
+    home.file."/home/${user}/.config/pypr/config.toml".text = ''
       [pyprland]
       plugins = [
        "magnify",
