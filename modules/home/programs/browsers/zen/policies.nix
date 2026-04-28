@@ -8,8 +8,6 @@
     Fingerprinting = true;
   };
   DisablePocket = true;
-  OverrideFirstRunPage = "";
-  OverridePostUpdatePage = "";
   DontCheckDefaultBrowser = true;
   DisplayBookmarksToolbar = "never";
   DisplayMenuBar = "never";
@@ -21,6 +19,9 @@
     TopSites = false;
     Highlights = false;
   };
+  OverrideFirstRunPage = "";
+  OverridePostUpdatePage = "";
+  OfferToSaveLogins = false;
   UserMessaging = {
     ExtensionRecommendations = false;
     SkipOnboarding = true;

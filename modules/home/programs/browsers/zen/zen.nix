@@ -29,6 +29,9 @@ in
         pins = import ./pins.nix;
         extensions = import ./extensions.nix;
         settings = (import ./settings.nix { config = config; });
+        mods = [
+          "f7c71d9a-bce2-420f-ae44-a64bd92975ab" # Better Unloaded Tabs
+        ];
       };
     };
   };

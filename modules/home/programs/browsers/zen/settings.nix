@@ -3,6 +3,7 @@
   "browser.download.lastDir" = "~/downloads";
   "browser.toolbars.bookmarks.visibility" = "never";
   "browser.urlbar.placeholderName.private" = "DuckDuckGo";
+  "browser.tabs.hoverPreview.enabled" = true;
   "media.videocontrols.picture-in-picture.enabled" = true;
   "media.videocontrols.picture-in-picture.enable-when-switching-tabs.enabled" = true;
   "services.sync.username" = config.modules.core.secrets.mails.personal;
@@ -12,4 +13,5 @@
   "zen.view.use-single-toolbar" = false;
   "zen.welcome-screen.seen" = true;
   "zen.workspaces.continue-where-left-off" = true;
+  "zen.workspaces.show-workspace-indicator" = false;
 }
