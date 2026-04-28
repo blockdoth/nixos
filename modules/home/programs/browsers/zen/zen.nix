@@ -7,12 +7,12 @@
 }:
 let
   module = config.modules.programs.browsers.zen;
-  mkLockedAttrs = builtins.mapAttrs (
-    _: value: {
-      Value = value;
-      Status = "locked";
-    }
-  );
+  # mkLockedAttrs = builtins.mapAttrs (
+  #   _: value: {
+  #     Value = value;
+  #     Status = "locked";
+  #   }
+  # );
 in
 {
   imports = [
@@ -28,7 +28,7 @@ in
         search = import ./search.nix pkgs;
         pins = import ./pins.nix;
         extensions = import ./extensions.nix;
-        settings = mkLockedAttrs (import ./settings.nix { config = config; });
+        settings = (import ./settings.nix { config = config; });
       };
     };
   };
