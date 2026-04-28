@@ -58,7 +58,6 @@ in
         rounding = 5;
 
         shadow = {
-          ignore_window = true;
           enabled = true;
           range = 8;
           render_power = 4;
