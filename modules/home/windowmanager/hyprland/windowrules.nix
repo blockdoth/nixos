@@ -63,9 +63,9 @@ in
       ];
 
       layerrule = [
-        "blur on, class:logout_dialog"
-        "blur on, class:waybar"
-        "blur off, class:^activate notification$"
+        "blur on, layer:logout_dialog"
+        # "blur on, class:waybar"
+        "blur off, class:(^activate notification$)"
       ];
     };
   };
