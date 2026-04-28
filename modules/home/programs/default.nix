@@ -5,7 +5,7 @@
     ./filebrowser/yazi.nix
     ./filebrowser/nautilus.nix
     ./browsers/firefox/firefox.nix
-    ./browsers/zenbrowser.nix
+    ./browsers/zen/zen.nix
     ./browsers/chrome.nix
     ./discord/discord.nix
     ./anki.nix
