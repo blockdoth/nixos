@@ -23,7 +23,7 @@ in
     programs.zen-browser = {
       enable = true;
       policies = import ./policies.nix;
-      profiles.default = {
+      profiles.zen = {
         isDefault = true;
         search = import ./search.nix pkgs;
         pins = import ./pins.nix;
