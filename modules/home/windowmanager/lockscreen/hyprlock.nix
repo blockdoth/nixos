@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  hostname,
   ...
 }:
 let
@@ -48,15 +49,13 @@ in
             position = "0, -200";
             halign = "center";
             valign = "center";
-            monitor = "DP-1";
+            monitor = if hostname == "laptop" then "eDP-1" else "DP-1";
           }
         ];
 
         label = [
-          # TIME
           {
             text = "$TIME";
-            # color = "#cdd6f4";
             color = "rgba(255, 255, 255, 0.6)";
             font_size = 350;
             font_family = "JetBrains Mono Ultra-Bold";
