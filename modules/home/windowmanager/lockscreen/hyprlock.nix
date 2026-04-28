@@ -62,7 +62,7 @@ in
             position = "0, -200";
             halign = "center";
             valign = "top";
-            monitor = "DP-1";
+            monitor = if hostname == "laptop" then "eDP-1" else "DP-1";
           }
         ];
       };
