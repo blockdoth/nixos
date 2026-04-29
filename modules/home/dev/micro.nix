@@ -16,6 +16,7 @@ in
         autosu = true;
         colorscheme = "gruvbox-transparant";
         wordwrap = true;
+        softwrap = true;
       };
     };
 
