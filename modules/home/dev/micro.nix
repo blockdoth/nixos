@@ -15,6 +15,7 @@ in
       settings = {
         autosu = true;
         colorscheme = "gruvbox-transparant";
+        wordwrap = true;
       };
     };
 
