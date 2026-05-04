@@ -24,7 +24,7 @@
     };
     presets = {
       gui.enable = true;
-      # gaming.enable = true;
+      gaming.enable = true;
       zenmode.enable = true;
     };
     common = {
