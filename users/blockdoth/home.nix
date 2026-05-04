@@ -26,6 +26,7 @@
       blender.enable = true;
       gimp.enable = true;
       inkscape.enable = true;
+      discord.enable = false;
     };
     dev = {
       ctf.enable = (if hostname == "laptop" then true else false);
