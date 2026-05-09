@@ -106,7 +106,7 @@ in
           button = false;
         };
         load_direnv = "shell_hook";
-        icon_theme = "VSCode Icons for Zed (Dark)";
+        icon_theme = "Zed (Default)";
         tabs = {
           file_icons = true;
           show_diagnostics = "errors";
