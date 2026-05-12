@@ -34,7 +34,7 @@ in
         "m.youtube.com"
         "youtu.be"
 
-        "reddit.com"
+        # "reddit.com"
         "www.reddit.com"
         "old.reddit.com"
         "new.reddit.com"
