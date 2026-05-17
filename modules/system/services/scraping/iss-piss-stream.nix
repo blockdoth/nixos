@@ -11,7 +11,7 @@ in
 {
   config = lib.mkIf module.enable {
     environment.systemPackages = [
-      inputs.iss-piss-stream.packages.${pkgs.system}.default
+      inputs.iss-piss-stream.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
     systemd.services = {
@@ -21,7 +21,7 @@ in
         after = [ "network.target" ];
         serviceConfig = {
           ExecStart = "${
-            inputs.iss-piss-stream.packages.${pkgs.system}.default
+            inputs.iss-piss-stream.packages.${pkgs.stdenv.hostPlatform.system}.default
           }/bin/iss-piss-stream -l -f ./var/log/pisslog.csv";
           Restart = "on-failure";
         };

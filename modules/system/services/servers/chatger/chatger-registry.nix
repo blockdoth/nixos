@@ -9,7 +9,7 @@ let
   module = config.system-modules.services.servers.chatger-registry;
   domain = config.system-modules.secrets.domains.public;
   reggerPort = 8231;
-  regger = inputs.chatger-registry.packages.${pkgs.system}.default;
+  regger = inputs.chatger-registry.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
   config = lib.mkIf module.enable {

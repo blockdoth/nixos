@@ -12,7 +12,7 @@ in
 {
   config = lib.mkIf module.enable {
     #     environment.systemPackages = [
-    #       inputs.mowie.packages.${pkgs.system}.mowie-web
+    #       inputs.mowie.packages.${pkgs.stdenv.hostPlatform.system}.mowie-web
     #     ];
     #
     #     systemd.services = {
@@ -21,7 +21,7 @@ in
     #         wantedBy = [ "multi-user.target" ];
     #         after = [ "network.target" ];
     #         serviceConfig = {
-    #           ExecStart = "${inputs.mowie.packages.${pkgs.system}.mowie-web}/bin/mowie-web";
+    #           ExecStart = "${inputs.mowie.packages.${pkgs.stdenv.hostPlatform.system}.mowie-web}/bin/mowie-web";
     #           Restart = "on-failure";
     #         };
     #       };

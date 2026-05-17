@@ -21,7 +21,7 @@ in
   #   services.linkwarden = {
   #     enable = true;
   #     # Imports the actual package
-  #     package = inputs.linkwarden-pr.legacyPackages.${pkgs.system}.linkwarden;
+  #     package = inputs.linkwarden-pr.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linkwarden;
 
   #     port = 3001;
   #     host = "127.0.0.1";
