@@ -21,12 +21,6 @@
         home-manager.follows = "home-manager";
       };
     };
-    shyfox.url = "github:blockdoth/ShyFox";
-    ghostty.url = "github:ghostty-org/ghostty";
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     hyprland.url = "github:hyprwm/Hyprland/";
     disko = {
       url = "github:nix-community/disko";
@@ -36,7 +30,9 @@
     impermanence.url = "github:nix-community/impermanence";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     deploy-rs.url = "github:serokell/deploy-rs";
+
     # my repos
+    shyfox.url = "github:blockdoth/ShyFox";
     iss-piss-stream.url = "github:blockdoth/iss-piss-stream/fed5758fb0da0d59b97e47d9037c4a37b7d40c8d";
     tree-but-cooler.url = "github:blockdoth/tree-but-cooler";
     chatger-registry.url = "github:blockdoth/chatger-registry";

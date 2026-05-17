@@ -10,6 +10,7 @@ let
 in
 {
   config = lib.mkIf module.enable {
+
     environment.systemPackages = with pkgs; [
       nixfmt-tree
       cachix
@@ -41,6 +42,7 @@ in
 
     nix = {
       registry.nixpkgs.flake = inputs.nixpkgs;
+      channel.enable = false;
       settings = {
         cores = 8;
         experimental-features = [
