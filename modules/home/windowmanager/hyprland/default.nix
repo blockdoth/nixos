@@ -39,7 +39,7 @@ in
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
-
+      configType = "hyprlang";
       settings = {
         ecosystem = {
           no_update_news = true;

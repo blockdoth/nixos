@@ -7,7 +7,7 @@
 }:
 let
   module = config.modules.core.shell.zellij;
-  zjstatus = inputs.zjstatus.packages.${pkgs.system}.default;
+  zjstatus = inputs.zjstatus.packages.${pkgs.stdenv.hostPlatform.system}.default;
   inherit (config.lib.stylix) colors;
 in
 {

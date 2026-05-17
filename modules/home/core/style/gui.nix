@@ -11,7 +11,7 @@ in
 {
   config = lib.mkIf module.enable {
     home.packages = with pkgs; [
-      inputs.activate-linux.packages.${pkgs.system}.activate-linux
+      inputs.activate-linux.packages.${pkgs.stdenv.hostPlatform.system}.activate-linux
       mesa-demos
     ];
   };

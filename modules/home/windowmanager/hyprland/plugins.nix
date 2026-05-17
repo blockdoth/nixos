@@ -5,13 +5,13 @@
 }:
 let
   module = config.modules.windowmanager.hyprland;
-  # plugins = inputs.hyprland-plugins.packages.${pkgs.system};
+  # plugins = inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system};
   # pluginPaths = {
   #   hyprexpo = "${plugins.hyprexpo}/lib/libhyprexpo.so";
   #   hyprwinwrap = "${plugins.hyprwinwrap}/lib/libhyprwinwrap.so";
-  #   hyprtasking = "${inputs.hyprtasking.packages.${pkgs.system}.hyprtasking}/lib/libhyprtasking.so";
+  #   hyprtasking = "${inputs.hyprtasking.packages.${pkgs.stdenv.hostPlatform.system}.hyprtasking}/lib/libhyprtasking.so";
   #   hyprDynamicCursors = "${
-  #     inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
+  #     inputs.hypr-dynamic-cursors.packages.${pkgs.stdenv.hostPlatform.system}.hypr-dynamic-cursors
   #   }/lib/libhypr-dynamic-cursors.so";
   # };
 
@@ -27,7 +27,7 @@ in
       plugins = [
         # plugins.hyprexpo
         # plugins.hyprwinwrap
-        # inputs.hyprtasking.packages.${pkgs.system}.hyprtasking
+        # inputs.hyprtasking.packages.${pkgs.stdenv.hostPlatform.system}.hyprtasking
       ];
       # settings.exec-once = [
       #   "${pkgs.writeShellScript "load-hyprland-plugins" loadPluginsCmd}"

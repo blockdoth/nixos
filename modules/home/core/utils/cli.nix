@@ -7,7 +7,7 @@
 }:
 let
   module = config.modules.core.utils.cli;
-  tree_but_cooler = inputs.tree-but-cooler.packages.${pkgs.system}.default;
+  tree_but_cooler = inputs.tree-but-cooler.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
   config = lib.mkIf module.enable {

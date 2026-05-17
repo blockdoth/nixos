@@ -25,7 +25,7 @@
       browsers.zen.enable = true;
       blender.enable = true;
       gimp.enable = true;
-      inkscape.enable = true;
+      # inkscape.enable = true;
       discord.enable = false;
     };
     dev = {

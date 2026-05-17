@@ -90,6 +90,7 @@ in
         nvf.enable = false;
         # zed.enable = false;
         zen-browser.enable = lib.mkForce false;
+
       };
     };
 
