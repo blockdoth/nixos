@@ -18,13 +18,14 @@ in
           mkhl.direnv
         ];
         userSettings = {
+          # workbench.colorTheme = "Stylix";
+          workbench.colorTheme = "Gruvbox Dark Medium";
           files.autoSave = "afterDelay";
           editor.tabSize = 2;
           workbench.tree.indent = 15;
           editor.fontSize = 16;
           editor.detectIndentation = false;
           redhat.telemetry.enabled = false;
-          workbench.colorTheme = "Stylix";
           workbench.tips.enabled = false;
           window.title = "VSCodium \${activeRepositoryName}";
           window.commandCenter = false;
