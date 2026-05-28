@@ -8,5 +8,6 @@ in
       enable = true;
       startupProfile = "default";
     };
+    hardware.keyboard.qmk.enable = false;
   };
 }
