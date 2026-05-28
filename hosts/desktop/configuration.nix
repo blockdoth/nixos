@@ -34,6 +34,7 @@
       filemanager.enable = true;
       llms.enable = true;
       printing.enable = true;
+      keyboard.enable = true;
     };
     services = {
       # network.pihole.enable = true;

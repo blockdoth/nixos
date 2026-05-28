@@ -18,5 +18,6 @@
     ./udev.nix
     ./nfs.nix
     ./llms.nix
+    ./keyboard.nix
   ];
 }

@@ -121,6 +121,7 @@ in
         plymouth.enable = mkEnableOption "plymouth";
         udev.enable = mkEnableOption "udev";
         llms.enable = mkEnableOption "llms";
+        keyboard.enable = mkEnableOption "keyboard";
         nfs = {
           client = {
             enable = mkEnableOption "nfs client";
