@@ -23,6 +23,7 @@ in
         "activate-linux -f 'Noto Sans'"
         "hyprctl setcursor 15" # Fixes cursor sizes being different between apps
         "[workspace special:preload silent] thunar"
+        "openrgb -p default"
       ];
     };
   };
