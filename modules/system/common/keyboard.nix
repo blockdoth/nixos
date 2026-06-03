@@ -1,13 +1,26 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   module = config.system-modules.common.keyboard;
 in
 {
   config = lib.mkIf module.enable {
-    services.hardware.openrgb = {
-      enable = true;
-      startupProfile = "default";
+    services = {
+      udev.packages = [ pkgs.via ];
+      hardware.openrgb = {
+        enable = true;
+        startupProfile = "default";
+      };
     };
-    hardware.keyboard.qmk.enable = false;
+    hardware.keyboard.qmk.enable = true;
+
+    environment.systemPackages = with pkgs; [
+      via
+      qmk
+    ];
   };
 }
