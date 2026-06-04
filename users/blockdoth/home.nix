@@ -19,7 +19,7 @@
       dev.enable = true;
       theming.enable = true;
       programs.enable = true;
-      # gaming.enable = true;
+      gaming.enable = true;
     };
     programs = {
       browsers.zen.enable = true;
