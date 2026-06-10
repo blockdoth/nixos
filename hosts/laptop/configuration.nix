@@ -32,6 +32,7 @@
       # servers.mowie.enable = true;
     };
   };
+  services.logind.lidSwitch = "ignore";
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }
