@@ -31,7 +31,7 @@
     impermanence.url = "github:nix-community/impermanence";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     deploy-rs.url = "github:serokell/deploy-rs";
-
+    clin.url = "github:reekta92/clin-rs";
     # my repos
     shyfox.url = "github:blockdoth/ShyFox";
     iss-piss-stream.url = "github:blockdoth/iss-piss-stream/fed5758fb0da0d59b97e47d9037c4a37b7d40c8d";

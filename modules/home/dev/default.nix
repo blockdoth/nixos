@@ -11,6 +11,7 @@
     ./neovim/neovim.nix
     ./neovim/nvf.nix
     ./zed.nix
+    ./clin.nix
     ./ctf/ctf.nix
   ];
 }

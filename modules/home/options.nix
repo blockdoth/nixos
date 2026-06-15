@@ -100,6 +100,7 @@ in
         direnv.enable = mkEnableOption "auto setup environment";
         devinit.enable = mkEnableOption "template shells";
         ctf.enable = mkEnableOption "ctf tools";
+        clin.enable = mkEnableOption "clin editor";
       };
       programs = {
         filebrowser = {

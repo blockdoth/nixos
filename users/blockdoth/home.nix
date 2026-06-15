@@ -30,6 +30,7 @@
     };
     dev = {
       ctf.enable = (if hostname == "laptop" then true else false);
+      clin.enable = true;
       # nvf.enable = true;
       # jetbrains.enable = true;
     };
