@@ -13,6 +13,7 @@ in
       home-manager
       micro
       git
+      linuxPackages.perf
     ];
 
     environment = {
