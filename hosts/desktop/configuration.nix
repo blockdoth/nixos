@@ -1,4 +1,6 @@
 {
+  pkgs,
+  config,
   ...
 }:
 {
@@ -41,6 +43,8 @@
       # attic.enable = true;
     };
   };
-
+  environment.systemPackages = with pkgs; [
+    config.boot.kernelPackages.perf
+  ];
   system.stateVersion = "24.05"; # Did you read the comment?
 }
