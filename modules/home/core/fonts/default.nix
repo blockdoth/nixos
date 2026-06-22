@@ -44,6 +44,7 @@ in
       nerd-fonts.droid-sans-mono
       nerd-fonts.jetbrains-mono
       newcomputermodern
+      roboto-slab
     ];
     fonts.fontconfig.enable = true;
   };
