@@ -13,6 +13,7 @@ in
     home.packages = with pkgs; [
       lazygit
       git-lfs
+      gh
     ];
 
     programs = {
