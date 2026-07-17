@@ -19,7 +19,7 @@ in
       };
 
       cursor = {
-        no_hardware_cursors = true;
+        no_hardware_cursors = false;
         # persistent_warps = true;
         no_warps = true;
       };

@@ -9,7 +9,6 @@ in
 {
   config = lib.mkIf module.enable {
     home.sessionVariables = {
-      WLR_NO_HARDWARE_CURSORS = 1;
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       NIXOS_OZONE_WL = 1;
       # TODO fix this with stylix
