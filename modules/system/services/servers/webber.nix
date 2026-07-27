@@ -114,7 +114,7 @@ in
         WorkingDirectory = "/var/lib/webber";
 
         ExecCondition = "${pkgs.coreutils}/bin/test -x /var/lib/webber/webber";
-        ExecStart = "/var/lib/webber/webber";
+        ExecStart = "${pkgs.util-linux}/bin/taskset -c 1 /var/lib/webber/webber";
 
         Restart = "on-failure";
         RestartSec = 2;
