@@ -154,6 +154,7 @@ in
           chatger.enable = mkEnableOption "chatger";
           chatger-registry.enable = mkEnableOption "chatger-registry";
           mowie.enable = mkEnableOption "mowie";
+          webber.enable = mkEnableOption "webber";
         };
         network = {
           ddns.enable = mkEnableOption "ddns";

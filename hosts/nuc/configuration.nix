@@ -44,6 +44,7 @@
         chatger.enable = true;
         chatger-registry.enable = true;
         mowie.enable = false;
+        webber.enable = false;
       };
       observability = {
         gatus.enable = true;

@@ -9,6 +9,7 @@
     ./servers/minecraft.nix
     ./servers/chatger/chatger.nix
     ./servers/chatger/chatger-registry.nix
+    ./servers/webber.nix
     ./network/ddns/ddns.nix
     ./network/acme.nix
     ./network/blocky.nix
