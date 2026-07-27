@@ -6,7 +6,7 @@
 }:
 let
   module = config.system-modules.services.servers.webber;
-  domain = config.system-modules.secrets.domains.dev;
+  domain = config.system-modules.secrets.domains.public;
 
   webberPort = 4000;
 
@@ -79,6 +79,10 @@ in
     };
     users.users.webber-deploy = {
       isNormalUser = true;
+      openssh.authorizedKeys.keys = [
+        (builtins.readFile ../../../../hosts/desktop/id_ed25519.pub)
+        (builtins.readFile ../../../../hosts/laptop/id_ed25519.pub)
+      ];
     };
     security.sudo.extraRules = [
       {
@@ -109,6 +113,7 @@ in
         StateDirectory = "webber";
         WorkingDirectory = "/var/lib/webber";
 
+        ExecCondition = "${pkgs.coreutils}/bin/test -x /var/lib/webber/webber";
         ExecStart = "/var/lib/webber/webber";
 
         Restart = "on-failure";

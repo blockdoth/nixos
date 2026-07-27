@@ -7,7 +7,7 @@
 }:
 let
   module = config.system-modules.services.servers.mowie;
-  domain = config.system-modules.secrets.domains.mowie;
+  # domain = config.system-modules.secrets.domains.mowie;
 in
 {
   config = lib.mkIf module.enable {
