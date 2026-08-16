@@ -69,6 +69,10 @@ in
       xxd
       tcpdump
       inetutils
+      wrk
+      hey
+      jhead
+      exiftool
     ];
   };
 }
