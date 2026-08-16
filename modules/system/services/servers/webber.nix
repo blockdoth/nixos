@@ -24,40 +24,31 @@ let
 
       source_binary="''${1:?usage: deploy-webber /nix/store/.../bin/webber}"
 
-      case "$source_binary" in
-        /nix/store/*/bin/webber) ;;
-        *)
-          echo "Expected a Nix store Webber binary" >&2
-          exit 1
-          ;;
-      esac
-
-      if [[ ! -x "$source_binary" ]]; then
-        echo "Binary does not exist: $source_binary" >&2
+      [[ "$source_binary" == /nix/store/*/bin/webber ]] || {
+        echo "Expected a Nix store Webber binary" >&2
         exit 1
-      fi
+      }
 
-      state_dir="/var/lib/webber"
+      [[ -x "$source_binary" ]] || {
+        echo "Binary is not executable: $source_binary" >&2
+        exit 1
+      }
+
+      state_dir=/var/lib/webber
       target="$state_dir/webber"
       new="$state_dir/webber.new"
       database="$state_dir/database.sqlite"
 
       install -d -o webber -g webber -m 0750 "$state_dir"
+      install -o webber -g webber -m 0750 "$source_binary" "$new"
 
       systemctl stop webber.service || true
 
-      # Preserve the database embedded in the old executable.
-      if [[ -x "$target" ]]; then
-        runuser -u webber -- "$target" exportdb "$database"
-      fi
-
-      install -o webber -g webber -m 0750 "$source_binary" "$new"
-
-      if [[ -f "$database" ]]; then
-        runuser -u webber -- "$new" loaddb "$database"
-      fi
-
+      runuser -u webber -- "$target" exportdb "$database"
+      runuser -u webber -- "$new" loaddb "$database"
       mv -f "$new" "$target"
+
+      rm "$database"
 
       systemctl start webber.service
       systemctl is-active --quiet webber.service
@@ -77,16 +68,18 @@ in
       isSystemUser = true;
       group = "webber";
     };
-    users.users.webber-deploy = {
+
+    users.users.webber-deployer = {
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
         (builtins.readFile ../../../../hosts/desktop/id_ed25519.pub)
         (builtins.readFile ../../../../hosts/laptop/id_ed25519.pub)
       ];
     };
+
     security.sudo.extraRules = [
       {
-        users = [ "webber-deploy" ];
+        users = [ "webber-deployer" ];
         commands = [
           {
             command = "/run/current-system/sw/bin/deploy-webber";
@@ -113,11 +106,11 @@ in
         StateDirectory = "webber";
         WorkingDirectory = "/var/lib/webber";
 
-        ExecCondition = "${pkgs.coreutils}/bin/test -x /var/lib/webber/webber";
         ExecStart = "${pkgs.util-linux}/bin/taskset -c 1 /var/lib/webber/webber";
 
         Restart = "on-failure";
         RestartSec = 2;
+        StartLimitBurst = 5;
 
         NoNewPrivileges = true;
         PrivateTmp = true;
