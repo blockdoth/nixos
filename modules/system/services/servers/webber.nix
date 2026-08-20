@@ -24,6 +24,11 @@ let
 
       source_binary="''${1:?usage: deploy-webber /nix/store/.../bin/webber}"
 
+      if [[ $EUID -ne 0 ]]; then
+          echo "deploy-webber must be run as root" >&2
+          exit 1
+      fi
+
       [[ "$source_binary" == /nix/store/*/bin/webber ]] || {
         echo "Expected a Nix store Webber binary" >&2
         exit 1
@@ -39,13 +44,17 @@ let
       new="$state_dir/webber.new"
       database="$state_dir/database.sqlite"
 
+
       install -d -o webber -g webber -m 0750 "$state_dir"
       install -o webber -g webber -m 0750 "$source_binary" "$new"
 
       systemctl stop webber.service || true
 
-      runuser -u webber -- "$target" exportdb "$database"
-      runuser -u webber -- "$new" loaddb "$database"
+      if [[ -f "$target" ]]; then
+        runuser -u webber -- "$target" exportdb "$database"
+        runuser -u webber -- "$new" loaddb "$database"
+      fi
+
       mv -f "$new" "$target"
 
       rm "$database"
