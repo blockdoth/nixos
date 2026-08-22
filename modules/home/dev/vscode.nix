@@ -49,6 +49,8 @@ in
           files.associations = {
             "*.ispc" = "c";
           };
+          explorer.confirmDelete = false;
+          explorer.confirmPasteNative = true;
           security.workspace.trust = {
             enabled = false;
             startupPrompt = "never";
