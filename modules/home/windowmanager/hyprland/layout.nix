@@ -48,6 +48,8 @@ in
         # snap = {
         #   enabled = true;
         # };
+        col.nogroup_border = "rgba(#83a598FF)";
+        col.nogroup_border_active = "rgba(#83a598FF)";
       };
 
       dwindle = {
