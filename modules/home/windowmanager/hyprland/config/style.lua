@@ -46,6 +46,8 @@ hl.config({
         col = {
             active_border = colors.active,
             inactive_border = colors.inactive,
+            nogroup_border = colors.inactive,
+            nogroup_border_active = colors.active,
         },
         gaps_in = 6,
         gaps_out = 6,
