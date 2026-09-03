@@ -49,8 +49,9 @@ in
       settings = {
         general = {
           initial-tool = "brush";
-          output-filename = "$XDG_SCREENSHOTS_DIR/test-%Y-%m-%d_%H:%M:%S.png";
-
+          output-filename = "$XDG_SCREENSHOTS_DIR/%Y-%m-%d_%H:%M:%S.png";
+          early-exit = true;
+          default-hide-toolbars = true;
         };
         color-palette = {
           palette = [
