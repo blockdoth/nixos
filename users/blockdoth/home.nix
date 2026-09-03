@@ -19,7 +19,7 @@
       dev.enable = true;
       theming.enable = true;
       programs.enable = true;
-      gaming.enable = true;
+      # gaming.enable = true;
     };
     programs = {
       browsers.zen.enable = true;
@@ -30,7 +30,6 @@
     };
     dev = {
       ctf.enable = (if hostname == "laptop" then true else false);
-      clin.enable = true;
       # nvf.enable = true;
       # jetbrains.enable = true;
     };
