@@ -1,0 +1,122 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  secrets = config.modules.core.secrets;
+  extern = config.modules.presets.extern;
+  module = config.modules.core.shell;
+in
+{
+  config = {
+    programs = lib.mkIf module.enable {
+      fzf = {
+        enable = true;
+        enableFishIntegration = true;
+      };
+      command-not-found.enable = true;
+      zoxide = {
+        enable = true;
+        enableFishIntegration = true;
+        options = [
+          "--cmd cd"
+        ];
+      };
+      starship = {
+        enable = true;
+        enableTransience = false;
+        settings = {
+          scala = {
+            detect_folders = [
+              "!.config"
+              ".metals"
+            ];
+          };
+        };
+      };
+
+      atuin = lib.mkIf module.atuin.enable {
+        enable = true;
+        enableFishIntegration = true;
+        settings = {
+          auto_sync = true;
+          sync_address = "https://atuin.insinuatis.com";
+          sync.records = true;
+          sync_frequency = "5m";
+          key_path = config.sops.secrets.atuin-key.path;
+        };
+        flags = [
+          "--disable-up-arrow"
+          "--disable-ctrl-r"
+        ];
+      };
+
+      fish = {
+        enable = true;
+        plugins = with pkgs.fishPlugins; [
+          {
+            name = "bass";
+            src = bass.src;
+          }
+        ];
+        interactiveShellInit = ''
+          				if type -q direnv
+          				    direnv hook fish | source
+          				end
+                    		set fish_greeting 
+                  		'';
+
+        shellAbbrs = {
+          "shell" = "nix shell nixpkgs#{";
+        };
+        shellAliases = lib.mkMerge [
+          {
+            conf = "cd ~/nixos";
+            repos = "cd ~/repos";
+            sources = "cd ~/sources";
+            btm = "btm --process_memory_as_value -g";
+            mkscript = "echo '#!/usr/bin/env bash' > script-template.sh && chmod +x script-template.sh";
+            log = "git log --graph --pretty=format:'%C(bold red)%h%Creset - %C(bold blue)%an%Creset%C(auto)%d%Creset %s %C(yellow)%ad%Creset %Cgreen(%cr) ' --abbrev-commit --date=human --decorate=full --all";
+            penger = "ssh penger@nuc -t \"fish\"";
+            laptop = "ssh blockdoth@laptop -t \"fish\"";
+            desktop = "ssh blockdoth@desktop -t \"fish\"";
+            temp = "cd ~/temp/";
+            up = "cd ..";
+            eep = "systemctl suspend";
+            notes = "cd ~/documents/notes";
+            note = "cd ~/documents/notes && micro \"$(date +%F)\"";
+            code = "zeditor .";
+            codium = "codium .";
+            cat = "bat -P";
+            ls = "eza";
+            lss = "eza -b -l --no-permissions --no-user --sort size --group-directories-first";
+            vw = "pushd ~/documents/notes && cat tos | wl-copy && popd";
+            systui = "sudo systemctl-tui";
+            wifilist = "nmcli device wifi list";
+            hotspot = " nmcli device wifi connect \"government-bird-drone-213\" --ask";
+          }
+          (lib.mkIf (!extern.enable) {
+            # Dont want to leak secrets
+            gituni = "git config user.name \"${secrets.name}\" && git config user.email \"${secrets.mails.uni}\"";
+          })
+          (lib.mkIf (config.home.username != "penger") {
+            # Graphical
+            config = "conf && code";
+            lock = "kill hyprlock && hyprlock";
+            print = "zen -new-tab https://printportal.tudelft.nl:9443/end-user/ui/dashboard";
+            rickroll = "zen -new-tab 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'";
+          })
+        ];
+        functions = {
+          nix-shell = ''
+            function nix-shell
+              command nix-shell $argv --command "exec fish"
+            end
+          '';
+        };
+      };
+    };
+  };
+}

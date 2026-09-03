@@ -6,7 +6,7 @@
   ...
 }:
 let
-  module = config.modules.windowmanager.scratchpads.pyprland;
+  module = config.modules.windowmanager.pyprland;
 in
 {
   config = lib.mkIf module.enable {

@@ -5,11 +5,12 @@
   ...
 }:
 let
-  module = config.modules.programs.minecraft;
+  module = config.modules.programs.games;
 in
 {
   config = lib.mkIf module.enable {
     home.packages = with pkgs; [
+      beyond-all-reason
       (prismlauncher.override {
         # withWaylandGLFW = true;
         jdks = [

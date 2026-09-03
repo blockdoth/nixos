@@ -76,6 +76,7 @@ in
         popups = 0.8;
       };
       autoEnable = true;
+      overlays.enable = false;
       targets = {
         firefox.enable = false;
         rofi.enable = false;
@@ -92,6 +93,7 @@ in
         zen-browser.enable = lib.mkForce false;
 
       };
+
     };
 
     home.sessionVariables = {

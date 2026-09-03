@@ -11,11 +11,9 @@ let
   enablePrograms = config.modules.presets.programs.enable;
   enableTheming = config.modules.presets.theming.enable;
   enableGaming = config.modules.presets.gaming.enable;
-  enableStackingWM = enableGnome;
-  enableTilingWM = enableHyprland;
   enableDefaults = config.modules.presets.defaults.enable;
   enableExtern = config.modules.presets.extern.enable;
-  enableGui = enableStackingWM || enableTilingWM;
+  enableGui = enableGnome || enableHyprland;
   secrets = inputs.nixos-secrets;
   inherit (lib)
     mkEnableOption
@@ -48,6 +46,7 @@ in
 
       core = {
         secrets = {
+          enable = mkEnableOption "secrets";
           mails = {
             uni = mkOption { type = types.str; };
             personal = mkOption { type = types.str; };
@@ -56,39 +55,21 @@ in
         };
         style = {
           stylix.enable = mkEnableOption "theming";
-          rice = {
-            cli.enable = mkEnableOption "cli rice";
-            gui.enable = mkEnableOption "gui rice";
-          };
-          cava.enable = mkEnableOption "cava";
-
+          cli.enable = mkEnableOption "cli rice";
         };
         terminal = {
           alacritty.enable = mkEnableOption "Alacritty terminal";
           ghostty.enable = mkEnableOption "Ghostty terminal";
         };
         shell = {
-          prompt.starship.enable = mkEnableOption "prompt from starship";
-          sync.atuin.enable = mkEnableOption "atuin shell sync";
-          fish.enable = mkEnableOption "fish shell";
-          zoxide.enable = mkEnableOption "zoxide navigation";
-          television.enable = mkEnableOption "television";
-          pay-respects.enable = mkEnableOption "pay-respects";
-          fzf.enable = mkEnableOption "fzf";
-          zellij.enable = mkEnableOption "zellij";
-          command-not-found.enable = mkEnableOption "command-not-found";
-          nix-index.enable = mkEnableOption "command-not-found";
+          enable = mkEnableOption "shell";
+          atuin.enable = mkEnableOption "atuin sync";
         };
-
+        utils.enable = mkEnableOption "utils";
         impermanence.enable = mkEnableOption "impermanence";
         fonts.enable = mkEnableOption "fonts";
-        utils = {
-          cli.enable = mkEnableOption "various cli utilities";
-          gui.enable = mkEnableOption "various gui utilities";
-        };
         home-structure.enable = mkEnableOption "default home structure";
         mimes.enable = mkEnableOption "mime types";
-        secrets.enable = mkEnableOption "secrets";
       };
       dev = {
         jetbrains.enable = mkEnableOption "jetbrains IDE's";
@@ -102,30 +83,13 @@ in
         ctf.enable = mkEnableOption "ctf tools";
       };
       programs = {
-        filebrowser = {
-          yazi.enable = mkEnableOption "yazi filebrowser";
-          nautilus.enable = mkEnableOption "nautilus filebrowser";
-          dolphin.enable = mkEnableOption "dolphin filebrowser";
-        };
+        enable = mkEnableOption "discord";
+        games.enable = mkEnableOption "games";
         browsers = {
           firefox.enable = mkEnableOption "firefox";
           zen.enable = mkEnableOption "zenbrowser";
           chrome.enable = mkEnableOption "chrome";
         };
-        discord.enable = mkEnableOption "discord";
-        inkscape.enable = mkEnableOption "inkscape";
-        spotify.enable = mkEnableOption "spotify";
-        llms.enable = mkEnableOption "llms";
-        whatsapp.enable = mkEnableOption "whatsapp";
-        signal.enable = mkEnableOption "signal";
-        games.enable = mkEnableOption "games";
-        minecraft.enable = mkEnableOption "minecraft";
-        anki.enable = mkEnableOption "anki";
-        mpd.enable = mkEnableOption "media deamon"; # TODO look at this again
-        git.enable = mkEnableOption "git";
-        obsidian.enable = mkEnableOption "obsidian";
-        blender.enable = mkEnableOption "blender";
-        gimp.enable = mkEnableOption "gimp";
       };
 
       windowmanager = {
@@ -138,7 +102,7 @@ in
           hyprpaper.enable = mkEnableOption "Hyprland based wallpaper util";
           awww.enable = mkEnableOption "Sway based wallpaper util";
         };
-        scratchpads.pyprland.enable = mkEnableOption "Hyprland scratchpads";
+        pyprland.enable = mkEnableOption "Hyprland scratchpads";
         idle.hypridle.enable = mkEnableOption "Hyprland based idle monitor";
         nightmode.gammastep.enable = mkEnableOption "nightmode";
         notifications.dunst.enable = mkEnableOption "notification daemon";
@@ -163,19 +127,13 @@ in
         };
 
         shell = {
-          prompt.starship.enable = mkDefault (enableDefaults || enableExtern);
-          sync.atuin.enable = mkDefault enableDefaults;
-          fish.enable = mkDefault (enableDefaults || enableExtern);
-          zoxide.enable = mkDefault (enableDefaults || enableExtern);
-          fzf.enable = mkDefault (enableDefaults || enableExtern);
+          enable = mkDefault (enableDefaults || enableExtern);
+          atuin.enable = mkDefault enableDefaults;
         };
 
         style = {
           stylix.enable = mkDefault enableTheming;
-          rice = {
-            cli.enable = mkDefault enableTheming;
-            gui.enable = mkDefault (enableTheming && enableGui);
-          };
+          cli.enable = mkDefault enableTheming;
         };
 
         terminal = {
@@ -183,10 +141,7 @@ in
         };
 
         fonts.enable = mkDefault enableDefaults;
-        utils = {
-          cli.enable = mkDefault (enableDefaults || enableExtern);
-          gui.enable = mkDefault enableGui;
-        };
+        utils.enable = mkDefault enableDefaults;
         home-structure.enable = mkDefault enableDefaults;
         mimes.enable = mkDefault enableDefaults;
       };
@@ -200,34 +155,24 @@ in
       };
 
       programs = {
-        filebrowser.yazi.enable = mkDefault (enableDefaults || enableExtern);
-        git.enable = mkDefault enableDefaults;
-        browsers = {
-          firefox.enable = mkDefault enableGui;
-          chrome.enable = mkDefault enableGui;
-        };
-        discord.enable = mkDefault enableGui;
-        spotify.enable = mkDefault enableGui;
-        whatsapp.enable = mkDefault enableGui;
-        obsidian.enable = mkDefault enableGui;
-        signal.enable = mkDefault enableGui;
-        anki.enable = mkDefault enableGui;
+        enable = mkDefault enablePrograms;
         games.enable = mkDefault enableGaming;
+        browsers = {
+          zen.enable = mkDefault enablePrograms;
+        };
       };
 
       windowmanager = {
         hyprland.enable = mkDefault enableHyprland;
-        launcher.rofi.enable = mkDefault enableTilingWM;
-        lockscreen.hyprlock.enable = mkDefault enableTilingWM;
-        logout.wlogout.enable = mkDefault enableTilingWM;
-        taskbar.waybar.enable = mkDefault enableTilingWM;
-        wallpaper = {
-          awww.enable = mkDefault enableTilingWM;
-        };
-        scratchpads.pyprland.enable = mkDefault enableHyprland;
-        idle.hypridle.enable = mkDefault enableTilingWM;
-        nightmode.gammastep.enable = mkDefault enableTilingWM;
-        notifications.dunst.enable = mkDefault enableTilingWM;
+        launcher.rofi.enable = mkDefault enableHyprland;
+        lockscreen.hyprlock.enable = mkDefault enableHyprland;
+        logout.wlogout.enable = mkDefault enableHyprland;
+        taskbar.waybar.enable = mkDefault enableHyprland;
+        wallpaper.awww.enable = mkDefault enableHyprland;
+        pyprland.enable = mkDefault enableHyprland;
+        idle.hypridle.enable = mkDefault enableHyprland;
+        nightmode.gammastep.enable = mkDefault enableHyprland;
+        notifications.dunst.enable = mkDefault enableHyprland;
       };
     };
 

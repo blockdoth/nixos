@@ -3,17 +3,16 @@
   imports = [
 
     ./fonts
-    ./style
-    ./shell
-
+    ./style/cli.nix
+    ./style/stylix.nix
     ./terminal/alacritty.nix
     ./terminal/ghostty/ghostty.nix
 
+    ./shell.nix
     ./secrets.nix
     ./home-structure.nix
     ./mimes.nix
-    ./utils/gui.nix
+    ./utils.nix
     # ./impermanence.nix
-    ./utils/cli.nix
   ];
 }

@@ -5,7 +5,7 @@
   ...
 }:
 let
-  module = config.modules.programs.discord;
+  module = config.modules.programs;
 in
 {
   config = lib.mkIf module.enable {
