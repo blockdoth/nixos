@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # file to save the input state
-STATE_FILE="$HOME/waybar/mediaplayer-inputswitcher.state"    
+STATE_FILE="$HOME/
+/mediaplayer-inputswitcher.state"    
 
 # create dir if it not exists 
 mkdir -p "$(dirname "$STATE_FILE")"

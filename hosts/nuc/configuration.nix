@@ -43,7 +43,7 @@
         minecraft.enable = true;
         chatger.enable = true;
         chatger-registry.enable = true;
-        mowie.enable = false;
+
         webber.enable = true;
       };
       observability = {

@@ -18,19 +18,13 @@
       hyprland.enable = true;
       dev.enable = true;
       theming.enable = true;
+      # gaming.enable = true;
       programs.enable = true;
-      gaming.enable = true;
     };
-    programs = {
-      browsers.zen.enable = true;
-      blender.enable = true;
-      gimp.enable = true;
-      # inkscape.enable = true;
-      # discord.enable = true;
-    };
+    programs.browsers.chromium.enable = true;
+
     dev = {
       ctf.enable = (if hostname == "laptop" then true else false);
-      clin.enable = true;
       # nvf.enable = true;
       # jetbrains.enable = true;
     };

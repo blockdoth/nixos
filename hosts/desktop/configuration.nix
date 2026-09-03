@@ -1,6 +1,6 @@
 {
-  pkgs,
-  config,
+  # pkgs,
+  # config,
   ...
 }:
 {
@@ -18,7 +18,6 @@
     core.impermanence.enable = false;
     core.networking = {
       hostname = "desktop";
-      wakeOnLan = true;
       # blocking = {
       #   enable = true;
       #   user = "clausum";
@@ -27,14 +26,13 @@
     presets = {
       gui.enable = true;
       # zenmode.enable = true;
-      gaming.enable = true;
+      # gaming.enable = true;
     };
     common = {
       bluetooth.enable = true;
       docker.enable = false;
       crosscompilation.enable = true;
       filemanager.enable = true;
-      llms.enable = true;
       printing.enable = true;
       keyboard.enable = true;
     };
@@ -43,8 +41,6 @@
       # attic.enable = true;
     };
   };
-  environment.systemPackages = with pkgs; [
-    config.boot.kernelPackages.perf
-  ];
+
   system.stateVersion = "24.05"; # Did you read the comment?
 }

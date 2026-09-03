@@ -1,17 +1,16 @@
 { ... }:
 {
   imports = [
-    ./gnome
     ./hyprland
-    ./idle/hypridle.nix
-    ./launcher/rofi.nix
-    ./lockscreen/hyprlock.nix
+    ./hypridle.nix
+    ./rofi.nix
+    ./hyprlock.nix
     ./logout/wlogout.nix
-    ./nightmode/gammastep.nix
-    ./notifications/dunst.nix
-    ./taskbar/waybar.nix
-    ./wallpaper/hyprpaper.nix
-    ./wallpaper/awww.nix
-    ./scratchpads/pyprland.nix
+    ./gammastep.nix
+    ./dunst.nix
+    ./waybar.nix
+    ./hyprpaper.nix
+    ./awww.nix
+    ./pyprland.nix
   ];
 }

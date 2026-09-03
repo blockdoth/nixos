@@ -23,22 +23,27 @@
     };
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     hyprland.url = "github:hyprwm/Hyprland/";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    goose.url = "github:jeffthepineapple/desktop-goose-linux-port";
     activate-linux.url = "github:MrGlockenspiel/activate-linux";
     impermanence.url = "github:nix-community/impermanence";
+    preservation.url = "github:nix-community/preservation";
+
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     deploy-rs.url = "github:serokell/deploy-rs";
-    clin.url = "github:reekta92/clin-rs";
     # my repos
     shyfox.url = "github:blockdoth/ShyFox";
     iss-piss-stream.url = "github:blockdoth/iss-piss-stream/fed5758fb0da0d59b97e47d9037c4a37b7d40c8d";
     tree-but-cooler.url = "github:blockdoth/tree-but-cooler";
     chatger-registry.url = "github:blockdoth/chatger-registry";
     nixos-secrets.url = "git+ssh://git@github.com/blockdoth/nixos-secrets";
-    # mowie.url = "git+ssh://git@gitlab.tudelft.nl/cor/robotics_minor/robotics_minor_2025/team_3_mowie/mowie.git?ref=dev";
   };
 
   outputs =
@@ -110,7 +115,6 @@
         clausum-laptop = mkHome "clausum" "laptop" "x86_64-linux";
         blockdoth-laptop = mkHome "blockdoth" "laptop" "x86_64-linux";
         penger-nuc = mkHome "penger" "nuc" "x86_64-linux";
-        mowie-rpi = mkHome "mowie" "rpi" "aarch64-linux";
       };
 
       deploy.nodes = {

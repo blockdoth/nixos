@@ -5,7 +5,6 @@
   imports = [
     ./media
     ./servers/factorio.nix
-    ./servers/mowie.nix
     ./servers/minecraft.nix
     ./servers/chatger/chatger.nix
     ./servers/chatger/chatger-registry.nix
@@ -31,13 +30,7 @@
     ./sync/atuin.nix
     ./sync/anki.nix
     ./vaultwarden.nix
-    ./filebrowser.nix
     ./immich.nix
-    ./linkwarden.nix
-    ./nextcloud.nix
-    ./homepage.nix
-    ./microbin.nix
-    ./httpbin.nix
     ./githubrunners.nix
     ./attic.nix
   ];

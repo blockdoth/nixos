@@ -16,6 +16,13 @@ in
 
   config = lib.mkIf module.enable {
     # gtk.gtk4.theme = config.gtk.theme;
+
+    # just to be sure
+    home.sessionVariables = {
+      XCURSOR_SIZE = config.stylix.cursor.size;
+      HYPRCURSOR_SIZE = config.stylix.cursor.size;
+    };
+
     stylix = {
       enable = true;
       image = ../../../../assets/wallpapers/castle.png;
@@ -76,6 +83,7 @@ in
         popups = 0.8;
       };
       autoEnable = true;
+      overlays.enable = false;
       targets = {
         firefox.enable = false;
         rofi.enable = false;
@@ -92,11 +100,6 @@ in
         zen-browser.enable = lib.mkForce false;
 
       };
-    };
-
-    home.sessionVariables = {
-      XCURSOR_SIZE = config.stylix.cursor.size;
-      HYPRCURSOR_SIZE = config.stylix.cursor.size;
     };
   };
 }

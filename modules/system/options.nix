@@ -14,7 +14,7 @@ let
   enablePissStream = config.system-modules.presets.iss-piss-stream.enable;
   enableUserPenger = config.system-modules.users.penger.enable;
   enableUserBlockdoth = config.system-modules.users.blockdoth.enable;
-  enableUserMowie = config.system-modules.users.mowie.enable;
+
   secrets = inputs.nixos-secrets;
   inherit (lib)
     mkEnableOption
@@ -32,7 +32,7 @@ in
     ../../users/blockdoth/system.nix
     ../../users/clausum/system.nix
     ../../users/penger/system.nix
-    ../../users/mowie/system.nix
+
   ];
 
   options = {
@@ -62,10 +62,6 @@ in
             type = types.str;
             default = "127.0.0.1";
           };
-          mowie = mkOption {
-            type = types.str;
-            default = "127.0.0.1";
-          };
         };
         mails = {
           uni = mkOption { type = types.str; };
@@ -76,7 +72,7 @@ in
       users = {
         blockdoth.enable = mkEnableOption "user blockdoth";
         penger.enable = mkEnableOption "user penger";
-        mowie.enable = mkEnableOption "user penger";
+
         clausum.enable = mkEnableOption "user clausum";
       };
 
@@ -153,7 +149,7 @@ in
           factorio.enable = mkEnableOption "factorio server";
           chatger.enable = mkEnableOption "chatger";
           chatger-registry.enable = mkEnableOption "chatger-registry";
-          mowie.enable = mkEnableOption "mowie";
+
           webber.enable = mkEnableOption "webber";
         };
         network = {
@@ -305,7 +301,6 @@ in
           homelab = secrets.domains.homelab;
           public = secrets.domains.public;
           personal = secrets.domains.personal;
-          mowie = secrets.domains.mowie;
         };
         mails = {
           uni = secrets.mails.uni;
@@ -377,7 +372,7 @@ in
     # Prevent me from fucking myself over again
     assertions = [
       {
-        assertion = enableUserPenger || enableUserBlockdoth || enableUserMowie;
+        assertion = enableUserPenger || enableUserBlockdoth;
         message = "At least one user must be enabled";
       }
       {
