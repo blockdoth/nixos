@@ -18,7 +18,6 @@ hl.config({
             popups = true,
             size = 3,
             xray = false,
-            vibrancy = 0.2,            
         },
         shadow = {
             color = colors.shadow,
