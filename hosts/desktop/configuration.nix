@@ -18,7 +18,6 @@
     core.impermanence.enable = false;
     core.networking = {
       hostname = "desktop";
-      wakeOnLan = true;
       # blocking = {
       #   enable = true;
       #   user = "clausum";
@@ -34,7 +33,6 @@
       docker.enable = false;
       crosscompilation.enable = true;
       filemanager.enable = true;
-      llms.enable = true;
       printing.enable = true;
       keyboard.enable = true;
     };
@@ -43,8 +41,6 @@
       # attic.enable = true;
     };
   };
-  environment.systemPackages = with pkgs; [
-    config.boot.kernelPackages.perf
-  ];
+
   system.stateVersion = "24.05"; # Did you read the comment?
 }

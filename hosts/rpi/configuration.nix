@@ -10,7 +10,7 @@
   ];
 
   system-modules = {
-    users.mowie.enable = true;
+
     presets.defaults.enable = false;
     core = {
       env.enable = true;

@@ -15,9 +15,6 @@ in
         enable = true;
         wifi.scanRandMacAddress = false;
       };
-      interfaces = lib.mkIf module.wakeOnLan {
-        enp7s0.wakeOnLan.enable = true;
-      };
     };
 
     services.resolved.enable = true;
