@@ -23,26 +23,27 @@ in
       directories = [ "/etc/NetworkManager/system-connections" ];
     };
 
-    networking.hosts = {
-      "127.0.0.1" = [
-        "x.com"
-        "www.x.com"
-      ];
-    }
-    // lib.mkIf zen.enable {
-      "127.0.0.1" = [
-        "youtube.com"
-        "www.youtube.com"
-        "m.youtube.com"
-        "youtu.be"
+    networking.hosts = lib.mkMerge [
+      {
+        "127.0.0.1" = [
+          "x.com"
+          "www.x.com"
+        ];
+      }
 
-        "reddit.com"
-        "www.reddit.com"
-        "old.reddit.com"
-        "new.reddit.com"
+      (lib.mkIf zen.enable {
+        "127.0.0.1" = [
+          "youtube.com"
+          "www.youtube.com"
+          "m.youtube.com"
+          "youtu.be"
 
-      ];
-    };
-
+          "reddit.com"
+          "www.reddit.com"
+          "old.reddit.com"
+          "new.reddit.com"
+        ];
+      })
+    ];
   };
 }
