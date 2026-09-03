@@ -1,5 +1,4 @@
 hl.on("hyprland.start", function()
-    hl.exec_cmd("udiskie")
     hl.exec_cmd("waybar")
     hl.exec_cmd("dunst")
     hl.exec_cmd("hypridle")
@@ -7,7 +6,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("pypr")
     hl.exec_cmd("gammastep -b 1:1")
     hl.exec_cmd("activate-linux -f 'Noto Sans'")
-    hl.exec_cmd("hyprctl setcursor 15")
     hl.exec_cmd("openrgb -p default")
 
     hl.exec_cmd("vesktop", { workspace = "1 silent" })

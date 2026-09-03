@@ -31,11 +31,12 @@ end)
 exec("L", "pidof hyprlock | hyprlock")
 bind("SHIFT + L", hl.dsp.exec_cmd("systemctl suspend"))
 
--- setprop active opaque toggle
-bind("M", function()
-    hl.exec_cmd("hyprctl setprop activewindow opaque toggle")
-end)
 
+bind("M", hl.dsp.setprop({
+    window = "active",
+    property = "opaque",
+    value = "toggle",
+}))
 bind("N", hl.dsp.window.fullscreen())
 bind("O", hl.dsp.window.pseudo())
 bind("P", hl.dsp.window.pin())
