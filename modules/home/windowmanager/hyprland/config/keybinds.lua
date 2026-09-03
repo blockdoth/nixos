@@ -7,10 +7,6 @@ local function exec(key, command, flags)
     bind(key, hl.dsp.exec_cmd(command), flags)
 end
 
-------------------------------------------------------------
--- Keybinds
-------------------------------------------------------------
-
 exec("A", "pypr toggle term")
 exec("B", "zen-twilight")
 exec("C", "hyprpicker -a")
@@ -19,7 +15,7 @@ exec("E", "pypr toggle obsidian")
 exec("F", "thunar")
 exec("G", "ghostty")
 
--- Preserve the original SUPER+H sequence exactly.
+
 bind("H", function()
     hl.dispatch(hl.dsp.togglespecialworkspace("magic"))
     hl.dispatch(hl.dsp.movetoworkspace("+0"))
@@ -32,11 +28,11 @@ exec("L", "pidof hyprlock | hyprlock")
 bind("SHIFT + L", hl.dsp.exec_cmd("systemctl suspend"))
 
 
-bind("M", hl.dsp.setprop({
-    window = "active",
-    property = "opaque",
+bind("M", hl.dsp.window.set_prop({
+    prop = "opaque",
     value = "toggle",
 }))
+
 bind("N", hl.dsp.window.fullscreen())
 bind("O", hl.dsp.window.pseudo())
 bind("P", hl.dsp.window.pin())
