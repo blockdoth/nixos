@@ -89,7 +89,7 @@ in
             note = "cd ~/documents/notes && micro \"$(date +%F)\"";
             code = "zeditor .";
             codium = "codium .";
-            cat = "bat -P";
+            cat = "bat -pp";
             ls = "eza";
             lss = "eza -b -l --no-permissions --no-user --sort size --group-directories-first";
             vw = "pushd ~/documents/notes && cat tos | wl-copy && popd";

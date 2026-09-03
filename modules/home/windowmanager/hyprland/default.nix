@@ -10,14 +10,6 @@ let
 in
 {
   imports = [
-    ./animations.nix
-    ./autorun.nix
-    ./envvars.nix
-    ./input.nix
-    ./layout.nix
-    ./keybinds.nix
-    ./plugins.nix
-    ./windowrules.nix
     inputs.hyprland.homeManagerModules.default
   ];
 
@@ -36,25 +28,26 @@ in
       pulseaudio
     ];
 
+    home.sessionVariables = {
+      ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+      NIXOS_OZONE_WL = 1;
+      XDG_CURRENT_DESKTOP = "Hyprland";
+      XDG_SESSION_TYPE = "wayland";
+      XDG_SESSION_DESKTOP = "Hyprland";
+    };
+
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
-      configType = "hyprlang";
-      settings = {
-        ecosystem = {
-          no_update_news = true;
-          no_donation_nag = true;
-        };
-        debug = {
-          disable_logs = false;
-        };
-        misc = {
-          session_lock_xray = true;
-          disable_hyprland_logo = true;
-          disable_splash_rendering = true;
-          enable_anr_dialog = false;
-          disable_watchdog_warning = true;
-        };
+      configType = "lua";
+      extraLuaFiles = {
+        "animations" = ./config/animations.lua;
+        "autostart" = ./config/autostart.lua;
+        "keybinds" = ./config/keybinds.lua;
+        "decorations" = ./config/decorations.lua;
+        "input" = ./config/input.lua;
+        "monitors" = ./config/monitors.lua;
+        "rules" = ./config/rules.lua;
       };
     };
   };

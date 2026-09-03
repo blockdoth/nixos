@@ -39,6 +39,8 @@ in
       dua
       dust
       lsof
+      zip
+
       # Disks
       caligula
       udiskie
