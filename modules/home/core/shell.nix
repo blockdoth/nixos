@@ -16,7 +16,10 @@ in
         enable = true;
         enableFishIntegration = true;
       };
-      command-not-found.enable = true;
+      nix-index = {
+        enable = true;
+        enableFishIntegration = true;
+      };
       zoxide = {
         enable = true;
         enableFishIntegration = true;
