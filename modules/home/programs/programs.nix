@@ -48,8 +48,6 @@ in
       enable = true;
       settings = {
         general = {
-          fullscreen = true;
-          corner-roundness = 12;
           initial-tool = "brush";
           output-filename = "$XDG_SCREENSHOTS_DIR/test-%Y-%m-%d_%H:%M:%S.png";
         };
