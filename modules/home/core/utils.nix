@@ -54,7 +54,7 @@ in
       bottom
       powertop
       systemctl-tui
-      # Networking
+      # networking
       dig
       nmap
       netcat-gnu
@@ -72,11 +72,11 @@ in
       deploy-rs
       attic-client
       cachix
-      # Media
+      # media
       ffmpeg
       jhead
       exiftool
-      # Benchmarking
+      # benchmarking
       wrk
       hey
       perf
