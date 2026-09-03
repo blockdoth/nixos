@@ -20,7 +20,7 @@ in
       layout = [
         {
           label = "logout";
-          action = "pkill hyprland";
+          action = "pkill Hyprland";
           text = "Logout";
           keybind = "e";
         }
