@@ -44,7 +44,7 @@ in
         "lua.animations" = ./config/animations.lua;
         "lua.autostart" = ./config/autostart.lua;
         "lua.keybinds" = ./config/keybinds.lua;
-        "lua.decorations" = ./config/decorations.lua;
+        "lua.style" = ./config/style.lua;
         "lua.input" = ./config/input.lua;
         "lua.monitors" = ./config/monitors.lua;
         "lua.rules" = ./config/rules.lua;

@@ -23,36 +23,6 @@ hl.config({
         session_lock_xray = true,
     },
 
-    
-    general = {
-        border_size = 1,
-        col = {
-            active_border = "rgb(83a598)",
-            inactive_border = "rgb(665c54)",
-        },
-        gaps_in = 6,
-        gaps_out = 1,
-        layout = "dwindle",
-    },
-    dwindle = {
-        preserve_split = true,
-    },
-
-    -- group = {
-    --     groupbar = {
-    --         col = {
-    --             active = "rgb(83a598)",
-    --             inactive = "rgb(665c54)",
-    --         },
-    --         text_color = "rgb(d5c4a1)",
-    --     },
-    --     col = {
-    --         border_active = "rgb(83a598)",
-    --         border_inactive = "rgb(665c54)",
-    --         border_locked_active = "rgb(8ec07c)",
-    --     },
-    -- },
-
     xwayland = {
         force_zero_scaling = true,
     },

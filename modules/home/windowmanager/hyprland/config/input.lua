@@ -10,7 +10,7 @@ hl.config({
     cursor = {
         no_hardware_cursors = 0,
         no_warps = true,
-    },    
+    }    
 })
 
 hl.gesture({
