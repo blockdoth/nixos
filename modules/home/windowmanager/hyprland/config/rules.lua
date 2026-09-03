@@ -77,10 +77,10 @@ hl.window_rule({
 })
 
 
-hl.window_rule({
-    match = { class = "^()$", title = "^()$" },
-    blur = false,
-})
+-- hl.window_rule({
+--     match = { class = "^()$", title = "^()$" },
+--     blur = false,
+-- })
 
 hl.window_rule({
     match = { class = "vesktop" },
