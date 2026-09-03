@@ -23,9 +23,14 @@ in
       directories = [ "/etc/NetworkManager/system-connections" ];
     };
 
-    networking.hosts = lib.mkIf zen.enable {
+    networking.hosts = {
       "127.0.0.1" = [
-
+        "x.com"
+        "www.x.com"
+      ];
+    }
+    // lib.mkIf zen.enable {
+      "127.0.0.1" = [
         "youtube.com"
         "www.youtube.com"
         "m.youtube.com"
@@ -36,10 +41,6 @@ in
         "old.reddit.com"
         "new.reddit.com"
 
-        "twitter.com"
-        "www.twitter.com"
-        "x.com"
-        "www.x.com"
       ];
     };
 
