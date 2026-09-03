@@ -20,7 +20,7 @@ in
       layout = [
         {
           label = "logout";
-          action = "hyprctl dispatch exit 0";
+          action = "hyprshutdown";
           text = "Logout";
           keybind = "e";
         }

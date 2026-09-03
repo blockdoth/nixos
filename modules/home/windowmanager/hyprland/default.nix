@@ -21,6 +21,7 @@ in
       wl-clipboard
       wf-recorder
       wlr-randr # screen stuff
+      hyprshutdown
 
       brightnessctl # Control background
       playerctl # Control audio
