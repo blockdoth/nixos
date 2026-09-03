@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  hostname,
   ...
 }:
 let
@@ -11,7 +12,7 @@ in
   config = lib.mkIf module.enable {
     home = {
       sessionVariables = {
-        XDG_SCREENSHOTS_DIR = "$HOME/pictures/screenshots";
+        XDG_SCREENSHOTS_DIR = "$HOME/pictures/screenshots/${hostname}";
         XDG_DESKTOP_DIR = "$HOME/desktop";
         XDG_DOCUMENTS_DIR = "$HOME/documents";
         XDG_DOWNLOAD_DIR = "$HOME/downloads";
