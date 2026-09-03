@@ -17,11 +17,11 @@ exec("G", "ghostty")
 
 
 bind("H", function()
-    hl.dispatch(hl.dsp.togglespecialworkspace("magic"))
-    hl.dispatch(hl.dsp.movetoworkspace("+0"))
-    hl.dispatch(hl.dsp.togglespecialworkspace("magic"))
-    hl.dispatch(hl.dsp.movetoworkspace("special:magic"))
-    hl.dispatch(hl.dsp.togglespecialworkspace("magic"))
+    hl.dispatch(hl.dsp.workspace.toggle_special("magic"))
+    hl.dispatch(hl.dsp.window.move({ workspace = "+0" }))
+    hl.dispatch(hl.dsp.workspace.toggle_special("magic"))
+    hl.dispatch(hl.dsp.window.move({ workspace = "special:magic" }))
+    hl.dispatch(hl.dsp.workspace.toggle_special("magic"))
 end)
 
 exec("L", "pidof hyprlock | hyprlock")
