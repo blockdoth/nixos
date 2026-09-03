@@ -22,9 +22,9 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
+  # environment.systemPackages = with pkgs; [
 
-  ];
+  # ];
 
   boot = {
     consoleLogLevel = 7;
