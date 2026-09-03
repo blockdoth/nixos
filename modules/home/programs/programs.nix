@@ -50,11 +50,12 @@ in
         general = {
           initial-tool = "brush";
           output-filename = "$XDG_SCREENSHOTS_DIR/test-%Y-%m-%d_%H:%M:%S.png";
-          color-palette = {
-            palette = [
-              "#000000ff"
-            ];
-          };
+
+        };
+        color-palette = {
+          palette = [
+            "#000000ff"
+          ];
         };
       };
     };
