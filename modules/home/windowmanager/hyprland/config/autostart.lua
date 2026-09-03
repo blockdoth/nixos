@@ -10,6 +10,5 @@ hl.on("hyprland.start", function()
 
     hl.exec_cmd("vesktop", { workspace = "1 silent" })
     hl.exec_cmd("zen-twilight", { workspace = "2 silent" })
-    hl.exec_cmd("codium", { workspace = "3 silent" })
     hl.exec_cmd("thunar", { workspace = "special:preload silent" })
 end)

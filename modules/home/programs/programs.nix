@@ -10,7 +10,9 @@ let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
 {
-  imports = [ inputs.spicetify-nix.homeManagerModules.default ];
+  imports = [
+    inputs.spicetify-nix.homeManagerModules.default
+  ];
 
   config = lib.mkIf module.enable {
     home.packages = with pkgs; [
@@ -32,6 +34,8 @@ in
       qdirstat
       rclip # technically cli only, but need gui to be usefull
       mpv
+      inputs.goose.packages.${pkgs.stdenv.hostPlatform.system}.default
+
     ];
 
     programs.spicetify = {

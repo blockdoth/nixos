@@ -23,10 +23,15 @@
     };
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     hyprland.url = "github:hyprwm/Hyprland/";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    goose.url = "github:jeffthepineapple/desktop-goose-linux-port";
     activate-linux.url = "github:MrGlockenspiel/activate-linux";
     impermanence.url = "github:nix-community/impermanence";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
