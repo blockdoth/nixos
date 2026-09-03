@@ -88,7 +88,7 @@ in
         browsers = {
           firefox.enable = mkEnableOption "firefox";
           zen.enable = mkEnableOption "zenbrowser";
-          chrome.enable = mkEnableOption "chrome";
+          chromium.enable = mkEnableOption "chromium";
         };
       };
 

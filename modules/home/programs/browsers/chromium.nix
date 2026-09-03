@@ -5,7 +5,7 @@
   ...
 }:
 let
-  module = config.modules.programs.browsers.chrome;
+  module = config.modules.programs.browsers.chromium;
 in
 {
   config = lib.mkIf module.enable {

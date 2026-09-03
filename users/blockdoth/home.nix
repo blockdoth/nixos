@@ -21,6 +21,8 @@
       # gaming.enable = true;
       programs.enable = true;
     };
+    programs.browsers.chromium.enable = true;
+
     dev = {
       ctf.enable = (if hostname == "laptop" then true else false);
       # nvf.enable = true;

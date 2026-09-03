@@ -18,6 +18,6 @@
       hyprland.enable = true;
       theming.enable = true;
     };
-    programs.browsers.chrome.enable = true;
+    programs.browsers.chromium.enable = true;
   };
 }
