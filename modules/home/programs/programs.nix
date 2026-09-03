@@ -49,9 +49,12 @@ in
       settings = {
         general = {
           initial-tool = "brush";
-          initial-color = "#000000";
           output-filename = "$XDG_SCREENSHOTS_DIR/test-%Y-%m-%d_%H:%M:%S.png";
-
+          color-palette = {
+            palette = [
+              "#000000ff"
+            ];
+          };
         };
       };
     };
