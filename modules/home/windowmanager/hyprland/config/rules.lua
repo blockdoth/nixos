@@ -65,7 +65,7 @@ hl.window_rule({ match = scratchpad.match, center = true })
 hl.window_rule({ match = scratchpad.match, opacity = "0.8" })
 
 class_rule("Beyond-All-Reason", { float = true, center = true })
-class_rule("satty", { float = true, center = true })
+class_rule("com.gabm.satty", { float = true, center = true })
 class_rule("spring", { fullscreen = true })
 
 hl.window_rule({
