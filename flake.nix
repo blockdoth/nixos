@@ -34,6 +34,8 @@
     goose.url = "github:jeffthepineapple/desktop-goose-linux-port";
     activate-linux.url = "github:MrGlockenspiel/activate-linux";
     impermanence.url = "github:nix-community/impermanence";
+    preservation.url = "github:nix-community/preservation";
+
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     deploy-rs.url = "github:serokell/deploy-rs";
     # my repos
