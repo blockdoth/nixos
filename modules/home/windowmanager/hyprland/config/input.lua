@@ -1,5 +1,4 @@
 hl.config({
-
     input = {
         kb_layout = "us",
         kb_options = "caps:ctrl_modifier",
@@ -8,7 +7,10 @@ hl.config({
             natural_scroll = true,
         },
     },
-    
+    cursor = {
+        no_hardware_cursors = 0,
+        no_warps = true,
+    },    
 })
 
 hl.gesture({

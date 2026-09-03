@@ -2,20 +2,12 @@
 hl.config({
 
 
-
-    dwindle = {
-        preserve_split = true,
-    },
-
     ecosystem = {
         no_donation_nag = true,
         no_update_news = true,
     },
 
-    cursor = {
-        no_hardware_cursors = 0,
-        no_warps = true,
-    },
+
 
     debug = {
         disable_logs = false,
@@ -39,10 +31,12 @@ hl.config({
             inactive_border = "rgb(665c54)",
         },
         gaps_in = 6,
-        gaps_out = 6,
+        gaps_out = 1,
         layout = "dwindle",
     },
-
+    dwindle = {
+        preserve_split = true,
+    },
 
     -- group = {
     --     groupbar = {

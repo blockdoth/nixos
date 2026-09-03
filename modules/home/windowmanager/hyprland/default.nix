@@ -41,13 +41,13 @@ in
       xwayland.enable = true;
       configType = "lua";
       extraLuaFiles = {
-        "animations" = ./config/animations.lua;
-        "autostart" = ./config/autostart.lua;
-        "keybinds" = ./config/keybinds.lua;
-        "decorations" = ./config/decorations.lua;
-        "input" = ./config/input.lua;
-        "monitors" = ./config/monitors.lua;
-        "rules" = ./config/rules.lua;
+        "lua.animations" = ./config/animations.lua;
+        "lua.autostart" = ./config/autostart.lua;
+        "lua.keybinds" = ./config/keybinds.lua;
+        "lua.decorations" = ./config/decorations.lua;
+        "lua.input" = ./config/input.lua;
+        "lua.monitors" = ./config/monitors.lua;
+        "lua.rules" = ./config/rules.lua;
       };
     };
   };
