@@ -28,6 +28,7 @@ in
         "127.0.0.1" = [
           "x.com"
           "www.x.com"
+          "server4.beyondallreason.info"
         ];
       }
 
