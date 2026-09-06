@@ -51,7 +51,7 @@ exec("SHIFT + W", "wlogout-script")
 exec("Y", "zeditor ~/nixos")
 exec("Z", "pypr zoom")
 exec("SHIFT + Z", "pypr zoom ++0.6")
-exec("SHIFT + S", "grimblast --freeze  copysave area - | satty -f - ")
+exec("SHIFT + S", "grimblast --freeze  copysave area")
 
 ------------------------------------------------------------
 -- Focus / move

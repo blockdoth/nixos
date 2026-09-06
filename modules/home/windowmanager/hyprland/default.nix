@@ -7,7 +7,7 @@
 }:
 let
   module = config.modules.windowmanager.hyprland;
-  pluginPkgs = inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system};
+  # pluginPkgs = inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system};
 in
 {
   imports = [
