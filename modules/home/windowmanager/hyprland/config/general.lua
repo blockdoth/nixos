@@ -7,13 +7,10 @@ hl.config({
         no_update_news = true,
     },
 
-
-
     debug = {
         disable_logs = false,
     },
 
-    
     misc = {
         background_color = "rgb(282828)",
         disable_hyprland_logo = true,

@@ -3,6 +3,7 @@
   config,
   lib,
   inputs,
+  hostname,
   ...
 }:
 let
@@ -51,6 +52,10 @@ in
         "lua.rules" = ./config/rules.lua;
         "lua.plugins" = ./config/plugins.lua;
         "lua.autostart" = ./config/autostart.lua;
+        "lua.env" = pkgs.writeText "env.lua" ''
+          hl.env("XDG_SCREENSHOTS_DIR", "$HOME/pictures/screenshots/${hostname}")
+        '';
+
       };
 
       plugins = [
