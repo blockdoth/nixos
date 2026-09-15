@@ -65,11 +65,12 @@ in
           }
         ];
         interactiveShellInit = ''
-          				if type -q direnv
-          				    direnv hook fish | source
-          				end
-                    		set fish_greeting 
-                  		'';
+          if type -q direnv
+            direnv hook fish | source
+          end
+          set fish_greeting 
+          devenv hook fish | source
+        '';
 
         shellAbbrs = {
           "shell" = "nix shell nixpkgs#{";
