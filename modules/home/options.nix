@@ -78,7 +78,7 @@ in
         micro.enable = mkEnableOption "mini editor";
         neovim.enable = mkEnableOption "neovim";
         nvf.enable = mkEnableOption "nvf";
-        direnv.enable = mkEnableOption "auto setup environment";
+        env.enable = mkEnableOption "auto setup environment";
         devinit.enable = mkEnableOption "template shells";
         ctf.enable = mkEnableOption "ctf tools";
       };
@@ -148,7 +148,7 @@ in
 
       dev = {
         micro.enable = mkDefault (enableDefaults || enableExtern);
-        direnv.enable = mkDefault enableDev;
+        env.enable = mkDefault enableDev;
         devinit.enable = mkDefault enableDev;
         vscode.enable = mkDefault (enableGui && enableDev);
         zed.enable = mkDefault (enableGui && enableDev);

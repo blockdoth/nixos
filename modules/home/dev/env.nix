@@ -1,10 +1,11 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 let
-  module = config.modules.dev.direnv;
+  module = config.modules.dev.env;
 in
 {
   config = lib.mkIf module.enable {
@@ -17,5 +18,8 @@ in
       silent = true;
       nix-direnv.enable = true;
     };
+    home.packages = with pkgs; [
+      devenv
+    ];
   };
 }

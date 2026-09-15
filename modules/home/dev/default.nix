@@ -3,7 +3,7 @@
 }:
 {
   imports = [
-    ./direnv.nix
+    ./env.nix
     ./devinit.nix
     ./jetbrains.nix
     ./vscode.nix
