@@ -66,7 +66,6 @@ in
           end
           set fish_greeting 
 
-          devenv hook fish -- --no-tui | source
         '';
 
         shellAliases = lib.mkMerge [
