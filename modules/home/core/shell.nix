@@ -65,7 +65,8 @@ in
             direnv hook fish | source
           end
           set fish_greeting 
-          devenv hook fish | source
+
+          devenv hook fish -- --no-tui | source
         '';
 
         shellAliases = lib.mkMerge [
