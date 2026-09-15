@@ -16,10 +16,6 @@ in
         enable = true;
         enableFishIntegration = true;
       };
-      nix-index = {
-        enable = true;
-        enableFishIntegration = true;
-      };
       zoxide = {
         enable = true;
         enableFishIntegration = true;
@@ -72,9 +68,6 @@ in
           devenv hook fish | source
         '';
 
-        shellAbbrs = {
-          "shell" = "nix shell nixpkgs#{";
-        };
         shellAliases = lib.mkMerge [
           {
             conf = "cd ~/nixos";
