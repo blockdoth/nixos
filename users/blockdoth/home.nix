@@ -18,7 +18,7 @@
       hyprland.enable = true;
       dev.enable = true;
       theming.enable = true;
-      # gaming.enable = true;
+      gaming.enable = true;
       programs.enable = true;
     };
     programs.browsers.chromium.enable = true;
