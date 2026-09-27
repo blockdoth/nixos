@@ -1,76 +1,82 @@
 {
+  inputs,
   ...
 }:
 {
-  fileSystems."/nix".neededForBoot = true;
-  fileSystems."/persistent".neededForBoot = true; # sometimes needed too
+  imports = [
+    inputs.disko.nixosModules.disko
+  ];
 
-  disko.devices.nodev = {
-    "/" = {
-      fsType = "tmpfs";
-      mountOptions = [
-        "size=25%"
-        "mode=755"
-      ];
-    };
-  };
+  fileSystems."/nix".neededForBoot = true;
+  fileSystems."/persist".neededForBoot = true;
 
   disko.devices.disk.main = {
     device = "/dev/sda"; # MAKE SURE TOO SELECT CORRECT DISK HERE
     type = "disk";
-
-    content.type = "gpt";
-
-    content.partitions.boot = {
-      name = "boot";
-      size = "1M";
-      type = "EF02";
-    };
-
-    content.partitions.esp = {
-      name = "ESP";
-      size = "1G";
-      type = "EF00";
-
-      content = {
-        type = "filesystem";
-        format = "vfat";
-        mountpoint = "/boot";
-      };
-    };
-
-    content.partitions.swap = {
-      size = "32G";
-
-      content = {
-        type = "swap";
-        resumeDevice = true;
-      };
-    };
-
-    content.partitions.root = {
-      name = "root";
-      size = "100%";
-
-      content = {
-        type = "btrfs";
-        extraArgs = [ "-f" ];
-
-        subvolumes = {
-          "/persistent" = {
-            mountOptions = [
-              "subvol=persistent"
-              "noatime"
-            ];
-            mountpoint = "/persistent";
+    content = {
+      type = "gpt";
+      partitions = {
+        esp = {
+          name = "ESP";
+          size = "1G";
+          type = "EF00";
+          content = {
+            type = "filesystem";
+            format = "vfat";
+            mountpoint = "/boot";
           };
+        };
+        swap = {
+          size = "16G";
+          content = {
+            type = "swap";
+            resumeDevice = true;
+          };
+        };
+        root = {
+          name = "root";
+          size = "100%";
 
-          "/nix" = {
-            mountOptions = [
-              "subvol=nix"
-              "noatime"
-            ];
-            mountpoint = "/nix";
+          content = {
+            type = "btrfs";
+            extraArgs = [ "-f" ];
+
+            subvolumes = {
+              "root" = {
+                mountpoint = "/";
+                mountOptions = [
+                  "subvol=root"
+                  "compress=zstd"
+                  "noatime"
+                ];
+              };
+              "nix" = {
+                mountpoint = "/nix";
+                mountOptions = [
+                  "subvol=nix"
+                  "compress=zstd"
+                  "noatime"
+                ];
+              };
+
+              "home" = {
+                mountpoint = "/home";
+                mountOptions = [
+                  "subvol=home"
+                  "compress=zstd"
+                  "noatime"
+                ];
+              };
+
+              "persist" = {
+                mountpoint = "/persist";
+                mountOptions = [
+                  "subvol=persist"
+                  "compress=zstd"
+                  "noatime"
+                ];
+              };
+            };
           };
         };
       };

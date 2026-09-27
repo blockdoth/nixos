@@ -6,7 +6,6 @@
 let
   module = config.system-modules.services.network.headscale;
   domain = config.system-modules.secrets.domains.homelab;
-  impermanence = config.system-modules.core.impermanence;
 in
 {
   config = lib.mkIf module.enable {
@@ -63,15 +62,5 @@ in
       trustedInterfaces = [ config.services.tailscale.interfaceName ];
     };
 
-    environment.persistence."/persist/backup" = lib.mkIf impermanence.enable {
-      directories = [
-        {
-          directory = "/var/lib/headscale";
-          user = "headscale";
-          group = "headscale";
-          mode = "0700";
-        }
-      ];
-    };
   };
 }

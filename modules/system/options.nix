@@ -88,7 +88,6 @@ in
             user = mkOption { type = types.str; };
           };
         };
-        impermanence.enable = mkEnableOption "impermanence";
         localization.enable = mkEnableOption "localization settings";
         nix-config.enable = mkEnableOption "nix config";
         secrets.enable = mkEnableOption "secrets management";
@@ -110,6 +109,7 @@ in
         powerprofile = mkOption {
           type = types.str;
         };
+        impermanence.enable = mkEnableOption "impermanence";
         printing.enable = mkEnableOption "printing";
         trackpad.enable = mkEnableOption "trackpad";
         wireshark.enable = mkEnableOption "wireshark";

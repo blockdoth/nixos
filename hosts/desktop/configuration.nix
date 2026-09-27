@@ -7,7 +7,7 @@
   imports = [
     ../../modules/system/options.nix
     ./hardware.nix
-    # (import ./disko.nix { device = "/dev/vda"; })
+    # ./disko.nix
   ];
 
   system-modules = {
@@ -15,7 +15,6 @@
       blockdoth.enable = true;
       clausum.enable = true;
     };
-    core.impermanence.enable = false;
     core.networking = {
       hostname = "desktop";
       # blocking = {
@@ -35,6 +34,7 @@
       filemanager.enable = true;
       printing.enable = true;
       keyboard.enable = true;
+      impermanence.enable = false;
     };
     services = {
       # network.pihole.enable = true;

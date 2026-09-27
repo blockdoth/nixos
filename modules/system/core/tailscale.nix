@@ -6,7 +6,6 @@
 }:
 let
   module = config.system-modules.core.tailscale;
-  impermanence = config.system-modules.core.impermanence;
   enableGui = config.system-modules.presets.gui.enable;
 in
 {
@@ -51,8 +50,5 @@ in
       ];
     };
 
-    environment.persistence = lib.mkIf impermanence.enable {
-      "/persist/backup".directories = [ "/var/lib/tailscale" ];
-    };
   };
 }

@@ -19,5 +19,6 @@
     ./nfs.nix
     ./llms.nix
     ./keyboard.nix
+    ./impermanence.nix
   ];
 }

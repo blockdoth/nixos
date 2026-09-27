@@ -6,7 +6,6 @@
 let
   module = config.system-modules.services.immich;
   domain = config.system-modules.secrets.domains.homelab;
-  impermanence = config.system-modules.core.impermanence;
 in
 {
   config = lib.mkIf module.enable {
@@ -34,13 +33,5 @@ in
       ];
     };
 
-    environment.persistence."/persist/backup".directories = lib.mkIf impermanence.enable [
-      {
-        directory = config.services.immich.mediaLocation;
-        user = "immich";
-        group = "immich";
-        mode = "0750";
-      }
-    ];
   };
 }

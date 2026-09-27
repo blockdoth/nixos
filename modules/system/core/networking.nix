@@ -1,7 +1,6 @@
 { config, lib, ... }:
 let
   module = config.system-modules.core.networking;
-  impermanence = config.system-modules.core.impermanence;
   zen = config.system-modules.presets.zenmode;
 in
 {
@@ -18,10 +17,6 @@ in
     };
 
     services.resolved.enable = true;
-
-    environment.persistence."/persist/backup" = lib.mkIf impermanence.enable {
-      directories = [ "/etc/NetworkManager/system-connections" ];
-    };
 
     networking.hosts = lib.mkMerge [
       {
