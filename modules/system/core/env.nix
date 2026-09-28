@@ -2,12 +2,17 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 let
   module = config.system-modules.core.networking;
 in
 {
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+  ];
+
   config = lib.mkIf module.enable {
     environment.systemPackages = with pkgs; [
       home-manager
@@ -15,6 +20,11 @@ in
       git
       perf
     ];
+
+    home-manager = {
+      backupFileExtension = "backup";
+      overwriteBackup = true;
+    };
 
     environment = {
       variables = {
