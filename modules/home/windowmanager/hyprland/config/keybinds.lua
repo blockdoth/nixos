@@ -101,11 +101,11 @@ bind("Tab", hl.dsp.focus({ workspace = "previous" }))
 ------------------------------------------------------------
 
 hl.bind("XF86MonBrightnessUp",
-    hl.dsp.exec_cmd("brightnessctl set +20"),
+    hl.dsp.exec_cmd("brightnessctl set +10%"),
     { repeating = true })
 
 hl.bind("XF86MonBrightnessDown",
-    hl.dsp.exec_cmd("brightnessctl set 20-"),
+    hl.dsp.exec_cmd("brightnessctl set 10-%"),
     { repeating = true })
 
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl -a play-pause"))
