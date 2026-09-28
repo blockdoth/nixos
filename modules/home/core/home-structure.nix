@@ -30,38 +30,46 @@ in
         formatted;
     };
 
-    systemd.user.services.setup-home-dir = {
-      Unit = {
-        Description = "Sets up the home dir ";
+    systemd.user.services = {
+      clear-temp-dirs = {
+        Install.WantedBy = [ "default.target" ];
+        Service = {
+          Type = "oneshot";
+          ExecStart = pkgs.writeShellScript "clear-temp-dirs" ''
+            rm -rf "$HOME/temp/"* 
+            rm -rf "$HOME/download/"* 
+          '';
+        };
       };
-      Install = {
-        WantedBy = [ "multi-user.target" ];
-      };
-      Service = {
-        Type = "oneshot";
-        RemainAfterExit = true;
-        ExecStart = pkgs.writeShellScript "setup-home-dir" ''
-          mkdir -p "$HOME/desktop"
-          mkdir -p "$HOME/documents"
-          mkdir -p "$HOME/downloads"
-          mkdir -p "$HOME/music"
-          mkdir -p "$HOME/pictures"
-          mkdir -p "$HOME/videos"
+      setup-home-dir = {
+        Unit.Description = "Sets up the home dir ";
+        Install.WantedBy = [ "default.target" ];
+        Service = {
+          Type = "oneshot";
+          RemainAfterExit = true;
+          ExecStart = pkgs.writeShellScript "setup-home-dir" ''
+            mkdir -p "$HOME/desktop"
+            mkdir -p "$HOME/documents"
+            mkdir -p "$HOME/downloads"
+            mkdir -p "$HOME/music"
+            mkdir -p "$HOME/pictures"
+            mkdir -p "$HOME/videos"
 
-          # Ensure hostname-specific screenshot directories
-          HOSTNAME=$(hostname)
-          if [ "$HOSTNAME" = "laptop" ]; then
-            mkdir -p "$HOME/pictures/screenshots/laptop"
-          elif [ "$HOSTNAME" = "desktop" ]; then
-            mkdir -p "$HOME/pictures/screenshots/desktop"
-          else
-            mkdir -p "$HOME/pictures/screenshots"
-          fi
-          ln -s documents Documents
-          ln -s downloads Downloads
-          ln -s pictures Pictures
+            # Ensure hostname-specific screenshot directories
+            HOSTNAME=$(hostname)
+            if [ "$HOSTNAME" = "laptop" ]; then
+              mkdir -p "$HOME/pictures/screenshots/laptop"
+            elif [ "$HOSTNAME" = "desktop" ]; then
+              mkdir -p "$HOME/pictures/screenshots/desktop"
+            else
+              mkdir -p "$HOME/pictures/screenshots"
+            fi
+            ln -s documents Documents
+            ln -s downloads Downloads
+            ln -s pictures Pictures
 
-        '';
+          '';
+        };
       };
     };
   };
