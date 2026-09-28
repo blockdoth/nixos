@@ -37,7 +37,7 @@ in
           Type = "oneshot";
           ExecStart = pkgs.writeShellScript "clear-temp-dirs" ''
             rm -rf "$HOME/temp/"* 
-            rm -rf "$HOME/download/"* 
+            rm -rf "$HOME/downloads/"* 
           '';
         };
       };
@@ -64,9 +64,9 @@ in
             else
               mkdir -p "$HOME/pictures/screenshots"
             fi
-            ln -s documents Documents
-            ln -s downloads Downloads
-            ln -s pictures Pictures
+            # ln -s documents Documents
+            # ln -s downloads Downloads
+            # ln -s pictures Pictures
 
           '';
         };
