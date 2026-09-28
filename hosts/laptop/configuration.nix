@@ -16,7 +16,7 @@
     presets = {
       gui.enable = true;
       laptop.enable = true;
-      gaming.enable = true;
+      # gaming.enable = true;
     };
     common = {
       trackpad.enable = true;
@@ -25,7 +25,7 @@
       plymouth.enable = true;
       wireshark.enable = true;
       udev.enable = true;
-      llms.enable = true;
+      # llms.enable = true;
     };
     display.x11.enable = false;
     services = {
