@@ -15,7 +15,7 @@ in
     programs.fish.enable = true;
 
     users = {
-      mutableUsers = false;
+      # mutableUsers = false;
       users.clausum = {
         isNormalUser = true;
         shell = pkgs.fish;

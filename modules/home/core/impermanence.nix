@@ -5,7 +5,7 @@
   ...
 }:
 let
-  module = config.modules.core.impermanence;
+  module = config.modules.common.impermanence;
 in
 {
   imports = [
