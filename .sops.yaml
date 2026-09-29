@@ -5,7 +5,6 @@ keys:
     - &penger-nuc age1zrvv597aage45qs52esglvpr2ynl3cxdceevjnachuvkvyram5psm92lx7
   - &hosts
     - &desktop age1h6pt4tfelq3m6x2u9r450necgt53nc0wl3lqkpzknuv4jwelay6sa0xd64
-    - &desktop2 age1qhv3fsyg2lefnsmd58scwvlhzxkl7yzk3qef5gjgr0nxpvre0yfsthhtw4
     - &laptop age1vy26kuggmcvqd0ka4dcp7hzxl4qtpmasue7pdsv6s8zflfcazp5qgrm70j
     - &nuc age172srypwfwrc4f9n6ew4kexln0ymug49mg6j3m278jffk752d4dqshxty0g
 creation_rules:
@@ -13,7 +12,6 @@ creation_rules:
     key_groups:
     - age:
       - *desktop
-      - *desktop2
       - *laptop
       - *nuc      
       - *blockdoth-desktop
