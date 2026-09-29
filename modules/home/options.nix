@@ -66,7 +66,6 @@ in
           atuin.enable = mkEnableOption "atuin sync";
         };
         utils.enable = mkEnableOption "utils";
-        impermanence.enable = mkEnableOption "impermanence";
         fonts.enable = mkEnableOption "fonts";
         home-structure.enable = mkEnableOption "default home structure";
         mimes.enable = mkEnableOption "mime types";

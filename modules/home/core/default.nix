@@ -13,6 +13,5 @@
     ./home-structure.nix
     ./mimes.nix
     ./utils.nix
-    # ./impermanence.nix
   ];
 }
