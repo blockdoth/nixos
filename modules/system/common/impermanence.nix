@@ -37,13 +37,16 @@ in
     boot.initrd.systemd = {
       enable = true;
       services.rollback = {
-        description = "Rollback BTRFS root subvolume to a pristine state";
+        description = "reset root";
         wantedBy = [ "initrd.target" ];
 
         # Before mounting the system root (/sysroot) during the early boot process
         before = [ "sysroot.mount" ];
-
-        unitConfig.DefaultDependencies = "no";
+        unitConfig = {
+          Requires = [ "dev-nvme0n1p3.device" ];
+          After = [ "dev-nvme0n1p3.device" ];
+          DefaultDependencies = "no";
+        };
         serviceConfig.Type = "oneshot";
         script = ''
           mkdir -p /mnt
