@@ -27,26 +27,6 @@
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/6b656143-2414-458a-863c-2ff19b96b69c";
-    fsType = "ext4";
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/D77C-24DC";
-    fsType = "vfat";
-    options = [
-      "fmask=0022"
-      "dmask=0022"
-    ];
-  };
-
-  swapDevices = [
-    {
-      device = "/swapfile";
-      size = 32 * 1024; # 32GB
-    }
-  ];
   boot.kernel.sysctl = {
     "vm.swappiness" = 20;
   };

@@ -4,7 +4,7 @@ keys:
     - &blockdoth-laptop age1y5xfeflmwsuv5ajlaflen5e2l3e7qczwhtmgpfw40zzrvw6gkyys7xj8h3
     - &penger-nuc age1zrvv597aage45qs52esglvpr2ynl3cxdceevjnachuvkvyram5psm92lx7
   - &hosts
-    - &desktop age1h6pt4tfelq3m6x2u9r450necgt53nc0wl3lqkpzknuv4jwelay6sa0xd64
+    - &desktop age1knf66ddc75gha04ttg8tshevnrgl0gy2qg0vwpvls8ys6kuyl5dsmpv36a
     - &laptop age1vy26kuggmcvqd0ka4dcp7hzxl4qtpmasue7pdsv6s8zflfcazp5qgrm70j
     - &nuc age172srypwfwrc4f9n6ew4kexln0ymug49mg6j3m278jffk752d4dqshxty0g
 creation_rules:

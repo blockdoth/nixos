@@ -1,13 +1,15 @@
 {
   # pkgs,
   # config,
+  inputs,
   ...
 }:
 {
   imports = [
     ../../modules/system/options.nix
     ./hardware.nix
-    # ./disko.nix
+    inputs.disko.nixosModules.disko
+    ./disko.nix
   ];
 
   system-modules = {
@@ -34,7 +36,7 @@
       filemanager.enable = true;
       printing.enable = true;
       keyboard.enable = true;
-      impermanence.enable = false;
+      impermanence.enable = true;
     };
     services = {
       # network.pihole.enable = true;

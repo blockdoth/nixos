@@ -50,7 +50,7 @@ in
 
           # We first mount the BTRFS root to /mnt
           # so we can manipulate btrfs subvolumes.
-          mount -t btrfs -o subvolid=5 /dev/sda3 /mnt
+          mount -t btrfs -o subvolid=5 /dev/nvme0n1p3 /mnt
           # While we're tempted to just delete /root and create
           # a new snapshot from /root-blank, /root is already
           # populated at this point with a number of subvolumes,
@@ -66,7 +66,7 @@ in
             while read subvolume; do
               echo "deleting /$subvolume subvolume..."
               btrfs subvolume delete "/mnt/$subvolume"
-            done 
+            done
 
           echo "deleting /root subvolume..."
           btrfs subvolume delete /mnt/root

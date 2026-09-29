@@ -1,17 +1,13 @@
 {
-  inputs,
   ...
 }:
 {
-  imports = [
-    inputs.disko.nixosModules.disko
-  ];
 
   fileSystems."/nix".neededForBoot = true;
   fileSystems."/persist".neededForBoot = true;
 
   disko.devices.disk.main = {
-    device = "/dev/sda"; # MAKE SURE TOO SELECT CORRECT DISK HERE
+    device = "/dev/nvme0n1";
     type = "disk";
     content = {
       type = "gpt";
