@@ -7,6 +7,7 @@
 }:
 let
   module = config.system-modules.core.secrets;
+  impermanence = config.system-modules.common.impermanence;
 in
 {
   imports = [
@@ -25,10 +26,15 @@ in
       defaultSopsFormat = "yaml";
       validateSopsFiles = false;
 
-      age = {
-        sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-        # generateKey = true;
-      };
+      age.sshKeyPaths = [
+        (
+          if impermanence.enable then
+            "/persist/etc/ssh/ssh_host_ed25519_key"
+          else
+            "/etc/ssh/ssh_host_ed25519_key"
+        )
+      ];
+
     };
   };
 }
