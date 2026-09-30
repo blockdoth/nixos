@@ -36,29 +36,31 @@ in
         Service = {
           Type = "oneshot";
           ExecStart = pkgs.writeShellScript "clear-temp-dirs" ''
-            rm -rf "$HOME/temp/"* 
-            rm -rf "$HOME/downloads/"* 
+            rm -rf "$HOME/temp/"*
+            rm -rf "$HOME/downloads/"*
           '';
         };
       };
-      Install = {
-        WantedBy = [ "multi-user.target" ];
-      };
-      Service = {
-        Type = "oneshot";
-        RemainAfterExit = true;
-        ExecStart = pkgs.writeShellScript "setup-home-dir" ''
-          mkdir -p "$HOME/desktop"
-          mkdir -p "$HOME/documents"
-          mkdir -p "$HOME/downloads"
-          mkdir -p "$HOME/music"
-          mkdir -p "$HOME/pictures"
-          mkdir -p "$HOME/videos"
-          mkdir -p "$HOME/sources"
-          mkdir -p "$HOME/repos"
+
+      setup-home-dirs = {
+        Install.WantedBy = [ "default.target" ];
+        Service = {
+          Type = "oneshot";
+          RemainAfterExit = true;
+
+          ExecStart = pkgs.writeShellScript "setup-home-dir" ''
+            mkdir -p "$HOME/desktop"
+            mkdir -p "$HOME/documents"
+            mkdir -p "$HOME/downloads"
+            mkdir -p "$HOME/music"
+            mkdir -p "$HOME/pictures"
+            mkdir -p "$HOME/videos"
+            mkdir -p "$HOME/sources"
+            mkdir -p "$HOME/repos"
 
             # Ensure hostname-specific screenshot directories
             HOSTNAME=$(hostname)
+
             if [ "$HOSTNAME" = "laptop" ]; then
               mkdir -p "$HOME/pictures/screenshots/laptop"
             elif [ "$HOSTNAME" = "desktop" ]; then
@@ -66,10 +68,10 @@ in
             else
               mkdir -p "$HOME/pictures/screenshots"
             fi
-            # ln -s documents Documents
-            # ln -s downloads Downloads
-            # ln -s pictures Pictures
 
+            # ln -s documents "$HOME/Documents"
+            # ln -s downloads "$HOME/Downloads"
+            # ln -s pictures "$HOME/Pictures"
           '';
         };
       };
