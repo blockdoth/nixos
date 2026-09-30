@@ -41,19 +41,21 @@ in
           '';
         };
       };
-      setup-home-dir = {
-        Unit.Description = "Sets up the home dir ";
-        Install.WantedBy = [ "default.target" ];
-        Service = {
-          Type = "oneshot";
-          RemainAfterExit = true;
-          ExecStart = pkgs.writeShellScript "setup-home-dir" ''
-            mkdir -p "$HOME/desktop"
-            mkdir -p "$HOME/documents"
-            mkdir -p "$HOME/downloads"
-            mkdir -p "$HOME/music"
-            mkdir -p "$HOME/pictures"
-            mkdir -p "$HOME/videos"
+      Install = {
+        WantedBy = [ "multi-user.target" ];
+      };
+      Service = {
+        Type = "oneshot";
+        RemainAfterExit = true;
+        ExecStart = pkgs.writeShellScript "setup-home-dir" ''
+          mkdir -p "$HOME/desktop"
+          mkdir -p "$HOME/documents"
+          mkdir -p "$HOME/downloads"
+          mkdir -p "$HOME/music"
+          mkdir -p "$HOME/pictures"
+          mkdir -p "$HOME/videos"
+          mkdir -p "$HOME/sources"
+          mkdir -p "$HOME/repos"
 
             # Ensure hostname-specific screenshot directories
             HOSTNAME=$(hostname)
