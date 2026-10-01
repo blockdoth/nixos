@@ -19,6 +19,9 @@
     TopSites = false;
     Highlights = false;
   };
+  PromptForDownloadLocation = false;
+  DownloadDirectory = "~/downloads";
+  SkipTermsOfUse = true;
   OverrideFirstRunPage = "";
   OverridePostUpdatePage = "";
   OfferToSaveLogins = false;

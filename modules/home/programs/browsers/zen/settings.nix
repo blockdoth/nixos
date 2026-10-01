@@ -5,7 +5,7 @@
   "browser.urlbar.placeholderName.private" = "DuckDuckGo";
   "browser.tabs.hoverPreview.enabled" = true;
   "media.videocontrols.picture-in-picture.enabled" = true;
-  "media.videocontrols.picture-in-picture.enable-when-switching-tabs.enabled" = true;
+  "media.videocontrols.picture-in-picture.enable-when-switching-tabs.enabled" = false;
   "services.sync.username" = config.modules.core.secrets.mails.personal;
   "uc.superpins.border" = "both";
   "zen.urlbar.behavior" = "float";
