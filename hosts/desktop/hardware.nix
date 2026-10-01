@@ -36,6 +36,7 @@
     device = "/dev/disk/by-partlabel/disk-main-root";
     fsType = "btrfs";
     options = [
+      "subvol=root"
       "compress=zstd"
       "noatime"
     ];

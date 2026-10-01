@@ -41,6 +41,7 @@
               "root" = {
                 mountpoint = "/";
                 mountOptions = [
+                  "subvol=root"
                   "compress=zstd"
                   "noatime"
                 ];
