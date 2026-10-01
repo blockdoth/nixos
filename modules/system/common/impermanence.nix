@@ -44,17 +44,18 @@ in
         # Before mounting the system root (/sysroot) during the early boot process
         before = [ "sysroot.mount" ];
         unitConfig = {
-          Requires = [ "dev-nvme0n1p3.device" ];
-          After = [ "dev-nvme0n1p3.device" ];
-          DefaultDependencies = "no";
+          Requires = [ "dev-disk-by\\x2dpartlabel-disk\\x2dmain\\x2droot.device" ];
+          After = [ "dev-disk-by\\x2dpartlabel-disk\\x2dmain\\x2droot.device" ];
         };
+
         serviceConfig.Type = "oneshot";
         script = ''
           mkdir -p /mnt
 
           # We first mount the BTRFS root to /mnt
           # so we can manipulate btrfs subvolumes.
-          mount -t btrfs -o subvolid=5 /dev/nvme0n1p3 /mnt
+          mount -t btrfs -o subvolid=5 /dev/disk/by-partlabel/disk-main-root /mnt
+
           # While we're tempted to just delete /root and create
           # a new snapshot from /root-blank, /root is already
           # populated at this point with a number of subvolumes,
@@ -83,6 +84,5 @@ in
         '';
       };
     };
-
   };
 }
