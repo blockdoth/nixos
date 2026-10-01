@@ -8,7 +8,8 @@ let
 in
 {
   config = lib.mkIf module.enable {
-    systemd.enableEmergencyMode = false;
+    systemd.enableEmergencyMode = true;
+
     boot = {
       supportedFilesystems = [ "ntfs" ];
       loader = {
@@ -16,8 +17,7 @@ in
           enable = false;
           editor = false;
         };
-        timeout = 0; # boot menu will only how up if any key is pressed
-
+        timeout = 5; # boot menu will only how up if any key is pressed
         efi = {
           canTouchEfiVariables = true;
           efiSysMountPoint = "/boot";
@@ -27,7 +27,7 @@ in
           device = "nodev";
           efiSupport = true;
           # useOSProber = true;
-          configurationLimit = 5;
+          configurationLimit = 20;
         };
       };
       # https://wiki.archlinux.org/title/Silent_boot
@@ -42,8 +42,10 @@ in
       ];
       consoleLogLevel = 0;
       # https://github.com/NixOS/nixpkgs/pull/108294
-      initrd.verbose = false;
-
+      initrd = {
+        systemd.emergencyAccess = true;
+        verbose = false;
+      };
       # For jetbrains profiler
       kernel.sysctl = {
         "kernel.perf_event_paranoid" = 1;

@@ -82,7 +82,6 @@ in
         networking = {
           enable = mkEnableOption "networking config";
           hostname = mkOption { type = types.str; };
-          wakeOnLan = mkEnableOption "wake on lan";
           blocking = {
             enable = mkEnableOption "per user domain blocking";
             user = mkOption { type = types.str; };

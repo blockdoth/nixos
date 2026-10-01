@@ -24,32 +24,63 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/8cbe9078-8979-47a7-b1a6-3b23ccdcb0ba";
-    fsType = "ext4";
-  };
-
-  fileSystems."/var/lib/media" = {
-    device = "/dev/disk/by-uuid/8f8eda43-c0f7-4f86-a196-6214ac8cd992";
-    fsType = "btrfs";
-  };
-  #/home/penger/media
-
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/4BB9-7C65";
+    device = "/dev/disk/by-partlabel/disk-main-ESP";
     fsType = "vfat";
+  };
+
+  fileSystems."/" = {
+    device = "/dev/disk/by-partlabel/disk-main-root";
+    fsType = "btrfs";
     options = [
-      "fmask=0022"
-      "dmask=0022"
+      "subvol=root"
+      "compress=zstd"
+      "noatime"
     ];
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-partlabel/disk-main-root";
+    fsType = "btrfs";
+    options = [
+      "subvol=nix"
+      "compress=zstd"
+      "noatime"
+    ];
+    neededForBoot = true;
+  };
+
+  fileSystems."/home" = {
+    device = "/dev/disk/by-partlabel/disk-main-root";
+    fsType = "btrfs";
+    options = [
+      "subvol=home"
+      "compress=zstd"
+      "noatime"
+    ];
+  };
+
+  fileSystems."/persist" = {
+    device = "/dev/disk/by-partlabel/disk-main-root";
+    fsType = "btrfs";
+    options = [
+      "subvol=persist"
+      "compress=zstd"
+      "noatime"
+    ];
+    neededForBoot = true;
   };
 
   swapDevices = [
     {
-      device = "/swapfile";
-      size = 8 * 1024; # 8GB
+      device = "/dev/disk/by-partlabel/disk-main-swap";
     }
   ];
+
+  #fileSystems."/var/lib/media" = {
+  #  device = "/dev/disk/by-uuid/8f8eda43-c0f7-4f86-a196-6214ac8cd992";
+  #  fsType = "btrfs";
+  #};
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

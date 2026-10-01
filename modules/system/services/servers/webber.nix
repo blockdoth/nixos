@@ -75,6 +75,7 @@ in
 
     users.users.webber = {
       isSystemUser = true;
+      createHome = false;
       group = "webber";
     };
 

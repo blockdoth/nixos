@@ -8,8 +8,6 @@
   imports = [
     ../../modules/system/options.nix
     ./hardware.nix
-    inputs.disko.nixosModules.disko
-    ./disko.nix
   ];
 
   system-modules = {
@@ -37,10 +35,6 @@
       printing.enable = true;
       keyboard.enable = true;
       impermanence.enable = true;
-    };
-    services = {
-      # network.pihole.enable = true;
-      # attic.enable = true;
     };
   };
 

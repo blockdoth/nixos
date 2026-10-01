@@ -10,21 +10,16 @@
   system-modules = {
     users.penger.enable = true;
     core = {
-      networking = {
-        hostname = "nuc";
-        wakeOnLan = true;
-      };
+      networking.hostname = "nuc";
       tailscale.exit-node = true;
     };
-
     presets = {
       server.enable = true;
-      mediaserver.enable = false;
       iss-piss-stream.enable = true;
     };
     common = {
       docker.enable = true;
-      # nfs.enable = false; # todo
+      # impermanence.enable = true;
     };
 
     services = {
@@ -43,31 +38,20 @@
         minecraft.enable = true;
         chatger.enable = true;
         chatger-registry.enable = true;
-
         webber.enable = true;
       };
-      observability = {
-        gatus.enable = true;
-        metabase.enable = false;
-      };
+      observability.gatus.enable = true;
 
       sync = {
         atuin.enable = true;
         anki.enable = true;
       };
 
-      media = {
-        audiobookshelf.enable = false;
-      };
       immich.enable = true;
       vaultwarden.enable = true;
-      linkwarden.enable = false;
-      nextcloud.enable = false;
-      microbin.enable = false;
-      homepage.enable = false;
+      microbin.enable = true;
       httpbin.enable = true;
       githubrunners.enable = true;
-      attic.enable = false;
     };
   };
 
