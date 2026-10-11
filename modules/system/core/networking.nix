@@ -21,8 +21,8 @@ in
     networking.hosts = lib.mkMerge [
       {
         "127.0.0.1" = [
-          "x.com"
-          "www.x.com"
+          # "x.com"
+          # "www.x.com"
           # "server4.beyondallreason.info"
         ];
       }
