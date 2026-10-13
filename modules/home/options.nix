@@ -155,7 +155,7 @@ in
 
       programs = {
         enable = mkDefault enablePrograms;
-        games.enable = mkDefault enableGaming;
+        games.enable = mkDefault false;
         browsers = {
           zen.enable = mkDefault enablePrograms;
         };
