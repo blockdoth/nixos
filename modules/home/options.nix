@@ -10,7 +10,7 @@ let
   enableDev = config.modules.presets.dev.enable;
   enablePrograms = config.modules.presets.programs.enable;
   enableTheming = config.modules.presets.theming.enable;
-  enableGaming = config.modules.presets.gaming.enable;
+  enableGaming = false;
   enableDefaults = config.modules.presets.defaults.enable;
   enableExtern = config.modules.presets.extern.enable;
   enableGui = enableGnome || enableHyprland;
