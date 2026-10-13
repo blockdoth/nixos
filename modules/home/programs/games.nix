@@ -10,14 +10,14 @@ in
 {
   config = lib.mkIf module.enable {
     home.packages = with pkgs; [
-      beyond-all-reason
-      (prismlauncher.override {
-        # withWaylandGLFW = true;
-        jdks = [
-          jdk17
-          jdk21
-        ];
-      })
+      # beyond-all-reason
+      # (prismlauncher.override {
+      #   # withWaylandGLFW = true;
+      #   jdks = [
+      #     jdk17
+      #     jdk21
+      #   ];
+      # })
     ];
   };
 }
