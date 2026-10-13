@@ -10,7 +10,6 @@ let
   enableDev = config.modules.presets.dev.enable;
   enablePrograms = config.modules.presets.programs.enable;
   enableTheming = config.modules.presets.theming.enable;
-  enableGaming = config.modules.presets.gaming.enable;
   enableDefaults = config.modules.presets.defaults.enable;
   enableExtern = config.modules.presets.extern.enable;
   enableGui = enableGnome || enableHyprland;
@@ -41,7 +40,6 @@ in
         dev.enable = mkEnableOption "dev env and tools";
         programs.enable = mkEnableOption "user programs";
         theming.enable = mkEnableOption "theming";
-        gaming.enable = mkEnableOption "gaming";
       };
 
       core = {
@@ -83,7 +81,6 @@ in
       };
       programs = {
         enable = mkEnableOption "discord";
-        games.enable = mkEnableOption "games";
         browsers = {
           firefox.enable = mkEnableOption "firefox";
           zen.enable = mkEnableOption "zenbrowser";
@@ -155,7 +152,6 @@ in
 
       programs = {
         enable = mkDefault enablePrograms;
-        games.enable = mkDefault enableGaming;
         browsers = {
           zen.enable = mkDefault enablePrograms;
         };
