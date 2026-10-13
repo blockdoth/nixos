@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   module = config.system-modules.common.gaming;
 in
@@ -16,5 +21,16 @@ in
       remotePlay.openFirewall = false;
       dedicatedServer.openFirewall = true;
     };
+
+    environment.systemPackages = with pkgs; [
+      beyond-all-reason
+      (prismlauncher.override {
+        # withWaylandGLFW = true;
+        jdks = [
+          jdk17
+          jdk21
+        ];
+      })
+    ];
   };
 }
